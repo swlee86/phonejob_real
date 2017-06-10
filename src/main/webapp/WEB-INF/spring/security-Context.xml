@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 	   xmlns:security="http://www.springframework.org/schema/security"
+ 	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ 	   					   http://www.springframework.org/schema/beans/spring-beans.xsd
+  						   http://www.springframework.org/schema/security 
+  						   http://www.springframework.org/schema/security/spring-security.xsd">
+ 
+ 
+  <security:http auto-config="true">
+  
+  <security:csrf disabled="true"/>
+  <security:form-login login-page="/login.do"
+  						username-parameter="userid"
+						password-parameter="password"
+					   authentication-failure-url="/login.do" 
+ 					    authentication-success-handler-ref="customAuthenticationSuccessHandler"
+  					   />
+  <security:logout logout-success-url="/index.do" />
+ 
+ 
+  <security:intercept-url pattern="/" access="hasRole('ROLE_ADMIN')"/>
+  <!--    
+  <security:intercept-url pattern="/*board.do" access="hasRole('ROLE_MASTER')"/>
+  <security:intercept-url pattern="/customer/noticeReg.htm" access="ROLE_ADMIN"/>
+  <security:intercept-url pattern="/customer/**" access="ROLE_USER" />
+  -->
+  
+ <!-- 
+  <security:intercept-url pattern="/draft_rec.do" access="hasRole('ROLE_DRAFT')" />
+  <security:intercept-url pattern="projectApprove.do" access="hasRole('ROLE_PJ')" />
+  <security:intercept-url pattern="projectMake.do" access="hasRole('ROLE_PJ')" />
+  <security:intercept-url pattern="adminEmp_list.do" access="hasRole('ROLE_EMPLIST')" />
+  <security:intercept-url pattern="adminDepartWidget.do" access="hasRole('ROLE_ATTACH')" />
+  <security:intercept-url pattern="adminGrade.do" access="hasRole('ROLE_POSITION')" />
+  <security:intercept-url pattern="adminSalaryView.do" access="hasRole('ROLE_ADMIN')" />
+  <security:intercept-url pattern="adminSalaryList.do" access="hasRole('ROLE_PAYLIST')" />
+  <security:intercept-url pattern="adminSalary.do" access="hasRole('ROLE_PAYCHECK')" />
+  <security:intercept-url pattern="adminSalaryManage.do" access="hasRole('ROLE_SALARY')" />
+  <security:intercept-url pattern="adminSalarySetting.do" access="hasRole('ROLE_BONUS')" />
+  <security:intercept-url pattern="CommuteAdmin.do" access="hasRole('ROLE_ADMIN')" />
+   -->
+</security:http>
+<security:authentication-manager>
+     <security:authentication-provider>
+		<security:jdbc-user-service data-source-ref="driverManagerDataSource"
+				users-by-username-query="select USERID as username, userpwd as PASSWORD, 1 enable 
+										 from pj_members 
+										 where userid=?"
+				authorities-by-username-query="select p.USERID as username, pr.ROLE_NAME AS authority 
+												from (select pjm.USERID, prd.role_no from pj_members pjm join pj_role_d prd on pjm.userid = prd.userid where pjm.userid=?) p join pj_role pr on p.role_no=pr.role_no"
+		 
+		/>
+		<security:password-encoder ref="bCryptPasswordEncoder"/>
+     </security:authentication-provider>
+ </security:authentication-manager>
+<!-- <security:global-method-security pre-post-annotations="enabled" secured-annotations="enabled"/> -->
+
+<bean id="bCryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+	<constructor-arg name="strength" value="10"></constructor-arg>
+</bean>
+
+
+
+<!-- <bean id="customAuthenticationSuccessHandler" class="kr.or.phonejob.LoginController.CustomAuthenticationSuccessHandler">
+	<property name = "sqlsession">
+		<ref bean = "sqlSession"/>
+	</property>
+</bean> -->
+
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="driverManagerDataSource"></property>
+	<property name="mapperLocations" value="classpath*:kr/or/phonejob/sql/*xml" />
+</bean>
+
+</beans>

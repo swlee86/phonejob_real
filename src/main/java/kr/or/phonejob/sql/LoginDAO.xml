@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="kr.or.phonejob.Dao.LoginDao">
+	
+	<!-- 로그인 정보 추출1 -->
+	<select id="loginInfo1" parameterType="String" resultType="kr.or.phonejob.Dto.LoginDto">
+		select * from pj_members where userid=#{userid}
+	</select>
+	
+	<!-- 로그인 정보 추출2 -->
+	<select id="loginInfo2" parameterType="String" resultType="kr.or.phonejob.Dto.LoginDto">
+		select * from pj_mem_d where credential_id=#{credential_id}
+	</select>
+</mapper>
