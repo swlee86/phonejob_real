@@ -7,9 +7,13 @@ public class RegisterGoogicDto {
 	private String username;
 	private String age;
 	private String location;
+	private String uselocation;
 	private String sido;
 	private String gugun;
 	private String dong;
+	private String dsido;
+	private String dgugun;
+	private String ddong;
 	private String possibledate;
 	private String userphone;
 	private String useremail;
@@ -26,6 +30,30 @@ public class RegisterGoogicDto {
 	
 	
 	
+	public String getUselocation() {
+		return uselocation;
+	}
+	public void setUselocation(String uselocation) {
+		this.uselocation = uselocation;
+	}
+	public String getDsido() {
+		return dsido;
+	}
+	public void setDsido(String dsido) {
+		this.dsido = dsido;
+	}
+	public String getDgugun() {
+		return dgugun;
+	}
+	public void setDgugun(String dgugun) {
+		this.dgugun = dgugun;
+	}
+	public String getDdong() {
+		return ddong;
+	}
+	public void setDdong(String ddong) {
+		this.ddong = ddong;
+	}
 	public String getGoogic_no() {
 		return googic_no;
 	}
@@ -140,20 +168,20 @@ public class RegisterGoogicDto {
 	public void setProfiletext(String profiletext) {
 		this.profiletext = profiletext;
 	}
-	
-	
-	
 	@Override
 	public String toString() {
 		return "RegisterGoogicDto [googic_no=" + googic_no + ", pic=" + pic + ", userid=" + userid + ", username="
-				+ username + ", age=" + age + ", location=" + location + ", sido=" + sido + ", gugun=" + gugun
-				+ ", dong=" + dong + ", possibledate=" + possibledate + ", userphone=" + userphone + ", useremail="
-				+ useremail + ", wantjob=" + wantjob + ", skhistory=" + skhistory + ", lghistory=" + lghistory
-				+ ", kthistory=" + kthistory + ", telhistory=" + telhistory + ", history=" + history + ", profiletext="
-				+ profiletext + "]";
+				+ username + ", age=" + age + ", location=" + location + ", uselocation=" + uselocation + ", sido="
+				+ sido + ", gugun=" + gugun + ", dong=" + dong + ", dsido=" + dsido + ", dgugun=" + dgugun + ", ddong="
+				+ ddong + ", possibledate=" + possibledate + ", userphone=" + userphone + ", useremail=" + useremail
+				+ ", wantjob=" + wantjob + ", skhistory=" + skhistory + ", lghistory=" + lghistory + ", kthistory="
+				+ kthistory + ", telhistory=" + telhistory + ", history=" + history + ", profiletext=" + profiletext
+				+ "]";
 	}
 	
 	
+	
+
 	
 	
 	

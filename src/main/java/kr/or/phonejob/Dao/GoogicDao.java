@@ -14,4 +14,8 @@ public interface GoogicDao {
 	
 	//구직자 상세 정보 이동
 	List<RegisterGoogicDto> googicDetail(String googic_no);
+	
+	//구직 등록 페이지 정보 수정
+	int updateGoogicOk(RegisterGoogicDto rgdto);
+	
 }

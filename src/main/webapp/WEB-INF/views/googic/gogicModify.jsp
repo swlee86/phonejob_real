@@ -14,15 +14,16 @@
 								<label class="col-sm-3 control-label" style="text-align: right;">사진</label>
 								<div class="col-sm-7">
 									<img src="default.jsp" alt="이력서 사진">
-									<input type="hidden" value="${loginData.pic}" id="pic" name="pic">
+									<input type="hidden" value="${googicdata.pic}" id="pic" name="pic">
 								</div>
 							</div>
  						
 							<div class="form-group col-lg-12">
 								<label class="col-sm-3 control-label" style="text-align: right;">이름</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="username" name="username" value="${loginData.username}">
-									<input type="hidden" value="${loginData.userid}" id="userid" name="userid">
+									<input type="text" class="form-control" id="username" name="username" value="${googicdata.username}">
+									<input type="hidden" value="${googicdata.userid}" id="userid" name="userid">
+									<input type="hidden" value="${googicdata.googic_no}" id="googic_no" name="googic_no">
 								</div>
 							</div>
 							
@@ -38,7 +39,7 @@
 							<div class="form-group col-lg-12">
 								<label class="col-sm-3 control-label" style="text-align: right;">희망근무지역</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="deafultlocation" name="deafultlocation" value="기존 선택 지역은 [${googicdata.sido} ${googicdata.gugun } ${googicdata.gugun }] 입니다">
+									<input type="text" class="form-control" id="deafultlocation" name="deafultlocation" value="기존 선택 지역은 [${googicdata.sido} ${googicdata.gugun } ${googicdata.dong }] 입니다">
 									<input type="hidden" name="dsido" id="dsido" value="${googicdata.sido}">
 									<input type="hidden" name="dgugun" id="dgugun" value="${googicdata.gugun }">
 									<input type="hidden" name="ddong" id="ddong" value="${googicdata.dong }">

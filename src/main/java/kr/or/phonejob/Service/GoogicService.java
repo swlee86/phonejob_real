@@ -36,4 +36,11 @@ public class GoogicService {
 		List<RegisterGoogicDto> result = gdao.googicDetail(googic_no);
 		return result;
 	}
+	
+	//구직자 정보 수정 Ok 서비스
+	public int updateGoogicOk(RegisterGoogicDto rgdto){
+		GoogicDao gdao = sqlsession.getMapper(GoogicDao.class);
+		int result = gdao.updateGoogicOk(rgdto);
+		return result;
+	}
 }
