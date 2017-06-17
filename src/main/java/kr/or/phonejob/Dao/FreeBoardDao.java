@@ -32,7 +32,7 @@ public interface FreeBoardDao {
 	int insertReply(FreeBoardDto dto);
 
 	//조회수 수정하는 함수
-	void updateHit(int no);
+	void updateHit(int free_no);
 
 	//답글시 step update 하는 함수
 	void updateStep(int refer, int step);

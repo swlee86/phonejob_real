@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import kr.or.phonejob.Dao.FreeBoardDao;
 import kr.or.phonejob.Dto.FreeBoardDto;
 import kr.or.phonejob.Dto.Re_FreeBoard;
@@ -66,5 +65,12 @@ public class FreeBoardService {
 		int result = freeboarddao.insertArticle(dto);
 		return result;
 	}
+	
+	//답글 이후의 글들의 step, depth가 1씩 증가하는 서비스 함수
+	public void updateStep(int refer, int step){
+		FreeBoardDao freeboarddao = sqlSession.getMapper(FreeBoardDao.class);
+		freeboarddao.updateStep(refer, step);
+	}
+	
 	
 }

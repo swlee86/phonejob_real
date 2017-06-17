@@ -6,9 +6,9 @@ public class FreeBoardDto {
 	private String credential_id;
 	private String userid;
 	private int refer;
-	private String depth;
-	private String step;
-	private String hit;
+	private int depth;
+	private int step;
+	private int hit;
 	private String title;
 	private String regdate;
 	private String filename;
@@ -17,6 +17,25 @@ public class FreeBoardDto {
 	
 	
 	
+	
+	public int getDepth() {
+		return depth;
+	}
+	public void setDepth(int depth) {
+		this.depth = depth;
+	}
+	public int getStep() {
+		return step;
+	}
+	public void setStep(int step) {
+		this.step = step;
+	}
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
 	public int getRefer() {
 		return refer;
 	}
@@ -41,24 +60,6 @@ public class FreeBoardDto {
 	}
 	public void setCredential_id(String credential_id) {
 		this.credential_id = credential_id;
-	}
-	public String getDepth() {
-		return depth;
-	}
-	public void setDepth(String depth) {
-		this.depth = depth;
-	}
-	public String getStep() {
-		return step;
-	}
-	public void setStep(String step) {
-		this.step = step;
-	}
-	public String getHit() {
-		return hit;
-	}
-	public void setHit(String hit) {
-		this.hit = hit;
 	}
 	public String getTitle() {
 		return title;

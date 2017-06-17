@@ -66,12 +66,12 @@ values(RE_FREE_SEQ.nextval, #{no}, #{emp_no}, #{emp_name}, #{content}, to_char(s
 
 <!-- 글을 읽으면 hit가 추가되는 쿼리문 -->
 <update id="updateHit" parameterType="int">
-update free SET hit=hit+1 where no=#{no}
+update pj_freeboard SET hit=hit+1 where free_no=#{free_no}
 </update>
 
-
+<!-- 답글 쓸 때 Step 추가 처리 -->
 <update id="updateStep" parameterType="int">
-update free set step=step+1, depth=depth+1 where refer=#{param1} and step>#{param2}
+update pj_freeboard set step=step+1, depth=depth+1 where refer=#{param1} and step>#{param2}
 </update>
 
 

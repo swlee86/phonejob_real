@@ -41,23 +41,23 @@
 				<div class="panel-heading hbuilt">
 					<div class="p-xs">
 							<div class="form-group">
-								<label class="col-sm-1 control-label text-left"> 제 목 : </label>
+								<label class="col-sm-1 control-label text-left"> 제 목 </label>
 								<div class="col-sm-11">
 									<input type="text" class="form-control input-sm" placeholder="제목" name="title" value="Re : ${list.title}">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-1 control-label text-left"> 첨부 파일 :
+								<label class="col-sm-1 control-label text-left"> 첨부 파일
 								</label>
 								<div class="col-sm-11">
-									<div class="btn-group">
+									<div>
 										<input type="file" name="uploadfile" class="btn btn-default">
 									</div>
 								</div>
 							</div>
 					</div>
 				</div>
-				<div class="panel-body no-padding">
+				<div class="panel-body no-padding" style="text-align: left;" >
 					<div>
 					<textarea rows="1000" cols="1000" id="content" name="content"  class="summernote">
 						${list.content}
@@ -71,7 +71,7 @@
 					<div class="pull-right">
 						<div class="btn-group">
 							<input type="submit" class="btn btn-default fa fa-edit" value="글쓰기">
-							<a href="free_board_list.do?&currentpage=${currentpage}&pagesize=${pagesize}"><input type="button" class="btn btn-default" value="목록으로"></a>
+							<a href="freeboard.do?&currentpage=${currentpage}&pagesize=${pagesize}"><input type="button" class="btn btn-default" value="목록으로"></a>
 						</div>
 					</div>
 					<br>
