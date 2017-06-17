@@ -10,5 +10,6 @@
 <script src="vendor/sweetalert/lib/sweet-alert.min.js"></script>
     
 <script>
+	alert('${msg}')
 	location.replace('${link}');
 </script>

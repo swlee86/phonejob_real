@@ -153,28 +153,37 @@ public class FreeBoardController {
 		String id= ldto.getUserid();
 		int maxrefer = freeboardservice.selectRefer();
 		
-		logger.info(board.toString());
+		//게시판에 넣을 데이터 작업 시작
+		board.setCredential_id(ldto.getCredential_id());
+		board.setUserid(ldto.getUserid());
+		board.setRefer(maxrefer+1);
+		board.setDepth("0");
+		board.setStep("0");
+		board.setHit("0");
+		board.setFilename(file.getOriginalFilename());
+		
+		logger.info("데이터 입력처리 될 boardDto : " + board.toString());
 		
 
 		int result = 0;
 		String link = null;
 		String msg = null;
 		try{
-			
+			result = freeboardservice.insertArticle(board);
 		}catch(Exception e){
 			e.getMessage();
 		}finally{
 			if(result>0){
-				link = "free_board_list.do";
+				link = "freeboard.do";
 				msg = "글 입력에 성공하였습니다.";
 			}else{
-				link = "free_board_list.do";
+				link = "freeboard.do";
 				msg = "글 입력에 실패하였습니다.";
 			}
 			mv.addAttribute("link", link);
 			mv.addAttribute("msg", msg);
 		}
-		return "board_free.free_redirect";
+		return "free_board.free_redirect";
 	}
 	
 	

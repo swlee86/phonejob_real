@@ -5,7 +5,7 @@ public class FreeBoardDto {
 	private String free_no;
 	private String credential_id;
 	private String userid;
-	private String refer;
+	private int refer;
 	private String depth;
 	private String step;
 	private String hit;
@@ -17,18 +17,19 @@ public class FreeBoardDto {
 	
 	
 	
+	public int getRefer() {
+		return refer;
+	}
+	public void setRefer(int refer) {
+		this.refer = refer;
+	}
 	public String getUserid() {
 		return userid;
 	}
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	public String getRefer() {
-		return refer;
-	}
-	public void setRefer(String refer) {
-		this.refer = refer;
-	}
+
 	public String getFree_no() {
 		return free_no;
 	}
