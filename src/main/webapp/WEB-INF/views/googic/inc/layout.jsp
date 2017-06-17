@@ -28,9 +28,12 @@
     <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/helper.css" />
     <link rel="stylesheet" href="styles/style.css">
     
+    <link rel="stylesheet" href="vendor/summernote/dist/summernote.css" />
+    <link rel="stylesheet" href="vendor/summernote/dist/summernote-bs3.css" />
     
-
-
+    <link rel="stylesheet" href="vendor/sweetalert/lib/sweet-alert.css" />
+    
+    
 </head>
 <body class="fixed-navbar fixed-sidebar">
 
@@ -71,10 +74,17 @@
 <script src="vendor/chartjs/Chart.min.js"></script>
 <script src="vendor/chartist/dist/chartist.min.js"></script>
 <script src="vendor/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="vendor/summernote/dist/summernote.min.js"></script>
+
+<!-- alert 창 -->
+<script src="vendor/sweetalert/lib/sweet-alert.min.js"></script>
+
 <!-- App scripts -->
 <script src="scripts/homer.js"></script>
 <script src="scripts/charts.js"></script>
 <script src="scripts/sojaeji.js"></script>
+
+
 
 <script type="text/javascript"> 
 //sojaeji('<?php echo $wr_1?>', '<?php echo $wr_2?>', '<?php echo $wr_3?>');
@@ -89,15 +99,15 @@ function useNewlocation(){
 	var uselocation = document.getElementById("uselocation").checked;
 	if ( uselocation == true ){
 		alert("클릭하셨습니다");
-	    $("#sido").attr("disabled", true);
-	    $("#gugun").attr("disabled", true);
-	    $("#dong").attr("disabled", true);
+	   	 $("#sido").attr("disabled", true);
+	   	 $("#gugun").attr("disabled", true);
+	   	 $("#dong").attr("disabled", true);
 		}
 		if ( uselocation != true ){
 		alert("해제");
-	    $("#sido").attr("disabled", false);
-	    $("#gugun").attr("disabled", false);
-	    $("#dong").attr("disabled", false);
+	    	$("#sido").attr("disabled", false);
+	    	$("#gugun").attr("disabled", false);
+	    	$("#dong").attr("disabled", false);
 		}
 	
 }

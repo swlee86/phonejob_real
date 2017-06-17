@@ -66,7 +66,7 @@
 <script src="vendor/sparkline/index.js"></script>
 <script src="vendor/chartjs/Chart.min.js"></script>
 <script src="vendor/chartist/dist/chartist.min.js"></script>
-<script src="vendor/slimScroll/jquery.slimscroll.min.js"></script>
+
 <!-- App scripts -->
 <script src="scripts/homer.js"></script>
 <script src="scripts/charts.js"></script>

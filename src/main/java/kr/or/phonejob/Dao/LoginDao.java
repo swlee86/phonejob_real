@@ -1,6 +1,5 @@
 package kr.or.phonejob.Dao;
 
-import org.springframework.security.core.userdetails.User;
 
 import kr.or.phonejob.Dto.LoginDto;
 

@@ -1,6 +1,6 @@
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -273,31 +273,17 @@ th {
   font-family: 'Glyphicons Halflings';
   font-style: normal;
   font-weight: normal;
-/*   line-height: 1; */
+  line-height: 1;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.glyphicon-customer {
-  position: relative;
-  top: 1px;
-  display: inline-block;
-  font-family: 'Glyphicons Halflings';
-  font-style: normal;
-  font-weight: normal;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .glyphicon-asterisk:before {
   content: "\002a";
 }
 .glyphicon-plus:before {
   content: "\002b";
 }
-
 .glyphicon-euro:before,
 .glyphicon-eur:before {
   content: "\20ac";
@@ -1120,7 +1106,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2551,7 +2536,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2947,11 +2931,10 @@ select[multiple].input-lg {
     vertical-align: middle;
   }
   .form-inline .input-group .input-group-addon,
-  .form-inline .input-group, .input-group-btn
+  .form-inline .input-group .input-group-btn,
   .form-inline .input-group .form-control {
     width: auto;
   }
-
   .form-inline .input-group > .form-control {
     width: 100%;
   }
@@ -3044,7 +3027,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }

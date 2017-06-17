@@ -1075,7 +1075,7 @@ Buttons.buttonSelector = function ( insts, selector )
  * @static
  */
 Buttons.defaults = {
-	buttons: [ 'copy', 'excel', 'csv', 'PPT다운', 'print' ],
+	buttons: [ 'copy', 'excel', 'csv', 'pdf', 'print' ],
 	name: 'main',
 	tabIndex: 0,
 	dom: {
@@ -1222,7 +1222,7 @@ $.extend( _dtButtons, {
 			return 'excelFlash';
 		}
 	},
-	PPT다운: function ( dt, conf ) {
+	pdf: function ( dt, conf ) {
 		// Common option that will use the HTML5 or Flash export buttons
 		if ( _dtButtons.pdfHtml5 && _dtButtons.pdfHtml5.available( dt, conf ) ) {
 			return 'pdfHtml5';

@@ -34,7 +34,6 @@ public class GoogicController {
 			result =  gservice.selectGoogic();
 			
 			for(int i=0; i<=result.size(); i++){
-				System.out.println(result.toString());
 				logger.info(result.toString());
 			}
 			
