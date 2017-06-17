@@ -17,9 +17,6 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="hpanel email-compose">
-				<div class="panel-heading hbuilt">
-					<div class="p-xs h4">글쓰기</div>
-				</div>
 				<form method="post" class="form-horizontal" enctype="multipart/form-data">
 				<div class="panel-heading hbuilt">
 					<div class="p-xs">
@@ -43,7 +40,7 @@
 				</div>
 				<div class="panel-body no-padding">
 					<div style="text-align: left; height: 100%;">
-					<textarea rows="100" cols="20" id="content" name="content"  class="summernote"><p><br/></p></textarea>
+					<textarea rows="100" cols="20" id="content" name="content"  class="summernote"></textarea>
 					</div>
 				</div>
 				
@@ -53,7 +50,7 @@
 							<button class="btn btn-default" type="submit">
 								<i class="fa fa-edit"></i> 글 등록
 							</button>
-							<button class="btn btn-default" type="button" onclick="location.href='free_board_list.do?&currentpage=${currentpage}&pagesize=${pagesize}'">
+							<button class="btn btn-default" type="button" onclick="location.href='freeboard.do?&currentpage=${currentpage}&pagesize=${pagesize}'">
 								<i class="fa fa-refresh"></i> 목록으로
 							</button>
 						</div>

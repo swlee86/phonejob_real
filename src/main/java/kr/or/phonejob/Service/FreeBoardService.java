@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.or.epm.DAO.FreeBoardDAO;
 import kr.or.phonejob.Dao.FreeBoardDao;
 import kr.or.phonejob.Dto.FreeBoardDto;
 import kr.or.phonejob.Dto.Re_FreeBoard;
@@ -52,4 +53,12 @@ public class FreeBoardService {
 		FreeBoardDao freeboarddao = sqlSession.getMapper(FreeBoardDao.class);
 		freeboarddao.updateHit(free_no);
 	}
+	
+	//최대 Refer 값을 불러오는 함수
+	public int selectRefer(){
+		FreeBoardDao freeboarddao = sqlSession.getMapper(FreeBoardDao.class);
+		int refer = freeboarddao.selectRefer();
+		return refer;
+	}
+	
 }

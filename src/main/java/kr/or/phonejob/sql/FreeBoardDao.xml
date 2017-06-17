@@ -48,14 +48,14 @@ on e.low_dept_no=l.low_dept_no
 
 <!-- 글쓰기시 Refer 설정을 위해 최대 Refer 값을 불러온다 -->
 <select id="selectRefer" resultType="int">
-select nvl(max(refer),0) from free
+select nvl(max(refer),0) from pj_freeboard
 </select>
 
 
 <!-- 글쓰기 진행시 글을 인서트 하는 쿼리문 -->
 <insert id="insertArticle" parameterType="kr.or.phonejob.Dto.FreeBoardDto">
-insert into free(no, emp_no, emp_name, low_dept_no, low_dept_name, refer, depth, step, hit, title, content, regdate, file_name)
-values(FREE_SEQ.nextval, #{emp_no}, #{emp_name}, #{low_dept_no}, #{low_dept_name}, #{refer}, #{depth}, #{step}, #{hit}, #{title},#{content}, to_char(sysdate, 'YYYY-MM-DD'), #{file_name})
+insert into pj_freeboard(free_no, credential_id, userid, refer, depth, step, hit, title, regdate, filename, content )
+values(PJ_FREEBOARD_NO.nextval, #{credential_id}, #{userid}, #{refer}, #{depth}, #{step}, #{hit}, #{title}, to_char(sysdate, 'YYYY-MM-DD'), #{filename},#{content})
 </insert>
 
 <!-- 댓글 달 때 댓글을 인서트 하는 쿼리문 -->
