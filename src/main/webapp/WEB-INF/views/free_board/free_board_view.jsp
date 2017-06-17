@@ -60,6 +60,11 @@
 											<span class="font-bold">${re_list.userid}</span> <small class="text-muted">${re_list.regdate }</small>
 											<div class="social-content">${re_list.content}</div>
 										</div>
+										<div style="text-align: right;">
+										<c:if test="${re_list.credential_id == loginData.credential_id }">
+											<input type="submit" class="btn  btn-default" value="삭제하기">
+										</c:if>
+										</div>
 									</div>
 								</c:forEach>
 
@@ -70,7 +75,7 @@
 										<input type="hidden" name="pagesize" value="${pagesize}">
 										<input type="hidden" name="free_no" value="${list.free_no}"> 
 										<span class="input-group-btn"> 
-										<input type="submit" class="btn  btn-default" value=" 댓글 달기 ">
+										<input type="submit" class="btn  btn-default" value="댓글 달기 ">
 										</span>
 									</div>
 								</form>
@@ -81,7 +86,7 @@
 								<a href="freeboard.do?currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">뒤로 가기</a> 
 								<a href="answerfree.do?free_no=${list.free_no}&currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">답글쓰기</a>
 								
-								<c:if test="${list.credential_id==credential_id}">
+								<c:if test="${list.credential_id==loginData.credential_id}">
 									<a href="free_board_update.do?free_no=${list.free_no}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">수정하기</a>
 									<input type="text" hidden="hidden" id="listno" value="${list.free_no}">
 									<a class="btn btn-sm btn-default deletechk" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">삭제하기</a>
