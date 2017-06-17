@@ -157,7 +157,7 @@ public class GoogicController {
 		
 	}
 	
-	@RequestMapping(value="googicModify.do", method=RequestMethod.POST)
+	@RequestMapping(value="/googicModify.do", method=RequestMethod.POST)
 	public String googicModify(RegisterGoogicDto rgdto, Model mv){
 		String url="googic.gogicModify";
 		List<RegisterGoogicDto> gdto = new ArrayList<RegisterGoogicDto>();
@@ -176,7 +176,7 @@ public class GoogicController {
 				
 	}
 	
-	@RequestMapping(value="googicModifyOk.do", method=RequestMethod.POST)
+	@RequestMapping(value="/googicModifyOk.do", method=RequestMethod.POST)
 	public String googicModifyOk(RegisterGoogicDto rgdto, Model mv){
 		int result;
 		String data="";

@@ -8,7 +8,7 @@
 			<div class="hpanel">
 				<div class="panel-body">
 				<c:forEach var="googicdata" items="${googicdata}">
-					<form class="form-horizontal" method="POST" id="googicModify" name="googicModify" action="/phonejob/googicModifyOk.do">
+					<form class="form-horizontal" method="POST" id="googicModify" name="googicModify" action="googicModifyOk.do">
  						<div class="row">
  							<div class="form-group col-lg-12">
 								<label class="col-sm-3 control-label" style="text-align: right;">사진</label>
