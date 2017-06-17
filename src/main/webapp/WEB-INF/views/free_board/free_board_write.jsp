@@ -40,7 +40,7 @@
 				</div>
 				<div class="panel-body no-padding">
 					<div style="text-align: left; height: 100%;">
-					<textarea rows="100" cols="20" id="content" name="content"  class="summernote"></textarea>
+					<textarea rows="100" cols="20" id="content" name="content"  class="summernote"><br><br><br><br><br><br><br><br><br><br><br><br><br><br></textarea>
 					</div>
 				</div>
 				
