@@ -1,0 +1,100 @@
+package kr.or.phonejob.Dto;
+
+public class FreeBoardDto {
+	
+	private String free_no;
+	private String credential_id;
+	private String userid;
+	private String refer;
+	private String depth;
+	private String step;
+	private String hit;
+	private String title;
+	private String regdate;
+	private String filename;
+	private String content;
+	
+	
+	
+	
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+	public String getRefer() {
+		return refer;
+	}
+	public void setRefer(String refer) {
+		this.refer = refer;
+	}
+	public String getFree_no() {
+		return free_no;
+	}
+	public void setFree_no(String free_no) {
+		this.free_no = free_no;
+	}
+	public String getCredential_id() {
+		return credential_id;
+	}
+	public void setCredential_id(String credential_id) {
+		this.credential_id = credential_id;
+	}
+	public String getDepth() {
+		return depth;
+	}
+	public void setDepth(String depth) {
+		this.depth = depth;
+	}
+	public String getStep() {
+		return step;
+	}
+	public void setStep(String step) {
+		this.step = step;
+	}
+	public String getHit() {
+		return hit;
+	}
+	public void setHit(String hit) {
+		this.hit = hit;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
+	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	
+	
+	@Override
+	public String toString() {
+		return "FreeBoardDto [free_no=" + free_no + ", credential_id=" + credential_id + ", userid=" + userid
+				+ ", refer=" + refer + ", depth=" + depth + ", step=" + step + ", hit=" + hit + ", title=" + title
+				+ ", regdate=" + regdate + ", filename=" + filename + ", content=" + content + "]";
+	}
+	
+
+	
+	
+
+}

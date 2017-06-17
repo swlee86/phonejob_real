@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="kr.or.phonejob.Dao.FreeBoardDao">
+
+<!-- Free 게시판 글 리스트를 불러오는 쿼리문  -->
+<select id="selectList" resultType="kr.or.phonejob.Dto.FreeBoardDto">
+select free_no, title, userid, regdate, hit, depth,step,refer,filename 
+	from(select rownum rn, free_no, title, userid, regdate, hit, depth, step, refer, filename 
+		from (select free_no, title, userid, regdate, hit, depth,step,refer,filename 
+		 	from pj_freeboard where ${param3} like '%${param4}%' order by refer desc, step asc) order by rn) where rn between #{param1} and #{param2}
+
+</select >
+	
+<!-- Free Board의 총 갯수를 불러오는 쿼리문 -->
+<select id="selectBoardCount" resultType="int">
+select count(*) from pj_freeboard
+where ${param1} like '%${param2}%'  
+</select>
+
+<!-- Free Board list에서 글을 클릭하면 글 내용을 불러오는 쿼리문 -->
+<!-- Free Board 글 내용에서 답글을 누르면 답글을 띄울 때 본문 내용을 에디터에 띄워주는 쿼리문 -->
+<select id="selectDetail" resultType="kr.or.phonejob.Dto.FreeBoardDto">
+select free_no, title, content, userid, credential_id, filename, regdate, refer, depth, step from pj_freeboard where free_no=#{free_no}
+</select>
+	
+	
+	
+	
+<!-- business board list에서 글을 클릭하여 내용을 불러올 때 댓글 내용도 불러오는 쿼리문 -->	
+<select id="selectReList" resultType="kr.or.phonejob.Dto.Re_FreeBoard">
+select userid, content, regdate from (select rownum rn, userid, content, regdate from pj_re_freeboard where free_no=#{free_no} order by re_no asc)
+</select>
+
+
+
+<!-- 글을 쓰기 위해 필요한 데이터인 emp_no, emp_name, low_dept_no, low_dept_name을 불러온다 -->	
+<select id="selectWrite" resultType="kr.or.phonejob.Dto.Re_FreeBoard">
+select e.emp_no, e.emp_name, l.low_dept_name, e.low_dept_no 
+from (select e.emp_no, e.low_dept_no, e.emp_name from emp e join 
+(select emp_no from emp_detail ed where id=#{id}) ed 
+on e.emp_no=ed.emp_no) e join low_dept l 
+on e.low_dept_no=l.low_dept_no
+</select>
+
+<!-- 글쓰기시 Refer 설정을 위해 최대 Refer 값을 불러온다 -->
+<select id="selectRefer" resultType="int">
+select nvl(max(refer),0) from free
+</select>
+
+
+<!-- 글쓰기 진행시 글을 인서트 하는 쿼리문 -->
+<insert id="insertArticle" parameterType="kr.or.phonejob.Dto.FreeBoardDto">
+insert into free(no, emp_no, emp_name, low_dept_no, low_dept_name, refer, depth, step, hit, title, content, regdate, file_name)
+values(FREE_SEQ.nextval, #{emp_no}, #{emp_name}, #{low_dept_no}, #{low_dept_name}, #{refer}, #{depth}, #{step}, #{hit}, #{title},#{content}, to_char(sysdate, 'YYYY-MM-DD'), #{file_name})
+</insert>
+
+<!-- 댓글 달 때 댓글을 인서트 하는 쿼리문 -->
+<insert id="insertReply" parameterType="kr.or.phonejob.Dto.Re_FreeBoard">
+insert into RE_free(re_no, no, emp_no, emp_name, content, regdate)
+values(RE_FREE_SEQ.nextval, #{no}, #{emp_no}, #{emp_name}, #{content}, to_char(sysdate, 'YYYY-MM-DD'))
+</insert>
+
+<!-- 글을 읽으면 hit가 추가되는 쿼리문 -->
+<update id="updateHit" parameterType="int">
+update free SET hit=hit+1 where no=#{no}
+</update>
+
+
+<update id="updateStep" parameterType="int">
+update free set step=step+1, depth=depth+1 where refer=#{param1} and step>#{param2}
+</update>
+
+
+<!-- 글 수정 -->
+<update id="updateRow">
+	update free
+	set title=#{title}, 
+		content=#{content}, 
+		file_name=#{file_name,jdbcType=VARCHAR}
+	where no=#{no}
+</update>	
+
+<!-- 글 제거 -->
+<delete id="deleteRow">
+	delete free where no=#{no}
+</delete>
+
+<!-- 리플 삭제 -->
+<delete id="deleteReply">
+	delete re_free where no=#{no}
+</delete>
+	
+
+</mapper>
