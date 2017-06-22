@@ -1,6 +1,6 @@
 package kr.or.phonejob.Dto;
 
-public class PjUsersDto {
+public class MemberDetailDto {
 
 	private String credential_id;
 	private String userid;
@@ -8,6 +8,8 @@ public class PjUsersDto {
 	public String getCredential_id() {
 		return credential_id;
 	}
+	
+	
 	public void setCredential_id(String credential_id) {
 		this.credential_id = credential_id;
 	}

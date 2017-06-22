@@ -98,7 +98,7 @@ public class FreeBoardController {
 	}
 	
 	
-	@RequestMapping(value="/free_board_view.do", method=RequestMethod.GET)
+	@RequestMapping(value="/free_board_view.do", method=RequestMethod.POST)
 	public String free_board_view(Model mv, int free_no, String currentpage, String pagesize,HttpSession session){
 		String url = null;
 		FreeBoardDto freeboard = null;
@@ -130,7 +130,7 @@ public class FreeBoardController {
 	
 	//글쓰기 누르면 인서트 시키는 서비스 함수 + 파일업로드
 	@RequestMapping(value="/writefreeboard.do", method=RequestMethod.POST)
-	public String free_board_write_ok(@RequestParam("uploadfile") MultipartFile file, Principal principal, FreeBoardDto board, Model mv,HttpServletRequest request){
+	public String free_board_write_ok(@RequestParam("uploadfile") MultipartFile file, FreeBoardDto board, Model mv,HttpServletRequest request){
 	
 		//파일 업로드 
 		 String path = request.getRealPath("/board/free_upload/");

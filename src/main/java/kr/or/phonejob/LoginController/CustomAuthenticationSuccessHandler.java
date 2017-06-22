@@ -26,9 +26,9 @@ import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.util.StringUtils;
 
 import kr.or.phonejob.Dao.LoginDao;
-import kr.or.phonejob.Dao.RegisterDao;
+import kr.or.phonejob.Dao.RegisterMemberDao;
 import kr.or.phonejob.Dto.LoginDto;
-import kr.or.phonejob.Dto.PjUsersDto;
+import kr.or.phonejob.Dto.MemberDetailDto;
 import kr.or.phonejob.Service.LoginService;
 
 
@@ -107,8 +107,8 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 	   
 	   try{
 		   	LoginDao ldao = sqlsession.getMapper(LoginDao.class);
-		   	RegisterDao rdao = sqlsession.getMapper(RegisterDao.class);
-		   	PjUsersDto pjudto = rdao.privateRegisterSelect(userid);
+		   	RegisterMemberDao rdao = sqlsession.getMapper(RegisterMemberDao.class);
+		   	MemberDetailDto pjudto = rdao.privateRegisterSelect(userid);
 			
 		   	LoginDto ldto = ldao.loginInfo1(userid);
 		   	logger.info(ldto.toString());

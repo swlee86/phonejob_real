@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.or.phonejob.Dto.LoginDto;
-import kr.or.phonejob.Dto.PjUsersDto;
-import kr.or.phonejob.Dto.RegisterDto;
+import kr.or.phonejob.Dto.MemberDetailDto;
+import kr.or.phonejob.Dto.RegisterMemberDto;
 import kr.or.phonejob.Dto.RegisterGradeDto;
 import kr.or.phonejob.Service.LoginService;
 import kr.or.phonejob.Service.RegisterService;
@@ -58,7 +58,7 @@ public class RegisterController {
 	//개인 회원 가입 input
 	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor=MyBatisSystemException.class)
 	@RequestMapping(value="/privateRegister.do", method=RequestMethod.POST)
-	public String privateRegisterOk(Model mv, RegisterDto rdto){
+	public String privateRegisterOk(Model mv, RegisterMemberDto rdto){
 		
 		String page=null;
 		String data=null;
@@ -99,7 +99,7 @@ public class RegisterController {
 			rdto.setRole_no("1");
 			
 			
-			PjUsersDto defaultCheck = rservice.privateRegisterSelect(rdto.getUserid());
+			MemberDetailDto defaultCheck = rservice.privateRegisterSelect(rdto.getUserid());
 			
 			logger.info(rdto.toString());
 			//null이 아닐 경우 Alive 값을 0으로 세팅
@@ -122,7 +122,7 @@ public class RegisterController {
 			int result2 = rservice.privateRegister_2(rdto);
 			
 			//pj_users에서 현재 살아 있는 user_id 데이터를 통해 추출
-			PjUsersDto pjdto = rservice.privateRegisterSelect(rdto.getUserid());
+			MemberDetailDto pjdto = rservice.privateRegisterSelect(rdto.getUserid());
 			
 			//추출한 데이터를 rdto에 담음(credential_id)
 			rdto.setCredential_id(pjdto.getCredential_id());

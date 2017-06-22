@@ -1,6 +1,6 @@
 package kr.or.phonejob.Dto;
 
-public class RegisterDto {
+public class RegisterMemberDto {
 
 	private String userid;
 	private String userpwd;

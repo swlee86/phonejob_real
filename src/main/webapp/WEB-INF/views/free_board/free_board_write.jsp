@@ -17,10 +17,9 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="hpanel email-compose">
-				<form method="post" class="form-horizontal" enctype="multipart/form-data">
+				<form method="POST" class="form-horizontal" enctype="multipart/form-data">
 				<div class="panel-heading hbuilt">
 					<div class="p-xs">
-
 							<div class="form-group">
 								<label class="col-sm-1 control-label text-left"> 제 목 : </label>
 								<div class="col-sm-11">
@@ -47,9 +46,7 @@
 				<div class="panel-footer">
 					<div class="pull-right">
 						<div class="btn-group">
-							<button class="btn btn-default" type="submit">
-								<i class="fa fa-edit"></i> 글 등록
-							</button>
+							<button class="btn btn-default" type="submit"><i class="fa fa-edit"></i> 글 등록</button>
 							<button class="btn btn-default" type="button" onclick="location.href='freeboard.do?&currentpage=${currentpage}&pagesize=${pagesize}'">
 								<i class="fa fa-refresh"></i> 목록으로
 							</button>

@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import kr.or.phonejob.Dto.RegisterDto;
+import kr.or.phonejob.Dto.RegisterMemberDto;
 import kr.or.phonejob.IndexController.IndexController;
 import kr.or.phonejob.Service.RegisterService;
 
