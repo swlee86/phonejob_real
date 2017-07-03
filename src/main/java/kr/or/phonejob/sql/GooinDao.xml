@@ -5,8 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kr.or.phonejob.Dao.GooinDao">
 	<insert id="registerGooinOk" parameterType="kr.or.phonejob.Dto.RegisterGooinDto">
-	
-	
+		insert into PJ_GOOIN VALUES(gooin_no_seq.nextval, #{userid}, #{title}, #{grade}, #{userpicture}, #{wanttel}, #{wantjob}, #{jobstatus}, #{school}, #{wanthuman}, #{gender}, #{location}, #{salary}, #{jobtime}, #{breaktime}, #{wage}, #{gooinweekstart}, #{gooinweekend}, #{gooinhow}, #{gooindocument}, #{gooinman}, #{goointel}, #{gooinmail}, #{content} )
 	</insert>
 
 

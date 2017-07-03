@@ -5,11 +5,9 @@ public class RegisterGooinDto {
 	private String gooin_no;
 	private String userid;
 	private String title;
-	private String payment;
+	private String grade;
 	private String userpicture;
-	private String skhistory;
-	private String lghistory;
-	private String kthistory;
+	private String wanttel;
 	private String wantjob;
 	private String jobstatus;
 	private String school;
@@ -32,23 +30,11 @@ public class RegisterGooinDto {
 	
 	
 	
-	public String getSkhistory() {
-		return skhistory;
+	public String getWanttel() {
+		return wanttel;
 	}
-	public String getLghistory() {
-		return lghistory;
-	}
-	public String getKthistory() {
-		return kthistory;
-	}
-	public void setSkhistory(String skhistory) {
-		this.skhistory = skhistory;
-	}
-	public void setLghistory(String lghistory) {
-		this.lghistory = lghistory;
-	}
-	public void setKthistory(String kthistory) {
-		this.kthistory = kthistory;
+	public void setWanttel(String wanttel) {
+		this.wanttel = wanttel;
 	}
 	public String getGooin_no() {
 		return gooin_no;
@@ -59,8 +45,8 @@ public class RegisterGooinDto {
 	public String getTitle() {
 		return title;
 	}
-	public String getPayment() {
-		return payment;
+	public String getGrade() {
+		return grade;
 	}
 	public String getUserpicture() {
 		return userpicture;
@@ -128,8 +114,8 @@ public class RegisterGooinDto {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public void setPayment(String payment) {
-		this.payment = payment;
+	public void setGrade(String grade) {
+		this.grade = grade;
 	}
 	public void setUserpicture(String userpicture) {
 		this.userpicture = userpicture;
@@ -194,14 +180,16 @@ public class RegisterGooinDto {
 	
 	@Override
 	public String toString() {
-		return "RegisterGooinDto [gooin_no=" + gooin_no + ", userid=" + userid + ", title=" + title + ", payment="
-				+ payment + ", userpicture=" + userpicture + ", skhistory=" + skhistory + ", lghistory=" + lghistory
-				+ ", kthistory=" + kthistory + ", wantjob=" + wantjob + ", jobstatus=" + jobstatus + ", school="
-				+ school + ", wanthuman=" + wanthuman + ", gender=" + gender + ", location=" + location + ", salary="
-				+ salary + ", jobtime=" + jobtime + ", breaktime=" + breaktime + ", wage=" + wage + ", gooinweekstart="
-				+ gooinweekstart + ", gooinweekend=" + gooinweekend + ", gooinhow=" + gooinhow + ", gooindocument="
-				+ gooindocument + ", gooinman=" + gooinman + ", goointel=" + goointel + ", gooinmail=" + gooinmail
-				+ ", content=" + content + "]";
+		return "RegisterGooinDto [gooin_no=" + gooin_no + ", userid=" + userid + ", title=" + title + ", grade=" + grade
+				+ ", userpicture=" + userpicture + ", wanttel=" + wanttel + ", wantjob=" + wantjob + ", jobstatus="
+				+ jobstatus + ", school=" + school + ", wanthuman=" + wanthuman + ", gender=" + gender + ", location="
+				+ location + ", salary=" + salary + ", jobtime=" + jobtime + ", breaktime=" + breaktime + ", wage="
+				+ wage + ", gooinweekstart=" + gooinweekstart + ", gooinweekend=" + gooinweekend + ", gooinhow="
+				+ gooinhow + ", gooindocument=" + gooindocument + ", gooinman=" + gooinman + ", goointel=" + goointel
+				+ ", gooinmail=" + gooinmail + ", content=" + content + "]";
 	}
 	
+	
+	
+
 }

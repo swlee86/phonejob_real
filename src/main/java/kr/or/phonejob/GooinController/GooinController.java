@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import kr.or.phonejob.Dto.LoginDto;
 import kr.or.phonejob.Dto.RegisterGooinDto;
+import kr.or.phonejob.Service.GooinService;
 
 @Controller
 public class GooinController {
@@ -23,6 +25,8 @@ public class GooinController {
 	private static final Logger logger = LoggerFactory.getLogger(GooinController.class);
 
 	
+	@Autowired
+	private GooinService gservice;
 	
 	//구인 페이지로 이동
 	@RequestMapping(value="/gooin.do", method=RequestMethod.GET)
@@ -89,18 +93,6 @@ public class GooinController {
 		//아이디 세팅 완료
 		String id= ldto.getUserid();
 		
-		//통신사 선택
-		if(gdto.getSkhistory()==null){
-			gdto.setSkhistory("no");
-		}
-		
-		if(gdto.getKthistory()==null){
-			gdto.setKthistory("no");
-		}
-		
-		if(gdto.getLghistory()==null){
-			gdto.setLghistory("no");
-		}
 		
 		//Content 저장할 때 엔터 <br> 세팅
 		gdto.setContent(gdto.getContent().replace("\r\n","<br>"));
@@ -114,6 +106,16 @@ public class GooinController {
 		
 		logger.info("처리 될 GooinDto 데이터 : " + gdto.toString());
 		
+		int result = 0; 
+		
+		try{
+			result = gservice.registerGooinOk(gdto);
+			
+		}catch(Exception e){
+			logger.error(e.getMessage());
+		}finally{
+			
+		}
 		return url;
 		
 	}

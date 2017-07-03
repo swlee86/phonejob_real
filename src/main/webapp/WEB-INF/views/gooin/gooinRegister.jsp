@@ -47,11 +47,14 @@
 						</div>
 						<div class="form-group">
 								<label class="col-sm-1 control-label text-left" style="text-align: center">통신사</label>
-								<div class="col-sm-7" style="text-align: left;">
-									<input type="checkbox" class="i-checks approveCheck" value="sk" id="skhistory" name="skhistory">SK
-									<input type="checkbox" class="i-checks approveCheck" value="lg" id="lghistory" name="lghistory">LG
-									<input type="checkbox" class="i-checks approveCheck" value="kt" id="kthistory" name="kthistory">KT
-								</div>
+								<div class="col-sm-7">
+								<select class="form-control" name="wanttel" id="wanttel">
+										<option>선택</option>
+										<option value="sk">SK</option>
+										<option value="lg">LG</option>
+										<option value="kt">KT</option>
+								</select>
+							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-1 control-label text-left" style="text-align: center">모집부문</label>
