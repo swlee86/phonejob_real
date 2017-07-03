@@ -24,61 +24,37 @@
 	<img src="./images/best_pro.png" alt="베스트 채용공고">
 	<hr style="border: 1px solid #ddd;">
 	<div class="row">
-		<div style="width: 227px; display : inline-block;  padding-left: 15px; padding-right: 15px;">
+			<c:forEach items="${gooinbest}" var="best">
+			<a href="gooin.do">
+			<div style="width: 227px;display:inline-block; padding-left: 15px; padding-right: 15px;">
 			<div class="hpanel hblue">
 				<div class="panel-heading hbuilt" style="text-align: center;">
-					<img src="images/kt1.jpg">
+					<c:if test="${best.wanttel eq 'sk'}">
+						<img src="images/sk1.jpg">
+					</c:if>
+					<c:if test="${best.wanttel eq 'lg'}">
+						<img src="images/lg1.jpg">
+					</c:if>
+					<c:if test="${best.wanttel eq 'kt'}">
+						<img src="images/kt1.jpg">
+					</c:if>
+					
 				</div>
 				<div class="panel-body" style="height: 220px;">
-					<p>패널2</p>
+					<p>제목 : ${best.title}</p>
+					<p>모집분야 : <c:if test="${best.wantjob eq 'cs' }"> CS 직원</c:if>
+							   <c:if test="${best.wantjob eq 'seller' }"> 판매 직원</c:if>
+							   <c:if test="${best.wantjob eq 'csseller' }"> CS/판매 직원</c:if>
+							   <c:if test="${best.wantjob eq 'etc' }"> 기타 직원</c:if>
+					</p>
+					<p>모집인원 : ${best.wanthuman }명</p>
 				</div>
-				<div class="panel-footer">This is standard panel footer</div>
+				<div class="panel-footer">등록자 : ${best.userid }</div>
 			</div>
-		</div>
-		<div style="width: 227px; display : inline-block; padding-left: 15px; padding-right: 15px; ">
-			<div class="hpanel hblue">
-				<div class="panel-heading hbuilt" style="text-align: center;">
-					<img src="images/sk1.jpg">
-				</div>
-				<div class="panel-body" style="height: 220px;">
-					<p>패널2</p>
-				</div>
-				<div class="panel-footer">This is standard panel footer</div>
 			</div>
-		</div>
-		<div style="width: 227px;  display : inline-block;padding-left: 15px; padding-right: 15px;">
-			<div class="hpanel hblue">
-				<div class="panel-heading hbuilt" style="text-align: center;">
-					<img src="images/sk1.jpg">
-				</div>
-				<div class="panel-body" style="height: 220px;">
-					<p>패널2</p>
-				</div>
-				<div class="panel-footer">This is standard panel footer</div>
-			</div>
-		</div>
-		<div style="width: 227px;  display : inline-block;padding-left: 15px; padding-right: 15px;">
-			<div class="hpanel hblue">
-				<div class="panel-heading hbuilt" style="text-align: center;">
-					<img src="images/lg1.jpg">
-				</div>
-				<div class="panel-body" style="height: 220px;">
-					<p>패널2</p>
-				</div>
-				<div class="panel-footer">This is standard panel footer</div>
-			</div>
-		</div>
-		<div style="width: 227px;  display : inline-block;padding-left: 15px; padding-right: 15px;">
-			<div class="hpanel hblue">
-				<div class="panel-heading hbuilt" style="text-align: center;">
-					<img src="images/lg1.jpg">
-				</div>
-				<div class="panel-body" style="height: 220px;">
-					<p>패널2</p>
-				</div>
-				<div class="panel-footer">This is standard panel footer</div>
-			</div>
-		</div>
+			</a>
+		</c:forEach>
+		
 	</div>
 
 	<br/>
@@ -86,84 +62,37 @@
 	<img src="./images/lux_pro.png" alt="럭셔리 채용공고">
 	<hr style="border: 1px solid #ddd;">
 	<div class="row">
+		<c:forEach items="${gooinluxury}" var="luxury">
+			<a href="gooin.do">
 			<div style="width: 227px;display:inline-block; padding-left: 15px; padding-right: 15px;">
 			<div class="hpanel hblue">
 				<div class="panel-heading hbuilt" style="text-align: center;">
-					<img src="images/lg1.jpg">
+					<c:if test="${luxury.wanttel eq 'sk'}">
+						<img src="images/sk1.jpg">
+					</c:if>
+					<c:if test="${luxury.wanttel eq 'lg'}">
+						<img src="images/lg1.jpg">
+					</c:if>
+					<c:if test="${luxury.wanttel eq 'kt'}">
+						<img src="images/kt1.jpg">
+					</c:if>
+					
 				</div>
 				<div class="panel-body" style="height: 220px;">
-					<p>패널2</p>
+					<p>제목 : ${luxury.title}</p>
+					<p>모집분야 : <c:if test="${luxury.wantjob eq 'cs' }"> CS 직원</c:if>
+							   <c:if test="${luxury.wantjob eq 'seller' }"> 판매 직원</c:if>
+							   <c:if test="${luxury.wantjob eq 'csseller' }"> CS/판매 직원</c:if>
+							   <c:if test="${luxury.wantjob eq 'etc' }"> 기타 직원</c:if>
+					</p>
+					<p>모집인원 : ${luxury.wanthuman }명</p>
 				</div>
-				<div class="panel-footer">This is standard panel footer</div>
+				<div class="panel-footer">등록자 : ${luxury.userid }</div>
 			</div>
-		</div>
-			<div style="width: 227px; display:inline-block; padding-left: 15px; padding-right: 15px;">
-			<div class="hpanel hblue">
-				<div class="panel-heading hbuilt" style="text-align: center;">
-					<img src="images/lg1.jpg">
-				</div>
-				<div class="panel-body" style="height: 220px;">
-					<p>패널2</p>
-				</div>
-				<div class="panel-footer">This is standard panel footer</div>
 			</div>
-		</div>
-			<div style="width: 227px; display:inline-block; padding-left: 15px; padding-right: 15px;">
-			<div class="hpanel hblue">
-				<div class="panel-heading hbuilt" style="text-align: center;">
-					<img src="images/lg1.jpg">
-				</div>
-				<div class="panel-body" style="height: 220px;">
-					<p>패널2</p>
-				</div>
-				<div class="panel-footer">This is standard panel footer</div>
-			</div>
-		</div>
-			<div style="width: 227px; display:inline-block; padding-left: 15px; padding-right: 15px;">
-			<div class="hpanel hblue">
-				<div class="panel-heading hbuilt" style="text-align: center;">
-					<img src="images/lg1.jpg">
-				</div>
-				<div class="panel-body" style="height: 220px;">
-					<p>패널2</p>
-				</div>
-				<div class="panel-footer">This is standard panel footer</div>
-			</div>
-		</div>
-			<div style="width: 227px; display:inline-block; padding-left: 15px; padding-right: 15px;">
-			<div class="hpanel hblue">
-				<div class="panel-heading hbuilt" style="text-align: center;">
-					<img src="images/lg1.jpg">
-				</div>
-				<div class="panel-body" style="height: 220px;">
-					<p>패널2</p>
-				</div>
-				<div class="panel-footer">This is standard panel footer</div>
-			</div>
-		</div>
-		<div style="width: 227px; display:inline-block; padding-left: 15px; padding-right: 15px;">
-			<div class="hpanel hblue">
-				<div class="panel-heading hbuilt" style="text-align: center;">
-					<img src="images/lg1.jpg">
-				</div>
-				<div class="panel-body" style="height: 180px;">
-					<p>패널2</p>
-				</div>
-				<div class="panel-footer">This is standard panel footer</div>
-			</div>
-		</div>
-		<div style="width: 227px; display:inline-block; padding-left: 15px; padding-right: 15px;">
-			<div class="hpanel hblue">
-				<div class="panel-heading hbuilt" style="text-align: center;">
-					<img src="images/lg1.jpg">
-				</div>
-				<div class="panel-body" style="height: 180px;">
-					<p>패널2</p>
-				</div>
-				<div class="panel-footer">This is standard panel footer</div>
-			</div>
-		</div>
-
+			</a>
+		</c:forEach>
+		
 	</div>
 	
 

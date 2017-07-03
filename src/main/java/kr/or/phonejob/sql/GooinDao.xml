@@ -7,6 +7,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="registerGooinOk" parameterType="kr.or.phonejob.Dto.RegisterGooinDto">
 		insert into PJ_GOOIN VALUES(gooin_no_seq.nextval, #{userid}, #{title}, #{grade}, #{userpicture}, #{wanttel}, #{wantjob}, #{jobstatus}, #{school}, #{wanthuman}, #{gender}, #{location}, #{salary}, #{jobtime}, #{breaktime}, #{wage}, #{gooinweekstart}, #{gooinweekend}, #{gooinhow}, #{gooindocument}, #{gooinman}, #{goointel}, #{gooinmail}, #{content} )
 	</insert>
+	
+	<select id="gooinluxury" resultType="kr.or.phonejob.Dto.RegisterGooinDto">
+		select * from PJ_GOOIN where grade='luxury' order by gooin_no desc
+	</select>
+	
+	<select id="gooinbest" resultType="kr.or.phonejob.Dto.RegisterGooinDto">
+		select * from PJ_GOOIN where grade='best' order by gooin_no desc
+	</select>
+	
+	<select id="gooinnormal" resultType="kr.or.phonejob.Dto.RegisterGooinDto">
+		select * from PJ_GOOIN where grade='normal' order by gooin_no desc
+	</select>
 
 
 </mapper>

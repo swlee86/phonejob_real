@@ -98,7 +98,7 @@ public class FreeBoardController {
 	}
 	
 	
-	@RequestMapping(value="/free_board_view.do", method=RequestMethod.POST)
+	@RequestMapping(value="/free_board_view.do", method=RequestMethod.GET)
 	public String free_board_view(Model mv, int free_no, String currentpage, String pagesize,HttpSession session){
 		String url = null;
 		FreeBoardDto freeboard = null;

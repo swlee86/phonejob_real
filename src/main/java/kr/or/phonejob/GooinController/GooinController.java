@@ -2,6 +2,8 @@ package kr.or.phonejob.GooinController;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,18 +31,40 @@ public class GooinController {
 	@Autowired
 	private GooinService gservice;
 	
+	
+	
 	//구인 페이지로 이동
 	@RequestMapping(value="/gooin.do", method=RequestMethod.GET)
-	public String mooveGooin(){
+	public String mooveGooin(Model mv){
 		String url="";
+		
+		//구인 데이터를 뽑아 오기 위한 작업 시작
+		List<RegisterGooinDto> gooinluxury = new ArrayList<RegisterGooinDto>();
+		List<RegisterGooinDto> gooinbest = new ArrayList<RegisterGooinDto>();
+		List<RegisterGooinDto> gooinnormal = new ArrayList<RegisterGooinDto>();
 		try{
+			gooinluxury=gservice.gooinluxury();
+			gooinbest=gservice.gooinbest();
+			gooinnormal=gservice.gooinnormal();
+			
 			logger.info("구인 페이지로 이동");
 			url="gooin.gooin";
+			
+			for(int i=0; i<gooinluxury.size(); i++){
+				logger.info("럭셔리광고 : " + gooinluxury.get(i).toString());				
+			}
+			logger.info("베스트광고 : " + gooinbest.toString());
+			logger.info("노말광고 : " + gooinnormal.toString());
+			
+			
 			logger.info("이동  url : " + url+".jsp");
 		}catch (Exception e) {
 			logger.error(e.getMessage());
 		}
 		
+		mv.addAttribute("gooinluxury", gooinluxury);
+		mv.addAttribute("gooinbest", gooinbest);
+		mv.addAttribute("gooinnormal", gooinnormal);
 		return url;
 	}
 	

@@ -78,6 +78,15 @@
 <script>
 
     $(function () {
+    	
+    	
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            $('a[data-toggle="tab"]').removeClass('btn-primary');
+            $('a[data-toggle="tab"]').addClass('btn-default');
+            $(this).removeClass('btn-default');
+            $(this).addClass('btn-primary');
+        });
+
 
         // Initialize summernote plugin
         $('.summernote').summernote();
@@ -130,6 +139,9 @@
         	});	
         
         });
+        
+
+        
  });
 	
 </script>
