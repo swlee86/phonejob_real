@@ -2,176 +2,166 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
    
 <div class="content animate-panel" style="width: 1200px; text-align:left; display:inline-block">
 	<div class="row">
-    			<div class="col-lg-12">
+    	<div class="col-lg-12">
 			<div class="hpanel">
 				<div class="panel-body">
 					<c:forEach var="googicdata" items="${googicdata}">
 					<form class="form-horizontal" method="POST" id="googicModify" action="googicModify.do?googic_no=${googicdata.googic_no}">
- 						<div class="row">
- 							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;">사진</label>
-								<div class="col-sm-7">
-									<img src="images/${googicdata.pic}" alt="이력서 사진">
-									<input type="hidden" value="${googicdata.pic}" id="pic" name="pic">
-								</div>
-							</div>
- 						
-							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;">이름</label>
-								<div class="col-sm-7">
-									<label class="col-lg-12 control-label" style="text-align: left;">${googicdata.username}</label>
-									<input type="hidden" class="form-control" id="username" name="username" value="${googicdata.username}" readonly="readonly">
+ 					<div class="row" style="text-align: center;">
+					<table class="type10">
+					    <tbody>
+						    <tr>
+ 						       <th scope="row">사진</th>
+  							      <td>
+  							      	<img src="images/${googicdata.pic}" alt="이력서 사진">
+  							     	 <input type="hidden" value="${googicdata.pic}" id="pic" name="pic">
+  							      </td>
+    						</tr>
+   						    <tr>
+     						   <th scope="row" class="even">이름</th>
+      							  <td class="even">
+      							  	${googicdata.username}
+      							  	<input type="hidden" class="form-control" id="username" name="username" value="${googicdata.username}" readonly="readonly">
 									<input type="hidden" value="${googicdata.userid}" id="userid" name="userid">
-								</div>
-							</div>
-							
-							
-							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;">나이</label>
-									<div class="col-sm-7">
-										<label class="col-sm-3 control-label" style="text-align: left;">${googicdata.age}</label>
-										<input type="hidden" id="age" class="form-control" name="age" value="${googicdata.age}" readonly="readonly">
-									</div>
-							</div>
-							
-							
-							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;">희망근무지역</label>
-								<div class="col-sm-7">
-									<label class="col-sm-3 control-label" style="text-align: left;">${googicdata.location}</label>
-									<input type="hidden" value="${googicdata.sido}" id="sido" name="sido">
+      							  </td>
+    						</tr>
+    						<tr>
+     					    <th scope="row">나이</th>
+       						 <td>
+       						 	${googicdata.age}
+       						 	<input type="hidden" id="age" class="form-control" name="age" value="${googicdata.age}" readonly="readonly">
+       						 </td>
+    						</tr>
+    						<tr>
+     						   <th scope="row" class="even">희망근무지역</th>
+      							  <td class="even">
+      							  	${googicdata.location}
+      							  	<input type="hidden" value="${googicdata.sido}" id="sido" name="sido">
 									<input type="hidden" value="${googicdata.gugun}" id="gugun" name="gugun">
 									<input type="hidden" value="${googicdata.dong}" id="dong" name="dong">
-								</div>
-							</div>
-
-							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;">출근가능날짜</label>
-								<div class="col-sm-7">
-									<label class="col-sm-3 control-label" style="text-align: left;">${googicdata.possibledate}</label>
-									<input type="hidden" class="form-control" name="possibledate" id="possibledate" value="${googicdata.possibledate }" readonly="readonly">
-								</div>
-							</div>
-							
-							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;">연락처</label>
-								<div class="col-sm-7">
-									<label class="col-sm-3 control-label" style="text-align: left;">${googicdata.userphone}</label>
+      							  </td>
+    						</tr>
+    						<tr>
+     					    <th scope="row">출근가능날짜</th>
+       						 <td>
+       						 	${googicdata.possibledate}
+       						 	<input type="hidden" class="form-control" name="possibledate" id="possibledate" value="${googicdata.possibledate }" readonly="readonly">
+       						 </td>
+    						</tr>
+    						<tr>
+     						   <th scope="row" class="even">연락처</th>
+      							  <td class="even">
+									${googicdata.userphone}
 									<input type="hidden" class="form-control" name=userphone id="userphone" value="${googicdata.userphone}" readonly="readonly">
-								</div>
-							</div>
-							
-							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;">이메일</label>
-								<div class="col-sm-7">
-									<label class="col-sm-3 control-label" style="text-align: left;">${googicdata.useremail}</label>
-									<input type="hidden" class="form-control"  placeholder="example@gmail.com" name="useremail" id="useremail" value="${googicdata.useremail}" readonly="readonly">
-								</div>
-							</div>
-							
-							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;">선호하는 업무</label>
-								<div class="col-sm-7">
+      							  </td>
+    						</tr>
+    						<tr>
+     					    <th scope="row">이메일</th>
+       						 <td>
+       						 	${googicdata.useremail}
+       						 	<input type="hidden" class="form-control"  placeholder="example@gmail.com" name="useremail" id="useremail" value="${googicdata.useremail}" readonly="readonly">
+       						 </td>
+    						</tr>
+    						<tr>
+     						   <th scope="row" class="even">선호하는 업무</th>
+      							  <td class="even">
 									<c:choose>
 										<c:when test="${googicdata.wantjob eq 'cs'}">
-											<label class="col-sm-3 control-label" style="text-align: left;">CS</label>
+											CS
 											<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="CS" readonly="readonly">
 										</c:when>
 										<c:when test="${googicdata.wantjob eq 'seller'}">
-											<label class="col-sm-3 control-label" style="text-align: left;">판매사</label>
+											판매사
 											<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="판매사" readonly="readonly">
 										</c:when>
 										<c:when test="${googicdata.wantjob eq 'csseller'}">
-											<label class="col-sm-3 control-label" style="text-align: left;">판매사 / CS</label>
+											판매사 / CS
 											<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="판매사 / CS" readonly="readonly">
 										</c:when>
 									</c:choose>
-								</div>
-							</div>
-							
-							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;">근무경험</label>
-								<div class="col-sm-7">
-								<c:choose>
+      							  </td>
+    						</tr>
+    						<tr>
+     					    <th scope="row">근무경험</th>
+       						 <td>
+       						 	<c:choose>
 									<c:when test="${googicdata.telhistory eq 'non'}">
-										<label class="col-sm-3 control-label" style="text-align: left;">경력 없음</label>
+										경력 없음
 										<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="경력 없음" readonly="readonly">
 									</c:when>
 								 	<c:when test="${googicdata.telhistory eq 'sk'}">
-								 		<label class="col-sm-3 control-label" style="text-align: left;">SK</label>
+								 		SK
 										<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="SK" readonly="readonly">
 									</c:when>
 									<c:when test="${googicdata.telhistory eq 'sk|kt'}">
-										<label class="col-sm-3 control-label" style="text-align: left;">SK / KT</label>
+										SK / KT
 										<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="SK / KT" readonly="readonly">
 									</c:when>
 									<c:when test="${googicdata.telhistory eq 'sk|kt|lg'}">
-										<label class="col-sm-3 control-label" style="text-align: left;">SK / KT / LG</label>
+										SK / KT / LG
 										<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="SK / KT / LG" readonly="readonly">
 									</c:when>
 									<c:when test="${googicdata.telhistory eq 'sk|lg'}">
-										<label class="col-sm-3 control-label" style="text-align: left;">SK / LG</label>
+										SK / LG
 										<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="SK / LG" readonly="readonly">
 									</c:when>
 									<c:when test="${googicdata.telhistory eq 'kt'}">
-										<label class="col-sm-3 control-label" style="text-align: left;">KT</label>
+										KT
 										<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="KT" readonly="readonly">
 									</c:when>
 									<c:when test="${googicdata.telhistory eq 'kt|lg'}">
-										<label class="col-sm-3 control-label" style="text-align: left;">KT / LG</label>
+										KT / LG
 										<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="KT / LG" readonly="readonly">
 									</c:when>
 									<c:when test="${googicdata.telhistory eq 'lg'}">
-										<label class="col-sm-3 control-label" style="text-align: left;">LG</label>
+										LG
 										<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="LG" readonly="readonly">
 									</c:when>
 								</c:choose>
-								</div>
-							</div>
-
-
-							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;">경력</label>
-								<div class="col-sm-7">
-									<c:choose>
+       						 </td>
+    						</tr>
+    						<tr>
+     						   <th scope="row" class="even">경력</th>
+      							  <td class="even">
+      							 <c:choose>
 										<c:when test="${googicdata.history eq '0'}">
-											<label class="col-sm-3 control-label" style="text-align: left;">1년 미만</label>
+											1년 미만
 											<input type="hidden" class="form-control"  name="history" id="history" value="1년 미만" readonly="readonly">	
 										</c:when>
 										<c:when test="${googicdata.history eq '1'}">
-											<label class="col-sm-3 control-label" style="text-align: left;">1 ~ 2년</label>
+											1 ~ 2년
 											<input type="hidden" class="form-control"  name="history" id="history" value="1~2년" readonly="readonly">	
 										</c:when>
 										<c:when test="${googicdata.history eq '2'}">
-											<label class="col-sm-3 control-label" style="text-align: left;">2 ~ 3년</label>
+											2 ~ 3년
 											<input type="hidden" class="form-control"  name="history" id="history" value="2~3년" readonly="readonly">	
 										</c:when>
 										<c:when test="${googicdata.history eq '3'}">
-											<label class="col-sm-3 control-label" style="text-align: left;">3 ~ 4년</label>
+											3 ~ 4년
 											<input type="hidden" class="form-control"  name="history" id="history" value="3~4년" readonly="readonly">	
 										</c:when>
 										<c:when test="${googicdata.history eq '4'}">
-											<label class="col-sm-3 control-label" style="text-align: left;">4년 이상</label>
+											4년 이상
 											<input type="hidden" class="form-control"  name="history" id="history" value="4년 이상" readonly="readonly">	
 										</c:when>
 									</c:choose>	
-								</div>
-							</div>
-							
-							
-							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;">자기소개</label>
-								<div class="col-sm-7">
-									<label class="col-lg-12 control-label" style="text-align: left;">${googicdata.profiletext }</label>
-									<input type="hidden" class="form-control"  name="profiletext" id="profiletext" value="${googicdata.profiletext }" readonly="readonly">	
-								</div>
-							</div>
+      							  </td>
+    						</tr>
+    						<tr>
+     					    <th scope="row">자기소개</th>
+       						 <td>
+       						 	${googicdata.profiletext }
+       						 	<input type="hidden" class="form-control"  name="profiletext" id="profiletext" value="${googicdata.profiletext }" readonly="readonly">	
+       						 </td>
+    						</tr>
+  						  </tbody>
+						</table>
 							
 						</div>
-						
 						<div class="text-center">
 							<c:if test="${loginData.userid eq googicdata.userid }">
 								<input type="submit" class="btn btn-success" value="수정하기">
@@ -185,3 +175,5 @@
 		</div>
 	</div>
 </div>
+
+
