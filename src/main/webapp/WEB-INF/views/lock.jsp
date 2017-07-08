@@ -23,7 +23,31 @@
                 <h4><span class="text-success">${msg }</span> </h4>
                 <p><strong>접근하실수 있는 권한이 없습니다.<Br> 관리자에게 문의해주세요. </strong></p>
                 <br>
-                  <a href="javascript:history.back();" class="btn btn-default">뒤로가기</a>
+                 <form action="adminIpRegister.do" method="post">
+					<table>
+						<tr>
+							<td>이름 : </td>
+							<td><input type="text" name="user_name"></td>
+						</tr>
+						<tr>
+							<td>휴대전화번호 : </td>
+							<td><input type="text" name="user_phone" placeholder="- 없이 입력"></td>
+						</tr>
+						<tr>
+							<td>등록할 아이피 명칭 : </td>
+							<td><input type="text" name="ip_name" placeholder="~의 아이피"></td>
+						</tr>
+						<tr>
+							<td>등록할 아이피 : </td>
+							<td><input type="text" name="user_ip" placeholder="0.0.0.0"></td>
+						</tr>
+					</table>             
+					<input type="submit" value="아이피 등록">    
+                 
+                 
+                 </form>
+
+                
             </div>
         </div>
 

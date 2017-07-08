@@ -41,7 +41,25 @@ public class IndexController {
 		logger.info(">>>>>>Index Page 접근");
 		String msg = "";
 	    //현 접속자의 IP를 구합니다.
-		String cIp = request.getRemoteAddr();
+		
+		
+		  String cIp = request.getHeader("X-Forwarded-For");
+		  
+		    if(cIp == null || cIp.length() == 0 || "unknown".equalsIgnoreCase(cIp)) {
+		    	cIp = request.getHeader("Proxy-Client-IP");
+		    }
+		    if(cIp == null || cIp.length() == 0 || "unknown".equalsIgnoreCase(cIp)) {
+		    	cIp = request.getHeader("WL-Proxy-Client-IP");
+		    }
+		    if(cIp == null || cIp.length() == 0 || "unknown".equalsIgnoreCase(cIp)) {
+		    	cIp = request.getHeader("HTTP_CLIENT_IP");
+		    }
+		    if(cIp == null || cIp.length() == 0 || "unknown".equalsIgnoreCase(cIp)) {
+		    	cIp = request.getHeader("HTTP_X_FORWARDED_FOR");
+		    }
+		    if(cIp == null || cIp.length() == 0 || "unknown".equalsIgnoreCase(cIp)) {
+		    	cIp = request.getRemoteAddr();
+		    }
 		
 		/*
 	    	허가된 IP목록 입니다.
@@ -59,6 +77,8 @@ public class IndexController {
 	  */
 	  int i;
 	  int iOk = 0;
+	  logger.info("접속한 아이피 ! : " + cIp);
+	  
 	  for( i = 0; i < userip.size(); i++) {
 		  logger.info("허용된 아이피!!" + userip.get(i).getUser_ip().toString());
 	       if( userip.get(i).getUser_ip().equals(cIp) ){
@@ -73,16 +93,6 @@ public class IndexController {
 		  return "lock";
 	  }
 		
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
 	  
 		//구인 데이터를 뽑아 오기 위한 작업 시작
 		List<RegisterGooinDto> gooinluxury = new ArrayList<RegisterGooinDto>();
@@ -137,6 +147,46 @@ public class IndexController {
 	@RequestMapping(value="lock.do")
 	public String movelock(){
 		return "errors.lock";
+	}
+	
+	
+	@RequestMapping(value="adminIpRegister.do", method=RequestMethod.POST)
+	public String adminIpRegister(UserIpDto idto, Model mv){
+		logger.info("아이피 등록 시작");
+		logger.info("입력된 데이터 : " + idto.toString());
+		String msg = "";
+		String url = "";
+		String rePage="ip.ipRedirect";
+		int insertResult = 0;
+		int result = iservice.getUserData(idto);
+		
+		logger.info("관리자에 데이터가 있는지? 0이면 없는 것+ " + result);
+		
+		if(result==0){
+			logger.info("아이피 등록 결과 : 권한 없음");
+			msg="등록 불가. 권한이 없습니다.";
+			url="index.do";
+		}
+		
+		if(result==1){
+			insertResult = iservice.insertIpData(idto);
+			
+			if(insertResult==0){
+				logger.info("아이피 등록 결과 : 등록 도중 에러");
+				msg="등록 중 실패, 관리자에게 문의하세요";
+				url="index.do";
+			}else{
+				logger.info("아이피 등록 결과 : 등록 성공");
+				msg="등록 성공.";
+				url="index.do";
+			}
+			
+		}
+		
+		logger.info("처리된 메세지 :  " + msg + "이동 url : " + url);
+		mv.addAttribute("msg", msg);
+		mv.addAttribute("url", url);
+		return rePage;
 	}
 	
 

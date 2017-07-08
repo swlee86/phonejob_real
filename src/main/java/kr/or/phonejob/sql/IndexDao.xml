@@ -10,6 +10,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select user_ip from USE_IP
 	</select>
 
+	<select id="getUserData" parameterType="kr.or.phonejob.Dto.UserIpDto" resultType="integer">
+		select count(*) from admin where user_name=#{user_name} and user_phone=#{user_phone} 
+	</select>
+	
+	<insert id="insertIpData" parameterType="kr.or.phonejob.Dto.UserIpDto">
+		insert into use_ip values(#{ip_name}, #{user_ip})
+	</insert>
 
 
 </mapper>
