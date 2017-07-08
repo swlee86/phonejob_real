@@ -41,8 +41,11 @@ public interface FreeBoardDao {
 	public int updateRow(FreeBoardDto freeBoard);
 
 	// 삭제하는 함수
-	public int deleteRow(int no);
+	public int deleteRow(int list_no);
 
 	// 리플 삭제
-	public int deleteReply(int no);
+	public int deleteReply(int list_no);
+	
+	// 글 삭제 전에 리플 있는지 유무 체크
+	public int selectReCount(int list_no);
 }

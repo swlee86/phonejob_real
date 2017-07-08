@@ -2,10 +2,12 @@ package kr.or.phonejob.BoardController;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -212,67 +214,125 @@ public class FreeBoardController {
 	
 	
 	
-			//답변 인서트 컨트롤러 
-			@RequestMapping(value="/answerfree.do", method=RequestMethod.POST)
-			public String answerOk(@RequestParam("uploadfile") MultipartFile file, Model mv, String title, String content, String free_no, Principal principal, int refer, int step, int depth,HttpServletRequest request){
-				//파일 업로드 
-				String path = request.getRealPath("/board/free_upload/");
-				
-				File cFile = new File(path, file.getOriginalFilename());
-				try {
-					file.transferTo(cFile);
-				} catch (IllegalStateException e1) {
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+	//답변 인서트 컨트롤러 
+	@RequestMapping(value="/answerfree.do", method=RequestMethod.POST)
+	public String answerOk(@RequestParam("uploadfile") MultipartFile file, Model mv, String title, String content, String free_no, Principal principal, int refer, int step, int depth,HttpServletRequest request){
+		//파일 업로드 
+		String path = request.getRealPath("/board/free_upload/");
+		
+		File cFile = new File(path, file.getOriginalFilename());
+		try {
+			file.transferTo(cFile);
+		} catch (IllegalStateException e1) {
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 
-				//로그인시 만들어진 세션 정보를 불러옴!!
-				HttpSession session = request.getSession();
-				LoginDto ldto= (LoginDto)session.getAttribute("loginData");
-				logger.info("세션에서 불러온 값 : " + ldto.toString());
+		//로그인시 만들어진 세션 정보를 불러옴!!
+		HttpSession session = request.getSession();
+		LoginDto ldto= (LoginDto)session.getAttribute("loginData");
+		logger.info("세션에서 불러온 값 : " + ldto.toString());
 				
-				FreeBoardDto free = new FreeBoardDto();
-				String link = null;
-				String msg = null;
-				int result = 0;
+		FreeBoardDto free = new FreeBoardDto();
+		String link = null;
+		String msg = null;
+		int result = 0;
 				
-				freeboardservice.updateStep(refer, step);
+		freeboardservice.updateStep(refer, step);
 
-				if(free.getFilename()==null){
-						free.setFilename("0");
+		if(free.getFilename()==null){
+				free.setFilename("0");
+		}
+				
+		free.setCredential_id(ldto.getCredential_id());
+		free.setUserid(ldto.getUserid());
+		free.setRefer(refer);
+		free.setDepth(depth+1);//부모글의 depth +1
+		free.setStep(step+1);	//부모글의 스텝번호+1
+		free.setHit(0);
+		free.setTitle(title);
+		free.setFilename(file.getOriginalFilename());
+		free.setContent(content);
+				
+		try{
+			result = freeboardservice.insertArticle(free);
+		}catch(Exception e){
+			e.getMessage();
+		}finally{
+			if(result > 0){
+			link = "freeboard.do";
+			msg = "답글 입력에 성공하였습니다.";
+		}else{
+			link = "freeboard.do";
+			msg = "답글 입력에 실패하였습니다.";
+		}
+		mv.addAttribute("link", link);
+		mv.addAttribute("msg", msg);
+		}
+			
+		return "free_board.free_redirect";
+	};
+	
+	
+	
+	@RequestMapping(value="deleteDocument.do", method=RequestMethod.POST)
+	public void deleteDocument(HttpServletRequest request, HttpServletResponse response){
+		int list_no = Integer.parseInt(request.getParameter("list_no")); 
+		int replyCount=0;
+		int replyresult=0;
+		int rowresult=0;
+		logger.info("Ajax로 삭제하러 넘어왔어요! 넘어온 글 번호는 !" + list_no);
+		
+		
+	
+        		
+		try{
+			response.setContentType("text/html;charset=euc-kr");
+	        PrintWriter out = response.getWriter();
+	        
+			replyCount=freeboardservice.selectReCount(list_no);
+			logger.info("해당 글에는 댓글이 " + replyCount + "만큼 있네요");
+			
+			if(replyCount!=0){
+				logger.info("댓긇 삭제를 시작합시다.");
+				replyresult=freeboardservice.deleteReply(list_no);		
+				
+				if(replyresult==1){
+					logger.info("댓글 삭제 했으니 본문도 삭제합시다.");
+					rowresult=freeboardservice.deleteRow(list_no);
+					if(rowresult==1){
+						logger.info("모두 성공!!");
+						out.println("1");					
+					}else{
+						logger.info("본문 삭제 실패 ㅠㅠ");
+						out.println("0");	
+					}
 				}
 				
-				free.setCredential_id(ldto.getCredential_id());
-				free.setUserid(ldto.getUserid());
-				free.setRefer(refer);
-				free.setDepth(depth+1);//부모글의 depth +1
-				free.setStep(step+1);	//부모글의 스텝번호+1
-				free.setHit(0);
-				free.setTitle(title);
-				free.setFilename(file.getOriginalFilename());
-				free.setContent(content);
-				
-				try{
-					result = freeboardservice.insertArticle(free);
-				}catch(Exception e){
-					e.getMessage();
-				}finally{
-					if(result > 0){
-					link = "freeboard.do";
-					msg = "답글 입력에 성공하였습니다.";
+			}else{
+				logger.info("댓긇이 없으니까 바로 삭제합시다.");
+				rowresult=freeboardservice.deleteRow(list_no);
+				if(rowresult==1){
+					logger.info("모두 성공!!");
+					out.println("1");					
 				}else{
-					link = "freeboard.do";
-					msg = "답글 입력에 실패하였습니다.";
+					logger.info("본문 삭제 실패 ㅠㅠ");
+					out.println("0");	
 				}
-				mv.addAttribute("link", link);
-				mv.addAttribute("msg", msg);
-				}
-				
-				return "free_board.free_redirect";
 			}
-	
-	
+;
+
+
+
+		}catch(Exception e){
+			logger.error(e.getMessage());
+		}
+		
+		
+
+	}
+			
 	
 	
 	

@@ -89,7 +89,7 @@
 								<c:if test="${list.credential_id==loginData.credential_id}">
 									<a href="free_board_update.do?free_no=${list.free_no}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">수정하기</a>
 									<input type="text" hidden="hidden" id="listno" value="${list.free_no}">
-									<a class="btn btn-sm btn-default deletechk" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">삭제하기</a>
+									<a class="btn btn-sm btn-default" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px" onclick="delete_event()" href=javascript:void(0)>삭제하기</a>
 								</c:if>
 							</div>
 						</div>

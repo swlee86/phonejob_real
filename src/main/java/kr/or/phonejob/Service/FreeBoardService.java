@@ -73,4 +73,23 @@ public class FreeBoardService {
 	}
 	
 	
+	public int deleteRow(int list_no){
+		FreeBoardDao freeboarddao = sqlSession.getMapper(FreeBoardDao.class);
+		int result = freeboarddao.deleteRow(list_no);
+		return result;
+	}
+	
+	public int deleteReply(int list_no){
+		FreeBoardDao freeboarddao = sqlSession.getMapper(FreeBoardDao.class);
+		int result = freeboarddao.deleteReply(list_no);
+		return result;
+	}
+	
+	public int selectReCount(int list_no){
+		FreeBoardDao freeboarddao = sqlSession.getMapper(FreeBoardDao.class);
+		int result = freeboarddao.selectReCount(list_no);
+		return result;
+	}
+	
+	
 }
