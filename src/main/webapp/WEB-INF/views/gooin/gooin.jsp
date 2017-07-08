@@ -19,9 +19,8 @@
 				<hr style="border: 1px solid #ddd;">
 				<div class="row">
 					<c:forEach items="${gooinluxury}" var="luxury">
-						<a href="gooin.do">
-							<div
-								style="width: 227px; display: inline-block; padding-left: 15px; padding-right: 15px;">
+						<a href="gooinDetail.do?gooin_no=${luxury.gooin_no }">
+							<div style="width: 227px; display: inline-block; padding-left: 15px; padding-right: 15px;">
 								<div class="hpanel hblue">
 									<div class="panel-heading hbuilt" style="text-align: center;">
 										<c:if test="${luxury.wanttel eq 'sk'}">
@@ -61,9 +60,8 @@
 				<hr style="border: 1px solid #ddd;">
 				<div class="row">
 					<c:forEach items="${gooinbest}" var="best">
-						<a href="gooin.do">
-							<div
-								style="width: 227px; display: inline-block; padding-left: 15px; padding-right: 15px;">
+						<a href="gooinDetail.do?gooin_no=${best.gooin_no }">
+							<div style="width: 227px; display: inline-block; padding-left: 15px; padding-right: 15px;">
 								<div class="hpanel hblue">
 									<div class="panel-heading hbuilt" style="text-align: center;">
 										<c:if test="${best.wanttel eq 'sk'}">
@@ -102,7 +100,7 @@
 				<hr style="border: 1px solid #ddd;">
 				<div class="row">
 					<c:forEach items="${gooinbest}" var="best">
-						<a href="gooin.do">
+						<a href="gooinDetail.do?gooin_no=${best.gooin_no }">
 							<div
 								style="width: 227px; display: inline-block; padding-left: 15px; padding-right: 15px;">
 								<div class="hpanel hblue">

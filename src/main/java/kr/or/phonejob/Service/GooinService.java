@@ -43,5 +43,12 @@ public class GooinService {
 		return gooinnormal;
 	}
 	
+	//구인 상세 페이지 이동(구인글번호 기준)
+	public List<RegisterGooinDto> gooinDetail(int gooin_no){
+		GooinDao gdao = sqlsession.getMapper(GooinDao.class);
+		List<RegisterGooinDto> gooinDetail = gdao.gooinDetail(gooin_no);
+		return gooinDetail;
+	}
+	
 	
 }

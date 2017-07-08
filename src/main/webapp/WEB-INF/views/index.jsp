@@ -25,7 +25,7 @@
 	<hr style="border: 1px solid #ddd;">
 	<div class="row">
 			<c:forEach items="${gooinbest}" var="best">
-			<a href="gooin.do">
+			<a href="gooinDetail.do?gooin_no=${best.gooin_no }">
 			<div style="width: 227px;display:inline-block; padding-left: 15px; padding-right: 15px;">
 			<div class="hpanel hblue">
 				<div class="panel-heading hbuilt" style="text-align: center;">
@@ -63,7 +63,7 @@
 	<hr style="border: 1px solid #ddd;">
 	<div class="row">
 		<c:forEach items="${gooinluxury}" var="luxury">
-			<a href="gooin.do">
+			<a href="gooinDetail.do?gooin_no=${luxury.gooin_no }">
 			<div style="width: 227px;display:inline-block; padding-left: 15px; padding-right: 15px;">
 			<div class="hpanel hblue">
 				<div class="panel-heading hbuilt" style="text-align: center;">
@@ -166,6 +166,23 @@
 		</div>
 	</div>
 </div>
+
+
+<div id="popDiv" style="background-color: white; text-align: left;">
+ <!-- 팝업내용 및 이미지 -->
+	1. 현재 작업 진행 상황 <br>
+	 &nbsp;&nbsp;&nbsp;-구인글 등록 / 읽기(수정 / 삭제 불가)<br/>
+	 &nbsp;&nbsp;&nbsp;-구직글 등록 / 읽기 / 수정 (삭제 불가)<br/>
+	 &nbsp;&nbsp;&nbsp;-회원 가입(개인) / 회사 가입 불가<br/>
+	 &nbsp;&nbsp;&nbsp;-커뮤니티 글쓰기 / 수정 가능(삭제 불가)<br/><br>
+	  ※로그인 세션에서 불러오는 데이터가 있으므로 회원 가입 후 로그인 후 테스트 진행 필요
+ <span class="close">오늘은 그만보기
+  <input type="checkbox" onClick="javascript:controlCOOKIE();" />
+  <a href="#" onclick="closePopup('popDiv')" >닫기</a>
+ </span>
+</div>
+
+
 
 
 	<script>

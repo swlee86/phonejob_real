@@ -145,4 +145,27 @@ public class GooinController {
 		
 	}
 	
+	//구인글 클릭시 상세로 이동
+	@RequestMapping(value="/gooinDetail.do", method=RequestMethod.GET)
+	public String gooinDetail(int gooin_no, Model mv){
+		String url="gooin.gooinDetail";
+		logger.info("구인 상세 페이지로 이동");
+		logger.info("이동  url : " + url+".jsp");
+		
+		List<RegisterGooinDto> gooinDetail = new ArrayList<RegisterGooinDto>();
+		try{
+			gooinDetail=gservice.gooinDetail(gooin_no);
+			
+			logger.info("가지고 올 구인 글 내용 : "+gooinDetail);
+			
+		}catch(Exception e){
+			logger.error(e.getMessage());			
+		}
+		
+		
+		mv.addAttribute("gooinDetail", gooinDetail);
+		return url;
+	}
+	
+	
 }

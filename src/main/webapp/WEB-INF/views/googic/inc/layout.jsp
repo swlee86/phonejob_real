@@ -74,8 +74,11 @@ table.type10 .even {
 </head>
 <body class="fixed-navbar fixed-sidebar">
 
+
 <!-- Simple splash screen-->
 <div class="splash"> <div class="color-line"></div><div class="splash-title"><img src="./images/main_logo.png" alt="Phone & Job"><p>Now loading...</p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div> <div class="rect5"></div> </div> </div> </div>
+
+
 
 
 <!-- Header -->
@@ -85,10 +88,10 @@ table.type10 .even {
 <!-- Main Wrapper -->
 <div style="text-align: center">
 	<div id="wrapper">
-<tiles:insertAttribute name="content" />
+		<tiles:insertAttribute name="content" />
 
-<!-- Footer-->
-<tiles:insertAttribute name="footer" />
+	<!-- Footer-->
+	<tiles:insertAttribute name="footer" />
 
 	</div>
 </div>

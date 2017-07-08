@@ -26,8 +26,25 @@
     <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/helper.css" />
     <link rel="stylesheet" href="styles/style.css">
 
+<style type="text/css">
+ #popDiv{
+  position:absolute;
+  display:none;
+  border:1px solid #808080;
+ }
+
+ #popDiv .close{
+  position:absolute;
+  bottom:5px;
+  right:5px;
+ }
+
+</style>
+
+
 </head>
-<body class="fixed-navbar fixed-sidebar">
+<body class="fixed-navbar fixed-sidebar" onload="openPopup('popDiv', 300, 300, 10, 10);">
+
 
 <!-- Simple splash screen-->
 <div class="splash"> <div class="color-line"></div><div class="splash-title"><img src="./images/main_logo.png" alt="Phone & Job"><p>Now loading...</p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div> <div class="rect5"></div> </div> </div> </div>
@@ -70,6 +87,85 @@
 <!-- App scripts -->
 <script src="scripts/homer.js"></script>
 <script src="scripts/charts.js"></script>
+
+
+<script type="text/javascript">
+//생성될 쿠키명
+var cookie_name = "popupCookie";
+
+//이벤트 팝업
+function openPopup(id, width, height, tpos, lpos){
+ var divName = document.getElementById(id);
+ 
+ if (getCOOKIE(cookie_name) != true){
+  divName.style.display = "block"; 
+ }else{
+  divName.style.display = "none";
+ }
+ 
+ divName.style.width = width + "px";
+ divName.style.height = height + "px";
+ divName.style.top = tpos + "px";
+ divName.style.left = lpos + "px";
+}
+
+//팝업 닫기
+function closePopup(id){
+ var divName = document.getElementById(id);
+ divName.style.display = "none";
+}
+
+function getCOOKIE(name){
+ var Found;
+  Found = false;
+  var start, end;
+  var i = 0;
+
+  while(i <= document.cookie.length){
+    start = i;
+    end = start + name.length;
+    if(document.cookie.substring(start, end) == name){
+      //Found = true;
+      return true;
+      break;
+    }
+    i++;
+ }
+
+  if(Found == true){
+    start = end + 1;
+    end = document.cookie.indexOf(';', start);
+    if(end < start) end = document.cookie.length;
+    return document.cookie.substring(start, end);
+  }
+  return '';
+}
+
+//오늘은 그만보기 선택시 -- setCOOKIE("쿠키명","y",1)
+function controlCOOKIE(){
+ setCOOKIE(cookie_name,"y", 1);
+ closePopup('layerPop');
+}
+  
+//쿠키 생성 함수
+function setCOOKIE(name, value, expire){
+    var expire_date = new Date();
+    expire_date = new Date(expire_date.getTime() + 60*60*24*1000);
+    document.cookie = name + "=" + escape(value) + "; expires=" + expire_date.toGMTString() +"; path=/";
+}
+ 
+//쿠키 소멸 함수
+function clearCOOKIE(name){
+ var today = new Date();
+    //어제 날짜를 쿠키 소멸 날짜로 설정한다.
+    var expire_date = new Date(today.getTime() - 60*60*24*1000);
+    document.cookie = name + "= " + "; expires=" + expire_date.toGMTString();
+}
+
+
+
+</script>
+
 
 </body>
 </html>
