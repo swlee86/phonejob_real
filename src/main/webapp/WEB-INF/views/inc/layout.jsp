@@ -43,7 +43,7 @@
 
 
 </head>
-<body class="fixed-navbar fixed-sidebar" onload="openPopup('popDiv', 300, 300, 10, 10);">
+<body class="fixed-navbar fixed-sidebar" onload="openPopup('popDiv', 300, 400, 10, 10);">
 
 
 <!-- Simple splash screen-->

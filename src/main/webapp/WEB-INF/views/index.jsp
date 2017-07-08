@@ -170,14 +170,25 @@
 
 <div id="popDiv" style="background-color: white; text-align: left;">
  <!-- 팝업내용 및 이미지 -->
-	1. 현재 작업 진행 상황 <br>
+	<h5 style="color: blue;">1. 현재 작업 진행 상황</h5>
 	 &nbsp;&nbsp;&nbsp;-구인글 등록 / 읽기(수정 / 삭제 불가)<br/>
 	 &nbsp;&nbsp;&nbsp;-구직글 등록 / 읽기 / 수정 (삭제 불가)<br/>
 	 &nbsp;&nbsp;&nbsp;-회원 가입(개인) / 회사 가입 불가<br/>
-	 &nbsp;&nbsp;&nbsp;-커뮤니티 글쓰기 / 수정 가능(삭제 불가)<br/><br>
-	  ※로그인 세션에서 불러오는 데이터가 있으므로 회원 가입 후 로그인 후 테스트 진행 필요
- <span class="close">오늘은 그만보기
-  <input type="checkbox" onClick="javascript:controlCOOKIE();" />
+	 &nbsp;&nbsp;&nbsp;-커뮤니티 글쓰기 / 수정 / 삭제 가능<br/><br> 
+	
+	<h5 style="color: blue;">2. 2017-07-09 반영 사항</h5>
+	 &nbsp;&nbsp;&nbsp;-커뮤니티 글 삭제 기능 추가<br/><br/>
+	 
+	  ※로그인 세션에서 불러오는 데이터가 있으므로 회원 가입 후 로그인 후 테스트 진행 필요<br/><br/>
+	 
+	 <b>※테스트 데이터는 많을 수록 좋으므로 수시로 등록 부탁드립니다. <br/>
+	 오류 발생시 커뮤니티 게시글에 사항 남겨 주시면 확인 하겠습니다.<br/>
+	 (추후 오픈전까지 고객센터 메뉴를 통해 해당 내용 접수할 수 있도록 조치 예정)</b><br/><br/>
+  <span class="" style="font-size: 13px; text-align: left; color:#6a6c6f">
+  <input type="checkbox" onClick="javascript:controlCOOKIE();" style="text-align: left;">오늘은 그만보기
+  </span>
+  <br>
+  <span class="close" style="font-size: 13px;">
   <a href="#" onclick="closePopup('popDiv')" >닫기</a>
  </span>
 </div>

@@ -88,10 +88,11 @@ public class GooinController {
 	
 	//구인 등록 시 데이터를 DB에 인서트 처리
 	@RequestMapping(value="/gooinRegister.do", method=RequestMethod.POST)
-	public String registerGooinOk(@RequestParam("uploadfile") MultipartFile file, RegisterGooinDto gdto, HttpServletRequest request){
-		String url="gooin.gooinRegister";
-		logger.info("우선 데이터 확인을 위해 구인 등록 페이지로 다시 이동하도록 처리");
-		logger.info("이동  url : " + url+".jsp");
+	public String registerGooinOk(@RequestParam("uploadfile") MultipartFile file, RegisterGooinDto gdto, HttpServletRequest request, Model mv){
+		String url="gooin.gooinRedirect";
+		String data="";
+		String movepage="";
+		
 		
 		//파일 업로드 
 		 String path = request.getRealPath("/gooin/picture/");
@@ -135,12 +136,16 @@ public class GooinController {
 		
 		try{
 			result = gservice.registerGooinOk(gdto);
-			
+			data="등록에 성공하였습니다";
+			movepage="gooin.do";
 		}catch(Exception e){
 			logger.error(e.getMessage());
-		}finally{
-			
+			data="등록에 실패하였습니다.";
+			movepage="gooinRegister.do";
 		}
+		
+		mv.addAttribute("data", data);
+		mv.addAttribute("movepage", movepage);
 		return url;
 		
 	}
