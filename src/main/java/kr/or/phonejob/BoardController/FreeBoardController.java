@@ -19,6 +19,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import kr.or.phonejob.Dto.FreeBoardDto;
 import kr.or.phonejob.Dto.LoginDto;
 import kr.or.phonejob.Dto.Re_FreeBoard;
@@ -134,11 +138,12 @@ public class FreeBoardController {
 	@RequestMapping(value="/writefreeboard.do", method=RequestMethod.POST)
 	public String free_board_write_ok(@RequestParam("uploadfile") MultipartFile file, FreeBoardDto board, Model mv,HttpServletRequest request){
 	
-		//파일 업로드 
-		 String path = request.getRealPath("/board/free_upload/");
-
-			File cFile = new File(path, file.getOriginalFilename());
+		
+		    //파일 업로드 
+		 	String path = request.getRealPath("/board/free_upload/");		 	
 			try {
+				File cFile = new File(path, file.getOriginalFilename());
+				logger.info("cFile 내용 : " + cFile);
 				file.transferTo(cFile);
 			} catch (IllegalStateException e1) {
 				e1.printStackTrace();

@@ -24,7 +24,7 @@
    						    <tr>
      						   <th scope="row" class="even">매장 사진</th>
       							  <td class="even">
-      							  	<img src="images/${gooinDetail.userpicture}" alt="매장 사진">
+      							  	<img src="./gooin/picture/${gooinDetail.userpicture}" alt="매장 사진">
   							     	 <input type="hidden" value="${gooinDetail.userpicture}" id="userpicture" name="userpicture">
       							  </td>
     						</tr>

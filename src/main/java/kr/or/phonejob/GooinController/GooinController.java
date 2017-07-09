@@ -97,9 +97,10 @@ public class GooinController {
 		//파일 업로드 
 		 String path = request.getRealPath("/gooin/picture/");
 		 
-		 File cFile = new File(path, file.getOriginalFilename());
 		
 			try {
+				File cFile = new File(path, file.getOriginalFilename());
+				logger.info("cFile : " + cFile);
 				file.transferTo(cFile);
 			} catch (IllegalStateException e1) {
 				e1.printStackTrace();

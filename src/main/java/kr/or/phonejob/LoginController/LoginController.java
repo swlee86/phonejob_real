@@ -31,11 +31,7 @@ public class LoginController {
 	@RequestMapping(value="/login.do", method=RequestMethod.GET)
 	public String memberLogin(HttpServletRequest request){
 		
-		//////////////// 이전 페이지 세션 저장  ////////////////////////
-		String referrer = request.getHeader("Referer");
-	    request.getSession().setAttribute("prevPage", referrer);
-	    logger.info("Referer 세션 변수!!" + referrer);
-	    ////////////////이전 페이지 세션 저장  ////////////////////////
+
 	    
 	    
 		String url= "login.login";

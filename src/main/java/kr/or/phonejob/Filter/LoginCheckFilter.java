@@ -50,6 +50,13 @@ public class LoginCheckFilter implements Filter {
 		String uri = req.getRequestURI();
 		logger.info("접근 URI : " + uri);
 		
+		
+		//////////////// 이전 페이지 세션 저장  ////////////////////////
+		String referrer = req.getHeader("Referer");
+		req.getSession().setAttribute("prevPage", referrer);
+	    logger.info("Referer 세션 변수!!" + referrer);
+	    ////////////////이전 페이지 세션 저장  ////////////////////////
+		
 		if(uri.equalsIgnoreCase("/phonejob/index.do")||uri.equalsIgnoreCase("/phonejob/privateRegister.do")||uri.equalsIgnoreCase("/phonejob/adminIpRegister.do")||uri.equalsIgnoreCase("/index.do")||
 				uri.equalsIgnoreCase("/privateRegister.do")||uri.equalsIgnoreCase("/adminIpRegister.do")){ 
 			login = true;
