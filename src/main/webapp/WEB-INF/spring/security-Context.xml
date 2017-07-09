@@ -17,12 +17,14 @@
 					   authentication-failure-url="/login.do" 
  					    authentication-success-handler-ref="customAuthenticationSuccessHandler"
   					   />
-  <security:logout logout-success-url="/index.do" />
+  <security:logout logout-success-url="/login.do" />
  
  
-  <security:intercept-url pattern="/" access="hasRole('ROLE_ADMIN')"/>
+  <security:intercept-url pattern="/" access="permitAll"/>
+  
+  
   <!--    
-  <security:intercept-url pattern="/*board.do" access="hasRole('ROLE_MASTER')"/>
+  <security:intercept-url pattern="/login.do" access="isAnonymous"/>
   <security:intercept-url pattern="/customer/noticeReg.htm" access="ROLE_ADMIN"/>
   <security:intercept-url pattern="/customer/**" access="ROLE_USER" />
   -->
@@ -61,13 +63,6 @@
 	<constructor-arg name="strength" value="10"></constructor-arg>
 </bean>
 
-
-
-<!-- <bean id="customAuthenticationSuccessHandler" class="kr.or.phonejob.LoginController.CustomAuthenticationSuccessHandler">
-	<property name = "sqlsession">
-		<ref bean = "sqlSession"/>
-	</property>
-</bean> -->
 
 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="dataSource" ref="driverManagerDataSource"></property>

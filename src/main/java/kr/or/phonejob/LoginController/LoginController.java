@@ -1,5 +1,7 @@
 package kr.or.phonejob.LoginController;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +29,15 @@ public class LoginController {
 	
 	//로그인 페이지 이동
 	@RequestMapping(value="/login.do", method=RequestMethod.GET)
-	public String memberLogin(){
+	public String memberLogin(HttpServletRequest request){
+		
+		//////////////// 이전 페이지 세션 저장  ////////////////////////
+		String referrer = request.getHeader("Referer");
+	    request.getSession().setAttribute("prevPage", referrer);
+	    logger.info("Referer 세션 변수!!" + referrer);
+	    ////////////////이전 페이지 세션 저장  ////////////////////////
+	    
+	    
 		String url= "login.login";
 		try {
 			logger.info(">>>>>로그인페이지 접근");

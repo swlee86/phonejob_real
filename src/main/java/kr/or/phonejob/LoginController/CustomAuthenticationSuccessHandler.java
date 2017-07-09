@@ -106,35 +106,61 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 	   logger.info("@@@@@@@@@@@@@@@@@@@@@@"+userid);
 	   
 	   try{
-		   	LoginDao ldao = sqlsession.getMapper(LoginDao.class);
-		   	RegisterMemberDao rdao = sqlsession.getMapper(RegisterMemberDao.class);
-		   	MemberDetailDto pjudto = rdao.privateRegisterSelect(userid);
-			
-		   	LoginDto ldto = ldao.loginInfo1(userid);
-		   	logger.info(ldto.toString());
-		   	
-		   	LoginDto ldto2 = ldao.loginInfo2(pjudto.getCredential_id());
-			logger.info(ldto2.toString());		 
-			ldto.setUsername(ldto2.getUsername());
-			ldto.setUsermail(ldto2.getUsermail());
-			ldto.setUserbirth(ldto2.getUserbirth());
-			ldto.setUseraddr1(ldto2.getUseraddr1());
-			ldto.setUseraddr2(ldto2.getUseraddr2());
-			ldto.setCredential_id(ldto2.getCredential_id());
-			
-			logger.info("로그인시 생성되는 DTO 데이터 최종본" + ldto.toString());
-			
-			
-			session.setAttribute("loginData", ldto);
-			session.setAttribute("username", ldto.getUsername());
-			
-			   
-			   
+		   LoginDao ldao = sqlsession.getMapper(LoginDao.class);
+		   RegisterMemberDao rdao = sqlsession.getMapper(RegisterMemberDao.class);
+		   MemberDetailDto pjudto = rdao.privateRegisterSelect(userid);
+		   
+		   LoginDto ldto = ldao.loginInfo1(userid);
+		   logger.info(ldto.toString());
+		   
+		   LoginDto ldto2 = ldao.loginInfo2(pjudto.getCredential_id());
+		   logger.info(ldto2.toString());		 
+		   ldto.setUsername(ldto2.getUsername());
+		   ldto.setUsermail(ldto2.getUsermail());
+		   ldto.setUserbirth(ldto2.getUserbirth());
+		   ldto.setUseraddr1(ldto2.getUseraddr1());
+		   ldto.setUseraddr2(ldto2.getUseraddr2());
+		   ldto.setCredential_id(ldto2.getCredential_id());
+		   
+		   logger.info("로그인시 생성되는 DTO 데이터 최종본" + ldto.toString());
+		   
+		   
+		   session.setAttribute("loginData", ldto);
+		   session.setAttribute("username", ldto.getUsername());
+		   
+		   
+		   
 	   }catch(Exception e){
 		   logger.info("@@@@@@@@@@@@@@@@@" + e.getMessage());
 	   }finally{		   
-		   response.sendRedirect(request.getContextPath() + "/index.do");
+		   //response.sendRedirect(request.getContextPath() + "/index.do");
 	   }
+	   
+	   ///////////////////////////추가 영역 - 로그인 이전 페이지로 이동 시작 ////////////////////////////////
+	   
+       if (session != null) {
+           String redirectUrl = (String) session.getAttribute("prevPage");
+           if (redirectUrl != null) {
+               session.removeAttribute("prevPage");
+               getRedirectStrategy().sendRedirect(request, response, redirectUrl);
+           } else {
+               super.onAuthenticationSuccess(request, response, authentication);
+           }
+       } else {
+           super.onAuthenticationSuccess(request, response, authentication);
+       }
+   
+	   
+	   
+       ///////////////////////////추가 영역 - 로그인 이전 페이지로 이동 끝 ///////////////////////////////////
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
 	   
 	   
 	   

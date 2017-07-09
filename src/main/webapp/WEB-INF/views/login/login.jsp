@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="text-center m-b-md">
-                <h3>INFRA 고객 로그인</h3>
+                <h3>PhoneJob 고객 로그인</h3>
                 <small>아이디가 없으신 경우 회원 가입을 진행해 주세요!</small>
             </div>
             <div class="hpanel">
@@ -28,7 +28,7 @@
                             <button class="btn btn-success btn-block">회원 로그인</button>
                             <a class="btn btn-default btn-block" href="privateRegister.do">구직자 회원 가입</a>
                             <a class="btn btn-default btn-block" href="#">기업 회원 가입</a>
-                            <a class="btn btn-default btn-block" href="index.do">Infra 메인으로 돌아가기</a>
+                            <a class="btn btn-default btn-block" href="index.do">PhoneJob 메인으로 돌아가기</a>
                         </form>
                 </div>
             </div>
