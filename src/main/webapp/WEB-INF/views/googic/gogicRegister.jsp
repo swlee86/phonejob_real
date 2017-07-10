@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-   
+    
+    
+<div class="normalheader transition animated fadeIn">
+	<div class="hpanel">
+		<div class="panel-body" style="text-align: left;">
+			<h2 class="font-light m-b-xs">구직 등록</h2>
+		</div>
+	</div>
+</div>
 <div class="content animate-panel" style="width: 1200px; text-align:left; display:inline-block">
 	<div class="row">
     			<div class="col-lg-12">
