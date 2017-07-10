@@ -1,9 +1,10 @@
 package kr.or.phonejob.Filter;
 
 import java.io.IOException;
+import java.util.List;
 
+import javax.inject.Inject;
 import javax.servlet.Filter;
-
 import javax.servlet.FilterChain;
 
 import javax.servlet.FilterConfig;
@@ -16,27 +17,38 @@ import javax.servlet.ServletResponse;
 
 import javax.servlet.http.HttpServletRequest;
 
-import javax.servlet.http.HttpServletResponse;
 
 import javax.servlet.http.HttpSession;
+
+import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
-
+import kr.or.phonejob.Dao.LoginFilterDao;
+import kr.or.phonejob.Dto.LoginFilterDto;
+import kr.or.phonejob.Service.LoginFilterService;
 
 
 public class LoginCheckFilter implements Filter {
 	
 	
+	
+	private LoginFilterService lfservice;
+	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	
+	@Override
 	public void init(FilterConfig config) throws ServletException {
-
+	
 	}
 
+	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		logger.info("로그인 체크 필터 시작!!");
@@ -56,11 +68,18 @@ public class LoginCheckFilter implements Filter {
 		req.getSession().setAttribute("prevPage", referrer);
 	    logger.info("Referer 세션 변수!!" + referrer);
 	    ////////////////이전 페이지 세션 저장  ////////////////////////
-		
+	    
+	    List<LoginFilterDto> passuri = lfservice.getPassUri();
+	    
+	    for(int i=0; i< passuri.size(); i++){
+	    	logger.info("PassUriData : " + passuri.get(i).toString());
+	    }
+	  
 		if(uri.equalsIgnoreCase("/phonejob/index.do")||uri.equalsIgnoreCase("/phonejob/privateRegister.do")||uri.equalsIgnoreCase("/phonejob/adminIpRegister.do")||uri.equalsIgnoreCase("/index.do")||
 				uri.equalsIgnoreCase("/privateRegister.do")||uri.equalsIgnoreCase("/adminIpRegister.do")){ 
 			login = true;
 		}
+		
 		
 		if (session != null) {
 			if (session.getAttribute("loginData") != null && session.getAttribute("loginData") != null) {
@@ -77,9 +96,11 @@ public class LoginCheckFilter implements Filter {
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/login.do");
 			dispatcher.forward(request, response);
+			
 		}
 	}
-
+	
+	@Override
 	public void destroy() {
 
 	}

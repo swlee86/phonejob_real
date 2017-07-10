@@ -2,6 +2,9 @@ package kr.or.phonejob.RegisterController;
 
 import java.sql.SQLException;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.mvel2.sh.text.TextUtil;
 import org.mybatis.spring.MyBatisSystemException;
 import org.slf4j.Logger;
@@ -15,6 +18,8 @@ import org.springframework.ui.Model;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.google.api.client.http.HttpRequest;
 
 import kr.or.phonejob.Dto.LoginDto;
 import kr.or.phonejob.Dto.MemberDetailDto;
@@ -43,8 +48,9 @@ public class RegisterController {
 	
 	//개인 회원 가입 페이지 접근
 	@RequestMapping(value="/privateRegister.do", method=RequestMethod.GET)
-	public String privateRegister(){
+	public String privateRegister(HttpServletRequest request){
 		String url ="register.privateRegister";
+		
 		try{
 			logger.info(">>>>>개인회원가입 페이지 접근");
 		}catch(Exception e){
