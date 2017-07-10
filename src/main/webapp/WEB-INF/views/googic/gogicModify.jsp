@@ -53,7 +53,7 @@
 							<div class="form-group col-lg-12">
 								<label class="col-sm-3 control-label" style="text-align: right;">출근가능날짜</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" name="possibledate" id="possibledate" placeholder="2017-05-13" value="${googicdata.possibledate}">
+									<input type="text" class="form-control" name="possibledate" id="possibledate" placeholder="2017-05-13" value="${googicdata.possibledate}" readonly="readonly">
 								</div>
 							</div>
 							
@@ -91,6 +91,12 @@
 												<option value="seller">판매사</option>
 												<option value="csseller">CS / 판매사</option>
 											</c:when>
+											<c:otherwise>
+												<option>선택</option>
+												<option value="cs">CS</option>
+												<option value="seller">판매사</option>
+												<option value="csseller">CS / 판매사</option>
+											</c:otherwise>
 										</c:choose>
 									</select>
 								</div>

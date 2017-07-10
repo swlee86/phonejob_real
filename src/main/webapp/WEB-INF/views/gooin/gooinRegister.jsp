@@ -147,8 +147,8 @@
 						<label class="col-sm-1 control-label text-left" style="text-align: center">채용기간</label>
 							<div class="col-xs-4">
 								<div>
-									<input type="text" class="form-control" name="gooinweekstart" style="text-align: left;">~~
-									<input type="text" class="form-control" name="gooinweekend" style="text-align: left;">
+									<input type="text" class="form-control" name="gooinweekstart" id="gooinweekstart" style="text-align: left;" readonly="readonly">~~
+									<input type="text" class="form-control" name="gooinweekend" id="gooinweekend" style="text-align: left;" readonly="readonly">
 								</div>
 							</div>
 						</div>

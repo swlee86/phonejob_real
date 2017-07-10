@@ -123,7 +123,7 @@ public class GoogicController {
 			
 			if(result==1){
 				data="등록이 완료되었습니다.";
-				movepage="googicDetail.do?googic_no="+rgdto.getGoogic_no();
+				movepage="googic.do";
 			}else{
 				data="등록에 실패하였습니다. 다시 시도해 주세요.";
 				movepage="googicRegister.do";	
