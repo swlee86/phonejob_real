@@ -6,9 +6,9 @@
 <fmt:formatDate value="${today}" pattern="yyyy-MM-dd a hh:mm" var="today" /> 
 <fmt:formatDate value="${sysdate}" pattern="yyyy-MM-dd a hh:mm" var="sysdate" /> 
 <!--  
-	작성자	: 박지은
-	작성일	: 2016-12-12
-	목 적  	: 잠금 화면 view
+	작성자	: 이상원
+	작성일	: 2017-07-10
+	목 적  	: 접근 차단 화면
 -->
 <div class="color-line"></div>
 
@@ -20,7 +20,7 @@
 
                 <i class="pe-7s-lock big-icon text-success"></i>
                 <br/>
-                <h4><span class="text-success">${msg }</span> </h4>
+                <h4><span class="text-success">${msg }</span></h4>
                 <p><strong>접근하실수 있는 권한이 없습니다.<Br> 관리자에게 문의해주세요. </strong></p>
                 <br>
                  <form action="adminIpRegister.do" method="post">
@@ -39,7 +39,7 @@
 						</tr>
 						<tr>
 							<td>등록할 아이피 : </td>
-							<td><input type="text" name="user_ip" placeholder="0.0.0.0"></td>
+							<td><input type="text" name="user_ip" placeholder="0.0.0.0" value="${cIp}"></td>
 						</tr>
 					</table>             
 					<input type="submit" value="아이피 등록">    

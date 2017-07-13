@@ -32,11 +32,7 @@
     <link rel="stylesheet" href="vendor/summernote/dist/summernote-bs3.css" />
     
     <link rel="stylesheet" href="vendor/sweetalert/lib/sweet-alert.css" />
-    
-    <!-- DatePicker 소스 -->
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
-	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>  
+   
     
     
 <style type="text/css">
@@ -108,26 +104,16 @@ table.type10 .even {
 <script src="vendor/jquery-ui/jquery-ui.min.js"></script>
 <script src="vendor/slimScroll/jquery.slimscroll.min.js"></script>
 <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="vendor/jquery-flot/jquery.flot.js"></script>
-<script src="vendor/jquery-flot/jquery.flot.resize.js"></script>
-<script src="vendor/jquery-flot/jquery.flot.pie.js"></script>
-<script src="vendor/flot.curvedlines/curvedLines.js"></script>
-<script src="vendor/jquery.flot.spline/index.js"></script>
 <script src="vendor/metisMenu/dist/metisMenu.min.js"></script>
 <script src="vendor/iCheck/icheck.min.js"></script>
-<script src="vendor/peity/jquery.peity.min.js"></script>
 <script src="vendor/sparkline/index.js"></script>
-<script src="vendor/chartjs/Chart.min.js"></script>
-<script src="vendor/chartist/dist/chartist.min.js"></script>
-<script src="vendor/slimScroll/jquery.slimscroll.min.js"></script>
 <script src="vendor/summernote/dist/summernote.min.js"></script>
-
-<!-- alert 창 -->
-<script src="vendor/sweetalert/lib/sweet-alert.min.js"></script>
 
 <!-- App scripts -->
 <script src="scripts/homer.js"></script>
-<script src="scripts/charts.js"></script>
+
+<!-- alert 창 -->
+<script src="vendor/sweetalert/lib/sweet-alert.min.js"></script>
 <script src="scripts/sojaeji.js"></script>
 
 
@@ -157,19 +143,7 @@ function useNewlocation(){
 		}
 	
 }
-	
-$(function(){
-	$( "#possibledate" ).datepicker({
-   	 dateFormat: 'yy년 mm월 dd일',
-    	monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-    	dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-    	changeMonth: true, 
-  	changeYear: true,
-  	nextText: '다음 달',
-  	prevText: '이전 달' 
-	});
 
-});
 
 
 </script>

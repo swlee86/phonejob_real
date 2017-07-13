@@ -46,9 +46,15 @@
       							  </td>
     						</tr>
     						<tr>
-     					    <th scope="row">출근가능날짜</th>
+     					    <th scope="row">출근가능일</th>
        						 <td>
-       						 	${googicdata.possibledate}
+       						 	<c:choose>
+       						 		<c:when test="${googicdata.possibledate eq 'A001'}">즉시 가능</c:when>
+       						 		<c:when test="${googicdata.possibledate eq 'A002'}">일주일 이내</c:when>
+       						 		<c:when test="${googicdata.possibledate eq 'A003'}">15일  이내</c:when>
+       						 		<c:when test="${googicdata.possibledate eq 'A004'}">한달 이내</c:when>
+       						 		<c:when test="${googicdata.possibledate eq 'A005'}">협의 후 결정</c:when>
+       						 	</c:choose>       						 	
        						 	<input type="hidden" class="form-control" name="possibledate" id="possibledate" value="${googicdata.possibledate }" readonly="readonly">
        						 </td>
     						</tr>

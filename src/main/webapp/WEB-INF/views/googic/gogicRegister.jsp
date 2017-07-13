@@ -51,9 +51,16 @@
 							</div>
 
 							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;">출근가능날짜</label>
+								<label class="col-sm-3 control-label" style="text-align: right;">출근가능일</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" name="possibledate" id="possibledate" placeholder="2017-05-13" readonly="readonly">
+									<select class="form-control" name="possibledate" id="possibledate">
+											<option>선택</option>
+											<option value="A001">즉시 가능</option>
+											<option value="A002">일주일 이내</option>
+											<option value="A003">15일 이내</option>
+											<option value="A004">한달 이내</option>
+											<option value="A005">협의 후 결정</option>
+									</select>
 								</div>
 							</div>
 							
@@ -119,7 +126,7 @@
 						
 						<div class="text-center">
 								<button class="btn btn-success">등록하기</button>
-								<button class="btn btn-default">취소하기</button>
+								<input type="button" class="btn btn-default" onclick="javascript:goPage()" value="취소하기">	
 						</div>
 					</form>
 				</div>

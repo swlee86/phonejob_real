@@ -51,9 +51,55 @@
 							</div>
 
 							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;">출근가능날짜</label>
+								<label class="col-sm-3 control-label" style="text-align: right;">출근가능일</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" name="possibledate" id="possibledate" placeholder="2017-05-13" value="${googicdata.possibledate}" readonly="readonly">
+									<select class="form-control" name="possibledate" id="possibledate">
+										<c:choose>
+											<c:when test="${googicdata.possibledate eq 'A001'}">
+												<option value="A001" selected="selected">즉시 가능</option>
+												<option value="A002">일주일 이내</option>
+												<option value="A003">15일 이내</option>
+												<option value="A004">한달 이내</option>
+												<option value="A005">협의 후 결정</option>
+											</c:when>
+											<c:when test="${googicdata.possibledate eq 'A002'}">
+												<option value="A001">즉시 가능</option>
+												<option value="A002" selected="selected">일주일 이내</option>
+												<option value="A003">15일 이내</option>
+												<option value="A004">한달 이내</option>
+												<option value="A005">협의 후 결정</option>
+											</c:when>
+											<c:when test="${googicdata.possibledate eq 'A003'}">
+												<option value="A001">즉시 가능</option>
+												<option value="A002">일주일 이내</option>
+												<option value="A003" selected="selected">15일 이내</option>
+												<option value="A004">한달 이내</option>
+												<option value="A005">협의 후 결정</option>
+											</c:when>
+											<c:when test="${googicdata.possibledate eq 'A004'}">
+												<option value="A001">즉시 가능</option>
+												<option value="A002">일주일 이내</option>
+												<option value="A003">15일 이내</option>
+												<option value="A004" selected="selected">한달 이내</option>
+												<option value="A005">협의 후 결정</option>
+											</c:when>
+											<c:when test="${googicdata.possibledate eq 'A005'}">
+												<option value="A001">즉시 가능</option>
+												<option value="A002">일주일 이내</option>
+												<option value="A003">15일 이내</option>
+												<option value="A004">한달 이내</option>
+												<option value="A005" selected="selected">협의 후 결정</option>
+											</c:when>
+											<c:otherwise>
+												<option selected="selected">선택</option>
+												<option value="A001">즉시 가능</option>
+												<option value="A002">일주일 이내</option>
+												<option value="A003">15일 이내</option>
+												<option value="A004">한달 이내</option>
+												<option value="A005">협의 후 결정</option>
+											</c:otherwise>
+										</c:choose>
+									</select>
 								</div>
 							</div>
 							

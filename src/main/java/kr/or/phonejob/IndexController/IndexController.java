@@ -61,25 +61,18 @@ public class IndexController {
 		    	cIp = request.getRemoteAddr();
 		    }
 		
-		/*
+		    /*
 	    	허가된 IP목록 입니다.
 	    	아래 배열에 추가 하면 해당 IP에 대해 access가 허용 됩니다.
-		 */
+		     */
 	  List<UserIpDto> userip=new ArrayList<UserIpDto>();	
 	  userip=iservice.getUserIp();	
 	  
-	  /*
-	  String aIpTable[] = userip.toArray(new String[userip.size()]);
-		
-	  for(String s : aIpTable){
-          logger.info("허용된 아이피 !! : " +  s);
-      }
-	  */
-	  int i;
+
 	  int iOk = 0;
 	  logger.info("접속한 아이피 ! : " + cIp);
 	  
-	  for( i = 0; i < userip.size(); i++) {
+	  for(int i = 0; i < userip.size(); i++) {
 		  logger.info("허용된 아이피!!" + userip.get(i).getUser_ip().toString());
 	       if( userip.get(i).getUser_ip().equals(cIp) ){
 	           iOk = 1;
@@ -90,6 +83,7 @@ public class IndexController {
 	     //response.sendRedirect("deny.jsp");
 		  msg="<B>Access Denied : 현재 접속하신 아이피는 " + cIp + "입니다 </B>";
 		  mv.addAttribute("msg", msg);
+		  mv.addAttribute("cIp", cIp);
 		  return "lock";
 	  }
 		
