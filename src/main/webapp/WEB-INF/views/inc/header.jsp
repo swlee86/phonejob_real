@@ -12,16 +12,16 @@
 			<c:choose>
 				<c:when test="${username eq null}">
 					<p style="float:right;"><a href=login.do>로그인</a></p>
+					<p style="float:right;" > | </p>
+					<p style="float:right;" ><a href="login.do">회원가입</a></p>
 				</c:when>
 				<c:otherwise>
-					<p style="float:right;"><a href=logout>로그아웃</a></p>
+					<p style="float:right;"><a href=logout>&nbsp;&nbsp;로그아웃</a></p>
 				</c:otherwise>
 			</c:choose>
-				<p style="float:right;" > | </p>
-				<p style="float:right;" ><a href="login.do">회원가입</a></p>
 			<c:choose>
 				<c:when test="${username ne null}">
-					<p style="float:right;" >&nbsp;&nbsp;&nbsp;|</p>
+					<p style="float:right;" >&nbsp;&nbsp;|</p>
 					<p style="float:right;">${username }님 반갑습니다</p>
 				</c:when>
 			</c:choose>
@@ -50,7 +50,13 @@
 				</form>
 				
 			</td>
-            <td width="300" align="right">TOP Banner</td>
+            <td width="300" align="right">
+            	<div style="width: 120px; text-align: left;">
+				채용정보 : ${gooinCount }개<br/>
+				인재정보 : ${googicCount }명<br/>
+				채용마감 : ${gooinEndCount}개
+				</div>
+			</td>
 		</tr>
 	</table>                    
 	<table width="" align="center"  cellpadding="0" cellspacing="0" border="0">

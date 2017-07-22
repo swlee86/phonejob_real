@@ -13,8 +13,10 @@ public class RegisterGooinDto {
 	private String school;
 	private String wanthuman;
 	private String gender;
-	private String location;
-	private String salary;
+	private String location_addr1;
+	private String location_addr2;
+	private String salary_min;
+	private String salary_max;
 	private String jobtime;
 	private String breaktime;
 	private String wage;
@@ -26,10 +28,17 @@ public class RegisterGooinDto {
 	private String goointel;
 	private String gooinmail;
 	private String content;
+	private String salary_detail;
 	
 	
 	
 	
+	public String getSalary_detail() {
+		return salary_detail;
+	}
+	public void setSalary_detail(String salary_detail) {
+		this.salary_detail = salary_detail;
+	}
 	public String getWanttel() {
 		return wanttel;
 	}
@@ -65,12 +74,6 @@ public class RegisterGooinDto {
 	}
 	public String getGender() {
 		return gender;
-	}
-	public String getLocation() {
-		return location;
-	}
-	public String getSalary() {
-		return salary;
 	}
 	public String getJobtime() {
 		return jobtime;
@@ -136,12 +139,6 @@ public class RegisterGooinDto {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public void setLocation(String location) {
-		this.location = location;
-	}
-	public void setSalary(String salary) {
-		this.salary = salary;
-	}
 	public void setJobtime(String jobtime) {
 		this.jobtime = jobtime;
 	}
@@ -175,20 +172,51 @@ public class RegisterGooinDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
+	public String getLocation_addr1() {
+		return location_addr1;
+	}
+	public String getLocation_addr2() {
+		return location_addr2;
+	}
+	public String getSalary_min() {
+		return salary_min;
+	}
+	public String getSalary_max() {
+		return salary_max;
+	}
+	public void setLocation_addr1(String location_addr1) {
+		this.location_addr1 = location_addr1;
+	}
+	public void setLocation_addr2(String location_addr2) {
+		this.location_addr2 = location_addr2;
+	}
+	public void setSalary_min(String salary_min) {
+		this.salary_min = salary_min;
+	}
+	public void setSalary_max(String salary_max) {
+		this.salary_max = salary_max;
+	}
 	
 	
 	@Override
 	public String toString() {
 		return "RegisterGooinDto [gooin_no=" + gooin_no + ", userid=" + userid + ", title=" + title + ", grade=" + grade
 				+ ", userpicture=" + userpicture + ", wanttel=" + wanttel + ", wantjob=" + wantjob + ", jobstatus="
-				+ jobstatus + ", school=" + school + ", wanthuman=" + wanthuman + ", gender=" + gender + ", location="
-				+ location + ", salary=" + salary + ", jobtime=" + jobtime + ", breaktime=" + breaktime + ", wage="
-				+ wage + ", gooinweekstart=" + gooinweekstart + ", gooinweekend=" + gooinweekend + ", gooinhow="
-				+ gooinhow + ", gooindocument=" + gooindocument + ", gooinman=" + gooinman + ", goointel=" + goointel
-				+ ", gooinmail=" + gooinmail + ", content=" + content + "]";
+				+ jobstatus + ", school=" + school + ", wanthuman=" + wanthuman + ", gender=" + gender
+				+ ", location_addr1=" + location_addr1 + ", location_addr2=" + location_addr2 + ", salary_min="
+				+ salary_min + ", salary_max=" + salary_max + ", jobtime=" + jobtime + ", breaktime=" + breaktime
+				+ ", wage=" + wage + ", gooinweekstart=" + gooinweekstart + ", gooinweekend=" + gooinweekend
+				+ ", gooinhow=" + gooinhow + ", gooindocument=" + gooindocument + ", gooinman=" + gooinman
+				+ ", goointel=" + goointel + ", gooinmail=" + gooinmail + ", content=" + content + ", salary_detail="
+				+ salary_detail + "]";
 	}
 	
+	
+
+	
+	
+	
+
 	
 	
 

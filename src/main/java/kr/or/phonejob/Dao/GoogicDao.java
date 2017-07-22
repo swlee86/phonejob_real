@@ -18,4 +18,7 @@ public interface GoogicDao {
 	//구직 등록 페이지 정보 수정
 	int updateGoogicOk(RegisterGoogicDto rgdto);
 	
+	//구직자 등록 수 카운트
+	int countAllGoogic();
+	
 }

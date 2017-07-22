@@ -27,6 +27,7 @@ import kr.or.phonejob.Dto.FreeBoardDto;
 import kr.or.phonejob.Dto.LoginDto;
 import kr.or.phonejob.Dto.Re_FreeBoard;
 import kr.or.phonejob.Service.FreeBoardService;
+import kr.or.phonejob.Util.MaskingUtil;
 
 
 @Controller
@@ -81,7 +82,13 @@ public class FreeBoardController {
 
 		try{
 			 list = freeboardservice.selectBoard(cpage, pgsize, field, query); 
-			 logger.info(list.toString());
+			 
+			 for(int i=0; i<list.size(); i++){
+				 logger.info("마스킹 작업 전 데이터 : " + list.get(i).toString());
+				 list.get(i).setUserid(MaskingUtil.getMaskedId(list.get(i).getUserid()));
+				 logger.info("마스킹 작업 후 데이터 : " + list.get(i).toString());
+			 }
+			 
 		}catch(Exception e){
 			e.getMessage();
 		}finally{
@@ -140,7 +147,7 @@ public class FreeBoardController {
 	
 		
 		    //파일 업로드 
-		 	String path = request.getRealPath("/board/free_upload/");		 	
+		 	String path = request.getRealPath("/updata/free_board/");		 	
 			try {
 				File cFile = new File(path, file.getOriginalFilename());
 				logger.info("cFile 내용 : " + cFile);

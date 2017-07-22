@@ -19,6 +19,7 @@ import kr.or.phonejob.Dto.UserIpDto;
 import kr.or.phonejob.Service.GoogicService;
 import kr.or.phonejob.Service.GooinService;
 import kr.or.phonejob.Service.IndexService;
+import kr.or.phonejob.Util.MaskingUtil;
 
 @Controller
 public class IndexController {
@@ -86,7 +87,7 @@ public class IndexController {
 		  mv.addAttribute("cIp", cIp);
 		  return "lock";
 	  }
-		
+	  
 	  
 		//구인 데이터를 뽑아 오기 위한 작업 시작
 		List<RegisterGooinDto> gooinluxury = new ArrayList<RegisterGooinDto>();
@@ -103,8 +104,14 @@ public class IndexController {
 			for(int r=0; r<gooinluxury.size(); r++){
 				logger.info("럭셔리광고 : " + gooinluxury.get(r).toString());				
 			}
-			logger.info("베스트광고 : " + gooinbest.toString());
-			logger.info("노말광고 : " + gooinnormal.toString());
+			
+			for(int j=0; j<gooinbest.size(); j++){
+				logger.info("베스트광고 : " + gooinbest.get(j).toString());				
+			}
+			
+			for(int k=0; k<gooinnormal.size(); k++){
+				logger.info("노말광고 : " + gooinnormal.get(k).toString());				
+			}
 		}catch(Exception e){
 			logger.error(e.getMessage());
 		}
@@ -116,6 +123,13 @@ public class IndexController {
 		List<RegisterGoogicDto> result = new ArrayList<RegisterGoogicDto>();
 		try{
 			result =  gservice.selectGoogic();
+			
+			for(int l=0; l<result.size(); l++){
+				logger.info("인재정보 masking 전 : " + result.get(l).toString());
+				result.get(l).setUsername(MaskingUtil.getMaskedId(result.get(l).getUsername()));
+				result.get(l).setUserid(MaskingUtil.getMaskedId(result.get(l).getUserid()));
+				logger.info("인재정보 masking 후 : " + result.get(l).toString());
+			}
 		}catch(Exception e){
 			logger.error(e.getMessage());	
 		}
@@ -124,6 +138,7 @@ public class IndexController {
 		mv.addAttribute("gooinluxury", gooinluxury);
 		mv.addAttribute("gooinbest", gooinbest);
 		mv.addAttribute("gooinnormal", gooinnormal);
+		
 		return "home.index";
 	}
 	

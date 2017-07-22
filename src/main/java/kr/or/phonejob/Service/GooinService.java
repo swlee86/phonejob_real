@@ -50,5 +50,19 @@ public class GooinService {
 		return gooinDetail;
 	}
 	
+	//구인글 카운트
+	public int countAllGooin(){
+		GooinDao gdao = sqlsession.getMapper(GooinDao.class);
+		int result = gdao.countAllGooin();
+		return result;
+	}
+	
+	//종료 된구인글 카운트
+	public int countEndGooin(){
+		GooinDao gdao = sqlsession.getMapper(GooinDao.class);
+		int result = gdao.countEndGooin();
+		return result;
+	}
+	
 	
 }

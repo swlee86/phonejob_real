@@ -43,4 +43,11 @@ public class GoogicService {
 		int result = gdao.updateGoogicOk(rgdto);
 		return result;
 	}
+	
+	//구직자 등록 수 카운트
+	public int countAllGoogic(){
+		GoogicDao gdao = sqlsession.getMapper(GoogicDao.class);
+		int result= gdao.countAllGoogic();
+		return result;		
+	}
 }

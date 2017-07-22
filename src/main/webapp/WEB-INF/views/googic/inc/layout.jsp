@@ -74,7 +74,7 @@ table.type10 .even {
     
     
 </head>
-<body class="fixed-navbar fixed-sidebar">
+<body class="boxed fixed-footer">
 
 
 <!-- Simple splash screen-->
@@ -89,14 +89,16 @@ table.type10 .even {
 
 <!-- Main Wrapper -->
 <div style="text-align: center">
-	<div id="wrapper">
+	<div id="boxed-wrapper">
 		<tiles:insertAttribute name="content" />
-
-	<!-- Footer-->
-	<tiles:insertAttribute name="footer" />
-
 	</div>
 </div>
+																																																																																																																																																																																																						<!-- Footer-->
+																																																																																																																																																																																																						<tiles:insertAttribute name="footer" />
+																																																																																																																																																																																																				</div>
+
+<!-- Footer-->
+<tiles:insertAttribute name="footer" />
 
 
 <!-- Vendor scripts -->

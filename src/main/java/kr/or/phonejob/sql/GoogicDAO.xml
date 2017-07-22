@@ -31,6 +31,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE googic_no=#{googic_no}
 	</update>
 	
+	<!-- 구직글 총 카운트 -->
+	<select id="countAllGoogic" resultType="integer">
+		select count(*) from pj_googic
+	</select>
 
 
 

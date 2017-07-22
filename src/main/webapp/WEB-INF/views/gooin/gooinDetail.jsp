@@ -31,7 +31,15 @@
     						<tr>
      					    <th scope="row">모집매장</th>
        						 <td>
-       						 	${gooinDetail.wanttel}
+       						 	<c:if test="${gooinDetail.wanttel eq 'A001'}">
+									<img src="images/kt1.jpg">
+								</c:if>
+								<c:if test="${gooinDetail.wanttel eq 'A002'}">
+									<img src="images/sk1.jpg">
+								</c:if>
+								<c:if test="${gooinDetail.wanttel eq 'A003'}">
+									<img src="images/lg1.jpg">
+								</c:if>
        						 	<input type="hidden" id="wanttel" class="form-control" name="wanttel" value="${gooinDetail.wanttel}" readonly="readonly">
        						 </td>
     						</tr>
@@ -97,15 +105,25 @@
     						<tr>
      					    <th scope="row">예상 근무지</th>
        						 <td>
-								${gooinDetail.location }
-								<input type="hidden" class="form-control"  name="location" id="location" value="${gooinDetail.location }" readonly="readonly">
+								${gooinDetail.location_addr1 } ${gooinDetail.location_addr2 }
+								<input type="hidden" class="form-control"  name="location_addr1" id="location" value="${gooinDetail.location_addr1 }" readonly="readonly">
+								<input type="hidden" class="form-control"  name="location_addr2" id="location" value="${gooinDetail.location_addr1 }" readonly="readonly">								
        						 </td>
     						</tr>
     						<tr>
      						   <th scope="row" class="even">급여</th>
       							  <td class="even">
-      							 	${gooinDetail.salary }
-									<input type="hidden" class="form-control"  name="salary" id="salary" value="${gooinDetail.salary }" readonly="readonly">
+      							  <c:if test="${gooinDetail.salary_detail ne null }">
+      							 	<c:if test="${gooinDetail.salary_detail eq '01' }">연</c:if>
+									<c:if test="${gooinDetail.salary_detail eq '02' }">월</c:if>
+									${gooinDetail.salary_min } ~ ${gooinDetail.salary_max }
+								  </c:if>
+								  <c:if test="${best.salary_detail eq null }">
+									<p>추후협의</p>								
+							   	  </c:if>
+									<input type="hidden" class="form-control"  name="salary_detail" id="salary_detail" value="${gooinDetail.salary_detail }" readonly="readonly">
+									<input type="hidden" class="form-control"  name="salary_min" id="salary_min" value="${gooinDetail.salary_min }" readonly="readonly">
+									<input type="hidden" class="form-control"  name="salary_max" id="salary_max" value="${gooinDetail.salary_max }" readonly="readonly">
       							  </td>
     						</tr>
     						<tr>

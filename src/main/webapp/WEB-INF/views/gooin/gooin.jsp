@@ -24,18 +24,17 @@
 				<a href="gooinDetail.do?gooin_no=${best.gooin_no }">
 					<div
 						style="width: 283px; display: inline-block; padding-left: 15px; padding-right: 15px;">
-						<div class="hpanel hblue">
+						<div class="hpanel hred">
 							<div class="panel-heading hbuilt" style="text-align: center;">
-								<c:if test="${best.wanttel eq 'sk'}">
-									<img src="images/sk1.jpg">
-								</c:if>
-								<c:if test="${best.wanttel eq 'lg'}">
-									<img src="images/lg1.jpg">
-								</c:if>
-								<c:if test="${best.wanttel eq 'kt'}">
+								<c:if test="${best.wanttel eq 'A001'}">
 									<img src="images/kt1.jpg">
 								</c:if>
-
+								<c:if test="${best.wanttel eq 'A002'}">
+									<img src="images/sk1.jpg">
+								</c:if>
+								<c:if test="${best.wanttel eq 'A003'}">
+									<img src="images/lg1.jpg">
+								</c:if>
 							</div>
 							<div class="panel-body" style="height: 220px;">
 								<p>
@@ -49,8 +48,18 @@
 									<c:if test="${best.wantjob eq 'csseller' }"> CS/판매 직원</c:if>
 									<c:if test="${best.wantjob eq 'etc' }"> 기타 직원</c:if>
 								</p>
-								<p>${best.location }</p>
-								<p>${best.salary }</p>
+								<p>${best.location_addr1 } ${best.location_addr2 }</p>
+								
+								<c:if test="${best.salary_detail ne null }">
+								<p>
+									<c:if test="${best.salary_detail eq '01' }">급여 : 연</c:if>
+									<c:if test="${best.salary_detail eq '02' }">급여 : 월</c:if>
+									${best.salary_min } ~ ${best.salary_max }
+								</p>
+								</c:if>
+								<c:if test="${best.salary_detail eq null }">
+									<p>급여 : 추후협의</p>								
+								</c:if>
 							</div>
 							<div class="panel-footer">-</div>
 						</div>
@@ -69,16 +78,16 @@
 		<c:forEach items="${gooinluxury}" var="luxury">
 			<a href="gooinDetail.do?gooin_no=${luxury.gooin_no }">
 			<div style="width: 227px;display:inline-block; padding-left: 15px; padding-right: 15px;">
-			<div class="hpanel hblue">
+				<div class="hpanel hyellow">
 				<div class="panel-heading hbuilt" style="text-align: center;">
-					<c:if test="${luxury.wanttel eq 'sk'}">
+					<c:if test="${luxury.wanttel eq 'A001'}">
+						<img src="images/kt1.jpg">
+					</c:if>
+					<c:if test="${luxury.wanttel eq 'A002'}">
 						<img src="images/sk1.jpg">
 					</c:if>
-					<c:if test="${luxury.wanttel eq 'lg'}">
+					<c:if test="${luxury.wanttel eq 'A003'}">
 						<img src="images/lg1.jpg">
-					</c:if>
-					<c:if test="${luxury.wanttel eq 'kt'}">
-						<img src="images/kt1.jpg">
 					</c:if>
 					
 				</div>
@@ -90,8 +99,17 @@
 							   <c:if test="${luxury.wantjob eq 'csseller' }"> CS/판매 직원</c:if>
 							   <c:if test="${luxury.wantjob eq 'etc' }"> 기타 직원</c:if>
 					</p>
-					<p>${luxury.location }</p>
-					<p>${luxury.salary }</p>
+					<p>${luxury.location_addr1 } ${luxury.location_addr2 }</p>
+					<c:if test="${luxury.salary_detail ne null }">
+						<p>
+							<c:if test="${luxury.salary_detail eq '01' }">급여 : 연</c:if>
+							<c:if test="${luxury.salary_detail eq '02' }">급여 : 월</c:if>
+							${luxury.salary_min } ~ ${luxury.salary_max }
+						</p>
+						</c:if>
+						<c:if test="${luxury.salary_detail eq null }">
+							<p>급여 : 추후협의</p>								
+						</c:if>
 				</div>
 				<div class="panel-footer">-</div>
 			</div>
@@ -115,16 +133,15 @@
 			<div style="width: 227px;display:inline-block; padding-left: 15px; padding-right: 15px;">
 			<div class="hpanel hblue">
 				<div class="panel-heading hbuilt" style="text-align: center;">
-					<c:if test="${best.wanttel eq 'sk'}">
-						<img src="images/sk1.jpg">
-					</c:if>
-					<c:if test="${best.wanttel eq 'lg'}">
-						<img src="images/lg1.jpg">
-					</c:if>
-					<c:if test="${best.wanttel eq 'kt'}">
+					<c:if test="${best.wanttel eq 'A001'}">
 						<img src="images/kt1.jpg">
 					</c:if>
-					
+					<c:if test="${best.wanttel eq 'A002'}">
+						<img src="images/sk1.jpg">
+					</c:if>
+					<c:if test="${best.wanttel eq 'A003'}">
+						<img src="images/lg1.jpg">
+					</c:if>
 				</div>
 				<div class="panel-body" style="height: 220px;">
 					<p><b>상호이름 들어갈 위치</b></p>
@@ -134,8 +151,17 @@
 							   <c:if test="${best.wantjob eq 'csseller' }"> CS/판매 직원</c:if>
 							   <c:if test="${best.wantjob eq 'etc' }"> 기타 직원</c:if>
 					</p>
-					<p>${best.location }</p>
-					<p>${best.salary }</p>
+					<p>${best.location_addr1 } ${best.location_addr2 }</p>
+					<c:if test="${best.salary_detail ne null }">
+						<p>
+							<c:if test="${best.salary_detail eq '01' }">급여 : 연</c:if>
+							<c:if test="${best.salary_detail eq '02' }">급여 : 월</c:if>
+							${best.salary_min } ~ ${best.salary_max }
+						</p>
+						</c:if>
+						<c:if test="${best.salary_detail eq null }">
+							<p>급여 : 추후협의</p>								
+						</c:if>
 				</div>
 				<div class="panel-footer">-</div>
 			</div>

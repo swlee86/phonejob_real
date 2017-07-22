@@ -5,7 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kr.or.phonejob.Dao.GooinDao">
 	<insert id="registerGooinOk" parameterType="kr.or.phonejob.Dto.RegisterGooinDto">
-		insert into PJ_GOOIN VALUES(gooin_no_seq.nextval, #{userid}, #{title}, #{grade}, #{userpicture}, #{wanttel}, #{wantjob}, #{jobstatus}, #{school}, #{wanthuman}, #{gender}, #{location}, #{salary}, #{jobtime}, #{breaktime}, #{wage}, #{gooinweekstart}, #{gooinweekend}, #{gooinhow}, #{gooindocument}, #{gooinman}, #{goointel}, #{gooinmail}, #{content} )
+		insert into PJ_GOOIN(gooin_no, userid, title, grade, userpicture, wanttel, wantjob, jobstatus, school, wanthuman, gender, location_addr1, location_addr2, salary_min, salary_max, jobtime, breaktime, wage, gooinweekstart, gooinweekend, gooinhow, gooindocument, gooinman, goointel, gooinmail, content, salary_detail)
+		VALUES(gooin_no_seq.nextval, #{userid}, #{title}, #{grade}, #{userpicture}, #{wanttel}, #{wantjob}, #{jobstatus}, #{school}, #{wanthuman}, #{gender}, #{location_addr1}, #{location_addr2}, #{salary_min}, #{salary_max}, #{jobtime}, #{breaktime}, #{wage}, #{gooinweekstart}, #{gooinweekend}, #{gooinhow}, #{gooindocument}, #{gooinman}, #{goointel}, #{gooinmail}, #{content}, #{salary_detail} )
 	</insert>
 	
 	<select id="gooinluxury" resultType="kr.or.phonejob.Dto.RegisterGooinDto">
@@ -24,6 +25,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from PJ_GOOIN where gooin_no=#{gooin_no}
 	</select>
 	
-
+	<!-- 구인자 총 카운트 -->
+	<select id="countAllGooin" resultType="integer">
+		select count(*) from pj_gooin
+	</select>
+	
+	<!-- 종료된 구인글 카운트 -->
+	<select id="countEndGooin" resultType="integer">
+		select count(*) from pj_gooin where gooinweekend &lt; sysdate
+	</select>
 
 </mapper>

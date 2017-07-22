@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import kr.or.phonejob.Dto.LoginFilterDto;
+import kr.or.phonejob.Service.GoogicService;
+import kr.or.phonejob.Service.GooinService;
 import kr.or.phonejob.Service.LoginFilterService;
  
 
@@ -22,9 +24,31 @@ public class Interceptor extends HandlerInterceptorAdapter {
 	
 	@Autowired
 	LoginFilterService lfservice;
+	
+	@Autowired
+	private GoogicService gservice;
+	
+	@Autowired
+	private GooinService gooservice;
    
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    	
+    	
+    	logger.info("구직자 등록 수 계산!!!");
+	    //구직자 등록 수 계산
+	  	int googicCount = gservice.countAllGoogic();
+	  	
+	  	logger.info("구인글 등록 수 계산!!!");
+	  	//구인글 등록 수 계산
+	  	int gooinCount = gooservice.countAllGooin();
+	  	  
+	  	logger.info("종료된 구인글 수 계산!!!");
+	  	//종료된 구인글 수 계산
+	  	int gooinEndCount = gooservice.countEndGooin();
+	  	  
+    	
+    	
     	logger.info("로그인 관련 인터셉터 작동!!");
     	HttpServletRequest httpRequest = (HttpServletRequest) request;
     	
@@ -32,11 +56,17 @@ public class Interceptor extends HandlerInterceptorAdapter {
 		boolean login = false;
 		
         HttpSession session = request.getSession();    
+        session.setAttribute("googicCount", googicCount);
+        session.setAttribute("gooinCount", gooinCount);
+        session.setAttribute("gooinEndCount", gooinEndCount);
+        
         
 		String[] uri = request.getRequestURI().split("/");
 		String realuri = "/"+uri[uri.length-1]; // 배열의 마지막 값이 파일이름
 
 		logger.info("접근 URI : " + realuri);
+		
+		
         
 		//////////////// 이전 페이지 세션 저장  ////////////////////////
 		String referrer = request.getHeader("Referer");

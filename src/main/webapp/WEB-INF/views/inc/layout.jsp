@@ -43,7 +43,7 @@
 
 
 </head>
-<body class="fixed-navbar fixed-sidebar" onload="openPopup('popDiv', 300, 400, 10, 10);">
+<body class="boxed fixed-footer" onload="openPopup('popDiv', 350, 450, 150, 200);"> <!-- openPopup(width, height, top, left) -->
 
 
 <!-- Simple splash screen-->
@@ -57,13 +57,13 @@
 
 <!-- Main Wrapper -->
 <div style="text-align: center">
-	<div id="wrapper">
+	<div id="boxed-wrapper">
 <tiles:insertAttribute name="content" />
 
-<!-- Footer-->
-<tiles:insertAttribute name="footer" />
 
 	</div>
+<!-- Footer-->
+<tiles:insertAttribute name="footer" />
 </div>
 
 
@@ -90,6 +90,9 @@
 
 
 <script type="text/javascript">
+
+
+
 //생성될 쿠키명
 var cookie_name = "popupCookie";
 
@@ -103,6 +106,9 @@ function openPopup(id, width, height, tpos, lpos){
   divName.style.display = "none";
  }
  
+ var winwidth=document.all?document.body.clientWidth:window.innerWidth; 
+ var left = winwidth/2 - 320
+ if(left < 190) lpos = 190;
  divName.style.width = width + "px";
  divName.style.height = height + "px";
  divName.style.top = tpos + "px";

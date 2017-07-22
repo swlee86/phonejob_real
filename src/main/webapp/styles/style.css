@@ -1599,7 +1599,7 @@ body {
   z-index: 1001;
   bottom: 0;
   left: 181px;
-  right: 0;
+  right: 181px;
 }
 .fixed-footer.hide-sidebar .footer {
   left: 0;

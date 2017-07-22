@@ -29,18 +29,17 @@
 			<c:forEach items="${gooinbest}" var="best" end="3">
 			<a href="gooinDetail.do?gooin_no=${best.gooin_no }">
 			<div style="width: 283px;display:inline-block; padding-left: 15px; padding-right: 15px;">
-			<div class="hpanel hblue">
+			<div class="hpanel hred">
 				<div class="panel-heading hbuilt" style="text-align: center;">
-					<c:if test="${best.wanttel eq 'sk'}">
-						<img src="images/sk1.jpg">
-					</c:if>
-					<c:if test="${best.wanttel eq 'lg'}">
-						<img src="images/lg1.jpg">
-					</c:if>
-					<c:if test="${best.wanttel eq 'kt'}">
+					<c:if test="${best.wanttel eq 'A001'}">
 						<img src="images/kt1.jpg">
 					</c:if>
-					
+					<c:if test="${best.wanttel eq 'A002'}">
+						<img src="images/sk1.jpg">
+					</c:if>
+					<c:if test="${best.wanttel eq 'A003'}">
+						<img src="images/lg1.jpg">
+					</c:if>
 				</div>
 				<div class="panel-body" style="height: 220px;">
 					<p><b>상호이름 들어갈 위치</b></p>
@@ -50,8 +49,17 @@
 							   <c:if test="${best.wantjob eq 'csseller' }"> CS/판매 직원</c:if>
 							   <c:if test="${best.wantjob eq 'etc' }"> 기타 직원</c:if>
 					</p>
-					<p>${best.location }</p>
-					<p>${best.salary }</p>
+					<p>${best.location_addr1 } ${best.location_addr2 }</p>
+					<c:if test="${best.salary_detail ne null }">
+					<p>
+						<c:if test="${best.salary_detail eq '01' }">급여 : 연</c:if>
+						<c:if test="${best.salary_detail eq '02' }">급여 : 월</c:if>
+						${best.salary_min } ~ ${best.salary_max }
+					</p>
+					</c:if>
+					<c:if test="${best.salary_detail eq null }">
+						<p>급여 : 추후협의</p>								
+					</c:if>
 				</div>
 				<div class="panel-footer">-</div>
 			</div>
@@ -73,18 +81,17 @@
 		<c:forEach items="${gooinluxury}" var="luxury">
 			<a href="gooinDetail.do?gooin_no=${luxury.gooin_no }">
 			<div style="width: 227px;display:inline-block; padding-left: 15px; padding-right: 15px;">
-			<div class="hpanel hblue">
+			<div class="hpanel hyellow">
 				<div class="panel-heading hbuilt" style="text-align: center;">
-					<c:if test="${luxury.wanttel eq 'sk'}">
-						<img src="images/sk1.jpg">
-					</c:if>
-					<c:if test="${luxury.wanttel eq 'lg'}">
-						<img src="images/lg1.jpg">
-					</c:if>
-					<c:if test="${luxury.wanttel eq 'kt'}">
+					<c:if test="${luxury.wanttel eq 'A001'}">
 						<img src="images/kt1.jpg">
 					</c:if>
-					
+					<c:if test="${luxury.wanttel eq 'A002'}">
+						<img src="images/sk1.jpg">
+					</c:if>
+					<c:if test="${luxury.wanttel eq 'A003'}">
+						<img src="images/lg1.jpg">
+					</c:if>					
 				</div>
 				<div class="panel-body" style="height: 220px;">
 					<p><b>상호이름 들어갈 위치</b></p>
@@ -94,8 +101,17 @@
 							   <c:if test="${luxury.wantjob eq 'csseller' }"> CS/판매 직원</c:if>
 							   <c:if test="${luxury.wantjob eq 'etc' }"> 기타 직원</c:if>
 					</p>
-					<p>${luxury.location }</p>
-					<p>${luxury.salary }</p>
+					<p>${luxury.location_addr1 } ${luxury.location_addr2 }</p>
+					<c:if test="${luxury.salary_detail ne null }">
+					<p>
+						<c:if test="${luxury.salary_detail eq '01' }">급여 : 연</c:if>
+						<c:if test="${luxury.salary_detail eq '02' }">급여 : 월</c:if>
+						${luxury.salary_min } ~ ${luxury.salary_max }
+					</p>
+					</c:if>
+					<c:if test="${luxury.salary_detail eq null }">
+						<p>급여 : 추후협의</p>								
+					</c:if>
 				</div>
 				<div class="panel-footer">-</div>
 			</div>
@@ -119,16 +135,15 @@
 			<div style="width: 227px;display:inline-block; padding-left: 15px; padding-right: 15px;">
 			<div class="hpanel hblue">
 				<div class="panel-heading hbuilt" style="text-align: center;">
-					<c:if test="${best.wanttel eq 'sk'}">
-						<img src="images/sk1.jpg">
-					</c:if>
-					<c:if test="${best.wanttel eq 'lg'}">
-						<img src="images/lg1.jpg">
-					</c:if>
-					<c:if test="${best.wanttel eq 'kt'}">
+					<c:if test="${best.wanttel eq 'A001'}">
 						<img src="images/kt1.jpg">
 					</c:if>
-					
+					<c:if test="${best.wanttel eq 'A002'}">
+						<img src="images/sk1.jpg">
+					</c:if>
+					<c:if test="${best.wanttel eq 'A003'}">
+						<img src="images/lg1.jpg">
+					</c:if>
 				</div>
 				<div class="panel-body" style="height: 220px;">
 					<p><b>상호이름 들어갈 위치</b></p>
@@ -138,8 +153,17 @@
 							   <c:if test="${best.wantjob eq 'csseller' }"> CS/판매 직원</c:if>
 							   <c:if test="${best.wantjob eq 'etc' }"> 기타 직원</c:if>
 					</p>
-					<p>${best.location }</p>
-					<p>${best.salary }</p>
+					<p>${best.location_addr1 } ${best.location_addr2 }</p>
+					<c:if test="${best.salary_detail ne null }">
+					<p>
+						<c:if test="${best.salary_detail eq '01' }">급여 : 연</c:if>
+						<c:if test="${best.salary_detail eq '02' }">급여 : 월</c:if>
+						${best.salary_min } ~ ${best.salary_max }
+					</p>
+					</c:if>
+					<c:if test="${best.salary_detail eq null }">
+						<p>급여 : 추후협의</p>								
+					</c:if>
 				</div>
 				<div class="panel-footer">-</div>
 			</div>
@@ -150,6 +174,11 @@
 	</div>
 
 	<br/>
+	
+	
+	
+	
+	
 
 
 	<h3><span style="font-family: Arial"><b>인재 리스트</b></span></h3>
@@ -230,13 +259,18 @@
 	 &nbsp;&nbsp;&nbsp;-회원 가입(개인) / 회사 가입 불가<br/>
 	 &nbsp;&nbsp;&nbsp;-커뮤니티 글쓰기 / 수정 / 삭제 가능<br/><br> 
 	
-	<h5 style="color: blue;">2. 2017-07-13 반영 사항</h5>
-	 &nbsp;&nbsp;&nbsp;-구직등록 출근가능일에 대한 요청 사항 수용<br/>
-	 &nbsp;&nbsp;&nbsp;-Admin 아이피 등록 시 편의성 개선<br/><br/>
+	<h5 style="color: blue;">2. 2017-07-22 반영 사항</h5>
+	 &nbsp;&nbsp;&nbsp;- 전광판 추가<br/>
+	 &nbsp;&nbsp;&nbsp;- 마스킹 유틸 추가<br/>
+	 &nbsp;&nbsp;&nbsp;- 인터셉터로 대체된 로그인 필터 제거<br/>
+	 &nbsp;&nbsp;&nbsp;- 전체 레이아웃 색상 및 사이즈 변경<br/>
+	 &nbsp;&nbsp;&nbsp;- 일부 문자열 비교 값에 대한 코드화<br/>
+	 &nbsp;&nbsp;&nbsp;- 구직 / 구인 / 게시판 쪽 코드 통일성 유지를<br/> 
+	 &nbsp;&nbsp;&nbsp;&nbsp;  위한 작업<br/>
+	 &nbsp;&nbsp;&nbsp;- 파일 업로드 경로 일원화(/updata/~)<br/><br/>
 	 
 	 <b>※테스트 데이터는 많을 수록 좋으므로 수시로 등록 부탁드립니다. <br/>
 	 오류 발생시 커뮤니티 게시글에 사항 남겨 주시면 확인 하겠습니다.<br/>
-	 (추후 오픈전까지 고객센터 메뉴를 통해 해당 내용 접수할 수 있도록 조치 예정)</b><br/><br/>
   <span class="" style="font-size: 13px; text-align: left; color:#6a6c6f">
   <input type="checkbox" onClick="javascript:controlCOOKIE();" style="text-align: left;">오늘은 그만보기
   </span>
@@ -245,30 +279,3 @@
   <a href="#" onclick="closePopup('popDiv')" >닫기</a>
  </span>
 </div>
-
-
-
-
-	<script>
-
-    $(function () {
-
-        // Initialize Example 1
-        $('#example1').dataTable( {
-            "ajax": 'api/datatables.json',
-            dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
-            "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
-            buttons: [
-                {extend: 'copy',className: 'btn-sm'},
-                {extend: 'csv',title: 'ExampleFile', className: 'btn-sm'},
-                {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'},
-                {extend: 'print',className: 'btn-sm'}
-            ]
-        });
-
-        // Initialize Example 2
-        $('#example2').dataTable();
-
-    });
-
-</script>

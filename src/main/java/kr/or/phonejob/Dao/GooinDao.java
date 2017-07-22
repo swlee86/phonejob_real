@@ -26,5 +26,11 @@ public interface GooinDao {
 	
 	//구인 상세 페이지로 이동
 	List<RegisterGooinDto> gooinDetail(int gooin_no);
+	
+	//구인글 등록 수 카운트
+	int countAllGooin();
+	
+	//종료된 구인 글 카운트
+	int countEndGooin();
 
 }

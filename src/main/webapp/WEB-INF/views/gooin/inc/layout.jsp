@@ -77,7 +77,7 @@ table.type10 .even {
 </style>
     
 </head>
-<body class="fixed-navbar fixed-sidebar">
+<body class="boxed fixed-footer">
 
 <!-- Simple splash screen-->
 <div class="splash"> <div class="color-line"></div><div class="splash-title"><img src="./images/main_logo.png" alt="Phone & Job"><p>Now loading...</p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div> <div class="rect5"></div> </div> </div> </div>
@@ -89,13 +89,13 @@ table.type10 .even {
 
 <!-- Main Wrapper -->
 <div style="text-align: center">
-	<div id="wrapper">
+	<div id="boxed-wrapper" style="display: inline-block;">
 <tiles:insertAttribute name="content" />
 
+	</div>
 <!-- Footer-->
 <tiles:insertAttribute name="footer" />
 
-	</div>
 </div>
 
 
@@ -109,6 +109,7 @@ table.type10 .even {
 <script src="vendor/sparkline/index.js"></script>
 <script src="vendor/summernote/dist/summernote.min.js"></script>
 
+
 <!-- App scripts -->
 <script src="scripts/homer.js"></script>
 
@@ -116,12 +117,71 @@ table.type10 .even {
 <script src="vendor/sweetalert/lib/sweet-alert.min.js"></script>
 
 
+<!-- Daum_address_search_js -->
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
 <script>
+
+//다음 주소 API
+function daumPostcode() {  
+	new daum.Postcode({
+    oncomplete: function(data) {
+        // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+        // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+        // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+        var fullAddr = ''; // 최종 주소 변수
+        var extraAddr = ''; // 조합형 주소 변수
+
+        
+        
+        // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+        if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+            fullAddr = data.roadAddress;
+
+        } else { // 사용자가 지번 주소를 선택했을 경우(J)
+            fullAddr = data.jibunAddress;
+        }
+
+
+        // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+        if(data.userSelectedType === 'R'){
+            //법정동명이 있을 경우 추가한다.
+            if(data.bname !== ''){
+                extraAddr += data.bname;
+            }
+            // 건물명이 있을 경우 추가한다.
+            if(data.buildingName !== ''){
+                extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+            }
+            // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+            fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+        }
+
+        // 우편번호와 주소 정보를 해당 필드에 넣는다.
+        //document.getElementById('addrnum').value = data.zonecode; //5자리 새우편번호 사용
+        
+        //다시 클릭했을 때를 대비해서 새로운 기본 주소 선택시 상세주소 초기화 후 데이터를 추가한다
+        document.getElementById('location_addr2').value = '';
+        document.getElementById('location_addr1').value = fullAddr;
+
+        // 커서를 상세주소 필드로 이동한다.
+        document.getElementById('location_addr2').focus();
+    }
+}).open();
+   
+    
+}
+
+
+
+
+
+
 
     $(function () {
     	
     	  $( "#gooinweekstart" ).datepicker({
-    		     dateFormat: 'yy년 mm월 dd일',
+    		     dateFormat: 'yy-mm-dd',
     		     monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
     		     dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
     		     changeMonth: true, 
@@ -131,7 +191,7 @@ table.type10 .even {
     	  });
     	  
     	  $( "#gooinweekend" ).datepicker({
-    		     dateFormat: 'yy년 mm월 dd일',
+    		     dateFormat: 'yy-mm-dd',
     		     monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
     		     dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], 
     		  	 changeMonth: true, 
@@ -197,11 +257,28 @@ table.type10 .even {
         
  });
     
-    
 
     function goPage() { 
     	location.href="gooin.do"; 
     };
+    
+    
+    function useDefaultGo(){
+    	var useDefault = document.getElementById("useDefault").checked;
+    	if ( useDefault == true ){
+    		alert("추후 협의를 선택하셨습니다.");
+    	   	 $("#salary_detail").attr("disabled", true);
+    	   	 $("#salary_min").attr("disabled", true);
+    	   	 $("#salary_max").attr("disabled", true);
+    		}
+    		if ( useDefault != true ){
+    		alert("추후협의를 선택 해제 하셨습니다. 급여를 입력해 주세요.");
+    	    	$("#salary_detail").attr("disabled", false);
+    	    	$("#salary_min").attr("disabled", false);
+    	    	$("#salary_max").attr("disabled", false);
+    		}
+    	
+    }
 	
 </script>
 </body>

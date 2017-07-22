@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.or.phonejob.Dto.RegisterGoogicDto;
 import kr.or.phonejob.Service.GoogicService;
+import kr.or.phonejob.Util.MaskingUtil;
 
 @Controller
 public class GoogicController {
@@ -32,9 +33,12 @@ public class GoogicController {
 		try{
 			logger.info("인재정보 등록 게시판 이동");
 			result =  gservice.selectGoogic();
-			
+			logger.info("Result Size : " + result.size());
 			for(int i=0; i<=result.size(); i++){
-				logger.info(result.toString());
+				logger.info("마스킹 작업 전 데이터 : "+result.get(i).toString());
+				result.get(i).setUsername(MaskingUtil.getMaskedId(result.get(i).getUsername()));
+				result.get(i).setUserid(MaskingUtil.getMaskedId(result.get(i).getUserid()));
+				logger.info("마스킹 작업 후 데이터 : "+result.get(i).toString());
 			}
 			
 		}catch(Exception e){

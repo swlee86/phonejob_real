@@ -36,7 +36,7 @@
 
 
 </head>
-<body class="fixed-navbar fixed-sidebar">
+<body class="boxed fixed-footer">
 
 <!-- Simple splash screen-->
 <div class="splash"> <div class="color-line"></div><div class="splash-title"><img src="./images/main_logo.png" alt="Phone & Job"><p>Now loading...</p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div> <div class="rect5"></div> </div> </div> </div>
@@ -48,13 +48,13 @@
 
 <!-- Main Wrapper -->
 <div style="text-align: center">
-	<div id="wrapper">
-<tiles:insertAttribute name="content" />
+	<div id="boxed-wrapper" style="left: 181px; right: 181px;">
+		<tiles:insertAttribute name="content" />
+	</div>
+
 
 <!-- Footer-->
 <tiles:insertAttribute name="footer" />
-
-	</div>
 </div>
 
 
