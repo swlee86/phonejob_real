@@ -22,7 +22,6 @@ public class Interceptor extends HandlerInterceptorAdapter {
 	
 	@Autowired
 	LoginFilterService lfservice;
-	
    
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
