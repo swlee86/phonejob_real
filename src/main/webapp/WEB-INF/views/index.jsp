@@ -20,13 +20,15 @@
 	</div>
 
 	<div class="row">&nbsp;</div>
-
-	<img src="./images/best_pro.png" alt="베스트 채용공고">
+	
+	
+	
+	<h3><span style="font-family: Arial"><b>헤드라인 VIP 채용정보</b></span></h3>
 	<hr style="border: 1px solid #ddd;">
 	<div class="row">
-			<c:forEach items="${gooinbest}" var="best">
+			<c:forEach items="${gooinbest}" var="best" end="3">
 			<a href="gooinDetail.do?gooin_no=${best.gooin_no }">
-			<div style="width: 227px;display:inline-block; padding-left: 15px; padding-right: 15px;">
+			<div style="width: 283px;display:inline-block; padding-left: 15px; padding-right: 15px;">
 			<div class="hpanel hblue">
 				<div class="panel-heading hbuilt" style="text-align: center;">
 					<c:if test="${best.wanttel eq 'sk'}">
@@ -41,25 +43,31 @@
 					
 				</div>
 				<div class="panel-body" style="height: 220px;">
-					<p>제목 : ${best.title}</p>
+					<p><b>상호이름 들어갈 위치</b></p>
+					<p> ${best.title}</p>
 					<p>모집분야 : <c:if test="${best.wantjob eq 'cs' }"> CS 직원</c:if>
 							   <c:if test="${best.wantjob eq 'seller' }"> 판매 직원</c:if>
 							   <c:if test="${best.wantjob eq 'csseller' }"> CS/판매 직원</c:if>
 							   <c:if test="${best.wantjob eq 'etc' }"> 기타 직원</c:if>
 					</p>
-					<p>모집인원 : ${best.wanthuman }명</p>
+					<p>${best.location }</p>
+					<p>${best.salary }</p>
 				</div>
-				<div class="panel-footer">등록자 : ${best.userid }</div>
+				<div class="panel-footer">-</div>
 			</div>
 			</div>
 			</a>
 		</c:forEach>
 		
 	</div>
-
-	<br/>
-
-	<img src="./images/lux_pro.png" alt="럭셔리 채용공고">
+	
+	<br />
+	
+	
+	
+	
+	
+	<h3><span style="font-family: Arial"><b>프리미엄 채용정보</b></span></h3>
 	<hr style="border: 1px solid #ddd;">
 	<div class="row">
 		<c:forEach items="${gooinluxury}" var="luxury">
@@ -79,15 +87,17 @@
 					
 				</div>
 				<div class="panel-body" style="height: 220px;">
-					<p>제목 : ${luxury.title}</p>
+					<p><b>상호이름 들어갈 위치</b></p>
+					<p>${luxury.title}</p>
 					<p>모집분야 : <c:if test="${luxury.wantjob eq 'cs' }"> CS 직원</c:if>
 							   <c:if test="${luxury.wantjob eq 'seller' }"> 판매 직원</c:if>
 							   <c:if test="${luxury.wantjob eq 'csseller' }"> CS/판매 직원</c:if>
 							   <c:if test="${luxury.wantjob eq 'etc' }"> 기타 직원</c:if>
 					</p>
-					<p>모집인원 : ${luxury.wanthuman }명</p>
+					<p>${luxury.location }</p>
+					<p>${luxury.salary }</p>
 				</div>
-				<div class="panel-footer">등록자 : ${luxury.userid }</div>
+				<div class="panel-footer">-</div>
 			</div>
 			</div>
 			</a>
@@ -97,8 +107,52 @@
 	
 
 	<br/>
+	
+	
 
-	<img src="./images/pe_pro.png" alt="인재 List">
+
+	<h3><span style="font-family: Arial"><b>베스트 채용정보</b></span></h3>
+	<hr style="border: 1px solid #ddd;">
+	<div class="row">
+			<c:forEach items="${gooinbest}" var="best">
+			<a href="gooinDetail.do?gooin_no=${best.gooin_no }">
+			<div style="width: 227px;display:inline-block; padding-left: 15px; padding-right: 15px;">
+			<div class="hpanel hblue">
+				<div class="panel-heading hbuilt" style="text-align: center;">
+					<c:if test="${best.wanttel eq 'sk'}">
+						<img src="images/sk1.jpg">
+					</c:if>
+					<c:if test="${best.wanttel eq 'lg'}">
+						<img src="images/lg1.jpg">
+					</c:if>
+					<c:if test="${best.wanttel eq 'kt'}">
+						<img src="images/kt1.jpg">
+					</c:if>
+					
+				</div>
+				<div class="panel-body" style="height: 220px;">
+					<p><b>상호이름 들어갈 위치</b></p>
+					<p> ${best.title}</p>
+					<p>모집분야 : <c:if test="${best.wantjob eq 'cs' }"> CS 직원</c:if>
+							   <c:if test="${best.wantjob eq 'seller' }"> 판매 직원</c:if>
+							   <c:if test="${best.wantjob eq 'csseller' }"> CS/판매 직원</c:if>
+							   <c:if test="${best.wantjob eq 'etc' }"> 기타 직원</c:if>
+					</p>
+					<p>${best.location }</p>
+					<p>${best.salary }</p>
+				</div>
+				<div class="panel-footer">-</div>
+			</div>
+			</div>
+			</a>
+		</c:forEach>
+		
+	</div>
+
+	<br/>
+
+
+	<h3><span style="font-family: Arial"><b>인재 리스트</b></span></h3>
 	<hr style="border: 1px solid #ddd;">
 			&nbsp; 
 		<div class="row">
@@ -108,22 +162,25 @@
 						<div style="width: 227px; display: inline-block; padding-left: 15px; padding-right: 15px;">
 							<div class="hpanel hblue">
 								<div class="panel-heading hbuilt" style="text-align: center;">
-								${resultData.username}
-								(
-								<c:choose>
-								<c:when test="${resultData.wantjob eq 'seller'}">
-									판매사
-								</c:when>
-								<c:when test="${resultData.wantjob eq 'cs'}">
-									CS
-								</c:when>
-								<c:when test="${resultData.wantjob eq 'csseller'}">
-									판매사/CS
-								</c:when>
-								</c:choose>
-								)
+									<img src="" alt="구직자 이미지">
 								</div>
 								<div class="panel-body" style="height: 220px;">
+									<p>
+									<b>${resultData.username}</b>
+									(
+									<c:choose>
+									<c:when test="${resultData.wantjob eq 'seller'}">
+										판매사
+									</c:when>
+									<c:when test="${resultData.wantjob eq 'cs'}">
+										CS
+									</c:when>
+									<c:when test="${resultData.wantjob eq 'csseller'}">
+										판매사/CS
+									</c:when>
+									</c:choose>
+									)
+									</p>
 									<p>경력 : 
 										<c:choose>
 											<c:when test="${resultData.history eq 0}">
