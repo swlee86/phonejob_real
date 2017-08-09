@@ -16,7 +16,12 @@
 	<mvc:annotation-driven />
 
 
-
+ <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean id="loggerInterceptor" class="kr.or.phonejob.Filter.Interceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 
 	<bean id="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
