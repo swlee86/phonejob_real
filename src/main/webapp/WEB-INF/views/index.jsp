@@ -259,23 +259,15 @@
 	 &nbsp;&nbsp;&nbsp;-회원 가입(개인) / 회사 가입 불가<br/>
 	 &nbsp;&nbsp;&nbsp;-커뮤니티 글쓰기 / 수정 / 삭제 가능<br/><br> 
 	
-	<h5 style="color: blue;">2. 2017-07-22 반영 사항</h5>
-	 &nbsp;&nbsp;&nbsp;- 전광판 추가<br/>
-	 &nbsp;&nbsp;&nbsp;- 마스킹 유틸 추가<br/>
-	 &nbsp;&nbsp;&nbsp;- 인터셉터로 대체된 로그인 필터 제거<br/>
-	 &nbsp;&nbsp;&nbsp;- 전체 레이아웃 색상 및 사이즈 변경<br/>
-	 &nbsp;&nbsp;&nbsp;- 일부 문자열 비교 값에 대한 코드화<br/>
-	 &nbsp;&nbsp;&nbsp;- 구직 / 구인 / 게시판 쪽 코드 통일성 유지를<br/> 
-	 &nbsp;&nbsp;&nbsp;&nbsp;  위한 작업<br/>
-	 &nbsp;&nbsp;&nbsp;- 파일 업로드 경로 일원화(/updata/~)<br/><br/>
+	<h5 style="color: blue;">2. 2017-08-10 반영 사항</h5>
+	 &nbsp;&nbsp;&nbsp;-기업 회원가입 폼 제작(가입은 현재 불가)<br/><br/>
 	 
 	 <b>※테스트 데이터는 많을 수록 좋으므로 수시로 등록 부탁드립니다. <br/>
 	 오류 발생시 커뮤니티 게시글에 사항 남겨 주시면 확인 하겠습니다.<br/>
-  <span class="" style="font-size: 13px; text-align: left; color:#6a6c6f">
-  <input type="checkbox" onClick="javascript:controlCOOKIE();" style="text-align: left;">오늘은 그만보기
-  </span>
-  <br>
+	 </b>
+	 
   <span class="close" style="font-size: 13px;">
-  <a href="#" onclick="closePopup('popDiv')" >닫기</a>
+  <input type="checkbox" onClick="javascript:controlCOOKIE();" style="text-align: left;">오늘은 그만보기
+  &nbsp;&nbsp;&nbsp;<a href="#" onclick="closePopup('popDiv')" >닫기</a>
  </span>
 </div>

@@ -24,7 +24,7 @@
 									<img src="images/kt1.jpg">
 								</c:if>
 								<c:if test="${gooinDetail.wanttel eq 'A002'}">
-									<img src="images/sk1.jpg">
+									<img src="images/sk1.jpg">-
 								</c:if>
 								<c:if test="${gooinDetail.wanttel eq 'A003'}">
 									<img src="images/lg1.jpg">
@@ -152,7 +152,7 @@
 					<br/><br/><br/><br/>
 					ㅁ접수기간 및 방법
 					<hr style="border: 1px solid #ddd;">
-					채용기간 : ${gooinDetail.gooinweekstart } ~ ${gooinDetail.gooinweekend }
+					채용기간 : ${gooinDetail.gooinweekstart } ~ ${gooinDetail.gooinweekend }<br/>
 					접수방법 : ${gooinDetail.gooinhow }<br/>
 					필요서류 : ${gooinDetail.gooindocument }
 					<input type="hidden" class="form-control"  name="gooinweekstart" id="gooinweekstart" value="${gooinDetail.gooinweekstart }" readonly="readonly">

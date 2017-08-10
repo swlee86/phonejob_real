@@ -219,12 +219,7 @@
 				</form>
 
 				<div class="m-t-md">
-
-					<p>This is an example of a wizard form which can be easy
-						adjusted. Since each step is a tab, and each clik to next tab is a
-						function you can easily add validation or any other functionality.
-					</p>
-
+					<p>이동통신 구인구직의 모든 것 Phone&Job</p>
 				</div>
 
 			</div>

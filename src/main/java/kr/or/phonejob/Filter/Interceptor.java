@@ -85,42 +85,42 @@ public class Interceptor extends HandlerInterceptorAdapter {
 	    logger.info("Referer 세션 변수!!" + referrer);
 	    ////////////////이전 페이지 세션 저장  ////////////////////////
 	    
-	    List<LoginFilterDto> result = lfservice.getPassUri();
-	    
-	    
-	    for(int i=0; i< result.size(); i++){
-	    	logger.info("result : " + result.get(i).toString());
-	    	if(realuri.equalsIgnoreCase(result.get(i).getUri())){ 
-	    		logger.info("로그인 패스와 매칭되는 URI가 있음!");
-	    		
-				if (session.getAttribute("loginData") != null) {
-					logger.info("가입고객인인데 회원가입으로 갈 수 있으니 로그인 정보를  조회합시다.(loginData)");
-					
-					if(realuri.equals("/privateRegister.do")||realuri.equals("/login.do")){
-						logger.info("회원가입을 또할라고?..");
-						response.sendRedirect(request.getContextPath()+"/index.do");
-			        	return false;
-					}
-				}
-				
-				login = true;
-	    		return super.preHandle(request, response, handler);
-	    	}else{
-	    		logger.info("로그인 패스와 매칭되는 URI가 없음!!");
-
-	    	}
-	    	
-	    }
-	    
-	    
-		logger.info("그렇다면 세션 검사를 시작!");
 		if (session != null) {
 			if (session.getAttribute("loginData") != null) {
 				logger.info("로그인 세션 데이터가 있으니까 통과해도 됨!!");
 				login = true; // 세션변수가 null이 아닐경우 true로 설정.
+
+			}else{
+				logger.info("로그인 세션 데이터가 없으니까 접근 권한을 체크합시다!!");
+				
+				
+				List<LoginFilterDto> result = lfservice.getPassUri();
+	    
+				for(int i=0; i< result.size(); i++){
+					logger.info("result : " + result.get(i).toString());
+					
+					if(realuri.equalsIgnoreCase(result.get(i).getUri())){ 
+						logger.info("로그인 패스와 매칭되는 URI가 있음!");
+	    		
+					if (session.getAttribute("loginData") != null) {
+						logger.info("가입고객인인데 회원가입으로 갈 수 있으니 로그인 정보를  조회합시다.(loginData)");
+						
+						if(realuri.equals("/privateRegister.do")||realuri.equals("/login.do")){
+							logger.info("회원가입을 또할라고?..");
+							response.sendRedirect(request.getContextPath()+"/index.do");
+				        	return false;
+						}
+					}
+					
+					login = true;
+		    		return super.preHandle(request, response, handler);
+		    	}else{
+		    		logger.info("로그인 패스와 매칭되는 URI가 없음!!");
+	
+		    	}
+			}
 			}
 		}
-		
 	    
 	    
 		if (login) {

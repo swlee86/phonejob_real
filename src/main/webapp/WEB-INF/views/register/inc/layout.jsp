@@ -87,6 +87,9 @@
 
 <script type="text/javascript">
 	$(function() {
+		
+		//////////////////////////////////////////개인회원 스크립트///////////////////////////////////////////////
+		
 		//회원가입 step1 넘어갈 때 메뉴 처리
 		$('#moveStep1').click(function() {
 			$("#step1on").css("display", "");
@@ -226,6 +229,218 @@
 			$('#privateregisterform').submit();
 			
 		});
+		
+		
+		
+		
+		//////////////////////////////////////////기업회원 스크립트///////////////////////////////////////////////
+		
+		
+		
+		//회원가입 step1 넘어갈 때 메뉴 처리
+		$('#cmoveStep1').click(function() {
+			$("#cstep1on").css("display", "");
+			$("#cstep1off").css("display", "none");
+			$("#cstep2on").css("display", "none");
+			$("#cstep2off").css("display", "");
+			$("#cstep3on").css("display", "none");
+			$("#cstep3off").css("display", "");				
+		});
+		
+		
+		//회원가입정보 step2 넘어갈 때 validation 체크 및 메뉴 처리
+		$('#cmoveStep2').click(function() {
+			var approveChk = document.privateregisterform.approveCheck.checked;
+			if(!approveChk){
+				alert('약관 동의 여부를 확인하세요');
+				return false;
+			}else{
+			$("#cstep1on").css("display", "none");
+			$("#cstep1off").css("display", "");
+			$("#cstep2on").css("display", "");
+			$("#cstep2off").css("display", "none");
+			$("#cstep3on").css("display", "none");
+			$("#cstep3off").css("display", "");
+			$("#cstep4on").css("display", "none");
+			$("#cstep4off").css("display", "");
+			}
+		});
+		
+		$('#cmoveStepback2').click(function() {
+			$("#cstep1on").css("display", "none");
+			$("#cstep1off").css("display", "");
+			$("#cstep2on").css("display", "");
+			$("#cstep2off").css("display", "none");
+			$("#cstep3on").css("display", "none");
+			$("#cstep3off").css("display", "");
+			$("#cstep4on").css("display", "none");
+			$("#cstep4off").css("display", "");
+		});
+		
+		
+		
+		//회원가입 step3 넘어갈 때 validation 체크
+		$('#cmoveStep3').click(function() {
+			if($('#userid').val()==""){
+				alert("아이디를 입력하세요");
+				$('#userid').focus();
+				return false;
+			}
+			
+			if($('#userpwd').val()==""){
+				alert("비밀번호를 입력해 주세요");
+				$('#userpwd').focus();
+				return false;
+			}
+			
+			if($('#confirmpassword').val()==""){
+				alert("비밀번호 확인을 입력해 주세요");
+				$('#confirmpassword').focus();
+				return false;
+			}
+			
+			if($('#userpwd').val()!=$('#confirmpassword').val()){
+				alert("비밀번호와 비밀번호 확인이 맞지 않습니다");
+				$('#userpwd').focus();
+				return false;
+			}
+			
+			if( $('#username').val()==""){
+				alert("이름을 입력해 주세요");
+				$('#username').focus();
+				return false;
+			}
+			
+			if($('#usermail').val()==""){
+				alert("이메일을 입력해 주세요");
+				$('#usermail').focus();
+				return false;
+			}
+			
+			
+			
+			$("#cstep1on").css("display", "none");
+			$("#cstep1off").css("display", "");
+			$("#cstep2on").css("display", "none");
+			$("#cstep2off").css("display", "");
+			$("#cstep3on").css("display", "");
+			$("#cstep3off").css("display", "none");
+			$("#cstep4on").css("display", "none");
+			$("#cstep4off").css("display", "")
+		});
+		
+		
+		//담당자정보 step4 넘어갈 때 validation 체크 및 메뉴 이동
+		$('#cmoveStep4').click(function() {		
+			var approveChk = document.privateregisterform.approveCheck.checked;
+			var smschk = document.privateregisterform.smsok.checked;
+			var emailchk = document.privateregisterform.mailok.checked;
+			
+			var id = $('#userid').val()
+			var password = $('#password').val()
+			var confirmpassword = $('#confirmpassword').val();
+			var username = $('#username').val();
+			var email = $('#email').val();
+			
+			if($('#comname').val()==""){
+				alert('회사명을 입력하세요');
+				$('#comname').focus();
+				return false;
+			};
+			
+			if($('#comidfyno').val()==""){
+				alert('사업자 번호를 입력하세요');
+				$('#comidfyno').focus();
+				return false;
+			};
+			
+			
+			if($('#addrnum').val()==""){
+				alert('우편 번호 입력을 통해 우편번호를 선택해 주세요');
+				$('#addrnumsearch').focus();
+				return false;
+			};
+			
+			if($('#useraddr1').val()==""){
+				alert('우편 번호 입력을 통해 기본 주소를 선택해 주세요');
+				$('#addrnumsearch').focus();
+				return false;
+			}
+			
+			if($('#useraddr2').val()==""){
+				alert('상세 주소를 입력해 주세요');
+				$('#useraddr2').focus();
+				return false;
+			}
+			
+			if($('#userbirth').val()==""){
+				alert('생일을 입력해 주세요');
+				$('#userbirth').focus();
+				return false;
+			}
+			
+			
+			
+			
+			$("#cstep1on").css("display", "none");
+			$("#cstep1off").css("display", "");
+			$("#cstep2on").css("display", "none");
+			$("#cstep2off").css("display", "");
+			$("#cstep3on").css("display", "none");
+			$("#cstep3off").css("display", "");
+			$("#cstep4on").css("display", "");
+			$("#cstep4off").css("display", "none")
+			
+			
+		});
+		
+		$('#cmoveStepback').click(function() {
+			$("#cstep1on").css("display", "none");
+			$("#cstep1off").css("display", "");
+			$("#cstep2on").css("display", "none");
+			$("#cstep2off").css("display", "");
+			$("#cstep3on").css("display", "");
+			$("#cstep3off").css("display", "none");
+			$("#cstep4on").css("display", "none");
+			$("#cstep4off").css("display", "");
+		});
+		
+		
+		//최종 회원 가입시 validation check 및 메뉴 처리
+		$('#comRegisterOk').click(function(){
+			
+			
+		/* 			
+			var fileName =$('#pic').val();
+			
+			if($('#pic').val()==""){
+				alert("증명 사진은 필수 입니다.");
+				return false;
+			}else{
+				var ext = fileName.substring(fileName.lastIndexOf(".")+1);
+				if(ext!="jpg"&&ext!="png"&&ext!="jpeg"&&ext!="bmp"&&ext!="gif"){
+					alert("그림파일만 업로드 가능합니다.");
+					return false;
+				}				
+			}
+		 */
+			
+			$('#comregisterform').submit();
+			
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 	});

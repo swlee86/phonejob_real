@@ -21,11 +21,46 @@ public class RegisterMemberDto {
 	private String gubun;
 	private String role_no;
 	private String alive;
+	private String comname;
+	private String comidfyno;
+	private String keymanname;
+	private String keymantel;
+	private String keymannail;
 	
 	
 
 	
 	
+	public String getKeymanname() {
+		return keymanname;
+	}
+	public String getKeymantel() {
+		return keymantel;
+	}
+	public String getKeymannail() {
+		return keymannail;
+	}
+	public void setKeymanname(String keymanname) {
+		this.keymanname = keymanname;
+	}
+	public void setKeymantel(String keymantel) {
+		this.keymantel = keymantel;
+	}
+	public void setKeymannail(String keymannail) {
+		this.keymannail = keymannail;
+	}
+	public String getComname() {
+		return comname;
+	}
+	public String getComidfyno() {
+		return comidfyno;
+	}
+	public void setComname(String comname) {
+		this.comname = comname;
+	}
+	public void setComidfyno(String comidfyno) {
+		this.comidfyno = comidfyno;
+	}
 	public String getAlive() {
 		return alive;
 	}
@@ -140,15 +175,22 @@ public class RegisterMemberDto {
 	public void setPic(String pic) {
 		this.pic = pic;
 	}
+	
+	
+	
 	@Override
 	public String toString() {
-		return "RegisterDto [userid=" + userid + ", userpwd=" + userpwd + ", username=" + username + ", telecom="
+		return "RegisterMemberDto [userid=" + userid + ", userpwd=" + userpwd + ", username=" + username + ", telecom="
 				+ telecom + ", phnum01=" + phnum01 + ", phnum=" + phnum + ", userphone=" + userphone + ", userbirth="
 				+ userbirth + ", usermail=" + usermail + ", addrnum=" + addrnum + ", useraddr1=" + useraddr1
 				+ ", useraddr2=" + useraddr2 + ", mailok=" + mailok + ", smsok=" + smsok + ", pic=" + pic
 				+ ", credential_id=" + credential_id + ", gubun=" + gubun + ", role_no=" + role_no + ", alive=" + alive
-				+ "]";
+				+ ", comname=" + comname + ", comidfyno=" + comidfyno + ", keymanname=" + keymanname + ", keymantel="
+				+ keymantel + ", keymannail=" + keymannail + "]";
 	}
+	
+	
+	
 	
 	
 
