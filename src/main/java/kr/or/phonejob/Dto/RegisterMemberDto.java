@@ -25,7 +25,7 @@ public class RegisterMemberDto {
 	private String comidfyno;
 	private String keymanname;
 	private String keymantel;
-	private String keymannail;
+	private String keymanmail;
 	
 	
 
@@ -37,8 +37,8 @@ public class RegisterMemberDto {
 	public String getKeymantel() {
 		return keymantel;
 	}
-	public String getKeymannail() {
-		return keymannail;
+	public String getKeymanmail() {
+		return keymanmail;
 	}
 	public void setKeymanname(String keymanname) {
 		this.keymanname = keymanname;
@@ -46,8 +46,8 @@ public class RegisterMemberDto {
 	public void setKeymantel(String keymantel) {
 		this.keymantel = keymantel;
 	}
-	public void setKeymannail(String keymannail) {
-		this.keymannail = keymannail;
+	public void setKeymanmail(String keymanmail) {
+		this.keymanmail = keymanmail;
 	}
 	public String getComname() {
 		return comname;
@@ -186,7 +186,7 @@ public class RegisterMemberDto {
 				+ ", useraddr2=" + useraddr2 + ", mailok=" + mailok + ", smsok=" + smsok + ", pic=" + pic
 				+ ", credential_id=" + credential_id + ", gubun=" + gubun + ", role_no=" + role_no + ", alive=" + alive
 				+ ", comname=" + comname + ", comidfyno=" + comidfyno + ", keymanname=" + keymanname + ", keymantel="
-				+ keymantel + ", keymannail=" + keymannail + "]";
+				+ keymantel + ", keymanmail=" + keymanmail + "]";
 	}
 	
 	

@@ -30,12 +30,6 @@
 		<property name="username" value="swlee"></property>
 		<property name="password" value="new1234!"></property>
 	</bean>
-	
-	<bean id="txManager1" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
- 	   <property name="dataSource" ref="driverManagerDataSource" />
-	</bean>
-	
-	<tx:annotation-driven transaction-manager="txManager1"/> 
 
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -84,10 +78,22 @@
 		class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
 
 	<!-- transaction start -->
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="driverManagerDataSource" />
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+  		<property name="dataSource" ref="driverManagerDataSource"/>
 	</bean>
+	
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+  		<tx:attributes>
+    	<tx:method name="*" propagation="REQUIRED" rollback-for="Exception"/>
+  	</tx:attributes>
+	</tx:advice>
+	
+	  <aop:config>
+         <aop:pointcut id="onjPointCut" expression="execution(* kr.or.phonejob.Service.*.*(..))"/>
+		 <aop:advisor advice-ref="txAdvice" pointcut-ref="onjPointCut" />
+      </aop:config>
+	
+	 
 	<!-- transaction end -->
 	
 	<!-- Security Login Customise -->

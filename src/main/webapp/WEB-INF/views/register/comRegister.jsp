@@ -14,7 +14,7 @@
 			</div>
 			<div class="panel-body">
 
-				<form name="privateregisterform" id="comregisterform" method="post">
+				<form name="comregisterform" id="comregisterform" method="post">
 
 					<div class="text-center m-b-md" id="wizardControl">
 						<a class="btn btn-primary" data-toggle="tab" id="cstep1on">Step 1 - 약관동의</a>
@@ -142,74 +142,17 @@
 											</div>
 										</div>
 										<div class="form-group col-lg-12" style="text-align: left;">
-											<label>휴대전화번호</label> 
+											<label>회사 전화번호</label> 
 											<table>
-											<tr>
+											<tr>												
 												<td>
-													<select name="telecom" id="telecom" class="form-control">
-    													<option value="01">KT</option>
-    													<option value="02">SKT</option>
-    													<option value="03">LGT</option>
-    													<option value="04">KT 알뜰폰</option>
-    													<option value="05">SKT 알뜰폰</option>
-    													<option value="06">LGT 알뜰폰</option>
-													</select>
+													<input type="text" value="" id="phnum" class="form-control" name="phnum">	
 												</td>
-												<td>&nbsp;</td>
-												<td>
-													<select name="phnum01" id="phnum01" class="form-control">
-    													<option value="010">010</option>
-    													<option value="011">011</option>
-    													<option value="016">016</option>
-    													<option value="019">019</option>
-													</select>
-												</td>
-												<td>&nbsp;</td>												
-												<td>
-													<input type="text" value="" id="phnum" class="form-control" name="phnum" placeholder="-생략된 나머지 번호 입력">	
-												</td>
-												<td>&nbsp;</td>
-												<td>
-													<a class="btn btn-default next" href="javascript:void(0);" onclick="smsValidation()" id="smsFirstgo">SMS 인증</a>
-												</td>
-											</tr>
-											<tr>
-												<td id="smsGo"></td>
-											</tr>
-											
-											<tr>
-												<td id="smsSecondButton"></td>
 											</tr>
 											</table>
 										</div>
 
-											<div class="form-group col-lg-12" style="text-align: left;">
-												<div class="row">
-													<div class="col-xs-4 form-group">
-														<label>정보성 연락 수신 동의</label>
-														<table>
-															<tr>
-																<td>			
-																	<input type="checkbox" class="i-checks approveCheck" name='mailok' id='mailok'>											
-																</td>
-																<td>&nbsp;&nbsp;</td>
-																<td>
-																	이메일 수신에 동의 합니다
-																</td>
-															</tr>
-															<tr>
-																<td>			
-																	<input type="checkbox" class="i-checks approveCheck" name='smsok' id='smsok'>											
-																</td>
-																<td>&nbsp;&nbsp;</td>
-																<td>
-																	정보성 문자 수신에 동의 합니다
-																</td>
-															</tr>
-														</table>
-													</div>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 								</div>
@@ -242,6 +185,33 @@
 											<label>담당자 이메일</label> 
 											<input type="text" id="keymanmail" class="form-control" placeholder="user@email.com" name="keymanmail">
 										</div>
+										<div class="form-group col-lg-12" style="text-align: left;">
+												<div class="row">
+													<div class="col-xs-4 form-group">
+														<label>정보성 연락 수신 동의</label>
+														<table>
+															<tr>
+																<td>			
+																	<input type="checkbox" class="i-checks approveCheck" name='mailok' id='mailok'>											
+																</td>
+																<td>&nbsp;&nbsp;</td>
+																<td>
+																	이메일 수신에 동의 합니다
+																</td>
+															</tr>
+															<tr>
+																<td>			
+																	<input type="checkbox" class="i-checks approveCheck" name='smsok' id='smsok'>											
+																</td>
+																<td>&nbsp;&nbsp;</td>
+																<td>
+																	정보성 문자 수신에 동의 합니다
+																</td>
+															</tr>
+														</table>
+													</div>
+												</div>
+											</div>
 									</div>
 								</div>
 							</div>

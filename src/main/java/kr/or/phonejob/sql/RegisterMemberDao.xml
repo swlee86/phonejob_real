@@ -31,6 +31,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    VALUES(#{credential_id}, #{username}, #{userbirth}, #{usermail}, #{useraddr1}, #{useraddr2}, #{addrnum})
 	</insert>
 	
+	<!-- 기업회원가입 pj_mem_d 입력 -->
+	<insert id="comRegister_3" parameterType="kr.or.phonejob.Dto.RegisterMemberDto">
+		INSERT INTO pj_mem_d(credential_id, username, userbirth, usermail, useraddr1 ,useraddr2, addrnum, comname, comidfyno)
+	    VALUES(#{credential_id}, #{username}, TO_DATE(#{userbirth},'YYYY-MM-DD'), #{usermail}, #{useraddr1}, #{useraddr2}, #{addrnum}, #{comname}, #{comidfyno})
+	</insert>
+	
+	<!-- 기업회원가입 pj_com_key 입력 -->
+	<insert id="comRegister_4" parameterType="kr.or.phonejob.Dto.RegisterMemberDto">
+		INSERT INTO pj_com_key(credential_id, keymanname, keymantel, keymanmail)
+	    VALUES(#{credential_id}, #{keymanname}, #{keymantel}, #{keymanmail})
+	</insert>
+	
 	
 	<!-- 개인회원 가입시 권한 부여 -->
 	<insert id="privateRegisterGrade" parameterType="kr.or.phonejob.Dto.RegisterGradeDto">

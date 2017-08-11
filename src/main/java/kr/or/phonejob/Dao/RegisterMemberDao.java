@@ -18,6 +18,12 @@ public interface RegisterMemberDao {
 	//개인 회원가입 DAO_3
 	int privateRegister_3(RegisterMemberDto rdto);
 	
+	//기업 회원가입 DAO_3
+	int comRegister_3(RegisterMemberDto rdto);
+	
+	//기업 회원가입 DAO_4(개인에 이 서비스만 추가)
+	int comRegister_4(RegisterMemberDto rdto);
+	
 	//개인 회원가입 등급 부여 DAO
 	int privateRegisterGrade(RegisterGradeDto rgdto);
 }

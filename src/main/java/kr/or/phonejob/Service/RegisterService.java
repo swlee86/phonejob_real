@@ -37,12 +37,26 @@ public class RegisterService {
 		return pjdto;
 	}
 	
-	//회원가입 서비스_2(pj_users에 데이터 등록)
-		public int privateRegister_3(RegisterMemberDto rdto){
-			RegisterMemberDao dao = sqlsession.getMapper(RegisterMemberDao.class);
-			int result = dao.privateRegister_3(rdto);
-			return result;
-		}
+	//회원가입 서비스_3(pj_umember_d에 데이터 등록)
+	public int privateRegister_3(RegisterMemberDto rdto){
+		RegisterMemberDao dao = sqlsession.getMapper(RegisterMemberDao.class);
+		int result = dao.privateRegister_3(rdto);
+		return result;
+	}
+	
+	//기업 회원 가입 서비스_3(pj_umember_d에 데이터 등록)
+	public int comRegister_3(RegisterMemberDto rdto){
+		RegisterMemberDao dao = sqlsession.getMapper(RegisterMemberDao.class);
+		int result = dao.comRegister_3(rdto);
+		return result;
+	}
+		
+	//기업 회원 가입 서비스_4(pj_com_key에 데이터 등록)
+	public int comRegister_4(RegisterMemberDto rdto){
+		RegisterMemberDao dao = sqlsession.getMapper(RegisterMemberDao.class);
+		int result = dao.comRegister_4(rdto);
+		return result;
+	}	
 		
 	
 	

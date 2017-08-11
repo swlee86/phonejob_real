@@ -62,7 +62,7 @@ public class RegisterController {
 	}
 	
 	//개인 회원 가입 input
-	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor=MyBatisSystemException.class)
+	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor=Exception.class)
 	@RequestMapping(value="/privateRegister.do", method=RequestMethod.POST)
 	public String privateRegisterOk(Model mv, RegisterMemberDto rdto){
 		
@@ -190,20 +190,17 @@ public class RegisterController {
 	}
 	
 	
-	//개인 회원 가입 input
-	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor=MyBatisSystemException.class)
-	@RequestMapping(value="/comRegisterOk.do", method=RequestMethod.POST)
+	//기업 회원 가입 input
+	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor=Exception.class)
+	@RequestMapping(value="/comRegister.do", method=RequestMethod.POST)
 	public String comRegisterOk(Model mv, RegisterMemberDto rdto){
 		
 		String page=null;
 		String data=null;
 		String movepage=null;
 		try{
-			logger.info("회원가입 submit");
-			String firstnum=rdto.getPhnum01();
-			String secondnum=rdto.getPhnum();
-			String userphone=firstnum+""+secondnum;
-			rdto.setUserphone(userphone);
+			logger.info("기업회원가입 submit");
+			rdto.setUserphone(rdto.getPhnum());
 			rdto.setUserpwd(this.bCryptPasswordEncoder.encode(rdto.getUserpwd()));
 			
 			//SMS 수신 동의하지 않았을 경우 off 입력
@@ -221,8 +218,11 @@ public class RegisterController {
 				rdto.setPic("default.jpg");
 			}
 			
+			//기업은 생일란이 없으므로 9999-99-99로 처리
+			rdto.setUserbirth("9999-12-31");
+			
 			//고객구분값 입력(개인은 1, 기업은2)
-			rdto.setGubun("1");
+			rdto.setGubun("2");
 			
 			//credentail ID는 0으로 넘김(자체 시퀀스에 의해 자동 부여)
 			rdto.setCredential_id("0");
@@ -242,7 +242,7 @@ public class RegisterController {
 				if(defaultCheck.getAlive().equals("1")){
 					logger.info("이미 가입 되어 있는 경우");
 					data="이미 가입되어 있는 아이디입니다.";
-					movepage="privateRegister.do";
+					movepage="comRegister.do";
 					page="register.registerRedirect";				
 				}
 			}else{
@@ -263,9 +263,10 @@ public class RegisterController {
 			rdto.setCredential_id(pjdto.getCredential_id());
 			
 			//추출한 credential_id를 토대로 pj_mem_d 에 데이터 등록
-			int result3 = rservice.privateRegister_3(rdto);
+			int result3 = rservice.comRegister_3(rdto);
 			
-			
+			//추출한 credential_id를 토대로 pj_com_key 에 담당자 데이터 등록
+			int result4 = rservice.comRegister_4(rdto);
 			
 			RegisterGradeDto rgdto = new RegisterGradeDto();
 			
@@ -276,15 +277,15 @@ public class RegisterController {
 			logger.info(rgdto.toString());
 			
 			//최종 가입 단계(pj_role_d 에 권한 추가)
-			int result4 = rservice.privateRegisterGrade(rgdto);
+			int result5 = rservice.privateRegisterGrade(rgdto);
 			
-			if(result1==1 && result2==1 &&result3==1 && result4==1){
+			if(result1==1 && result2==1 &&result3==1 && result4==1 && result5==1){
 				data="회원가입에 성공하였습니다.";
 				movepage="index.do";
 				page="register.registerRedirect";
 			}else{
 				data="회원가입에 실패하였습니다. 잠시 후 다시 시도해 주세요";
-				movepage="privateRegister.do";
+				movepage="comRegister.do";
 				page="register.registerRedirect";
 			}
 			}
@@ -292,7 +293,7 @@ public class RegisterController {
 			logger.error(e.getMessage());
 			e.printStackTrace();
 			data="회원가입에 실패하였습니다. 잠시 후 다시 시도해 주세요";
-			movepage="privateRegister.do";
+			movepage="comRegister.do";
 			page="register.registerRedirect";
 			throw e;
 		}finally{
