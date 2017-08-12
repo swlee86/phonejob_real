@@ -305,18 +305,7 @@
 				return false;
 			}
 			
-			if( $('#username').val()==""){
-				alert("이름을 입력해 주세요");
-				$('#username').focus();
-				return false;
-			}
-			
-			if($('#usermail').val()==""){
-				alert("이메일을 입력해 주세요");
-				$('#usermail').focus();
-				return false;
-			}
-			
+		
 			
 			
 			$("#cstep1on").css("display", "none");
@@ -373,12 +362,11 @@
 				return false;
 			}
 			
-			if($('#userbirth').val()==""){
-				alert('생일을 입력해 주세요');
-				$('#userbirth').focus();
+			if( $('#username').val()==""){
+				alert("대표자명을 입력해 주세요");
+				$('#username').focus();
 				return false;
 			}
-			
 			
 			
 			

@@ -6,6 +6,7 @@
 	작성일	: 2016-11-21
 	목 적  	: 자유게시판 상세보기 view
 -->
+<!-- 
 <div class="normalheader transition animated fadeIn">
 	<div class="hpanel">
 		<div class="panel-body">
@@ -18,10 +19,10 @@
 		</div>
 	</div>
 </div>
+ -->
 
 
-
-<div class="content animate-panel">
+<div class="content animate-panel" style="width: 1200px; text-align:left; display:inline-block">
 	<div class="row">
 		<div class="col-lg-12">
 

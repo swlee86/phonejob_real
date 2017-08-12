@@ -38,7 +38,7 @@
 							</div>
 							<div class="panel-body" style="height: 220px;">
 								<p>
-									<b>상호이름 들어갈 위치</b>
+									<b>${best.comname}</b>
 								</p>
 								<p>${best.title}</p>
 								<p>
@@ -92,7 +92,7 @@
 					
 				</div>
 				<div class="panel-body" style="height: 220px;">
-					<p><b>상호이름 들어갈 위치</b></p>
+					<p><b>${luxury.comname}</b></p>
 					<p>${luxury.title}</p>
 					<p>모집분야 : <c:if test="${luxury.wantjob eq 'cs' }"> CS 직원</c:if>
 							   <c:if test="${luxury.wantjob eq 'seller' }"> 판매 직원</c:if>
@@ -144,7 +144,7 @@
 					</c:if>
 				</div>
 				<div class="panel-body" style="height: 220px;">
-					<p><b>상호이름 들어갈 위치</b></p>
+					<p><b>${best.comname}</b></p>
 					<p> ${best.title}</p>
 					<p>모집분야 : <c:if test="${best.wantjob eq 'cs' }"> CS 직원</c:if>
 							   <c:if test="${best.wantjob eq 'seller' }"> 판매 직원</c:if>

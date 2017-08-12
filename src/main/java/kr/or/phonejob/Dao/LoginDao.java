@@ -11,5 +11,6 @@ public interface LoginDao {
 	//로그인 정보 추출
 	LoginDto loginInfo1(String userid);
 	LoginDto loginInfo2(String credential_id);
+	LoginDto loginInfo3(String credential_id);
 	
 }

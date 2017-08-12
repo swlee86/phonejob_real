@@ -28,5 +28,10 @@ public class LoginService {
 		return result;
 	}
 	
-	
+	//회원정보 추출 서비스_3
+	public LoginDto loginInfo3(String credential_id){
+		LoginDao dao = sqlsession.getMapper(LoginDao.class);
+		LoginDto result = dao.loginInfo3(credential_id);
+		return result;
+	}
 }

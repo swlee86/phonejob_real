@@ -13,10 +13,45 @@ public class LoginDto {
 	private String useraddr1;
 	private String useraddr2;
 	private String credential_id;
+	private String comname;
+	private String comidfyno;
+	private String keymanname;
+	private String keymantel;
+	private String keymanmail;
 	
 	
 	
 		
+	public String getComname() {
+		return comname;
+	}
+	public String getComidfyno() {
+		return comidfyno;
+	}
+	public String getKeymanname() {
+		return keymanname;
+	}
+	public String getKeymantel() {
+		return keymantel;
+	}
+	public String getKeymanmail() {
+		return keymanmail;
+	}
+	public void setComname(String comname) {
+		this.comname = comname;
+	}
+	public void setComidfyno(String comidfyno) {
+		this.comidfyno = comidfyno;
+	}
+	public void setKeymanname(String keymanname) {
+		this.keymanname = keymanname;
+	}
+	public void setKeymantel(String keymantel) {
+		this.keymantel = keymantel;
+	}
+	public void setKeymanmail(String keymanmail) {
+		this.keymanmail = keymanmail;
+	}
 	public String getCredential_id() {
 		return credential_id;
 	}
@@ -83,13 +118,19 @@ public class LoginDto {
 	public void setUseraddr2(String useraddr2) {
 		this.useraddr2 = useraddr2;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "LoginDto [userid=" + userid + ", username=" + username + ", userpwd=" + userpwd + ", gubun=" + gubun
 				+ ", usermail=" + usermail + ", pic=" + pic + ", userphone=" + userphone + ", userbirth=" + userbirth
-				+ ", useraddr1=" + useraddr1 + ", useraddr2=" + useraddr2 + ", credential_id=" + credential_id + "]";
+				+ ", useraddr1=" + useraddr1 + ", useraddr2=" + useraddr2 + ", credential_id=" + credential_id
+				+ ", comname=" + comname + ", comidfyno=" + comidfyno + ", keymanname=" + keymanname + ", keymantel="
+				+ keymantel + ", keymanmail=" + keymanmail + "]";
 	}
-
+	
+	
+	
 	
 	
 	

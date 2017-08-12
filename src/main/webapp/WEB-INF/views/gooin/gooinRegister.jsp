@@ -48,6 +48,36 @@
 								</div>
 						</div>
 						<div class="form-group">
+							<label class="col-sm-3 control-label" style="text-align: right"> 회사명 </label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control input-sm" name="comname" value="${loginData.comname }">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label" style="text-align: right"> 사업자번호 </label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control input-sm" name="comidfyno" value="${loginData.comidfyno }">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label" style="text-align: right"> 대표번호 </label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control input-sm" name="phone" value="${loginData.userphone }">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label" style="text-align: right"> 회사 주소 </label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control input-sm" name="adress" value="${loginData.useraddr1 } ${loginData.useraddr2 }">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label" style="text-align: right"> 회사 홈페이지 </label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control input-sm" name="homepage" value="${loginData.usermail }">
+							</div>
+						</div>
+						<div class="form-group">
 								<label class="col-sm-3 control-label" style="text-align: right">통신사</label>
 								<div class="col-sm-7">
 								<select class="form-control" name="wanttel" id="wanttel">
@@ -217,7 +247,7 @@
 						<label class="col-sm-3 control-label" style="text-align: right">담당자</label>
 							<div class="col-sm-7">
 								<div>
-									<input type="text" class="form-control" name="gooinman" style="text-align: left;">
+									<input type="text" class="form-control" name="gooinman" style="text-align: left;" value="${loginData.keymanname }">
 								</div>
 							</div>
 						</div>
@@ -225,7 +255,7 @@
 						<label class="col-sm-3 control-label" style="text-align: right">연락처</label>
 							<div class="col-sm-7">
 								<div>
-									<input type="text" class="form-control" name="goointel" style="text-align: left;">
+									<input type="text" class="form-control" name="goointel" style="text-align: left;" value="${loginData.keymantel }">
 								</div>
 							</div>
 						</div>
@@ -233,7 +263,7 @@
 						<label class="col-sm-3 control-label" style="text-align: right">이메일</label>
 							<div class="col-sm-7">
 								<div>
-									<input type="text" class="form-control" name="gooinmail" style="text-align: left;">
+									<input type="text" class="form-control" name="gooinmail" style="text-align: left;" value="${loginData.keymanmail }">
 								</div>
 							</div>
 						</div>

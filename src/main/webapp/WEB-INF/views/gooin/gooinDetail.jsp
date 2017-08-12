@@ -18,7 +18,7 @@
 								<img src="./gooin/picture/${gooinDetail.userpicture}" alt="매장 사진">
   							    <input type="hidden" value="${gooinDetail.userpicture}" id="userpicture" name="userpicture">
   							</td>
-							<td colspan="2" style="border: 1px solid #ddd; width: 270px; height: 60px;">회사명 : [회사명 위치]</td>
+							<td colspan="2" style="border: 1px solid #ddd; width: 270px; height: 60px;">회사명 : ${gooinDetail.comname }</td>
 							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
 								<c:if test="${gooinDetail.wanttel eq 'A001'}">
 									<img src="images/kt1.jpg">
@@ -33,13 +33,13 @@
 							</td>
 						</tr>
 						<tr style="border: 1px solid #ddd;">
-							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">사업자번호 : 123-45-78900</td>
-							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">대표 번호 : 02-1234-5678</td>
-							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">홈페이지 : www.com.com</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">사업자번호 : ${gooinDetail.comidfyno }</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">대표 번호 : ${gooinDetail.phone }</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">홈페이지 : ${gooinDetail.homepage }</td>
 							
 						</tr>
 						<tr style="border: 1px solid #ddd;">
-							<td colspan="3" style="border: 1px solid #ddd; width: 270px; height: 60px;">회사 주소 : </td>
+							<td colspan="3" style="border: 1px solid #ddd; width: 270px; height: 60px;">회사 주소 : ${gooinDetail.adress }</td>
 						</tr>
 					</table>
 					

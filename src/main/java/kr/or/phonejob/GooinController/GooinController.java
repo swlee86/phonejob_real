@@ -71,8 +71,15 @@ public class GooinController {
 	
 	//구인 등록 페이지로 이동
 	@RequestMapping(value="/gooinRegister.do", method=RequestMethod.GET)
-	public String mooveRegisterGooin(){
+	public String mooveRegisterGooin(HttpServletRequest request){
 		String url="";
+		
+		HttpSession session = request.getSession();
+		String gubun = (String)session.getAttribute("gubun");
+		
+		
+		if(gubun.equals("2")){
+			
 		try{
 			logger.info("구인 등록 페이지로 이동");
 			url="gooin.gooinRegister";
@@ -81,6 +88,11 @@ public class GooinController {
 		}catch (Exception e) {
 			logger.error(e.getMessage());
 		}
+		
+		}else{
+			url="gooin.notAccess";
+		}
+		
 			
 		return url;
 	}
@@ -93,6 +105,7 @@ public class GooinController {
 		String data="";
 		String movepage="";
 		
+
 		
 		//파일 업로드 
 		 String path = request.getRealPath("/updata/picture/");
@@ -147,6 +160,7 @@ public class GooinController {
 			data="등록에 실패하였습니다.";
 			movepage="gooinRegister.do";
 		}
+		
 		
 		mv.addAttribute("data", data);
 		mv.addAttribute("movepage", movepage);

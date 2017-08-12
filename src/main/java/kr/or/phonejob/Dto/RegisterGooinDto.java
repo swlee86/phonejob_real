@@ -29,10 +29,44 @@ public class RegisterGooinDto {
 	private String gooinmail;
 	private String content;
 	private String salary_detail;
+	private String phone;
+	private String comname;
+	private String comidfyno;
+	private String adress;
+	private String homepage;
 	
 	
 	
-	
+	public String getHomepage() {
+		return homepage;
+	}
+	public void setHomepage(String homepage) {
+		this.homepage = homepage;
+	}
+	public String getAdress() {
+		return adress;
+	}
+	public void setAdress(String adress) {
+		this.adress = adress;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public String getComname() {
+		return comname;
+	}
+	public String getComidfyno() {
+		return comidfyno;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public void setComname(String comname) {
+		this.comname = comname;
+	}
+	public void setComidfyno(String comidfyno) {
+		this.comidfyno = comidfyno;
+	}
 	public String getSalary_detail() {
 		return salary_detail;
 	}
@@ -208,11 +242,13 @@ public class RegisterGooinDto {
 				+ ", wage=" + wage + ", gooinweekstart=" + gooinweekstart + ", gooinweekend=" + gooinweekend
 				+ ", gooinhow=" + gooinhow + ", gooindocument=" + gooindocument + ", gooinman=" + gooinman
 				+ ", goointel=" + goointel + ", gooinmail=" + gooinmail + ", content=" + content + ", salary_detail="
-				+ salary_detail + "]";
+				+ salary_detail + ", phone=" + phone + ", comname=" + comname + ", comidfyno=" + comidfyno + ", adress="
+				+ adress + ", homepage=" + homepage + "]";
 	}
 	
-	
 
+	
+	
 	
 	
 	

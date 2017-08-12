@@ -16,4 +16,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="loginInfo2" parameterType="String" resultType="kr.or.phonejob.Dto.LoginDto">
 		select * from pj_mem_d where credential_id=#{credential_id}
 	</select>
+	
+	<!-- 로그인 정보 추출2 -->
+	<select id="loginInfo3" parameterType="String" resultType="kr.or.phonejob.Dto.LoginDto">
+		select * from pj_com_key where credential_id=#{credential_id}
+	</select>
 </mapper>

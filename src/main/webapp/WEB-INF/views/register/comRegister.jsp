@@ -70,12 +70,6 @@
 										<div class="form-group col-lg-6">
 											<label>패스워드 확인</label> <input type="password" value="" id="confirmpassword"	class="form-control" name="confirmpassword" placeholder="******">
 										</div>
-										<div class="form-group col-lg-6">
-											<label>이름</label><input type="text" id="username" class="form-control" placeholder="이름" name="username">
-										</div>
-										<div class="form-group col-lg-6">
-											<label>이메일</label> <input type="text" id="usermail" class="form-control" placeholder="user@email.com" name="usermail">
-										</div>
 									</div>
 								</div>
 							</div>
@@ -150,6 +144,14 @@
 												</td>
 											</tr>
 											</table>
+										</div>
+										<div class="form-group col-lg-6" style="text-align: left;">
+											<label>대표자명</label>
+											<input type="text" id="username" class="form-control" placeholder="" name="username">
+										</div>
+										<div class="form-group col-lg-6" style="text-align: left;">
+											<label>홈페이지</label> 
+											<input type="text" id="usermail" class="form-control" placeholder="www.abcd.com" name="usermail">
 										</div>
 
 											
