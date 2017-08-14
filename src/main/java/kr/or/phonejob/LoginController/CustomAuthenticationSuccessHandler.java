@@ -98,12 +98,12 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 	   //로그인시 오류났던 메세지 삭제
 	   clearAuthenticationAttributes(request);
 	   
-	   logger.info("@@@@@@@@@@@@@@@로그인Custumer 접근");
+	   logger.debug("@@@@@@@@@@@@@@@로그인Custumer 접근");
 	   
 	   HttpSession session = request.getSession();
 	   User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	   String userid=user.getUsername();
-	   logger.info("@@@@@@@@@@@@@@@@@@@@@@"+userid);
+	   logger.debug("@@@@@@@@@@@@@@@@@@@@@@"+userid);
 	   
 	   try{
 		   LoginDao ldao = sqlsession.getMapper(LoginDao.class);
@@ -111,10 +111,10 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 		   MemberDetailDto pjudto = rdao.privateRegisterSelect(userid);
 		   
 		   LoginDto ldto = ldao.loginInfo1(userid);
-		   logger.info("Pj_members 데이터 : " + ldto.toString());
+		   logger.debug("Pj_members 데이터 : " + ldto.toString());
 		   
 		   LoginDto ldto2 = ldao.loginInfo2(pjudto.getCredential_id());
-		   logger.info("Pj_mem_d 데이터" + ldto2.toString());		 
+		   logger.debug("Pj_mem_d 데이터" + ldto2.toString());		 
 		   ldto.setUsername(ldto2.getUsername());
 		   ldto.setUsermail(ldto2.getUsermail());
 		   ldto.setUserbirth(ldto2.getUserbirth());
@@ -125,12 +125,12 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 		   
 		   //biz고객일 경우 추가로 데이터 추출 필요
 		   if(ldto.getGubun().equals("2")){
-			   logger.info("biz회원 추가 데이터 추출");
+			   logger.debug("biz회원 추가 데이터 추출");
 			   ldto.setComidfyno(ldto2.getComidfyno());
 			   ldto.setComname(ldto2.getComname());
 			   
 			   LoginDto ldto3 = ldao.loginInfo3(pjudto.getCredential_id());
-			   logger.info(ldto3.toString());
+			   logger.debug(ldto3.toString());
 			   
 			   ldto.setKeymanname(ldto3.getKeymanname());
 			   ldto.setKeymantel(ldto3.getKeymantel());
@@ -139,7 +139,7 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 		   
 		   
 		   
-		   logger.info("로그인시 생성되는 DTO 데이터 최종본" + ldto.toString());
+		   logger.debug("로그인시 생성되는 DTO 데이터 최종본" + ldto.toString());
 		   
 		   session.setAttribute("gubun", ldto.getGubun());
 		   session.setAttribute("loginData", ldto);
@@ -148,7 +148,7 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 		   
 		   
 	   }catch(Exception e){
-		   logger.info("@@@@@@@@@@@@@@@@@" + e.getMessage());
+		   logger.debug("@@@@@@@@@@@@@@@@@" + e.getMessage());
 	   }finally{		   
 		   //response.sendRedirect(request.getContextPath() + "/index.do");
 	   }

@@ -15,43 +15,37 @@
 						<div style="width: 227px; display: inline-block; padding-left: 15px; padding-right: 15px;">
 							<div class="hpanel hblue">
 								<div class="panel-heading hbuilt" style="text-align: center;">
-								${resultData.username}
-								(
-								<c:choose>
-								<c:when test="${resultData.wantjob eq 'seller'}">
-									판매사
-								</c:when>
-								<c:when test="${resultData.wantjob eq 'cs'}">
-									CS
-								</c:when>
-								<c:when test="${resultData.wantjob eq 'csseller'}">
-									판매사/CS
-								</c:when>
-								</c:choose>
-								)
+									<img src="./googic/picture/${resultData.pic}" alt="이력서 사진">
 								</div>
 								<div class="panel-body" style="height: 220px;">
-									<p>경력 : 
-										<c:choose>
-											<c:when test="${resultData.history eq 0}">
-												1년 미만
-											</c:when>
-											<c:when test="${resultData.history eq 1}">
-												1~2년		
-											</c:when>
-											<c:when test="${resultData.history eq 2}">
-												2~3년		
-											</c:when>
-											<c:when test="${resultData.history eq 3}">
-												3~4년
-											</c:when>
-											<c:when test="${resultData.history eq 4}">
-												4년 초과	
-											</c:when>
-							</c:choose>
+								<p>
+									<b>${resultData.username}</b>
+									(
+									<c:choose>
+									<c:when test="${resultData.wantjob eq 'seller'}">
+										판매사
+									</c:when>
+									<c:when test="${resultData.wantjob eq 'cs'}">
+										CS
+									</c:when>
+									<c:when test="${resultData.wantjob eq 'csseller'}">
+										판매사/CS
+									</c:when>
+									</c:choose>
+									)
 									</p>
 									<p>나이 : ${resultData.age}</p>
-									<p>선호 근무지역 : ${resultData.location}</p>
+									<p>
+										<c:choose>
+											<c:when test="${resultData.telhistory eq 'non' }">
+												신입
+											</c:when>
+											<c:otherwise>
+												경력
+											</c:otherwise>
+										</c:choose>
+									</p>
+									<p>선호지역 : ${resultData.location}</p>
 									<p>출근가능일 :
 										<c:choose>
        						 				<c:when test="${resultData.possibledate eq 'A001'}">즉시 가능</c:when>

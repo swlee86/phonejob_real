@@ -281,15 +281,17 @@ function daumPostcode() {
     }
     
     
-    function usenonhomepage(){
+    function usenonhomepageGo(){
     	var usenonhomepage = document.getElementById("usenonhomepage").checked;
     	if ( usenonhomepage == true ){
     		alert("홈페이지 없음 선택");
     	   	 $("#homepage").attr("readonly", true);
+    	   	 $("#homepage").val('없음');
     	   	}
     		if ( usenonhomepage != true ){
     		alert("홈페이지 주소를 반드시 입력해 주세요.");
     	    	$("#homepage").attr("readonly", false);
+    	    	$("#homepage").val('');
     		}
     	
     }
