@@ -134,6 +134,10 @@ public class GooinController {
 		String id= ldto.getUserid();
 		
 		
+		if(gdto.getHomepage().equals("없음")){
+			gdto.setHomepage("non");
+		}
+		
 		//Content 저장할 때 엔터 <br> 세팅
 		gdto.setContent(gdto.getContent().replace("\r\n","<br>"));
 		

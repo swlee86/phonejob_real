@@ -117,8 +117,6 @@ public class IndexController {
 		}
 		
 		
-		
-		
 		//인재 정보를 불러 오기 위한 Dto 객체 생성
 		List<RegisterGoogicDto> result = new ArrayList<RegisterGoogicDto>();
 		try{

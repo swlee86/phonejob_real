@@ -22,14 +22,76 @@ public class RegisterGoogicDto {
 	private String lghistory;
 	private String kthistory;
 	private String telhistory;
-	private String history;
 	private String profiletext;
+	private String title;
+	private String sprofiletext;
+	private String useraddr1;
+	private String useraddr2;
+	private String bohun;
+	private String chuiboho;
+	private String goji;
+	private String army;
+	private String handicap;
 	
 	
 	
 	
 	
 	
+	public String getBohun() {
+		return bohun;
+	}
+	public String getChuiboho() {
+		return chuiboho;
+	}
+	public String getGoji() {
+		return goji;
+	}
+	public String getArmy() {
+		return army;
+	}
+	public String getHandicap() {
+		return handicap;
+	}
+	public void setBohun(String bohun) {
+		this.bohun = bohun;
+	}
+	public void setChuiboho(String chuiboho) {
+		this.chuiboho = chuiboho;
+	}
+	public void setGoji(String goji) {
+		this.goji = goji;
+	}
+	public void setArmy(String army) {
+		this.army = army;
+	}
+	public void setHandicap(String handicap) {
+		this.handicap = handicap;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public String getSprofiletext() {
+		return sprofiletext;
+	}
+	public String getUseraddr1() {
+		return useraddr1;
+	}
+	public String getUseraddr2() {
+		return useraddr2;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public void setSprofiletext(String sprofiletext) {
+		this.sprofiletext = sprofiletext;
+	}
+	public void setUseraddr1(String useraddr1) {
+		this.useraddr1 = useraddr1;
+	}
+	public void setUseraddr2(String useraddr2) {
+		this.useraddr2 = useraddr2;
+	}
 	public String getUselocation() {
 		return uselocation;
 	}
@@ -156,18 +218,15 @@ public class RegisterGoogicDto {
 	public void setKthistory(String kthistory) {
 		this.kthistory = kthistory;
 	}
-	public String getHistory() {
-		return history;
-	}
-	public void setHistory(String history) {
-		this.history = history;
-	}
 	public String getProfiletext() {
 		return profiletext;
 	}
 	public void setProfiletext(String profiletext) {
 		this.profiletext = profiletext;
 	}
+	
+	
+	
 	@Override
 	public String toString() {
 		return "RegisterGoogicDto [googic_no=" + googic_no + ", pic=" + pic + ", userid=" + userid + ", username="
@@ -175,16 +234,14 @@ public class RegisterGoogicDto {
 				+ sido + ", gugun=" + gugun + ", dong=" + dong + ", dsido=" + dsido + ", dgugun=" + dgugun + ", ddong="
 				+ ddong + ", possibledate=" + possibledate + ", userphone=" + userphone + ", useremail=" + useremail
 				+ ", wantjob=" + wantjob + ", skhistory=" + skhistory + ", lghistory=" + lghistory + ", kthistory="
-				+ kthistory + ", telhistory=" + telhistory + ", history=" + history + ", profiletext=" + profiletext
-				+ "]";
+				+ kthistory + ", telhistory=" + telhistory + ", profiletext=" + profiletext + ", title=" + title
+				+ ", sprofiletext=" + sprofiletext + ", useraddr1=" + useraddr1 + ", useraddr2=" + useraddr2
+				+ ", bohun=" + bohun + ", chuiboho=" + chuiboho + ", goji=" + goji + ", army=" + army + ", handicap="
+				+ handicap + "]";
 	}
 	
 	
-	
 
-	
-	
-	
 	
 	
 	

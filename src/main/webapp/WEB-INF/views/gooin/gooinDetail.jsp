@@ -35,8 +35,16 @@
 						<tr style="border: 1px solid #ddd;">
 							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">사업자번호 : ${gooinDetail.comidfyno }</td>
 							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">대표 번호 : ${gooinDetail.phone }</td>
-							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">홈페이지 : ${gooinDetail.homepage }</td>
-							
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								<c:choose>
+									<c:when test="${gooinDetail.homepage eq 'non' }">
+										홈페이지 없음
+									</c:when>
+									<c:otherwise>
+										홈페이지 :${gooinDetail.homepage }
+									</c:otherwise>
+								</c:choose>
+							</td>
 						</tr>
 						<tr style="border: 1px solid #ddd;">
 							<td colspan="3" style="border: 1px solid #ddd; width: 270px; height: 60px;">회사 주소 : ${gooinDetail.adress }</td>

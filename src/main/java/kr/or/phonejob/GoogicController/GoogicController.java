@@ -3,6 +3,9 @@ package kr.or.phonejob.GoogicController;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +32,8 @@ public class GoogicController {
 	@RequestMapping(value="/googic.do", method=RequestMethod.GET)
 	public String googic(Model mv){
 		String url="googic.googic";
+		
+		
 		List<RegisterGoogicDto> result = new ArrayList<RegisterGoogicDto>();
 		try{
 			logger.info("인재정보 등록 게시판 이동");
@@ -54,12 +59,27 @@ public class GoogicController {
 	
 	//구직 등록창 오픈
 	@RequestMapping(value="/googicRegister.do", method=RequestMethod.GET)
-	public String registerGoogic(){
-		String url="googic.gogicRegister";
-		try{
-			logger.info("인재정보 등록 게시판 이동");
-		}catch(Exception e){
-			logger.info("@@@@@@@@@@@@@@이동 url" + url);
+	public String registerGoogic(HttpServletRequest request){
+		String url="";
+		logger.info("인재정보 등록 게시판 이동");
+		
+		HttpSession session = request.getSession();
+		String gubun = (String)session.getAttribute("gubun");
+		
+		if(gubun.equals("1")){
+			try{
+				url = "googic.gogicRegister";
+				logger.info("@@@@@@@@@@@@@@이동 url" + url);
+			}catch(Exception e){
+				logger.error(e.getMessage());
+			}			
+		}else{
+			try{
+				url = "googic.notAccess";
+				logger.info("@@@@@@@@@@@@@@이동 url" + url);
+			}catch(Exception e){
+				logger.error(e.getMessage());
+			}		
 		}
 		return url;
 	}
