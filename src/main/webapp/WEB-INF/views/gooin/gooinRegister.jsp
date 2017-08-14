@@ -73,8 +73,9 @@
 						</div>
 						<div class="form-group">
 							<label class="col-sm-3 control-label" style="text-align: right"> 회사 홈페이지 </label>
+							<input type="checkbox" class="" value="useDefault" id="usenonhomepage" name="usenonhomepage" onclick="usenonhomepage()">별도 홈페이지가 없는 경우 체크하세요.
 							<div class="col-sm-7">
-								<input type="text" class="form-control input-sm" name="homepage" value="${loginData.usermail }">
+								<input type="text" class="form-control input-sm" name="homepage" id="homepage" value="${loginData.usermail }">
 							</div>
 						</div>
 						<div class="form-group">

@@ -138,7 +138,7 @@ public class GooinController {
 		gdto.setContent(gdto.getContent().replace("\r\n","<br>"));
 		
 		//Wage 저장할 때 엔터 <br> 세팅
-		gdto.setContent(gdto.getWage().replace("\r\n","<br>"));
+		gdto.setWage(gdto.getWage().replace("\r\n","<br>"));
 		
 		//세팅된 아이디를 gdto에 세팅
 		gdto.setUserid(id);
