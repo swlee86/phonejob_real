@@ -15,8 +15,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kr.or.phonejob.Dto.PublicDto;
 import kr.or.phonejob.Dto.RegisterGoogicDto;
 import kr.or.phonejob.Service.GoogicService;
+import kr.or.phonejob.Service.PublicService;
 import kr.or.phonejob.Util.MaskingUtil;
 
 @Controller
@@ -26,6 +28,9 @@ public class GoogicController {
 	
 	@Autowired
 	private GoogicService gservice;
+	
+	@Autowired
+	private PublicService pservice;
 	
 	
 	//구직 등록 리스트 메뉴 이동
@@ -59,16 +64,21 @@ public class GoogicController {
 	
 	//구직 등록창 오픈
 	@RequestMapping(value="/googicRegister.do", method=RequestMethod.GET)
-	public String registerGoogic(HttpServletRequest request){
+	public String registerGoogic(HttpServletRequest request, Model mv){
 		String url="";
 		logger.info("인재정보 등록 게시판 이동");
-		
+		List<PublicDto> abillist = null;
+		List<PublicDto> boollist = null;
 		HttpSession session = request.getSession();
 		String gubun = (String)session.getAttribute("gubun");
 		
 		if(gubun.equals("1")){
 			try{
 				url = "googic.gogicRegister";
+				abillist = pservice.abilityService();
+				boollist = pservice.booleanService();
+				mv.addAttribute("abillist", abillist);
+				mv.addAttribute("boollist", boollist);
 				logger.info("@@@@@@@@@@@@@@이동 url" + url);
 			}catch(Exception e){
 				logger.error(e.getMessage());
@@ -137,6 +147,33 @@ public class GoogicController {
 		rgdto.setProfiletext(rgdto.getProfiletext().replace("\r\n","<br>"));
 		
 		
+		//학력 정보 Merge 작업
+		String school = rgdto.getOnename()+"||"+rgdto.getOnedate_1()+"||"+rgdto.getOnedate_2()+"||"+rgdto.getOnejob();
+		rgdto.setSchool(school);
+						
+		
+		if(null!=rgdto.getTwoname()){
+			school=school+"&&"+ rgdto.getTwoname()+"||"+rgdto.getTwodate_1()+"||"+rgdto.getTwodate_2()+"||"+rgdto.getTwojob();
+			rgdto.setSchool(school);
+		}
+		
+		if(null!=rgdto.getThreename()){
+			school=school+"&&"+ rgdto.getThreename()+"||"+rgdto.getThreedate_1()+"||"+rgdto.getThreedate_2()+"||"+rgdto.getThreejob();
+			rgdto.setSchool(school);
+		}
+		
+		if(null!=rgdto.getFourname()){
+			school=school+"&&"+ rgdto.getFourname()+"||"+rgdto.getFourdate_1()+"||"+rgdto.getFourdate_2()+"||"+rgdto.getFourjob();
+			rgdto.setSchool(school);
+		}
+		
+		if(null!=rgdto.getFivename()){
+			school=school+"&&"+ rgdto.getFivename()+"||"+rgdto.getFivedate_1()+"||"+rgdto.getFivedate_2()+"||"+rgdto.getFivejob();
+			rgdto.setSchool(school);
+		}
+		
+		
+		
 		rgdto.setLocation(rgdto.getSido()+" "+rgdto.getGugun()+" "+rgdto.getDong());
 		
 		logger.info("최종 RegisterGoogicDto 데이터 : " + rgdto.toString());
@@ -200,6 +237,7 @@ public class GoogicController {
 				
 	}
 	
+	//구직 정보 수정
 	@RequestMapping(value="/googicModifyOk.do", method=RequestMethod.POST)
 	public String googicModifyOk(RegisterGoogicDto rgdto, Model mv){
 		int result;

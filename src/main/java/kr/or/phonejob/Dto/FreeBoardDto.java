@@ -2,7 +2,7 @@ package kr.or.phonejob.Dto;
 
 public class FreeBoardDto {
 	
-	private String free_no;
+	private int free_no;
 	private String credential_id;
 	private String userid;
 	private int refer;
@@ -49,10 +49,10 @@ public class FreeBoardDto {
 		this.userid = userid;
 	}
 
-	public String getFree_no() {
+	public int getFree_no() {
 		return free_no;
 	}
-	public void setFree_no(String free_no) {
+	public void setFree_no(int free_no) {
 		this.free_no = free_no;
 	}
 	public String getCredential_id() {

@@ -111,12 +111,12 @@ public class FreeBoardController {
 	}
 	
 	
+	//글 선택하여 내용 보기 함수
 	@RequestMapping(value="/free_board_view.do", method=RequestMethod.GET)
 	public String free_board_view(Model mv, int free_no, String currentpage, String pagesize,HttpSession session){
 		String url = null;
 		FreeBoardDto freeboard = null;
 		List<Re_FreeBoard> re_list = null;
-		String rec_emp_no = (String)session.getAttribute("emp_no");
 
 		try{
 			freeboard = freeboardservice.selectDetail(free_no);
@@ -131,7 +131,6 @@ public class FreeBoardController {
 			mv.addAttribute("re_list", re_list);
 			mv.addAttribute("currentpage", currentpage);
 			mv.addAttribute("pagesize", pagesize);
-			mv.addAttribute("rec_emp_no",rec_emp_no);
 
 			url = "free_board.free_board_view";
 		}
@@ -185,7 +184,7 @@ public class FreeBoardController {
 		try{
 			result = freeboardservice.insertArticle(board);
 		}catch(Exception e){
-			e.getMessage();
+			logger.error(e.getMessage());
 		}finally{
 			if(result>0){
 				link = "freeboard.do";
@@ -344,8 +343,79 @@ public class FreeBoardController {
 		
 
 	}
+	
+	//글 수정으로 이동 하는 함수(글번호를 통해 데이터를 가지고 이동)
+	@RequestMapping(value="/free_board_update.do", method=RequestMethod.GET)
+	public String free_board_update(int free_no, String currentpage, String pagesize, Model mv){
+		String url="";
+		
+		FreeBoardDto freeboard = null;
+		try{
+			url="free_board.free_board_rewrite";
+			freeboard = freeboardservice.selectDetail(free_no);
+			logger.info("수정할 데이터 : " + freeboard.toString());
+		}catch(Exception e){
+			logger.error(e.getMessage());
+		}finally{
+			mv.addAttribute("freeboard", freeboard);
+			mv.addAttribute("currentpage", currentpage);
+			mv.addAttribute("pagesize", pagesize);
+		}
+		
+		return url;
+	}
 			
 	
+	
+	//글수정 누르면 업데이트 시키는 서비스 함수 + 파일업로드
+	@RequestMapping(value="/free_board_update_ok.do", method=RequestMethod.POST)
+	public String free_board_update_ok(@RequestParam("uploadfile") MultipartFile file, FreeBoardDto board, Model mv,HttpServletRequest request, int currentpage, int pagesize){
+	
+		
+		    //파일 업로드 
+		 	String path = request.getRealPath("/updata/free_board/");		 	
+			try {
+				File cFile = new File(path, file.getOriginalFilename());
+				logger.info("cFile 내용 : " + cFile);
+				file.transferTo(cFile);
+			} catch (IllegalStateException e1) {
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		
+		//게시판에 넣을 데이터 작업 시작
+		if(null!=file.getOriginalFilename()){
+			board.setFilename(file.getOriginalFilename());			
+		}else if(board.getFilename()==null){
+			board.setFilename("");
+		}
+			
+		
+		logger.info("데이터 업데이트 될 boardDto : " + board.toString());
+		
+		int result = 0;
+		String link = null;
+		String msg = null;
+		try{
+			result = freeboardservice.updateArticle(board);
+		}catch(Exception e){
+			System.out.println(e.getStackTrace());
+		}finally{
+			if(result>0){
+				link = "free_board_view.do?free_no="+board.getFree_no()+"&currentpage="+currentpage+"&pagesize="+pagesize;
+				msg = "글 수정에 성공하였습니다.";
+			}else{
+				link = "freeboard.do";
+				msg = "글 수정에 실패하였습니다.";
+			}
+			mv.addAttribute("link", link);
+			mv.addAttribute("msg", msg);
+		}
+		return "free_board.free_redirect";
+	}
+		
+		
 	
 	
 }

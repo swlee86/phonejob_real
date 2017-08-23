@@ -7,40 +7,128 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="kr.or.phonejob.Dao.FreeBoardDao">
 
 <!-- Free 게시판 글 리스트를 불러오는 쿼리문  -->
-<select id="selectList" resultType="kr.or.phonejob.Dto.FreeBoardDto">
-select free_no, credential_id, title, userid, regdate, hit, depth,step,refer,filename 
-	from(select rownum rn, free_no, credential_id, title, userid, regdate, hit, depth, step, refer, filename 
-		from (select free_no, credential_id, title, userid, regdate, hit, depth,step,refer,filename 
-		 	from pj_freeboard where ${param3} like '%${param4}%' order by refer desc, step asc) order by rn) where rn between #{param1} and #{param2}
-
-</select >
+	<select id="selectList" resultType="kr.or.phonejob.Dto.FreeBoardDto">
+		select 
+			free_no, 
+			credential_id, 
+			title, 
+			userid, 
+			regdate, 
+			hit, 
+			depth,
+			step,
+			refer,
+			filename 
+		from
+		(
+			select 
+				rownum rn, 
+				free_no, 
+				credential_id, 
+				title, 
+				userid, 
+				regdate, 
+				hit, 
+				depth, 
+				step, 
+				refer, 
+				filename 
+			from 
+			(
+				select 
+					free_no, 
+					credential_id, 
+					title, 
+					userid, 
+					regdate, 
+					hit, 
+					depth,
+					step,
+					refer,
+					filename 
+			 	from 
+			 		pj_freeboard 
+			 	where 
+			 		${param3} like '%${param4}%' 
+			 	order by refer desc, step asc
+			 ) 
+			 	order by rn
+			 ) 
+			 	where 
+			 		rn between #{param1} and #{param2}
 	
-<!-- Free Board의 총 갯수를 불러오는 쿼리문 -->
-<select id="selectBoardCount" resultType="int">
-select count(*) from pj_freeboard
-where ${param1} like '%${param2}%'  
-</select>
+	</select >
+	
+	<!-- Free Board의 총 갯수를 불러오는 쿼리문 -->
+	<select id="selectBoardCount" resultType="int">
+		select 
+			count(*) 
+		from 
+			pj_freeboard
+		where 
+			${param1} like '%${param2}%'  
+	</select>
 
-<!-- Free Board list에서 글을 클릭하면 글 내용을 불러오는 쿼리문 -->
-<!-- Free Board 글 내용에서 답글을 누르면 답글을 띄울 때 본문 내용을 에디터에 띄워주는 쿼리문 -->
-<select id="selectDetail" resultType="kr.or.phonejob.Dto.FreeBoardDto">
-select free_no, title, content, userid, credential_id, filename, regdate, refer, depth, step from pj_freeboard where free_no=#{free_no}
-</select>
+	<!-- Free Board list에서 글을 클릭하면 글 내용을 불러오는 쿼리문 -->
+	<!-- Free Board 글 내용에서 답글을 누르면 답글을 띄울 때 본문 내용을 에디터에 띄워주는 쿼리문 -->
+	<select id="selectDetail" resultType="kr.or.phonejob.Dto.FreeBoardDto">
+		select 
+			free_no, 
+			title, 
+			content, 
+			userid, 
+			credential_id,
+			filename, 
+			regdate, 
+			refer, 
+			depth, 
+			step 
+		from 
+			pj_freeboard 
+		where 
+			free_no=#{free_no}
+	</select>
+		
 	
 	
 	
-	
-<!-- Free board list에서 글을 클릭하여 내용을 불러올 때 댓글 내용도 불러오는 쿼리문 -->	
-<select id="selectReList" resultType="kr.or.phonejob.Dto.Re_FreeBoard">
-select userid, re_no, free_no, credential_id, content, regdate from (select rownum rn, re_no, free_no, credential_id, userid, content, regdate from pj_re_freeboard where free_no=#{free_no} order by re_no asc)
-</select>
+	<!-- Free board list에서 글을 클릭하여 내용을 불러올 때 댓글 내용도 불러오는 쿼리문 -->	
+	<select id="selectReList" resultType="kr.or.phonejob.Dto.Re_FreeBoard">
+		select 
+			userid, 
+			re_no, 
+			free_no, 
+			credential_id, 
+			content, 
+			regdate 
+		from 
+		(
+			select 
+				rownum rn, 
+				re_no, 
+				free_no, 
+				credential_id,
+				userid, 
+				content, 
+				regdate 
+			from 
+				pj_re_freeboard 
+			where 
+				free_no=#{free_no} 
+			order by re_no asc
+		)
+	</select>
+
+	<!-- 글 수정시 업데이트 쿼리 -->
+	<update id="updateArticle" parameterType="kr.or.phonejob.Dto.FreeBoardDto">
+		update pj_freeboard	set	title=#{title},	content=#{content}, filename=#{filename} where free_no=#{free_no}
+	</update>
 
 
-
-<!-- 글쓰기시 Refer 설정을 위해 최대 Refer 값을 불러온다 -->
-<select id="selectRefer" resultType="int">
-select nvl(max(refer),0) from pj_freeboard
-</select>
+	<!-- 글쓰기시 Refer 설정을 위해 최대 Refer 값을 불러온다 -->
+	<select id="selectRefer" resultType="int">
+	select nvl(max(refer),0) from pj_freeboard
+	</select>
 
 
 <!-- 글쓰기 진행시 글을 인서트 하는 쿼리문 -->

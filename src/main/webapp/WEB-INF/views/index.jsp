@@ -214,10 +214,10 @@
 									<p>
 										<c:choose>
 											<c:when test="${resultData.telhistory eq 'non' }">
-												신입
+												경력 여부 : 신입
 											</c:when>
 											<c:otherwise>
-												경력
+												경력 여부 : 경력
 											</c:otherwise>
 										</c:choose>
 									</p>
@@ -246,11 +246,11 @@
  <!-- 팝업내용 및 이미지 -->
 	<h5 style="color: blue;">1. 현재 작업 진행 상황</h5>
 	 &nbsp;&nbsp;&nbsp;-구인글 등록 / 읽기(수정 / 삭제 불가)<br/>
-	 &nbsp;&nbsp;&nbsp;-구직글 등록 / 읽기 / 수정 (삭제 불가)<br/>
+	 &nbsp;&nbsp;&nbsp;-구직글 등록 / 읽기 / (수정 / 삭제 불가)<br/>
 	 &nbsp;&nbsp;&nbsp;-회원 가입(개인 / 사업자) 가능<br/>
 	 &nbsp;&nbsp;&nbsp;-커뮤니티 글쓰기 / 수정 / 삭제 가능<br/><br> 
 	
-	<h5 style="color: blue;">2. 2017-08-12 반영 사항</h5>
+	<h5 style="color: blue;">2. 2017-08-22 반영 사항</h5>
 	 &nbsp;&nbsp;&nbsp;-커뮤니티 게시판의 업데이트 리스트 참조<br/><br/>
 	 
 	 <b>※테스트 데이터는 많을 수록 좋으므로 수시로 등록 부탁드립니다. <br/>

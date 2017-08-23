@@ -5,8 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kr.or.phonejob.Dao.GooinDao">
 	<insert id="registerGooinOk" parameterType="kr.or.phonejob.Dto.RegisterGooinDto">
-		insert into PJ_GOOIN(gooin_no, userid, title, grade, userpicture, wanttel, wantjob, jobstatus, school, wanthuman, gender, location_addr1, location_addr2, salary_min, salary_max, jobtime, breaktime, wage, gooinweekstart, gooinweekend, gooinhow, gooindocument, gooinman, goointel, gooinmail, content, salary_detail, phone, comname, comidfyno, adress, homepage)
-		VALUES(gooin_no_seq.nextval, #{userid}, #{title}, #{grade}, #{userpicture}, #{wanttel}, #{wantjob}, #{jobstatus}, #{school}, #{wanthuman}, #{gender}, #{location_addr1}, #{location_addr2}, #{salary_min}, #{salary_max}, #{jobtime}, #{breaktime}, #{wage}, #{gooinweekstart}, #{gooinweekend}, #{gooinhow}, #{gooindocument}, #{gooinman}, #{goointel}, #{gooinmail}, #{content}, #{salary_detail}, #{phone}, #{comname}, #{comidfyno}, #{adress}, #{homepage} )
+		insert into PJ_GOOIN(gooin_no, userid, title, grade, userpicture, wanttel, wantjob, jobstatus, school, wanthuman, gender, location_addr1, location_addr2, salary_min, salary_max, jobtime, breaktime, wage, gooinweekstart, gooinweekend, gooinhow, gooindocument, gooinman, goointel, gooinmail, content, salary_detail, phone, comname, comidfyno, adress, homepage, wantstatus)
+		VALUES(gooin_no_seq.nextval, #{userid}, #{title}, #{grade}, #{userpicture}, #{wanttel}, #{wantjob}, #{jobstatus}, #{school}, #{wanthuman}, #{gender}, #{location_addr1}, #{location_addr2}, #{salary_min}, #{salary_max}, #{jobtime}, #{breaktime}, #{wage}, #{gooinweekstart}, #{gooinweekend}, #{gooinhow}, #{gooindocument}, #{gooinman}, #{goointel}, #{gooinmail}, #{content}, #{salary_detail}, #{phone}, #{comname}, #{comidfyno}, #{adress}, #{homepage}, #{wantstatus} )
 	</insert>
 	
 	<select id="gooinluxury" resultType="kr.or.phonejob.Dto.RegisterGooinDto">

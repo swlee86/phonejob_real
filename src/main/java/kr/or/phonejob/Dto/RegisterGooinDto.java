@@ -34,9 +34,16 @@ public class RegisterGooinDto {
 	private String comidfyno;
 	private String adress;
 	private String homepage;
+	private String wantstatus;
 	
 	
 	
+	public String getWantstatus() {
+		return wantstatus;
+	}
+	public void setWantstatus(String wantstatus) {
+		this.wantstatus = wantstatus;
+	}
 	public String getHomepage() {
 		return homepage;
 	}
@@ -232,6 +239,7 @@ public class RegisterGooinDto {
 	}
 	
 	
+	
 	@Override
 	public String toString() {
 		return "RegisterGooinDto [gooin_no=" + gooin_no + ", userid=" + userid + ", title=" + title + ", grade=" + grade
@@ -243,10 +251,9 @@ public class RegisterGooinDto {
 				+ ", gooinhow=" + gooinhow + ", gooindocument=" + gooindocument + ", gooinman=" + gooinman
 				+ ", goointel=" + goointel + ", gooinmail=" + gooinmail + ", content=" + content + ", salary_detail="
 				+ salary_detail + ", phone=" + phone + ", comname=" + comname + ", comidfyno=" + comidfyno + ", adress="
-				+ adress + ", homepage=" + homepage + "]";
+				+ adress + ", homepage=" + homepage + ", wantstatus=" + wantstatus + "]";
 	}
 	
-
 	
 	
 	

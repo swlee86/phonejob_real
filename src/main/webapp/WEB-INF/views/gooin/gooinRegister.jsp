@@ -5,15 +5,7 @@
 	작성일	: 2017-03-17
 	목 적  	: 구인 등록 view
 -->	
-<!-- 
-<div class="normalheader transition animated fadeIn">
-	<div class="hpanel">
-		<div class="panel-body" style="text-align: left;">
-			<h2 class="font-light m-b-xs">구인 등록</h2>
-		</div>
-	</div>
-</div>
- -->
+
 
 <div class="content animate-panel" style="width: 1200px; text-align:left; display:inline-block">
 	<div class="row">
@@ -104,6 +96,22 @@
 								</select>
 							</div>
 						</div>
+						
+						<div class="form-group">
+						<label class="col-sm-3 control-label" style="text-align: right">경력여부</label>
+							<div class="col-sm-7">
+								<div>
+									<select class="form-control" name="wantstatus" id="wantstatus">
+										<option>선택</option>
+										<option value="01">신입</option>
+										<option value="02">경력</option>
+										<option value="03">무관</option>
+								</select>
+								</div>
+							</div>
+						</div>
+						
+						
 						<div class="form-group">
 						<label class="col-sm-3 control-label" style="text-align: right">근무형태</label>
 							<div class="col-sm-7">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
 <!--     
 <div class="normalheader transition animated fadeIn">
@@ -28,19 +29,32 @@
  						
  						
  							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;">제목</label>
-								<div class="col-sm-7">
-									<input type="text" class="form-control" id="title" name="title" value="">
-								</div>
-							</div>
- 						
- 							<div class="form-group col-lg-12">
 								<label class="col-sm-3 control-label" style="text-align: right;">사진</label>
 								<div class="col-sm-7">
 									<img src="default.jsp" alt="이력서 사진">
 									<input type="hidden" value="${loginData.pic}" id="pic" name="pic">
 								</div>
 							</div>
+ 						
+ 						
+ 						
+ 							<div class="form-group col-lg-12">
+								<label class="col-sm-3 control-label" style="text-align: right;">제목</label>
+								<div class="col-sm-7">
+									<input type="text" class="form-control" id="title" name="title" value="">
+								</div>
+							</div>
+							
+							
+							<div class="form-group col-lg-12">
+								<label class="col-sm-3 control-label" style="text-align: right;">짧은한마디</label>
+								<div class="col-sm-7">
+									<input type="text" class="form-control" id="sprofiletext" name="sprofiletext" value="" placeholder="자신을 소개할 수 있는 짧은 한마디">
+								</div>
+							</div>
+							
+ 						
+ 							
 							<div class="form-group col-lg-12">
 								<label class="col-sm-3 control-label" style="text-align: right;">이름</label>
 								<div class="col-sm-7">
@@ -81,31 +95,10 @@
 							</div>
 							
 							
-							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;">짧은한마디</label>
-								<div class="col-sm-7">
-									<input type="text" class="form-control" id="sprofiletext" name="sprofiletext" value="" placeholder="자신을 소개할 수 있는 짧은 한마디">
-								</div>
-							</div>
-							
-							
-							
 							
 							
 							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;"></label>
-								<div class="col-sm-7">
-								</div>
-							</div>
-							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;"></label>
-								<div class="col-sm-7">
-								</div>
-							</div>
-							
-							
-							
-							<div class="form-group col-lg-12">
+							<br/><br/><br/>
 								<label class="col-sm-3 control-label" style="text-align: right;"></label>
 								<div class="col-sm-7">
 									<p style="text-align: left;">ㅁ지원정보</p>
@@ -145,7 +138,7 @@
 							<div class="form-group col-lg-12">
 								<label class="col-sm-3 control-label" style="text-align: right;">근무형태</label>
 								<div class="col-sm-7">
-									<select class="form-control" name="wantjob" id="wantjob">
+									<select class="form-control" name="wantstatus" id="wantstatus">
 										<option>선택</option>
 										<option value="01">정규직</option>
 										<option value="02">비정규직</option>
@@ -206,21 +199,8 @@
 							
 							
 							
-							
 							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;"></label>
-								<div class="col-sm-7">
-								</div>
-							</div>
-							<div class="form-group col-lg-12">
-								<label class="col-sm-3 control-label" style="text-align: right;"></label>
-								<div class="col-sm-7">
-								</div>
-							</div>
-							
-							
-							
-							<div class="form-group col-lg-12">
+							<br/><br/><br/>
 								<label class="col-sm-3 control-label" style="text-align: right;"></label>
 								<div class="col-sm-7">
 									<p style="text-align: left;">ㅁ취업 우대사항</p>
@@ -233,9 +213,9 @@
 								<label class="col-sm-3 control-label" style="text-align: right;">보훈대상 여부</label>
 								<div class="col-sm-7">
 									<select class="form-control" name="bohun" id="bohun">
-											<option value="B000">선택</option>
-											<option value="B001">대상</option>
-											<option value="B002">미대상</option>
+										<c:forEach var="boollist" items="${boollist }" step="1">
+											<option value="${boollist.cd }">${boollist.cd_nm }</option>
+										</c:forEach>
 									</select>
 								</div>
 							</div>
@@ -244,9 +224,9 @@
 								<label class="col-sm-3 control-label" style="text-align: right;">취업보호대상여부</label>
 								<div class="col-sm-7">
 									<select class="form-control" name="chuiboho" id="chuiboho">
-											<option value="B000">선택</option>
-											<option value="B001">대상</option>
-											<option value="B002">미대상</option>
+										<c:forEach var="boollist" items="${boollist }" step="1">
+											<option value="${boollist.cd }">${boollist.cd_nm }</option>
+										</c:forEach>
 									</select>
 								</div>
 							</div>
@@ -255,9 +235,9 @@
 								<label class="col-sm-3 control-label" style="text-align: right;">고용지원금대상여부</label>
 								<div class="col-sm-7">
 									<select class="form-control" name="goji" id="goji">
-											<option value="B000">선택</option>
-											<option value="B001">대상</option>
-											<option value="B002">미대상</option>
+										<c:forEach var="boollist" items="${boollist }" step="1">
+											<option value="${boollist.cd }">${boollist.cd_nm }</option>
+										</c:forEach>
 									</select>
 								</div>
 							</div>
@@ -266,10 +246,9 @@
 								<label class="col-sm-3 control-label" style="text-align: right;">병역사항</label>
 								<div class="col-sm-7">
 									<select class="form-control" name="army" id="army">
-											<option value="B000">선택</option>
-											<option value="B001">전역</option>
-											<option value="B002">미필</option>
-											<option value="B003">미대상</option>
+										<option value="B000">선택</option>
+										<option value="B001">군필</option>
+										<option value="B002">미필</option>
 									</select>
 								</div>
 							</div>
@@ -278,12 +257,133 @@
 								<label class="col-sm-3 control-label" style="text-align: right;">장애여부</label>
 								<div class="col-sm-7">
 									<select class="form-control" name="handicap" id="handicap">
-											<option value="B000">선택</option>
-											<option value="B001">장애</option>
-											<option value="B002">비장애</option>
+										<c:forEach var="boollist" items="${boollist }" step="1">
+											<option value="${boollist.cd }">${boollist.cd_nm }</option>
+										</c:forEach>
 									</select>
 								</div>
 							</div>
+							
+							
+							
+							
+							<div class="form-group col-lg-12">
+							<br/><br/><br/>
+								<label class="col-sm-3 control-label" style="text-align: right;"></label>
+								<div class="col-sm-7">
+									<p style="text-align: left;">ㅁOA 능력</p>
+									<hr style="border: 1px solid #ddd;">
+								</div>
+							</div>
+							
+							<div class="form-group col-lg-12">
+								<label class="col-sm-3 control-label" style="text-align: right;">한글(hwp)</label>
+								<div class="col-sm-7">
+									<select class="form-control" name="hwppossible" id="hwppossible">
+										<c:forEach var="ability" items="${abillist }" step="1">
+											<option value="${ability.cd }">${ability.cd_nm }</option>
+										</c:forEach>
+									</select>
+								</div>
+							</div>
+							
+							<div class="form-group col-lg-12">
+								<label class="col-sm-3 control-label" style="text-align: right;">MS워드</label>
+								<div class="col-sm-7">
+									<select class="form-control" name="mspossible" id="mspossible">
+										<c:forEach var="ability" items="${abillist }" step="1">
+											<option value="${ability.cd }">${ability.cd_nm }</option>
+										</c:forEach>
+
+									</select>
+								</div>
+							</div>
+							
+							<div class="form-group col-lg-12">
+								<label class="col-sm-3 control-label" style="text-align: right;">엑셀</label>
+								<div class="col-sm-7">
+									<select class="form-control" name="excelpossible" id="excelpossible">
+										<c:forEach var="ability" items="${abillist }" step="1">
+											<option value="${ability.cd }">${ability.cd_nm }</option>
+										</c:forEach>
+									</select>
+								</div>
+							</div>
+							
+							<div class="form-group col-lg-12">
+								<label class="col-sm-3 control-label" style="text-align: right;">파워포인트</label>
+								<div class="col-sm-7">
+									<select class="form-control" name="pptpossible" id="pptpossible">
+										<c:forEach var="ability" items="${abillist }" step="1">
+											<option value="${ability.cd }">${ability.cd_nm }</option>
+										</c:forEach>
+									</select>
+								</div>
+							</div>
+							
+						
+							
+							
+							
+							<div class="form-group col-lg-12">
+							<br/><br/><br/>
+								<label class="col-sm-3 control-label" style="text-align: right;"></label>
+								<div class="col-sm-7">
+									<p style="text-align: left;">ㅁ학력사항</p>
+									<hr style="border: 1px solid #ddd;">
+								</div>
+							</div>
+							
+							<div class="form-group col-lg-12">
+								<label class="col-sm-3 control-label" style="text-align: right;">학력사항</label>
+								<div class="col-sm-7">
+									<small>※입력한 순서대로 노출 됩니다.</small>
+									<table style="border: 1px solid #ddd;">
+										<tr style="border: 1px solid #ddd; color: gray">
+											<th style="border: 1px solid #ddd; width: 270px; text-align:center; ">학교명</th>
+											<th style="border: 1px solid #ddd; width: 270px; text-align:center; ">입학년월일</th>
+											<th style="border: 1px solid #ddd; width: 270px; text-align:center; ">졸업년월일</th>
+											<th style="border: 1px solid #ddd; width: 270px; text-align:center; ">전공</th>
+										</tr>
+										<tr style="border: 1px solid #ddd;">
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="form-control" name="onename"></td>
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="dateSelect form-control" readonly="readonly" name="onedate_1"></td>
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="dateSelect form-control" readonly="readonly" name="onedate_2"></td>
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="form-control" placeholder="있는 경우만 기재" name="onejob"></td>
+										</tr>
+										<tr style="border: 1px solid #ddd;">
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="form-control" name="twoname"></td>
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="dateSelect form-control" readonly="readonly" name="twodate_1"></td>
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="dateSelect form-control" readonly="readonly" name="twodate_2"></td>
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="form-control" placeholder="있는 경우만 기재" name="twojob"></td>
+										</tr>
+										<tr style="border: 1px solid #ddd;">
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="form-control" name="threename"></td>
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="dateSelect form-control" readonly="readonly" name="threedate_1"></td>
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="dateSelect form-control" readonly="readonly" name="threedate_2"></td>
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="form-control" placeholder="있는 경우만 기재" name="threejob"></td>
+										</tr>
+										<tr style="border: 1px solid #ddd;">
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="form-control" name="fourname"></td>
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="dateSelect form-control" readonly="readonly" name="fourdate_1"></td>
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="dateSelect form-control" readonly="readonly" name="fourdate_2"></td>
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="form-control" placeholder="있는 경우만 기재" name="fourjob"></td>
+										</tr>
+										<tr style="border: 1px solid #ddd;">
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="form-control" name="fivename"></td>
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="dateSelect form-control" readonly="readonly" name="fivedate_1"></td>
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="dateSelect form-control" readonly="readonly" name="fivedate_2"></td>
+											<td style="border: 1px solid #ddd; width: 270px;"><input type="text" class="form-control" placeholder="있는 경우만 기재" name="fivejob"></td>
+										</tr>
+									
+									</table>
+								</div>
+							</div>
+							
+							
+							
+							
+							
 							
 							
 							

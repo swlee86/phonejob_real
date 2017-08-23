@@ -181,23 +181,31 @@ function daumPostcode() {
     $(function () {
     	
     	  $( "#gooinweekstart" ).datepicker({
-    		     dateFormat: 'yy-mm-dd',
-    		     monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-    		     dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-    		     changeMonth: true, 
-    	         changeYear: true,
-    	         nextText: '다음 달',
-    	         prevText: '이전 달' 
+    		  	dateFormat: 'yy-mm-dd',
+  		     	minDate: '-100y',
+  		     	yearRange: 'c-100:c+10',
+  		     	showButtonPanel: true,
+  		     	currentText: '오늘 날짜',
+  		     	monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+  		     	dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+  		     	changeMonth: true, 
+  	         	changeYear: true,
+  	         	nextText: '다음 달',
+  	         	prevText: '이전 달' 
     	  });
     	  
     	  $( "#gooinweekend" ).datepicker({
-    		     dateFormat: 'yy-mm-dd',
-    		     monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-    		     dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], 
-    		  	 changeMonth: true, 
-    	         changeYear: true,
-    	         nextText: '다음 달',
-    	         prevText: '이전 달' 
+    		 	dateFormat: 'yy-mm-dd',
+		     	minDate: '-100y',
+		     	yearRange: 'c-100:c+10',
+		     	showButtonPanel: true,
+		     	currentText: '오늘 날짜',
+		     	monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		     	dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		     	changeMonth: true, 
+	         	changeYear: true,
+	         	nextText: '다음 달',
+	         	prevText: '이전 달'  
   	  	  });
     	
     	

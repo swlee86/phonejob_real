@@ -28,6 +28,9 @@ public interface FreeBoardDao {
 	//글작성 함수
 	int insertArticle(FreeBoardDto dto);
 
+	//글수정 함수
+	int updateArticle(FreeBoardDto dto);
+	
 	//리플 추가하는 함수
 	int insertReply(FreeBoardDto dto);
 

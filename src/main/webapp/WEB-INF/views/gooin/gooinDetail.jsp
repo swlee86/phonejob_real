@@ -19,12 +19,12 @@
   							    <input type="hidden" value="${gooinDetail.userpicture}" id="userpicture" name="userpicture">
   							</td>
 							<td colspan="2" style="border: 1px solid #ddd; width: 270px; height: 60px;">회사명 : ${gooinDetail.comname }</td>
-							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px; text-align: center;">
 								<c:if test="${gooinDetail.wanttel eq 'A001'}">
 									<img src="images/kt1.jpg">
 								</c:if>
 								<c:if test="${gooinDetail.wanttel eq 'A002'}">
-									<img src="images/sk1.jpg">-
+									<img src="images/sk1.jpg">
 								</c:if>
 								<c:if test="${gooinDetail.wanttel eq 'A003'}">
 									<img src="images/lg1.jpg">
@@ -88,7 +88,13 @@
        						 
 							</td>
 							<td style="border: 1px solid #ddd; width: 204px; height: 60px;">
-								-
+								<c:choose>
+									<c:when test="${gooinDetail.wantstatus eq '01'}">신입</c:when>
+									<c:when test="${gooinDetail.wantstatus eq '02'}">경력</c:when>
+									<c:when test="${gooinDetail.wantstatus eq '03'}">무관</c:when>
+									<c:otherwise>-</c:otherwise>
+								</c:choose>
+								
 							</td>
 							<td style="border: 1px solid #ddd; width: 204px; height: 60px;">
 								${gooinDetail.wanthuman}명
@@ -140,7 +146,7 @@
 					
 					
 					<c:if test="${null ne gooinDetail.wage}">
-					<br/><br/><br/>
+					<br/><br/><br/><br/>
 					ㅁ회사복지
 					<hr style="border: 1px solid #ddd;">
 					${gooinDetail.wage }

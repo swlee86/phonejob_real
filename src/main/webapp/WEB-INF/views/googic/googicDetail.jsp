@@ -7,8 +7,8 @@
 			<div class="hpanel">
 				<c:forEach var="googicdata" items="${googicdata}">
 				<div class="panel-body">
-					<b style="font-size: 18px;">${gooinDetail.title }</b>
-					<input type="hidden" value="${gooinDetail.title}" id="title" name="title">
+					<b style="font-size: 18px;">${googicdata.title }</b>
+					<input type="hidden" value="${googicdata.title}" id="title" name="title">
 					<hr style="border: 1px solid #ddd;">
 					<table style="border: 1px solid #ddd;">
 						<tr style="border: 1px solid #ddd;">
@@ -35,11 +35,11 @@
 								<input type="hidden" id="wanttel" class="form-control" name="age" value="${googicdata.age}" readonly="readonly">
 							</td>
 							<td colspan="2" style="border: 1px solid #ddd; width: 270px; height: 60px;">
-							주소 : --필드생성필요--
+							주소 : ${googicdata.useraddr1 } ${googicdata.useraddr2 }
 							</td>
 						</tr>
 						<tr style="border: 1px solid #ddd;">
-							<td colspan="3" style="border: 1px solid #ddd; width: 270px; height: 60px;">간단한 한마디 : !!!</td>
+							<td colspan="3" style="border: 1px solid #ddd; width: 270px; height: 60px;">간단한 한마디 : ${googicdata.sprofiletext }</td>
 						</tr>
 					</table>
 					
@@ -58,10 +58,18 @@
 						</tr>
 						<tr style="border: 1px solid #ddd;">
 							<td style="border: 1px solid #ddd; width: 204px; height: 60px;">
-								--필드생성필요--
+								<c:choose>
+									<c:when test="${googicdata.salary_detail eq '01' }">연 ${googicdata.salary_min } ~ ${googicdata.salary_max }만원</c:when>
+									<c:when test="${googicdata.salary_detail eq '02' }">월 ${googicdata.salary_min } ~ ${googicdata.salary_max }만원</c:when>
+								</c:choose>
 							</td>
 							<td style="border: 1px solid #ddd; width: 204px; height: 60px;">
-								--필드생성필요--
+								<c:choose>
+									<c:when test="${googicdata.wantstatus eq '01' }">정규직</c:when>
+									<c:when test="${googicdata.wantstatus eq '02' }">비정규직</c:when>
+									<c:when test="${googicdata.wantstatus eq '03' }">아르바이트</c:when>
+									<c:when test="${googicdata.wantstatus eq '04' }">단기아르바이트</c:when>
+								</c:choose>
 							</td>
 							<td style="border: 1px solid #ddd; width: 204px; height: 60px;">
 								${googicdata.location}

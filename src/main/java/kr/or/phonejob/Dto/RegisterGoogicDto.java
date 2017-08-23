@@ -32,12 +32,215 @@ public class RegisterGoogicDto {
 	private String goji;
 	private String army;
 	private String handicap;
+	private String hwppossible;
+	private String mspossible;
+	private String excelpossible;
+	private String pptpossible;
+	private String onename;
+	private String twoname;
+	private String threename;
+	private String fourname;
+	private String fivename;
+	private String onedate_1;
+	private String twodate_1;
+	private String threedate_1;
+	private String fourdate_1;
+	private String fivedate_1;
+	private String onedate_2;
+	private String twodate_2;
+	private String threedate_2;
+	private String fourdate_2;
+	private String fivedate_2;
+	private String onejob;
+	private String twojob;
+	private String threejob;
+	private String fourjob;
+	private String fivejob;
+	private String school;
+	private String wantstatus;
+	private String salary_detail;
+	private String salary_min;
+	private String salary_max;
 	
 	
 	
 	
 	
 	
+	public String getSalary_detail() {
+		return salary_detail;
+	}
+	public String getSalary_min() {
+		return salary_min;
+	}
+	public String getSalary_max() {
+		return salary_max;
+	}
+	public void setSalary_detail(String salary_detail) {
+		this.salary_detail = salary_detail;
+	}
+	public void setSalary_min(String salary_min) {
+		this.salary_min = salary_min;
+	}
+	public void setSalary_max(String salary_max) {
+		this.salary_max = salary_max;
+	}
+	public String getWantstatus() {
+		return wantstatus;
+	}
+	public void setWantstatus(String wantstatus) {
+		this.wantstatus = wantstatus;
+	}
+	public String getSchool() {
+		return school;
+	}
+	public void setSchool(String school) {
+		this.school = school;
+	}
+	public String getHwppossible() {
+		return hwppossible;
+	}
+	public String getMspossible() {
+		return mspossible;
+	}
+	public String getExcelpossible() {
+		return excelpossible;
+	}
+	public String getPptpossible() {
+		return pptpossible;
+	}
+	public String getOnename() {
+		return onename;
+	}
+	public String getTwoname() {
+		return twoname;
+	}
+	public String getThreename() {
+		return threename;
+	}
+	public String getFourname() {
+		return fourname;
+	}
+	public String getFivename() {
+		return fivename;
+	}
+	public String getOnedate_1() {
+		return onedate_1;
+	}
+	public String getTwodate_1() {
+		return twodate_1;
+	}
+	public String getThreedate_1() {
+		return threedate_1;
+	}
+	public String getFourdate_1() {
+		return fourdate_1;
+	}
+	public String getFivedate_1() {
+		return fivedate_1;
+	}
+	public String getOnedate_2() {
+		return onedate_2;
+	}
+	public String getTwodate_2() {
+		return twodate_2;
+	}
+	public String getThreedate_2() {
+		return threedate_2;
+	}
+	public String getFourdate_2() {
+		return fourdate_2;
+	}
+	public String getFivedate_2() {
+		return fivedate_2;
+	}
+	public String getOnejob() {
+		return onejob;
+	}
+	public String getTwojob() {
+		return twojob;
+	}
+	public String getThreejob() {
+		return threejob;
+	}
+	public String getFourjob() {
+		return fourjob;
+	}
+	public String getFivejob() {
+		return fivejob;
+	}
+	public void setHwppossible(String hwppossible) {
+		this.hwppossible = hwppossible;
+	}
+	public void setMspossible(String mspossible) {
+		this.mspossible = mspossible;
+	}
+	public void setExcelpossible(String excelpossible) {
+		this.excelpossible = excelpossible;
+	}
+	public void setPptpossible(String pptpossible) {
+		this.pptpossible = pptpossible;
+	}
+	public void setOnename(String onename) {
+		this.onename = onename;
+	}
+	public void setTwoname(String twoname) {
+		this.twoname = twoname;
+	}
+	public void setThreename(String threename) {
+		this.threename = threename;
+	}
+	public void setFourname(String fourname) {
+		this.fourname = fourname;
+	}
+	public void setFivename(String fivename) {
+		this.fivename = fivename;
+	}
+	public void setOnedate_1(String onedate_1) {
+		this.onedate_1 = onedate_1;
+	}
+	public void setTwodate_1(String twodate_1) {
+		this.twodate_1 = twodate_1;
+	}
+	public void setThreedate_1(String threedate_1) {
+		this.threedate_1 = threedate_1;
+	}
+	public void setFourdate_1(String fourdate_1) {
+		this.fourdate_1 = fourdate_1;
+	}
+	public void setFivedate_1(String fivedate_1) {
+		this.fivedate_1 = fivedate_1;
+	}
+	public void setOnedate_2(String onedate_2) {
+		this.onedate_2 = onedate_2;
+	}
+	public void setTwodate_2(String twodate_2) {
+		this.twodate_2 = twodate_2;
+	}
+	public void setThreedate_2(String threedate_2) {
+		this.threedate_2 = threedate_2;
+	}
+	public void setFourdate_2(String fourdate_2) {
+		this.fourdate_2 = fourdate_2;
+	}
+	public void setFivedate_2(String fivedate_2) {
+		this.fivedate_2 = fivedate_2;
+	}
+	public void setOnejob(String onejob) {
+		this.onejob = onejob;
+	}
+	public void setTwojob(String twojob) {
+		this.twojob = twojob;
+	}
+	public void setThreejob(String threejob) {
+		this.threejob = threejob;
+	}
+	public void setFourjob(String fourjob) {
+		this.fourjob = fourjob;
+	}
+	public void setFivejob(String fivejob) {
+		this.fivejob = fivejob;
+	}
 	public String getBohun() {
 		return bohun;
 	}
@@ -237,8 +440,24 @@ public class RegisterGoogicDto {
 				+ kthistory + ", telhistory=" + telhistory + ", profiletext=" + profiletext + ", title=" + title
 				+ ", sprofiletext=" + sprofiletext + ", useraddr1=" + useraddr1 + ", useraddr2=" + useraddr2
 				+ ", bohun=" + bohun + ", chuiboho=" + chuiboho + ", goji=" + goji + ", army=" + army + ", handicap="
-				+ handicap + "]";
+				+ handicap + ", hwppossible=" + hwppossible + ", mspossible=" + mspossible + ", excelpossible="
+				+ excelpossible + ", pptpossible=" + pptpossible + ", onename=" + onename + ", twoname=" + twoname
+				+ ", threename=" + threename + ", fourname=" + fourname + ", fivename=" + fivename + ", onedate_1="
+				+ onedate_1 + ", twodate_1=" + twodate_1 + ", threedate_1=" + threedate_1 + ", fourdate_1=" + fourdate_1
+				+ ", fivedate_1=" + fivedate_1 + ", onedate_2=" + onedate_2 + ", twodate_2=" + twodate_2
+				+ ", threedate_2=" + threedate_2 + ", fourdate_2=" + fourdate_2 + ", fivedate_2=" + fivedate_2
+				+ ", onejob=" + onejob + ", twojob=" + twojob + ", threejob=" + threejob + ", fourjob=" + fourjob
+				+ ", fivejob=" + fivejob + ", school=" + school + ", wantstatus=" + wantstatus + ", salary_detail="
+				+ salary_detail + ", salary_min=" + salary_min + ", salary_max=" + salary_max + "]";
 	}
+	
+
+	
+	
+	
+	
+	
+	
 	
 	
 

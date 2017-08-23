@@ -38,10 +38,10 @@
 									<p>
 										<c:choose>
 											<c:when test="${resultData.telhistory eq 'non' }">
-												신입
+												경력 여부 : 신입
 											</c:when>
 											<c:otherwise>
-												경력
+												경력 여부 : 경력
 											</c:otherwise>
 										</c:choose>
 									</p>

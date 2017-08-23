@@ -6,21 +6,6 @@
 	작성일	: 2016-11-21
 	목 적  	: 자유게시판 상세보기 view
 -->
-<!-- 
-<div class="normalheader transition animated fadeIn">
-	<div class="hpanel">
-		<div class="panel-body">
-			<a class="small-header-action" href="">
-				<div class="clip-header">
-					<i class="fa fa-arrow-up"></i>
-				</div>
-			</a>
-			<h2 class="font-light m-b-xs">자유 게시판</h2>
-		</div>
-	</div>
-</div>
- -->
-
 
 <div class="content animate-panel" style="width: 1200px; text-align:left; display:inline-block">
 	<div class="row">
@@ -88,7 +73,7 @@
 								<a href="answerfree.do?free_no=${list.free_no}&currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">답글쓰기</a>
 								
 								<c:if test="${list.credential_id==loginData.credential_id}">
-									<a href="free_board_update.do?free_no=${list.free_no}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">수정하기</a>
+									<a href="free_board_update.do?free_no=${list.free_no}&currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">수정하기</a>
 									<input type="text" hidden="hidden" id="listno" value="${list.free_no}">
 									<a class="btn btn-sm btn-default" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px" onclick="delete_event()" href=javascript:void(0)>삭제하기</a>
 								</c:if>
