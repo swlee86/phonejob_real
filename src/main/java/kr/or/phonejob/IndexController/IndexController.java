@@ -74,7 +74,7 @@ public class IndexController {
 	  logger.info("접속한 아이피 ! : " + cIp);
 	  
 	  for(int i = 0; i < userip.size(); i++) {
-		  logger.info("허용된 아이피!!" + userip.get(i).getUser_ip().toString());
+		  //logger.info("허용된 아이피!!" + userip.get(i).getUser_ip().toString());
 	       if( userip.get(i).getUser_ip().equals(cIp) ){
 	           iOk = 1;
 	           break;
@@ -98,7 +98,7 @@ public class IndexController {
 			gooinluxury=gooservice.gooinluxury();
 			gooinbest=gooservice.gooinbest();
 			gooinnormal=gooservice.gooinnormal();
-			
+			/*
 			logger.info("럭셔리광고사이즈 : " + gooinluxury.size());
 			
 			for(int r=0; r<gooinluxury.size(); r++){
@@ -112,6 +112,8 @@ public class IndexController {
 			for(int k=0; k<gooinnormal.size(); k++){
 				logger.info("노말광고 : " + gooinnormal.get(k).toString());				
 			}
+			*/
+			
 		}catch(Exception e){
 			logger.error(e.getMessage());
 		}
@@ -123,10 +125,10 @@ public class IndexController {
 			result =  gservice.selectGoogic();
 			
 			for(int l=0; l<result.size(); l++){
-				logger.info("인재정보 masking 전 : " + result.get(l).toString());
+				//logger.info("인재정보 masking 전 : " + result.get(l).toString());
 				result.get(l).setUsername(MaskingUtil.getMaskedId(result.get(l).getUsername()));
 				result.get(l).setUserid(MaskingUtil.getMaskedId(result.get(l).getUserid()));
-				logger.info("인재정보 masking 후 : " + result.get(l).toString());
+				//logger.info("인재정보 masking 후 : " + result.get(l).toString());
 			}
 		}catch(Exception e){
 			logger.error(e.getMessage());	

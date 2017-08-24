@@ -31,9 +31,9 @@ public class GoogicService {
 	}
 	
 	//구직자 게시글 누르면 해당 게시글 정보 불러옴
-	public List<RegisterGoogicDto> googicDetail(String googic_no){
+	public RegisterGoogicDto googicDetail(String googic_no){
 		GoogicDao gdao = sqlsession.getMapper(GoogicDao.class);
-		List<RegisterGoogicDto> result = gdao.googicDetail(googic_no);
+		RegisterGoogicDto result = gdao.googicDetail(googic_no);
 		return result;
 	}
 	

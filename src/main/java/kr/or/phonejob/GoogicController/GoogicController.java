@@ -148,27 +148,49 @@ public class GoogicController {
 		
 		
 		//학력 정보 Merge 작업
-		String school = rgdto.getOnename()+"||"+rgdto.getOnedate_1()+"||"+rgdto.getOnedate_2()+"||"+rgdto.getOnejob();
+		if(null==rgdto.getOnejob()){
+			rgdto.setOnejob("-");
+		}
+		
+		if(null==rgdto.getTwojob()){
+			rgdto.setTwojob("-");
+		}
+		
+		if(null==rgdto.getThreejob()){
+			rgdto.setThreejob("-");
+		}
+		
+		if(null==rgdto.getFourjob()){
+			rgdto.setFourjob("-");
+		}
+		
+		if(null==rgdto.getFivejob()){
+			rgdto.setFivejob("-");
+		}
+		
+		
+		
+		String school = rgdto.getOnename()+","+rgdto.getOnedate_1()+","+rgdto.getOnedate_2()+","+rgdto.getOnejob();
 		rgdto.setSchool(school);
 						
 		
 		if(null!=rgdto.getTwoname()){
-			school=school+"&&"+ rgdto.getTwoname()+"||"+rgdto.getTwodate_1()+"||"+rgdto.getTwodate_2()+"||"+rgdto.getTwojob();
+			school=school + rgdto.getTwoname()+","+rgdto.getTwodate_1()+","+rgdto.getTwodate_2()+","+rgdto.getTwojob();
 			rgdto.setSchool(school);
 		}
 		
 		if(null!=rgdto.getThreename()){
-			school=school+"&&"+ rgdto.getThreename()+"||"+rgdto.getThreedate_1()+"||"+rgdto.getThreedate_2()+"||"+rgdto.getThreejob();
+			school=school + rgdto.getThreename()+","+rgdto.getThreedate_1()+","+rgdto.getThreedate_2()+","+rgdto.getThreejob();
 			rgdto.setSchool(school);
 		}
 		
 		if(null!=rgdto.getFourname()){
-			school=school+"&&"+ rgdto.getFourname()+"||"+rgdto.getFourdate_1()+"||"+rgdto.getFourdate_2()+"||"+rgdto.getFourjob();
+			school=school + rgdto.getFourname()+","+rgdto.getFourdate_1()+","+rgdto.getFourdate_2()+","+rgdto.getFourjob();
 			rgdto.setSchool(school);
 		}
 		
 		if(null!=rgdto.getFivename()){
-			school=school+"&&"+ rgdto.getFivename()+"||"+rgdto.getFivedate_1()+"||"+rgdto.getFivedate_2()+"||"+rgdto.getFivejob();
+			school=school + rgdto.getFivename()+","+rgdto.getFivedate_1()+","+rgdto.getFivedate_2()+","+rgdto.getFivejob();
 			rgdto.setSchool(school);
 		}
 		
@@ -203,13 +225,258 @@ public class GoogicController {
 	@RequestMapping(value="/googicDetail.do", method=RequestMethod.GET)
 	public String googicDetail(String googic_no, Model mv){
 		String url="googic.googicDetail";
-		List<RegisterGoogicDto> rgdto = new ArrayList<RegisterGoogicDto>();
-		
+		RegisterGoogicDto rgdto = null;
+
 		try{
 			rgdto=gservice.googicDetail(googic_no);
-			logger.info(rgdto.toString());
+			logger.info("나누어야 하는 학교 데이터 : " + rgdto.getSchool());
+			String[] schoolList = rgdto.getSchool().split("\\|\\|");
+			logger.info("schooList 갯수 : " + schoolList.length);
+			
+			for(int i=0; i<schoolList.length; i++){
+				logger.info("schoolList : " + schoolList[i]);
+			}
+			
+			if(schoolList.length==1){
+				logger.info("이번 학교 갯수는 1개");
+				
+				if("non"!=schoolList[0]){
+					String[] schoolList_0 = schoolList[0].split(",");
+					
+					if(schoolList_0.length<4){
+						rgdto.setOnename(schoolList_0[0]);
+						rgdto.setOnedate_1(schoolList_0[1]);
+						rgdto.setOnedate_2(schoolList_0[2]);
+						rgdto.setOnejob("-");
+					}else{
+						rgdto.setOnename(schoolList_0[0]);
+						rgdto.setOnedate_1(schoolList_0[1]);
+						rgdto.setOnedate_2(schoolList_0[2]);
+						rgdto.setOnejob(schoolList_0[3]);
+					}
+				}
+
+			}
+			
+			if(schoolList.length==2){
+				logger.info("이번 학교 갯수는 2개");
+				String[] schoolList_0 = schoolList[0].split(",");
+				String[] schoolList_1 = schoolList[1].split(",");
+					
+				if(schoolList_0.length<4){
+					rgdto.setOnename(schoolList_0[0]);
+					rgdto.setOnedate_1(schoolList_0[1]);
+					rgdto.setOnedate_2(schoolList_0[2]);
+					rgdto.setOnejob("-");
+				}else{
+					rgdto.setOnename(schoolList_0[0]);
+					rgdto.setOnedate_1(schoolList_0[1]);
+					rgdto.setOnedate_2(schoolList_0[2]);
+					rgdto.setOnejob(schoolList_0[3]);
+				}
+
+				if(schoolList_1.length<4){
+					rgdto.setTwoname(schoolList_1[0]);
+					rgdto.setTwodate_1(schoolList_1[1]);
+					rgdto.setTwodate_2(schoolList_1[2]);
+					rgdto.setTwojob("-");
+				}else{
+					rgdto.setTwoname(schoolList_1[0]);
+					rgdto.setTwodate_1(schoolList_1[1]);
+					rgdto.setTwodate_2(schoolList_1[2]);
+					rgdto.setTwojob(schoolList_1[3]);
+				}
+				
+			}
+			
+			if(schoolList.length==3){
+				logger.info("이번 학교 갯수는 3개");
+				
+				String[] schoolList_0 = schoolList[0].split(",");
+				String[] schoolList_1 = schoolList[1].split(",");
+				String[] schoolList_2 = schoolList[2].split(",");
+				
+				if(schoolList_0.length<4){
+					rgdto.setOnename(schoolList_0[0]);
+					rgdto.setOnedate_1(schoolList_0[1]);
+					rgdto.setOnedate_2(schoolList_0[2]);
+					rgdto.setOnejob("-");
+				}else{
+					rgdto.setOnename(schoolList_0[0]);
+					rgdto.setOnedate_1(schoolList_0[1]);
+					rgdto.setOnedate_2(schoolList_0[2]);
+					rgdto.setOnejob(schoolList_0[3]);
+				}
+
+				if(schoolList_1.length<4){
+					rgdto.setTwoname(schoolList_1[0]);
+					rgdto.setTwodate_1(schoolList_1[1]);
+					rgdto.setTwodate_2(schoolList_1[2]);
+					rgdto.setTwojob("-");
+				}else{
+					rgdto.setTwoname(schoolList_1[0]);
+					rgdto.setTwodate_1(schoolList_1[1]);
+					rgdto.setTwodate_2(schoolList_1[2]);
+					rgdto.setTwojob(schoolList_1[3]);
+				}
+
+				if(schoolList_2.length<4){
+					rgdto.setThreename(schoolList_2[0]);
+					rgdto.setThreedate_1(schoolList_2[1]);
+					rgdto.setThreedate_2(schoolList_2[2]);
+					rgdto.setThreejob("-");
+				}else{
+					rgdto.setThreename(schoolList_2[0]);
+					rgdto.setThreedate_1(schoolList_2[1]);
+					rgdto.setThreedate_2(schoolList_2[2]);
+					rgdto.setThreejob(schoolList_2[3]);
+				}
+
+			}
+			
+			
+			
+			if(schoolList.length==4){
+				logger.info("이번 학교 갯수는 4개");
+				
+				String[] schoolList_0 = schoolList[0].split(",");
+				String[] schoolList_1 = schoolList[1].split(",");
+				String[] schoolList_2 = schoolList[2].split(",");
+				String[] schoolList_3 = schoolList[3].split(",");
+				
+				if(schoolList_0.length<4){
+					rgdto.setOnename(schoolList_0[0]);
+					rgdto.setOnedate_1(schoolList_0[1]);
+					rgdto.setOnedate_2(schoolList_0[2]);
+					rgdto.setOnejob("-");
+				}else{
+					rgdto.setOnename(schoolList_0[0]);
+					rgdto.setOnedate_1(schoolList_0[1]);
+					rgdto.setOnedate_2(schoolList_0[2]);
+					rgdto.setOnejob(schoolList_0[3]);
+				}
+
+				if(schoolList_1.length<4){
+					rgdto.setTwoname(schoolList_1[0]);
+					rgdto.setTwodate_1(schoolList_1[1]);
+					rgdto.setTwodate_2(schoolList_1[2]);
+					rgdto.setTwojob("-");
+				}else{
+					rgdto.setTwoname(schoolList_1[0]);
+					rgdto.setTwodate_1(schoolList_1[1]);
+					rgdto.setTwodate_2(schoolList_1[2]);
+					rgdto.setTwojob(schoolList_1[3]);
+				}
+
+				if(schoolList_2.length<4){
+					rgdto.setThreename(schoolList_2[0]);
+					rgdto.setThreedate_1(schoolList_2[1]);
+					rgdto.setThreedate_2(schoolList_2[2]);
+					rgdto.setThreejob("-");
+				}else{
+					rgdto.setThreename(schoolList_2[0]);
+					rgdto.setThreedate_1(schoolList_2[1]);
+					rgdto.setThreedate_2(schoolList_2[2]);
+					rgdto.setThreejob(schoolList_2[3]);
+				}
+
+				if(schoolList_3.length<4){
+					rgdto.setFourname(schoolList_3[0]);
+					rgdto.setFourdate_1(schoolList_3[1]);
+					rgdto.setFourdate_2(schoolList_3[2]);
+					rgdto.setFourjob("-");
+				}else{
+					rgdto.setFourname(schoolList_3[0]);
+					rgdto.setFourdate_1(schoolList_3[1]);
+					rgdto.setFourdate_2(schoolList_3[2]);
+					rgdto.setFourjob(schoolList_3[3]);
+				}
+				
+				logger.info("이건뭥믜?" + rgdto.getFivename());
+
+
+			}
+			
+			
+			if(schoolList.length==5){
+				logger.info("이번 학교 갯수는 5개");
+				
+				String[] schoolList_0 = schoolList[0].split(",");
+				String[] schoolList_1 = schoolList[1].split(",");
+				String[] schoolList_2 = schoolList[2].split(",");
+				String[] schoolList_3 = schoolList[3].split(",");
+				String[] schoolList_4 = schoolList[4].split(",");
+				
+				if(schoolList_0.length<4){
+					rgdto.setOnename(schoolList_0[0]);
+					rgdto.setOnedate_1(schoolList_0[1]);
+					rgdto.setOnedate_2(schoolList_0[2]);
+					rgdto.setOnejob("-");
+				}else{
+					rgdto.setOnename(schoolList_0[0]);
+					rgdto.setOnedate_1(schoolList_0[1]);
+					rgdto.setOnedate_2(schoolList_0[2]);
+					rgdto.setOnejob(schoolList_0[3]);
+				}
+
+				if(schoolList_1.length<4){
+					rgdto.setTwoname(schoolList_1[0]);
+					rgdto.setTwodate_1(schoolList_1[1]);
+					rgdto.setTwodate_2(schoolList_1[2]);
+					rgdto.setTwojob("-");
+				}else{
+					rgdto.setTwoname(schoolList_1[0]);
+					rgdto.setTwodate_1(schoolList_1[1]);
+					rgdto.setTwodate_2(schoolList_1[2]);
+					rgdto.setTwojob(schoolList_1[3]);
+				}
+
+				if(schoolList_2.length<4){
+					rgdto.setThreename(schoolList_2[0]);
+					rgdto.setThreedate_1(schoolList_2[1]);
+					rgdto.setThreedate_2(schoolList_2[2]);
+					rgdto.setThreejob("-");
+				}else{
+					rgdto.setThreename(schoolList_2[0]);
+					rgdto.setThreedate_1(schoolList_2[1]);
+					rgdto.setThreedate_2(schoolList_2[2]);
+					rgdto.setThreejob(schoolList_2[3]);
+				}
+
+				if(schoolList_3.length<4){
+					rgdto.setFourname(schoolList_3[0]);
+					rgdto.setFourdate_1(schoolList_3[1]);
+					rgdto.setFourdate_2(schoolList_3[2]);
+					rgdto.setFourjob("-");
+				}else{
+					rgdto.setFourname(schoolList_3[0]);
+					rgdto.setFourdate_1(schoolList_3[1]);
+					rgdto.setFourdate_2(schoolList_3[2]);
+					rgdto.setFourjob(schoolList_3[3]);
+				}
+				
+				if(schoolList_4.length<4){
+					rgdto.setFivename(schoolList_4[0]);
+					rgdto.setFivedate_1(schoolList_4[1]);
+					rgdto.setFivedate_2(schoolList_4[2]);
+					rgdto.setFivejob("-");
+				}else{
+					rgdto.setFivename(schoolList_4[0]);
+					rgdto.setFivedate_1(schoolList_4[1]);
+					rgdto.setFivedate_2(schoolList_4[2]);
+					rgdto.setFivejob(schoolList_4[3]);
+				}
+
+			}
+			
+		
+
+			
+
+			
+			logger.info("최종 세팅될 값 : " + rgdto.toString());
 		}catch(Exception e){
-			e.getStackTrace();
+			e.printStackTrace();
 		}finally{
 			mv.addAttribute("googicdata", rgdto);
 			return url;			
@@ -221,12 +488,12 @@ public class GoogicController {
 	@RequestMapping(value="/googicModify.do", method=RequestMethod.POST)
 	public String googicModify(RegisterGoogicDto rgdto, Model mv){
 		String url="googic.gogicModify";
-		List<RegisterGoogicDto> gdto = new ArrayList<RegisterGoogicDto>();
+		RegisterGoogicDto gdto = null;
 				
 		try{
 			gdto=gservice.googicDetail(rgdto.getGoogic_no());
 			//수정처리 할때는 다시 <br>을 \r\n 문자로 변경하여 textarea에 뿌림
-			gdto.get(0).setProfiletext(gdto.get(0).getProfiletext().replace("<br>","\r\n"));
+			gdto.setProfiletext(gdto.getProfiletext().replace("<br>","\r\n"));
 			logger.info("실제 수정화면으로 가지고 갈 데이터 : " + gdto.toString());
 		}catch(Exception e){
 			e.getStackTrace();

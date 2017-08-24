@@ -5,7 +5,6 @@
 	<div class="row">
     	<div class="col-lg-12">
 			<div class="hpanel">
-				<c:forEach var="googicdata" items="${googicdata}">
 				<div class="panel-body">
 					<b style="font-size: 18px;">${googicdata.title }</b>
 					<input type="hidden" value="${googicdata.title}" id="title" name="title">
@@ -153,9 +152,147 @@
 					</table>
 					
 					<br/><br/><br/><br/>
+					ㅁ취업 우대사항
+					<hr style="border: 1px solid #ddd;">
+					<table style="border: 1px solid #ddd; text-align: center;">
+						<tr style="border: 1px solid #ddd; text-align: center;">
+							<th style="border: 1px solid #ddd; width: 215px; height: 60px; text-align: center;">보훈대상여부</th>
+							<th style="border: 1px solid #ddd; width: 215px; height: 60px; text-align: center;">취업보호대상여부</th>
+							<th style="border: 1px solid #ddd; width: 215px; height: 60px; text-align: center;">고용지원금대상여부</th>
+							<th style="border: 1px solid #ddd; width: 215px; height: 60px; text-align: center;">병역사항</th>
+							<th style="border: 1px solid #ddd; width: 215px; height: 60px; text-align: center;">장애여부</th>
+						</tr>
+						<tr style="border: 1px solid #ddd;">
+							<td style="border: 1px solid #ddd; width: 204px; height: 60px;">
+								<c:choose>
+									<c:when test="${googicdata.bohun eq 'B001' }">대상</c:when>
+									<c:when test="${googicdata.bohun eq 'B002' }">비대상</c:when>
+								</c:choose>
+							</td>
+							<td style="border: 1px solid #ddd; width: 204px; height: 60px;">
+								<c:choose>
+									<c:when test="${googicdata.chuiboho eq 'B001' }">대상</c:when>
+									<c:when test="${googicdata.chuiboho eq 'B002' }">비대상</c:when>
+								</c:choose>
+							</td>
+							<td style="border: 1px solid #ddd; width: 204px; height: 60px;">
+								<c:choose>
+									<c:when test="${googicdata.goji eq 'B001' }">대상</c:when>
+									<c:when test="${googicdata.goji eq 'B002' }">비대상</c:when>
+								</c:choose>
+							</td>
+							<td style="border: 1px solid #ddd; width: 204px; height: 60px;">
+								<c:choose>
+									<c:when test="${googicdata.army eq 'B001' }">전역</c:when>
+									<c:when test="${googicdata.army eq 'B002' }">미필</c:when>
+								</c:choose>
+							</td>
+							<td style="border: 1px solid #ddd; width: 204px; height: 60px;">
+								<c:choose>
+									<c:when test="${googicdata.handicap eq 'B001' }">대상</c:when>
+									<c:when test="${googicdata.handicap eq 'B002' }">비대상</c:when>
+								</c:choose>       						 	
+       						 	<input type="hidden" class="form-control" name="possibledate" id="possibledate" value="${googicdata.possibledate }" readonly="readonly">
+							</td>
+						</tr>
+					</table>
 					
-					
-					
+					<c:if test="${not empty googicdata.onename}">
+					<br/><br/><br/><br/>
+					ㅁ학력 사항
+					<hr style="border: 1px solid #ddd;">
+					<table style="border: 1px solid #ddd; text-align: center;">
+						<tr style="border: 1px solid #ddd; text-align: center;">
+							<th style="border: 1px solid #ddd; width: 270px; height: 60px; text-align: center;">학교명</th>
+							<th style="border: 1px solid #ddd; width: 270px; height: 60px; text-align: center;">입학년월</th>
+							<th style="border: 1px solid #ddd; width: 270px; height: 60px; text-align: center;">졸업년월</th>
+							<th style="border: 1px solid #ddd; width: 270px; height: 60px; text-align: center;">전공</th>
+						</tr>
+						<tr style="border: 1px solid #ddd;">
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.onename }
+							</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.onedate_1 }
+							</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.onedate_2 }
+							</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.onejob }
+							</td>
+						</tr>
+						
+						<c:if test="${not empty googicdata.twoname}">
+						<tr style="border: 1px solid #ddd;">
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.twoname }
+							</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.twodate_1 }
+							</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.twodate_2 }
+							</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.twojob }
+							</td>
+						</tr>
+						</c:if>
+						
+						<c:if test="${not empty googicdata.threename}">
+						<tr style="border: 1px solid #ddd;">
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.threename }
+							</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.threedate_1 }
+							</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.threedate_2 }
+							</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.threejob }
+							</td>
+						</tr>
+						</c:if>
+						
+						<c:if test="${not empty googicdata.fourname}">
+						<tr style="border: 1px solid #ddd;">
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.fourname }
+							</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.fourdate_1 }
+							</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.fourdate_2 }
+							</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.fourjob }
+							</td>
+						</tr>
+						</c:if>
+						
+						<c:if test="${not empty googicdata.fivename}">
+						<tr style="border: 1px solid #ddd;">
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.fivename }
+							</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.fivedate_1 }
+							</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.fivedate_2 }
+							</td>
+							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+								${googicdata.fivejob }
+							</td>
+						</tr>
+						</c:if>
+						
+					</table>
+					</c:if>
 					
 					<br/><br/><br/><br/>
 					ㅁ자기소개서
@@ -171,7 +308,6 @@
 					</c:if>
 						<input type="button" class="btn btn-default" onclick="javascript:goPage()" value="목록으로">							
 				</div>
-				</c:forEach>
 			</div>
 		</div>
 	</div>
