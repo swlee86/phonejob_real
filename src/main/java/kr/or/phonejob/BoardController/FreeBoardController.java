@@ -9,7 +9,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
 import kr.or.phonejob.Dto.FreeBoardDto;
 import kr.or.phonejob.Dto.LoginDto;
-import kr.or.phonejob.Dto.Re_FreeBoard;
+import kr.or.phonejob.Dto.Re_FreeBoardDto;
 import kr.or.phonejob.Service.FreeBoardService;
 import kr.or.phonejob.Util.MaskingUtil;
 
@@ -116,7 +111,7 @@ public class FreeBoardController {
 	public String free_board_view(Model mv, int free_no, String currentpage, String pagesize,HttpSession session){
 		String url = null;
 		FreeBoardDto freeboard = null;
-		List<Re_FreeBoard> re_list = null;
+		List<Re_FreeBoardDto> re_list = null;
 
 		try{
 			freeboard = freeboardservice.selectDetail(free_no);
@@ -286,7 +281,7 @@ public class FreeBoardController {
 	};
 	
 	
-	
+	//삭제 처리
 	@RequestMapping(value="deleteDocument.do", method=RequestMethod.POST)
 	public void deleteDocument(HttpServletRequest request, HttpServletResponse response){
 		int list_no = Integer.parseInt(request.getParameter("list_no")); 
@@ -413,6 +408,38 @@ public class FreeBoardController {
 			mv.addAttribute("msg", msg);
 		}
 		return "free_board.free_redirect";
+	}
+	
+	
+	//댓글 달기 method
+	@RequestMapping(value="/insertReply.do", method=RequestMethod.POST)
+	public String insertReply(Re_FreeBoardDto rdto, Model mv){
+		logger.info("댓글 입력 시작합니다");
+		logger.info("Re_freeDtoData : " + rdto.toString());
+		int result;
+		String url="free_board.free_redirect";
+		String link=null;
+		String msg=null;
+		
+		try{
+			result=freeboardservice.insertReply(rdto);
+			
+			if(result>0){
+				link="free_board_view.do?free_no="+rdto.getFree_no()+"&currentpage="+rdto.getCurrentpage()+"&pagesize="+rdto.getPagesize();
+				msg="등록에 성공하였습니다";
+			}else{
+				link="free_board_view.do?free_no="+rdto.getFree_no()+"&currentpage="+rdto.getCurrentpage()+"&pagesize="+rdto.getPagesize();
+				msg="등록에 실패하였습니다. 동일 현상이 지속될 경우 관리자에게 문의하세요";
+				
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			mv.addAttribute("link", link);
+			mv.addAttribute("msg", msg);
+		}
+		
+		return url;
 	}
 		
 		

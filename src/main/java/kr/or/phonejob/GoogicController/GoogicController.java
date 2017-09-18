@@ -230,6 +230,9 @@ public class GoogicController {
 		try{
 			rgdto=gservice.googicDetail(googic_no);
 			logger.info("나누어야 하는 학교 데이터 : " + rgdto.getSchool());
+			
+			if(null!=rgdto.getSchool()){
+			
 			String[] schoolList = rgdto.getSchool().split("\\|\\|");
 			logger.info("schooList 갯수 : " + schoolList.length);
 			
@@ -391,10 +394,6 @@ public class GoogicController {
 					rgdto.setFourdate_2(schoolList_3[2]);
 					rgdto.setFourjob(schoolList_3[3]);
 				}
-				
-				logger.info("이건뭥믜?" + rgdto.getFivename());
-
-
 			}
 			
 			
@@ -468,7 +467,7 @@ public class GoogicController {
 				}
 
 			}
-			
+		}
 		
 
 			

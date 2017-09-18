@@ -13,11 +13,25 @@ public class FreeBoardDto {
 	private String regdate;
 	private String filename;
 	private String content;
+	private String currentpage;
+	private String pagesize;
 	
 	
 	
 	
 	
+	public String getCurrentpage() {
+		return currentpage;
+	}
+	public String getPagesize() {
+		return pagesize;
+	}
+	public void setCurrentpage(String currentpage) {
+		this.currentpage = currentpage;
+	}
+	public void setPagesize(String pagesize) {
+		this.pagesize = pagesize;
+	}
 	public int getDepth() {
 		return depth;
 	}
@@ -92,10 +106,12 @@ public class FreeBoardDto {
 	public String toString() {
 		return "FreeBoardDto [free_no=" + free_no + ", credential_id=" + credential_id + ", userid=" + userid
 				+ ", refer=" + refer + ", depth=" + depth + ", step=" + step + ", hit=" + hit + ", title=" + title
-				+ ", regdate=" + regdate + ", filename=" + filename + ", content=" + content + "]";
+				+ ", regdate=" + regdate + ", filename=" + filename + ", content=" + content + ", currentpage="
+				+ currentpage + ", pagesize=" + pagesize + "]";
 	}
 	
-
+	
+	
 	
 	
 

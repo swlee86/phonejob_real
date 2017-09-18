@@ -54,12 +54,14 @@
 									</div>
 								</c:forEach>
 
-								<form action="free_reply_insert.do" method="post">
+								<form action="insertReply.do" method="post">
 									<div class="input-group">
 										<input type="text" class="form-control" placeholder="Your comment" name="content">
 										<input type="hidden" name="currentpage" value="${currentpage}">
 										<input type="hidden" name="pagesize" value="${pagesize}">
 										<input type="hidden" name="free_no" value="${list.free_no}"> 
+										<input type="hidden" name="credential_id" value="${loginData.credential_id }">
+										<input type="hidden" name="userid" value="${loginData.userid }">
 										<span class="input-group-btn"> 
 										<input type="submit" class="btn  btn-default" value="댓글 달기 ">
 										</span>

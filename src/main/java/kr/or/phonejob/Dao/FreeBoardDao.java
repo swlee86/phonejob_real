@@ -2,7 +2,7 @@ package kr.or.phonejob.Dao;
 
 import java.util.List;
 import kr.or.phonejob.Dto.FreeBoardDto;
-import kr.or.phonejob.Dto.Re_FreeBoard;
+import kr.or.phonejob.Dto.Re_FreeBoardDto;
 
 public interface FreeBoardDao {
 
@@ -17,7 +17,7 @@ public interface FreeBoardDao {
 	FreeBoardDto selectDetail(int free_no);
 
 	//리플 리스트 구하는 함수
-	List<Re_FreeBoard> selectReList(int free_no);
+	List<Re_FreeBoardDto> selectReList(int free_no);
 
 	//리플 쓰기위해  필요한 정보 구하는 함수
 	//Re_FreeBoard selectWrite(String id);
@@ -32,7 +32,7 @@ public interface FreeBoardDao {
 	int updateArticle(FreeBoardDto dto);
 	
 	//리플 추가하는 함수
-	int insertReply(FreeBoardDto dto);
+	int insertReply(Re_FreeBoardDto dto);
 
 	//조회수 수정하는 함수
 	void updateHit(int free_no);

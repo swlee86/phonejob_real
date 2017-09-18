@@ -93,7 +93,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<!-- Free board list에서 글을 클릭하여 내용을 불러올 때 댓글 내용도 불러오는 쿼리문 -->	
-	<select id="selectReList" resultType="kr.or.phonejob.Dto.Re_FreeBoard">
+	<select id="selectReList" resultType="kr.or.phonejob.Dto.Re_FreeBoardDto">
 		select 
 			userid, 
 			re_no, 
@@ -138,9 +138,25 @@ values(PJ_FREEBOARD_NO.nextval, #{credential_id}, #{userid}, #{refer}, #{depth},
 </insert>
 
 <!-- 댓글 달 때 댓글을 인서트 하는 쿼리문 -->
-<insert id="insertReply" parameterType="kr.or.phonejob.Dto.Re_FreeBoard">
-insert into RE_free(re_no, no, emp_no, emp_name, content, regdate)
-values(RE_FREE_SEQ.nextval, #{no}, #{emp_no}, #{emp_name}, #{content}, to_char(sysdate, 'YYYY-MM-DD'))
+<insert id="insertReply" parameterType="kr.or.phonejob.Dto.Re_FreeBoardDto">
+insert into PJ_RE_FREEBOARD
+	(
+		re_no, 
+		free_no, 
+		credential_id, 
+		userid, 
+		content, 
+		regdate
+	)
+	values
+		(
+			RE_FREE_SEQ.nextval, 
+			#{free_no}, 
+			#{credential_id}, 
+			#{userid}, 
+			#{content}, 
+			to_char(sysdate, 'YYYY-MM-DD')
+		)
 </insert>
 
 <!-- 글을 읽으면 hit가 추가되는 쿼리문 -->

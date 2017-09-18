@@ -6,11 +6,11 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import kr.or.phonejob.Dao.FreeBoardDao;
-import kr.or.phonejob.Dto.FreeBoardDto;
-import kr.or.phonejob.Dto.Re_FreeBoard;
+import kr.or.phonejob.Dto.FreeBoardDto; 
+import kr.or.phonejob.Dto.Re_FreeBoardDto;
 
 @Service
-public class FreeBoardService {
+public class FreeBoardService implements FreeBoardDao {
 
 	@Autowired
 	private SqlSession sqlSession;
@@ -40,9 +40,9 @@ public class FreeBoardService {
 	}
 	
 	//글을 조회할 때 딸려 있는 댓글 리스트를 함께 불러오는 서비스 함수
-	public List<Re_FreeBoard> selectReList(int free_no){
+	public List<Re_FreeBoardDto> selectReList(int free_no){
 		FreeBoardDao freeboarddao = sqlSession.getMapper(FreeBoardDao.class);
-		List<Re_FreeBoard> list = freeboarddao.selectReList(free_no);
+		List<Re_FreeBoardDto> list = freeboarddao.selectReList(free_no);
 		return list;
 	}
 	
@@ -96,6 +96,25 @@ public class FreeBoardService {
 		FreeBoardDao freeboarddao = sqlSession.getMapper(FreeBoardDao.class);
 		int result = freeboarddao.selectReCount(list_no);
 		return result;
+	}
+
+	@Override
+	public List<FreeBoardDto> selectList(int start, int end, String field, String query) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int insertReply(Re_FreeBoardDto dto) {
+		FreeBoardDao freeboarddao = sqlSession.getMapper(FreeBoardDao.class);
+		int result = freeboarddao.insertReply(dto);
+		return result;
+	}
+
+	@Override
+	public int updateRow(FreeBoardDto freeBoard) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	
