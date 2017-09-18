@@ -43,7 +43,7 @@ public interface FreeBoardDao {
 	// 수정하는 함수
 	public int updateRow(FreeBoardDto freeBoard);
 
-	// 삭제하는 함수
+	//글 삭제하는 함수
 	public int deleteRow(int list_no);
 
 	// 리플 삭제

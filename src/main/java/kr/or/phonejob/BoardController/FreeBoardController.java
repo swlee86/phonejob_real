@@ -39,6 +39,7 @@ public class FreeBoardController {
 	public String goFreeboard(Model mv, String pagesize, String currentpage, String f, String q){
 		logger.info("게시판으로 이동!");
 		String url="free_board.free_board_list";
+		int re_count;	//댓글 숫자 표기용 변수
 
 		
 		int totalcount = 0;
@@ -79,6 +80,7 @@ public class FreeBoardController {
 			 list = freeboardservice.selectBoard(cpage, pgsize, field, query); 
 			 
 			 for(int i=0; i<list.size(); i++){
+				 list.get(i).setRe_count(freeboardservice.selectReCount(list.get(i).getFree_no()));
 				 logger.info("마스킹 작업 전 데이터 : " + list.get(i).toString());
 				 list.get(i).setUserid(MaskingUtil.getMaskedId(list.get(i).getUserid()));
 				 logger.info("마스킹 작업 후 데이터 : " + list.get(i).toString());

@@ -80,12 +80,14 @@ public class FreeBoardService implements FreeBoardDao {
 	}
 	
 	
+	//글 삭제 하는 함수
 	public int deleteRow(int list_no){
 		FreeBoardDao freeboarddao = sqlSession.getMapper(FreeBoardDao.class);
 		int result = freeboarddao.deleteRow(list_no);
 		return result;
 	}
 	
+	//댓글 삭제 하는 함수
 	public int deleteReply(int list_no){
 		FreeBoardDao freeboarddao = sqlSession.getMapper(FreeBoardDao.class);
 		int result = freeboarddao.deleteReply(list_no);

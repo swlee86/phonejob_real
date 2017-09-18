@@ -3,23 +3,30 @@ package kr.or.phonejob.Dto;
 public class FreeBoardDto {
 	
 	private int free_no;
-	private String credential_id;
-	private String userid;
-	private int refer;
-	private int depth;
-	private int step;
-	private int hit;
-	private String title;
-	private String regdate;
-	private String filename;
-	private String content;
-	private String currentpage;
-	private String pagesize;
+	private String credential_id;	//글쓴사람고유아이디
+	private String userid;			//글쓴사람아이디
+	private int refer;				//글 그룹
+	private int depth;				//글 들여쓰기
+	private int step;				//글 step
+	private int hit;				//조회수
+	private String title;			//제목
+	private String regdate;			//등록일지
+	private String filename;		//파일이름
+	private String content;			//컨텐츠
+	private String currentpage;		//최근 페이지
+	private String pagesize;		//페이지 사이즈
+	private int re_count;			//각 게시글마다 댓글 갯수
 	
 	
 	
 	
 	
+	public int getRe_count() {
+		return re_count;
+	}
+	public void setRe_count(int re_count) {
+		this.re_count = re_count;
+	}
 	public String getCurrentpage() {
 		return currentpage;
 	}
@@ -101,15 +108,13 @@ public class FreeBoardDto {
 	}
 	
 	
-	
 	@Override
 	public String toString() {
 		return "FreeBoardDto [free_no=" + free_no + ", credential_id=" + credential_id + ", userid=" + userid
 				+ ", refer=" + refer + ", depth=" + depth + ", step=" + step + ", hit=" + hit + ", title=" + title
 				+ ", regdate=" + regdate + ", filename=" + filename + ", content=" + content + ", currentpage="
-				+ currentpage + ", pagesize=" + pagesize + "]";
+				+ currentpage + ", pagesize=" + pagesize + ", re_count=" + re_count + "]";
 	}
-	
 	
 	
 	
