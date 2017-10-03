@@ -25,21 +25,22 @@ public class MaskingUtil {
 	    * @param id
 	    * @return maskedId
 	    */
-	   public static String getMaskedId(String userid) {
-	      if (isEmail(userid)) {
-	    	  return getMaskedid(userid);
-	      } else if (isPhoneNum(userid)) {
-	         return getMaskedPhoneNum(userid);
-	      } else if (isKorName(userid)){
-	    	  return getMaskedName(userid);
-	      } else if (isEngName(userid)){
-	    	  return getMaskedName(userid);
-	      } else if (isSpaceEngName(userid)){
-	    	  return getMaskedName(userid);
-	      }
-	      return userid;
+	   
+	   //이름 마스킹 유틸
+	   public static String getMskingName(String userid){
+    	  return getMaskedName(userid);
+   	   }
+	   
+	   //번호 마스킹 유틸
+	   public static String getMskingPhoneNum(String userid){
+	      return getMaskedPhoneNum(userid);
 	   }
-
+	   
+	   //아이디 마스킹 유틸
+	   public static String getMaskingId(String userid) {
+		  return getMaskedid(userid);
+	   }
+	   
 	   /**
 	    * 아이디 포맷 Validator
 	    * @param str
@@ -58,23 +59,7 @@ public class MaskingUtil {
 	      return isValid(PHONE_NUM_PATTERN, str);
 	   }
 	   
-	   /**
-	    * 이름 포맷 Validator
-	    * @param str
-	    * @return isValidEmailFormat
-	    */
-	   private static boolean isKorName(final String str) {
-	      return isValid(KOR_NAME_PATTERN, str);
-	   }
-	   
-	   private static boolean isEngName(final String str) {
-		      return isValid(ENG_NAME_PATTERN, str);
-	   }
-	   
-	   private static boolean isSpaceEngName(final String str) {
-		      return isValid(ENG_SPACE_NAME_PATTERN, str);
-	  }
-	   
+
 	   
 
 	   /**
@@ -89,19 +74,19 @@ public class MaskingUtil {
 	   }
 
 	   /**
-	    * 이메일 주소 마스킹 처리
-	    * @param email
-	    * @return maskedEmailAddress
+	    * 아이디 마스킹 처리
+	    * @param userid
+	    * @return maskedUserId
 	    */
 	   private static String getMaskedid(String userid) {
 	      /*
 	      * 요구되는 아이디 포맷
 	      * {userId}
 	      */
-		   userid = userid.replaceAll("(?<=.{3}).", "*");
-	      
-	            
-		   return userid;
+		   String replaceTarget = userid.substring(1, userid.length()-1);
+	       char[] c = new char[replaceTarget.length()];
+	       Arrays.fill(c, '*');
+	       return userid.replace(replaceTarget, String.valueOf(c));
 	      }
 	   
 
@@ -127,11 +112,13 @@ public class MaskingUtil {
 	      return phoneNum;
 	   }
 	   
-	   
+	   //이름 마스킹 함수
 	   private static String getMaskedName(String username) {
-		   username = username.replaceAll("(?<=.{2}).", "*");
-		   
-		   return username;
+		   //logger.info("이름 짤린 내용 : " + username.substring(1, username.length()-1));
+		   String replaceTarget = username.substring(1, username.length()-1);
+	       char[] c = new char[replaceTarget.length()];
+	       Arrays.fill(c, '*');
+	       return username.replace(replaceTarget, String.valueOf(c));
 	   }
 
 }
