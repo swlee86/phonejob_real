@@ -45,16 +45,18 @@ public class ShopController {
 
 	//phone 상세 페이지 접근
     @RequestMapping(value="/goShopDetail.do", method=RequestMethod.GET)
-	public String phoneDetail(String phone_seq){
+	public String phoneDetail(String phone_seq, Model mv){
         String url="shop.phoneDetail";
         ShopDto result = null;
 
         try{
-            
+            result= sservice.selectPhoneDetail(phone_seq);
         }catch (Exception e){
             e.printStackTrace();
+        }finally {
+            mv.addAttribute("result", result);
         }
-	    return null;
+        return url;
     }
 
 }
