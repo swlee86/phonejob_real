@@ -25,6 +25,7 @@ public class ShopController {
 		return url;
 	}
 
+	//phone 상세 페이지 접근
 	public String phoneDetail(){
 
 	    return null;
