@@ -1,10 +1,16 @@
 package kr.or.phonejob.ShopController;
 
+import kr.or.phonejob.Dto.ShopDto;
+import kr.or.phonejob.Service.ShopService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 /*
 생성일자 : 2017-10-04
@@ -18,10 +24,22 @@ public class ShopController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ShopController.class);
 
+	@Autowired
+    private ShopService sservice;
+
 	//shop 페이지 오픈
 	@RequestMapping(value="/goShop.do", method=RequestMethod.GET)
-	public String goShop(){
+	public String goShop(Model mv){
 		String url ="shop.shopMain";
+        List<ShopDto> result = null;
+        try{
+            result = sservice.selectPhoneList();
+        }catch(Exception e){
+		    e.printStackTrace();
+        }finally {
+            mv.addAttribute("result",result);
+        }
+
 		return url;
 	}
 

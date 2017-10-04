@@ -8,20 +8,21 @@
 		</h3>
 		<hr style="border: 1px solid #ddd;">
 		<div class="row">
-				<a href="gooinDetail.do?gooin_no=">
+			<c:forEach items="${result}" var="phone">
+				<a href="goShop.do?phone_seq=${phone.phone_seq}">
 					<div style="width: 283px; display: inline-block; padding-left: 15px; padding-right: 15px;">
 						<div class="hpanel hred">
 							<div class="panel-heading hbuilt" style="text-align: center;">
-
+								<strong>${phone.phone_name}</strong>(${phone.phone_model})
 							</div>
-							<div class="panel-body" style="height: 220px;">
-
+							<div class="panel-body" style="height: 440px; width: 506px;">
+								<img src="updata/phone_img/${phone.phone_img}" alt="폰이미지">
 							</div>
 							<div class="panel-footer">-</div>
 						</div>
 					</div>
 				</a>
-
+			</c:forEach>
 		</div>
 	</div>
 </div>

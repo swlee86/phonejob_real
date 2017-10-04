@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="kr.or.phonejob.Dao.ShopDao">
+
+    <select id="selectPhoneList" resultType="kr.or.phonejob.Dto.ShopDto">
+        SELECT *
+        FROM PHONE_DETAIL
+    </select>
+
+    <select id="selectPhoneDetail" resultType="kr.or.phonejob.Dto.ShopDto">
+        SELECT *
+        FROM PHONE_DETAIL
+        WHERE 1=1
+        AND PHONE_SEQ=#{phone_seq}
+    </select>
+
+
+</mapper>
