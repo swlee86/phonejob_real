@@ -46,7 +46,7 @@ public class GoogicController {
 			logger.info("Result Size : " + result.size());
 			for(int i=0; i<=result.size(); i++){
 				logger.info("마스킹 작업 전 데이터 : "+result.get(i).toString());
-				result.get(i).setUsername(MaskingUtil.getMskingName(result.get(i).getUsername()));
+				result.get(i).setUsername(MaskingUtil.getMaskingName(result.get(i).getUsername()));
 				result.get(i).setUserid(MaskingUtil.getMaskingId(result.get(i).getUserid()));
 				logger.info("마스킹 작업 후 데이터 : "+result.get(i).toString());
 			}

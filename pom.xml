@@ -23,12 +23,6 @@
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>3.1.1.RELEASE</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>4.3.1.RELEASE</version>
 		</dependency>
@@ -311,6 +305,14 @@
 		</dependency>
 	</dependencies>
 	<build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
@@ -348,5 +350,6 @@
 			</plugin>
 		</plugins>
 	</build>
+
 	<name>phonejob</name>
 </project>

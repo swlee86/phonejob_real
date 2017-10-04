@@ -27,12 +27,12 @@ public class MaskingUtil {
 	    */
 	   
 	   //이름 마스킹 유틸
-	   public static String getMskingName(String userid){
+	   public static String getMaskingName(String userid){
     	  return getMaskedName(userid);
    	   }
 	   
 	   //번호 마스킹 유틸
-	   public static String getMskingPhoneNum(String userid){
+	   public static String getMaskingPhoneNum(String userid){
 	      return getMaskedPhoneNum(userid);
 	   }
 	   

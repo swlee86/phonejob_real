@@ -82,7 +82,7 @@ public class FreeBoardController {
 			 for(int i=0; i<list.size(); i++){
 				 list.get(i).setRe_count(freeboardservice.selectReCount(list.get(i).getFree_no()));
 				 logger.info("마스킹 작업 전 데이터 : " + list.get(i).toString());
-				 list.get(i).setUserid(MaskingUtil.getMaskedId(list.get(i).getUserid()));
+				 list.get(i).setUserid(MaskingUtil.getMaskingId(list.get(i).getUserid()));
 				 logger.info("마스킹 작업 후 데이터 : " + list.get(i).toString());
 			 }
 			 

@@ -126,8 +126,8 @@ public class IndexController {
 			
 			for(int l=0; l<result.size(); l++){
 				//logger.info("인재정보 masking 전 : " + result.get(l).toString());
-				result.get(l).setUsername(MaskingUtil.getMaskedId(result.get(l).getUsername()));
-				result.get(l).setUserid(MaskingUtil.getMaskedId(result.get(l).getUserid()));
+				result.get(l).setUsername(MaskingUtil.getMaskingName(result.get(l).getUsername()));
+				result.get(l).setUserid(MaskingUtil.getMaskingId(result.get(l).getUserid()));
 				//logger.info("인재정보 masking 후 : " + result.get(l).toString());
 			}
 		}catch(Exception e){
