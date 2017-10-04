@@ -44,8 +44,16 @@ public class ShopController {
 	}
 
 	//phone 상세 페이지 접근
-	public String phoneDetail(){
+    @RequestMapping(value="/goShopDetail.do", method=RequestMethod.GET)
+	public String phoneDetail(String phone_seq){
+        String url="shop.phoneDetail";
+        ShopDto result = null;
 
+        try{
+            
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 	    return null;
     }
 
