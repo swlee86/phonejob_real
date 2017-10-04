@@ -10,15 +10,20 @@
 		<div class="row">
 			<c:forEach items="${result}" var="phone">
 				<a href="goShop.do?phone_seq=${phone.phone_seq}">
-					<div style="width: 283px; display: inline-block; padding-left: 15px; padding-right: 15px;">
+					<div style="width: 283px; display: inline-block; padding-left: 5px; padding-right: 5px;">
 						<div class="hpanel hred">
-							<div class="panel-heading hbuilt" style="text-align: center;">
-								<strong>${phone.phone_name}</strong>(${phone.phone_model})
+							<div class="panel-heading hbuilt" style="text-align: center; width: 350px;">
+                                <strong>${phone.phone_name}</strong><small>(${phone.phone_model})</small>
 							</div>
-							<div class="panel-body" style="height: 440px; width: 506px;">
+							<div class="panel-body" style="height: 440px; width: 350px;">
 								<img src="updata/phone_img/${phone.phone_img}" alt="폰이미지">
 							</div>
-							<div class="panel-footer">-</div>
+							<div class="panel-footer" style="width: 350px;">
+                                출고가 : ${phone.phone_price}원<br/>
+                                공시지원금 : -${phone.publicsubsidy}원<br/>
+                                추가지원금 : -${phone.privatesubsidy}원<br/>
+                                단말대금 : <c:out value="${phone.phone_price-phone.publicsubsidy-phone.privatesubsidy}" />원
+                            </div>
 						</div>
 					</div>
 				</a>
