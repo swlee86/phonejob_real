@@ -6,10 +6,6 @@
 	<div class="col-lg-12" style="text-align: center;">
 		<div class="hpanel" style="width:1200px; display:inline-block;">
 			<div class="panel-heading">
-				<div class="panel-tools">
-					<a class="showhide"><i class="fa fa-chevron-up"></i></a> <a
-						class="closebox"><i class="fa fa-times"></i></a>
-				</div>
 				개인회원 가입하기
 			</div>
 			<div class="panel-body">

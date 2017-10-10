@@ -10,24 +10,29 @@
 			/WEB-INF/spring/security-Context.xml
 		</param-value>
   </context-param>
+
+  <listener>
+    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+  </listener>
+
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
   
-  <listener>
-    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-  </listener>
+
   <context-param>
     <param-name>log4jConfigLocation</param-name>
-    <param-value>/WEB-INF/resource/log4j.properties</param-value>
+    <param-value>/WEB-INF/resource/log4j.xml</param-value>
   </context-param>
+
   <servlet>
     <servlet-name>servlet-context</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>
-				/WEB-INF/spring/appServlet/servlet-context.xml
+        /WEB-INF/spring/*-servlet.xml
+        /WEB-INF/spring/appServlet/servlet-context.xml
 			</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>

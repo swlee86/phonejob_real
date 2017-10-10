@@ -1,8 +1,12 @@
 package kr.or.phonejob.LoginController;
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -43,11 +47,11 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
    private LoginService lservice;
    
    
-      public void setSqlsession(SqlSession sqlsession) {
+	public void setSqlsession(SqlSession sqlsession) {
       this.sqlsession = sqlsession;
    }
 
-   private Logger logger = LoggerFactory.getLogger(this.getClass());
+   private Logger logger = LoggerFactory.getLogger(CustomAuthenticationSuccessHandler.class);
 
    private RequestCache requestCache = new HttpSessionRequestCache();
 
@@ -144,8 +148,33 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 		   session.setAttribute("gubun", ldto.getGubun());
 		   session.setAttribute("loginData", ldto);
 		   session.setAttribute("username", ldto.getUsername());
-		   
-		   
+
+		   if ( ldto.isRemember() ){ // dto 클래스 안에 useCookie 항목에 폼에서 넘어온 쿠키사용 여부(true/false)가 들어있을 것임
+			   logger.info("쿠키 셍성 시작! 로그인 유지 체크");
+			   // 쿠키 사용한다는게 체크되어 있으면...
+			   // 쿠키를 생성하고 현재 로그인되어 있을 때 생성되었던 세션의 id를 쿠키에 저장한다.
+			   Cookie cookie = new Cookie("loginCookie", session.getId());
+			   // 쿠키를 찾을 경로를 컨텍스트 경로로 변경해 주고...
+			   cookie.setPath("/");
+			   int amount = 60 * 60 * 24 * 7;
+			   cookie.setMaxAge(amount); // 단위는 (초)임으로 7일정도로 유효시간을 설정해 준다.
+			   // 쿠키를 적용해 준다.
+			   response.addCookie(cookie);
+
+
+			   Date sessionLimit = new Date(System.currentTimeMillis() + (1000*amount));
+
+			   //map으로 세팅해서 데이터 input
+			   Map<String, Object> map = new HashMap<String, Object>();
+			   map.put("userId", ldto.getUserid());
+			   map.put("sessionId", session.getId());
+			   map.put("next", sessionLimit);
+
+			   //자동 로그인 데이터 입력 처리
+			   lservice.keepLogin(map);
+
+		   }
+
 		   
 	   }catch(Exception e){
 		   logger.debug("@@@@@@@@@@@@@@@@@" + e.getMessage());
@@ -154,17 +183,17 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 	   }
 	   
 	   ///////////////////////////추가 영역 - 로그인 이전 페이지로 이동 시작 ////////////////////////////////
-	   
-       if (session != null) {
-           String redirectUrl = (String) session.getAttribute("prevPage");
-           if (redirectUrl != null) {
-               session.removeAttribute("prevPage");
-               getRedirectStrategy().sendRedirect(request, response, redirectUrl);
-           } else {
-               super.onAuthenticationSuccess(request, response, authentication);
-           }
-       } else {
-           super.onAuthenticationSuccess(request, response, authentication);
+
+		   if (session != null) {
+			   String redirectUrl = (String) session.getAttribute("prevPage");
+			   if (redirectUrl != null) {
+				   session.removeAttribute("prevPage");
+				   getRedirectStrategy().sendRedirect(request, response, redirectUrl);
+			   } else {
+				   super.onAuthenticationSuccess(request, response, authentication);
+			   }
+		   } else {
+			   super.onAuthenticationSuccess(request, response, authentication);
        }
    
 	   

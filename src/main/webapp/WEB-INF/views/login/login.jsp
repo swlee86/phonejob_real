@@ -7,10 +7,10 @@
                 <h3>PhoneJob 고객 로그인</h3>
                 <small>아이디가 없으신 경우 회원 가입을 진행해 주세요!</small>
             </div>
-            <div class="hpanel">
+            <div class="hpanel" style="text-align:left">
                 <div class="panel-body">
                         <form id="loginForm" method="post" action="${pageContext.request.contextPath}/login">
-                            <div class="form-group">
+                            <div class="form-group" style="text-align=left">
                                 <label class="control-label" for="ID">ID</label>
                                 <input type="text" placeholder="ID 입력" title="Please enter you ID" required="" value="" name="userid" id=userid class="form-control">
                                 <span class="help-block small">Your unique ID to Infra</span>
@@ -21,7 +21,7 @@
                                 <span class="help-block small">Yur strong password</span>
                             </div>
                             <div class="checkbox">
-                                <input type="checkbox" class="i-checks" checked>
+                                <input type="checkbox" name="remember" class="i-checks" checked >
                                      Remember login
                                 <p class="help-block small">(if this is a private computer)</p>
                             </div>

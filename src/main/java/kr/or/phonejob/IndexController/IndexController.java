@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import kr.or.phonejob.Service.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,9 @@ public class IndexController {
 	
 	@Autowired
 	private IndexService iservice;
+
+	@Autowired
+	private LoginService lservice;
 	
 	
 	
@@ -42,8 +46,7 @@ public class IndexController {
 		logger.info(">>>>>>Index Page 접근");
 		String msg = "";
 	    //현 접속자의 IP를 구합니다.
-		
-		
+
 		  String cIp = request.getHeader("X-Forwarded-For");
 		  
 		    if(cIp == null || cIp.length() == 0 || "unknown".equalsIgnoreCase(cIp)) {
@@ -87,6 +90,9 @@ public class IndexController {
 		  mv.addAttribute("cIp", cIp);
 		  return "lock";
 	  }
+
+
+	  lservice.checkUserWithSessionKey();
 	  
 	  
 		//구인 데이터를 뽑아 오기 위한 작업 시작

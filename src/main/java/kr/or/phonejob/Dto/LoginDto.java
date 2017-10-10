@@ -18,10 +18,14 @@ public class LoginDto {
 	private String keymanname;
 	private String keymantel;
 	private String keymanmail;
-	
-	
-	
-		
+	private boolean remember;
+
+	public boolean isRemember() {
+		return remember;
+	}
+	public void setRemember(boolean remember) {
+		this.remember = remember;
+	}
 	public String getComname() {
 		return comname;
 	}
@@ -118,21 +122,28 @@ public class LoginDto {
 	public void setUseraddr2(String useraddr2) {
 		this.useraddr2 = useraddr2;
 	}
-	
-	
+
+
 	@Override
 	public String toString() {
-		return "LoginDto [userid=" + userid + ", username=" + username + ", userpwd=" + userpwd + ", gubun=" + gubun
-				+ ", usermail=" + usermail + ", pic=" + pic + ", userphone=" + userphone + ", userbirth=" + userbirth
-				+ ", useraddr1=" + useraddr1 + ", useraddr2=" + useraddr2 + ", credential_id=" + credential_id
-				+ ", comname=" + comname + ", comidfyno=" + comidfyno + ", keymanname=" + keymanname + ", keymantel="
-				+ keymantel + ", keymanmail=" + keymanmail + "]";
+		return "LoginDto{" +
+				"userid='" + userid + '\'' +
+				", username='" + username + '\'' +
+				", userpwd='" + userpwd + '\'' +
+				", gubun='" + gubun + '\'' +
+				", usermail='" + usermail + '\'' +
+				", pic='" + pic + '\'' +
+				", userphone='" + userphone + '\'' +
+				", userbirth='" + userbirth + '\'' +
+				", useraddr1='" + useraddr1 + '\'' +
+				", useraddr2='" + useraddr2 + '\'' +
+				", credential_id='" + credential_id + '\'' +
+				", comname='" + comname + '\'' +
+				", comidfyno='" + comidfyno + '\'' +
+				", keymanname='" + keymanname + '\'' +
+				", keymantel='" + keymantel + '\'' +
+				", keymanmail='" + keymanmail + '\'' +
+				", remember='" + remember + '\'' +
+				'}';
 	}
-	
-	
-	
-	
-	
-	
-	
 }
