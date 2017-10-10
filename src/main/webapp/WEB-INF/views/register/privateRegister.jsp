@@ -57,7 +57,7 @@
 									<p class="small m-t-md">로그인 정보 입력</p>
 								</div>
 								<div class="col-lg-9">
-									<div class="row">
+									<div class="row" style="text-align: left;">
 										<div class="form-group col-lg-12">
 											<label>아이디</label> <input type="text" value="" id="userid" class="form-control" name="userid" placeholder="아이디">
 										</div>
@@ -91,7 +91,7 @@
 									<p class="small m-t-md">필수정보 입력</p>
 								</div>
 								<div class="col-lg-9">
-									<div class="row">
+									<div class="row" style="text-align: left;">
 										<div class="form-group col-lg-12">
 											<div class="col-xs-4 form-group">
 												<div class="row">
