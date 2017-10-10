@@ -10,7 +10,7 @@
             <div class="hpanel" style="text-align:left">
                 <div class="panel-body">
                         <form id="loginForm" method="post" action="${pageContext.request.contextPath}/login">
-                            <div class="form-group" style="text-align=left">
+                            <div class="form-group">
                                 <label class="control-label" for="ID">ID</label>
                                 <input type="text" placeholder="ID 입력" title="Please enter you ID" required="" value="" name="userid" id=userid class="form-control">
                                 <span class="help-block small">Your unique ID to Infra</span>
