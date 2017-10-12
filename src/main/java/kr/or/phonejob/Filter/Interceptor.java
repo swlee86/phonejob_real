@@ -33,9 +33,12 @@ public class Interceptor extends HandlerInterceptorAdapter {
    
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-    	
-    	
-    	logger.info("구직자 등록 수 계산!!!");
+
+		HttpServletRequest httpRequest = (HttpServletRequest) request;
+		httpRequest.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+
+		logger.info("구직자 등록 수 계산!!!");
 	    //구직자 등록 수 계산
 	  	int googicCount = gservice.countAllGoogic();
 	  	
@@ -46,21 +49,18 @@ public class Interceptor extends HandlerInterceptorAdapter {
 	  	logger.info("종료된 구인글 수 계산!!!");
 	  	//종료된 구인글 수 계산
 	  	int gooinEndCount = gooservice.countEndGooin();
-	  	  
-    	
-    	
-    	logger.info("로그인 관련 인터셉터 작동!!");
-    	HttpServletRequest httpRequest = (HttpServletRequest) request;
-    	
-    	httpRequest.setCharacterEncoding("UTF-8");
+
+		session.setAttribute("googicCount", googicCount);
+		session.setAttribute("gooinCount", gooinCount);
+		session.setAttribute("gooinEndCount", gooinEndCount);
+
+
+		logger.info("로그인 관련 인터셉터 작동!!");
+
+
+
 		boolean login = false;
-		
-        HttpSession session = request.getSession();    
-        session.setAttribute("googicCount", googicCount);
-        session.setAttribute("gooinCount", gooinCount);
-        session.setAttribute("gooinEndCount", gooinEndCount);
-        
-        
+
 		String[] uri = request.getRequestURI().split("/");
 		String realuri = "/"+uri[uri.length-1]; // 배열의 마지막 값이 파일이름
 
@@ -108,7 +108,7 @@ public class Interceptor extends HandlerInterceptorAdapter {
 						if(realuri.equals("/privateRegister.do")||realuri.equals("/login.do")){
 							logger.info("회원가입을 또할라고?..");
 							response.sendRedirect(request.getContextPath()+"/index.do");
-				        	return false;
+				        	break;
 						}
 					}
 					

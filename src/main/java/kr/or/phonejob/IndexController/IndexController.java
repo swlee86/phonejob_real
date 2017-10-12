@@ -92,6 +92,7 @@ public class IndexController {
 	  }
 
 
+	  //해당 서비스 및 함수는 자동로그인 기능 구현 중입니다.
 	  lservice.checkUserWithSessionKey();
 	  
 	  
