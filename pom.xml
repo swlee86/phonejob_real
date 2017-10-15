@@ -13,6 +13,16 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 
+	<repositories>
+		<!-- jenkins -->
+		<repository>
+			<id>jenkins-repo</id>
+			<name>jenkins Repository</name>
+			<url>file:C:\Users\Lee\.m2\repository</url>
+		</repository>
+	</repositories>
+
+
 	<dependencies>
 		<dependency>
   		  <groupId>com.servlets</groupId>
