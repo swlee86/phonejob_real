@@ -7,7 +7,7 @@
 			<span style="font-family: Arial"><b>추천하는 단말기</b></span>
 		</h3>
 		<hr style="border: 1px solid #ddd;">
-		<div class="row">
+		<div class="row" style="text-align: center">
 			<c:forEach items="${result}" var="phone">
 				<a href="goShop.do?phone_seq=${phone.phone_seq}">
 					<div style="display: inline-block; padding-left: 5px; padding-right: 5px;">

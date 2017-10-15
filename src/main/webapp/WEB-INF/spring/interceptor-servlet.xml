@@ -15,7 +15,13 @@
 						   http://www.springframework.org/schema/tx/spring-tx.xsd">
     <mvc:annotation-driven />
 
-
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/index.do"/>
+            <bean id="loggerInterceptor" class="kr.or.phonejob.Filter.LoggerInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
     <mvc:interceptors>
         <mvc:interceptor>
@@ -24,10 +30,5 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <bean id="loggerInterceptor" class="kr.or.phonejob.Filter.LoggerInterceptor"></bean>
-        </mvc:interceptor>
-    </mvc:interceptors>
+
 </beans>

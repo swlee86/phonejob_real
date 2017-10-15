@@ -191,7 +191,7 @@
 						<div style="width: 227px; display: inline-block; padding-left: 15px; padding-right: 15px;">
 							<div class="hpanel hblue">
 								<div class="panel-heading hbuilt" style="text-align: center;">
-									<img src="./googic/picture/${resultData.pic}" alt="이력서 사진">
+									<img src="./updata/picture/googic/${resultData.pic}" alt="이력서 사진">
 								</div>
 								<div class="panel-body" style="height: 220px;">
 									<p>

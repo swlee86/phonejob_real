@@ -75,6 +75,8 @@
 <script src="vendor/jquery-flot/jquery.flot.js"></script>
 <script src="vendor/jquery-flot/jquery.flot.resize.js"></script>
 <script src="vendor/jquery-flot/jquery.flot.pie.js"></script>
+<script src="js/common.js"></script>
+
 <script src="vendor/flot.curvedlines/curvedLines.js"></script>
 <script src="vendor/jquery.flot.spline/index.js"></script>
 <script src="vendor/metisMenu/dist/metisMenu.min.js"></script>
@@ -84,6 +86,7 @@
 <script src="vendor/chartjs/Chart.min.js"></script>
 <script src="vendor/chartist/dist/chartist.min.js"></script>
 
+
 <!-- App scripts -->
 <script src="scripts/homer.js"></script>
 <script src="scripts/charts.js"></script>
@@ -91,82 +94,82 @@
 
 <script type="text/javascript">
 
+    //생성될 쿠키명
+    var cookie_name = "popupCookie";
 
+    //이벤트 팝업
+    function openPopup(id, width, height, tpos, lpos){
+        var divName = document.getElementById(id);
 
-//생성될 쿠키명
-var cookie_name = "popupCookie";
+        if (getCOOKIE(cookie_name) != true){
+            divName.style.display = "block";
+        }else{
+            divName.style.display = "none";
+        }
 
-//이벤트 팝업
-function openPopup(id, width, height, tpos, lpos){
- var divName = document.getElementById(id);
- 
- if (getCOOKIE(cookie_name) != true){
-  divName.style.display = "block"; 
- }else{
-  divName.style.display = "none";
- }
- 
- var winwidth=document.all?document.body.clientWidth:window.innerWidth; 
- var left = winwidth/2 - 320
- if(left < 190) lpos = 190;
- divName.style.width = width + "px";
- divName.style.height = height + "px";
- divName.style.top = tpos + "px";
- divName.style.left = lpos + "px";
-}
-
-//팝업 닫기
-function closePopup(id){
- var divName = document.getElementById(id);
- divName.style.display = "none";
-}
-
-function getCOOKIE(name){
- var Found;
-  Found = false;
-  var start, end;
-  var i = 0;
-
-  while(i <= document.cookie.length){
-    start = i;
-    end = start + name.length;
-    if(document.cookie.substring(start, end) == name){
-      //Found = true;
-      return true;
-      break;
+        var winwidth=document.all?document.body.clientWidth:window.innerWidth;
+        var left = winwidth/2 - 320
+        if(left < 190) lpos = 190;
+        divName.style.width = width + "px";
+        divName.style.height = height + "px";
+        divName.style.top = tpos + "px";
+        divName.style.left = lpos + "px";
     }
-    i++;
- }
 
-  if(Found == true){
-    start = end + 1;
-    end = document.cookie.indexOf(';', start);
-    if(end < start) end = document.cookie.length;
-    return document.cookie.substring(start, end);
-  }
-  return '';
-}
+    //팝업 닫기
+    function closePopup(id){
+        var divName = document.getElementById(id);
+        divName.style.display = "none";
+    }
 
-//오늘은 그만보기 선택시 -- setCOOKIE("쿠키명","y",1)
-function controlCOOKIE(){
- setCOOKIE(cookie_name,"y", 1);
- closePopup('layerPop');
-}
-  
-//쿠키 생성 함수
-function setCOOKIE(name, value, expire){
-    var expire_date = new Date();
-    expire_date = new Date(expire_date.getTime() + 60*60*24*1000);
-    document.cookie = name + "=" + escape(value) + "; expires=" + expire_date.toGMTString() +"; path=/";
-}
- 
-//쿠키 소멸 함수
-function clearCOOKIE(name){
- var today = new Date();
-    //어제 날짜를 쿠키 소멸 날짜로 설정한다.
-    var expire_date = new Date(today.getTime() - 60*60*24*1000);
-    document.cookie = name + "= " + "; expires=" + expire_date.toGMTString();
-}
+    function getCOOKIE(name){
+        var Found;
+        Found = false;
+        var start, end;
+        var i = 0;
+
+        while(i <= document.cookie.length){
+            start = i;
+            end = start + name.length;
+            if(document.cookie.substring(start, end) == name){
+                //Found = true;
+                return true;
+                break;
+            }
+            i++;
+        }
+
+        if(Found == true){
+            start = end + 1;
+            end = document.cookie.indexOf(';', start);
+            if(end < start) end = document.cookie.length;
+            return document.cookie.substring(start, end);
+        }
+        return '';
+    }
+
+    //오늘은 그만보기 선택시 -- setCOOKIE("쿠키명","y",1)
+    function controlCOOKIE(){
+        setCOOKIE(cookie_name,"y", 1);
+        closePopup('layerPop');
+    }
+
+    //쿠키 생성 함수
+    function setCOOKIE(name, value, expire){
+        var expire_date = new Date();
+        expire_date = new Date(expire_date.getTime() + 60*60*24*1000);
+        document.cookie = name + "=" + escape(value) + "; expires=" + expire_date.toGMTString() +"; path=/";
+    }
+
+    //쿠키 소멸 함수
+    function clearCOOKIE(name){
+        var today = new Date();
+        //어제 날짜를 쿠키 소멸 날짜로 설정한다.
+        var expire_date = new Date(today.getTime() - 60*60*24*1000);
+        document.cookie = name + "= " + "; expires=" + expire_date.toGMTString();
+    }
+
+
 
 
 

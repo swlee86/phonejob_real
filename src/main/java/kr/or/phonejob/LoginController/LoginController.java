@@ -30,15 +30,12 @@ public class LoginController {
 	//로그인 페이지 이동
 	@RequestMapping(value="/login.do", method=RequestMethod.GET)
 	public String memberLogin(HttpServletRequest request){
-		
-
-	    
-	    
 		String url= "login.login";
+
 		try {
 			logger.info(">>>>>로그인페이지 접근");
 		} catch (Exception e) {
-			logger.error(e.getMessage());
+			e.printStackTrace();
 		}finally{
 			logger.info(">>>>>연결 URL : " + url);
 			return url;

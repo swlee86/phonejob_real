@@ -9,15 +9,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-<!--
-	<interceptors>
-        <interceptor>
-            <mapping path="/*" />
-            <beans:bean class="kr.or.phonejob.Filter.Interceptor"/>
-        </interceptor>
-    </interceptors>
-	-->
-	
+
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
@@ -46,6 +38,7 @@
 		<beans:ref bean = "sqlSession"/>
 	</beans:property>
 	</beans:bean>
+
 
 
 	<!-- transaction start -->
