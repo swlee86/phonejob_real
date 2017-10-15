@@ -75,7 +75,7 @@
 <script src="vendor/jquery-flot/jquery.flot.js"></script>
 <script src="vendor/jquery-flot/jquery.flot.resize.js"></script>
 <script src="vendor/jquery-flot/jquery.flot.pie.js"></script>
-<script src="js/common.js"></script>
+<%--<script src="js/common.js"></script>--%>
 
 <script src="vendor/flot.curvedlines/curvedLines.js"></script>
 <script src="vendor/jquery.flot.spline/index.js"></script>
