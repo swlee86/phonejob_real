@@ -251,7 +251,7 @@
 	 &nbsp;&nbsp;&nbsp;-커뮤니티 글쓰기 / 수정 / 삭제 가능<br/><br> 
 	
 	<h5 style="color: blue;">2. 2017-09-18 반영 사항</h5>
-	 &nbsp;&nbsp;&nbsp;-배포환경 구축 완료<br/><br/>
+	 &nbsp;&nbsp;&nbsp;-배포환경 구축 완료<br/>
 	 &nbsp;&nbsp;&nbsp;-shop 구축 시작<br/><br/>
 	 
 	 <b>※테스트 데이터는 많을 수록 좋으므로 수시로 등록 부탁드립니다. <br/>
