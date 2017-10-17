@@ -45,7 +45,7 @@ public class LoginService implements LoginDao {
 	}
 
 	@Override
-	public int keepLogin(Map map) {
+	public int keepLogin(Map<String, Object> map) {
 		LoginDao dao = sqlsession.getMapper(LoginDao.class);
 		return 0;
 	}

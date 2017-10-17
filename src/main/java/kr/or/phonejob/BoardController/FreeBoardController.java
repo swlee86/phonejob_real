@@ -143,7 +143,8 @@ public class FreeBoardController {
 	
 		
 		    //파일 업로드 
-		 	String path = request.getRealPath("/updata/free_board/");		 	
+		 	String path = request.getSession().getServletContext().getRealPath("/updata/free_board/");
+
 			try {
 				File cFile = new File(path, file.getOriginalFilename());
 				logger.info("cFile 내용 : " + cFile);
@@ -152,8 +153,10 @@ public class FreeBoardController {
 				e1.printStackTrace();
 			} catch (IOException e1) {
 				e1.printStackTrace();
-			}
-			
+			}finally {
+
+            }
+
 		
 		//로그인시 만들어진 세션 정보를 불러옴!!
 		HttpSession session = request.getSession();
@@ -226,7 +229,7 @@ public class FreeBoardController {
 	@RequestMapping(value="/answerfree.do", method=RequestMethod.POST)
 	public String answerOk(@RequestParam("uploadfile") MultipartFile file, Model mv, String title, String content, String free_no, Principal principal, int refer, int step, int depth,HttpServletRequest request){
 		//파일 업로드 
-		String path = request.getRealPath("/board/free_upload/");
+		String path = request.getSession().getServletContext().getRealPath("/board/free_upload/");
 		
 		File cFile = new File(path, file.getOriginalFilename());
 		try {
