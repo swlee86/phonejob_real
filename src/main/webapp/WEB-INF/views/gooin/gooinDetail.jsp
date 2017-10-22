@@ -15,7 +15,7 @@
 					<table style="border: 1px solid #ddd;">
 						<tr style="border: 1px solid #ddd;">
 							<td rowspan="3" style="border: 1px solid #ddd; width: 270px;">
-								<img src="./gooin/picture/${gooinDetail.userpicture}" alt="매장 사진">
+								<img src="updata/picture/gooin/${gooinDetail.userpicture}" alt="매장 사진">
   							    <input type="hidden" value="${gooinDetail.userpicture}" id="userpicture" name="userpicture">
   							</td>
 							<td colspan="2" style="border: 1px solid #ddd; width: 270px; height: 60px;">회사명 : ${gooinDetail.comname }</td>
