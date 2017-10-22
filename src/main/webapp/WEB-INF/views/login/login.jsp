@@ -13,7 +13,7 @@
                             <div class="form-group">
                                 <label class="control-label" for="ID">ID</label>
                                 <input type="text" placeholder="ID 입력" title="Please enter you ID" required="" value="" name="userid" id=userid class="form-control">
-                                <span class="help-block small">Your unique ID to Phone&Job<0/span>
+                                <span class="help-block small">Your unique ID to Phone&Job</span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="password">Password</label>
