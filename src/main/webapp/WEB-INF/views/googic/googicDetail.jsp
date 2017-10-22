@@ -12,7 +12,7 @@
 					<table style="border: 1px solid #ddd;">
 						<tr style="border: 1px solid #ddd;">
 							<td rowspan="3" style="border: 1px solid #ddd; width: 270px;">
-								<img src="./googic/picture/${googicdata.pic}" alt="이력서 사진">
+								<img src="updata/picture/googic/${googicdata.pic}" alt="이력서 사진">
   							    <input type="hidden" value="${googicdata.pic}" id="userpicture" name="userpicture">
   							</td>
 							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
