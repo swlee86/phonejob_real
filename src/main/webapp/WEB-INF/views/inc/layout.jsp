@@ -82,6 +82,7 @@
 <script src="vendor/metisMenu/dist/metisMenu.min.js"></script>
 <script src="vendor/iCheck/icheck.min.js"></script>
 <script src="vendor/peity/jquery.peity.min.js"></script>
+<script src="http://img.newscj.com/625photo/js/ie9_fix.js"></script>
 <script src="vendor/sparkline/index.js"></script>
 <script src="vendor/chartjs/Chart.min.js"></script>
 <script src="vendor/chartist/dist/chartist.min.js"></script>
