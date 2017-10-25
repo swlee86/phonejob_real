@@ -592,5 +592,6 @@ public class GoogicController {
 			return url;		
 		}
 	}
+
 	
 }

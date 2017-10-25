@@ -57,8 +57,8 @@ public class RegisterController {
 			logger.error(e.getMessage());			
 		}finally{
 			logger.info(">>>>>연결 URL : " + url);
-			return url;
 		}
+		return url;
 	}
 	
 	//개인 회원 가입 input
@@ -169,9 +169,8 @@ public class RegisterController {
 		}finally{
 			mv.addAttribute("data", data);
 			mv.addAttribute("movepage", movepage);
-			return page;
 		}
-		
+		return page;
 		
 	}
 	
@@ -185,8 +184,8 @@ public class RegisterController {
 			logger.error(e.getMessage());			
 		}finally{
 			logger.info(">>>>>연결 URL : " + url);
-			return url;
 		}
+		return url;
 	}
 	
 	
@@ -299,8 +298,8 @@ public class RegisterController {
 		}finally{
 			mv.addAttribute("data", data);
 			mv.addAttribute("movepage", movepage);
-			return page;
 		}
+		return page;
 		
 		
 	}
