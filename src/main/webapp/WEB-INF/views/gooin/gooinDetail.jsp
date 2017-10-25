@@ -202,6 +202,15 @@
 					</c:if>
 					<input type="button" class="btn btn-default" onclick="javascript:goPage()" value="목록으로">							
 				</div>
+					<input type="hidden" name="gooin_no" value="${gooinDetail.gooin_no}">
+					<input type="hidden" name="grade" value="${gooinDetail.grade}">
+					<input type="hidden" name="goointel" value="${gooinDetail.goointel}">
+					<input type="hidden" name="phone" value="${gooinDetail.phone}">
+					<input type="hidden" name="comname" value="${gooinDetail.comname}">
+					<input type="hidden" name="comidfyno" value="${comidfyno.goointel}">
+					<input type="hidden" name="adress" value="${comidfyno.adress}">
+					<input type="hidden" name="homepage" value="${comidfyno.homepage}">
+					<input type="hidden" name="wantstatus" value="${comidfyno.wantstatus}">
 				</c:forEach>
 				</form>
 			</div>
