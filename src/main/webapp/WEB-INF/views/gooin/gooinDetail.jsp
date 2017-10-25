@@ -197,7 +197,7 @@
 						<input type="submit" class="btn btn-success" value="수정하기">
 					</c:if>
 					<c:if test="${loginData.gubun eq '1' }">
-						<input type="text" class="btn btn-success" id="volunteer" value="지원하기">
+						<input type="text" class="btn btn-warning" id="volunteer" value="지원하기">
 					</c:if>
 					<input type="button" class="btn btn-default" onclick="javascript:goPage()" value="목록으로">							
 				</div>
