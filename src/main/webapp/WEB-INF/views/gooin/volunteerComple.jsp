@@ -15,46 +15,45 @@
         <div class="col-lg-12">
             <div class="hpanel">
                 <form action="" id="volunteerE" name="volunteerE" method="post">
-                    <c:forEach var="gooinDetail" items="${volunteerData}">
                         <div class="panel-body">
                             <b style="font-size: 18px;">지원하신 내역입니다.</b>
                             <hr style="border: 1px solid #ddd;">
                             <table style="border: 1px solid #ddd;">
                                 <tr style="border: 1px solid #ddd;">
                                     <td rowspan="3" style="border: 1px solid #ddd; width: 270px;">
-                                        <img src="updata/picture/gooin/${gooinDetail.userpicture}" alt="매장 사진">
-                                        <input type="hidden" value="${gooinDetail.userpicture}" id="userpicture" name="userpicture">
+                                        <img src="updata/picture/gooin/${volunteerData.userpicture}" alt="매장 사진">
+                                        <input type="hidden" value="${volunteerData.userpicture}" id="userpicture" name="userpicture">
                                     </td>
-                                    <td colspan="2" style="border: 1px solid #ddd; width: 270px; height: 60px;">회사명 : ${gooinDetail.comname }</td>
+                                    <td colspan="2" style="border: 1px solid #ddd; width: 270px; height: 60px;">회사명 : ${volunteerData.comname }</td>
                                     <td style="border: 1px solid #ddd; width: 270px; height: 60px; text-align: center;">
-                                        <c:if test="${gooinDetail.wanttel eq 'A001'}">
+                                        <c:if test="${volunteerData.wanttel eq 'A001'}">
                                             <img src="images/kt1.jpg">
                                         </c:if>
-                                        <c:if test="${gooinDetail.wanttel eq 'A002'}">
+                                        <c:if test="${volunteerData.wanttel eq 'A002'}">
                                             <img src="images/sk1.jpg">
                                         </c:if>
-                                        <c:if test="${gooinDetail.wanttel eq 'A003'}">
+                                        <c:if test="${volunteerData.wanttel eq 'A003'}">
                                             <img src="images/lg1.jpg">
                                         </c:if>
-                                        <input type="hidden" id="wanttel" class="form-control" name="wanttel" value="${gooinDetail.wanttel}" readonly="readonly">
+                                        <input type="hidden" id="wanttel" class="form-control" name="wanttel" value="${volunteerData.wanttel}" readonly="readonly">
                                     </td>
                                 </tr>
                                 <tr style="border: 1px solid #ddd;">
-                                    <td style="border: 1px solid #ddd; width: 270px; height: 60px;">사업자번호 : ${gooinDetail.comidfyno }</td>
-                                    <td style="border: 1px solid #ddd; width: 270px; height: 60px;">대표 번호 : ${gooinDetail.phone }</td>
+                                    <td style="border: 1px solid #ddd; width: 270px; height: 60px;">사업자번호 : ${volunteerData.comidfyno }</td>
+                                    <td style="border: 1px solid #ddd; width: 270px; height: 60px;">대표 번호 : ${volunteerData.phone }</td>
                                     <td style="border: 1px solid #ddd; width: 270px; height: 60px;">
                                         <c:choose>
-                                            <c:when test="${gooinDetail.homepage eq 'non' }">
+                                            <c:when test="${volunteerData.homepage eq 'non' }">
                                                 홈페이지 없음
                                             </c:when>
                                             <c:otherwise>
-                                                홈페이지 :${gooinDetail.homepage }
+                                                홈페이지 :${volunteerData.homepage }
                                             </c:otherwise>
                                         </c:choose>
                                     </td>
                                 </tr>
                                 <tr style="border: 1px solid #ddd;">
-                                    <td colspan="3" style="border: 1px solid #ddd; width: 270px; height: 60px;">회사 주소 : ${gooinDetail.adress }</td>
+                                    <td colspan="3" style="border: 1px solid #ddd; width: 270px; height: 60px;">회사 주소 : ${volunteerData.adress }</td>
                                 </tr>
                             </table>
 
@@ -71,60 +70,60 @@
                                 <tr style="border: 1px solid #ddd;">
                                     <td style="border: 1px solid #ddd; width: 204px; height: 60px;">
                                         <c:choose>
-                                            <c:when test="${gooinDetail.wantjob eq 'cs'}">
+                                            <c:when test="${volunteerData.wantjob eq 'cs'}">
                                                 CS
                                                 <input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="CS" readonly="readonly">
                                             </c:when>
-                                            <c:when test="${gooinDetail.wantjob eq 'seller'}">
+                                            <c:when test="${volunteerData.wantjob eq 'seller'}">
                                                 판매사
                                                 <input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="판매사" readonly="readonly">
                                             </c:when>
-                                            <c:when test="${gooinDetail.wantjob eq 'csseller'}">
+                                            <c:when test="${volunteerData.wantjob eq 'csseller'}">
                                                 판매사 / CS
                                                 <input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="판매사 / CS" readonly="readonly">
                                             </c:when>
                                         </c:choose>
                                     </td>
                                     <td style="border: 1px solid #ddd; width: 204px; height: 60px;">
-                                        고용형태 : ${gooinDetail.jobstatus}<br/>
-                                        학력 : ${gooinDetail.school}
-                                        <input type="hidden" class="form-control" name="jobstatus" id="jobstatus" value="${gooinDetail.jobstatus }" readonly="readonly">
-                                        <input type="hidden" class="form-control" name=school id="school" value="${gooinDetail.school}" readonly="readonly">
+                                        고용형태 : ${volunteerData.jobstatus}<br/>
+                                        학력 : ${volunteerData.school}
+                                        <input type="hidden" class="form-control" name="jobstatus" id="jobstatus" value="${volunteerData.jobstatus }" readonly="readonly">
+                                        <input type="hidden" class="form-control" name=school id="school" value="${volunteerData.school}" readonly="readonly">
 
                                     </td>
                                     <td style="border: 1px solid #ddd; width: 204px; height: 60px;">
                                         <c:choose>
-                                            <c:when test="${gooinDetail.wantstatus eq '01'}">신입</c:when>
-                                            <c:when test="${gooinDetail.wantstatus eq '02'}">경력</c:when>
-                                            <c:when test="${gooinDetail.wantstatus eq '03'}">무관</c:when>
+                                            <c:when test="${volunteerData.wantstatus eq '01'}">신입</c:when>
+                                            <c:when test="${volunteerData.wantstatus eq '02'}">경력</c:when>
+                                            <c:when test="${volunteerData.wantstatus eq '03'}">무관</c:when>
                                             <c:otherwise>-</c:otherwise>
                                         </c:choose>
 
                                     </td>
                                     <td style="border: 1px solid #ddd; width: 204px; height: 60px;">
-                                            ${gooinDetail.wanthuman}명
-                                        <input type="hidden" class="form-control" name="wanthuman" id="wanthuman" value="${gooinDetail.wanthuman}" readonly="readonly">
+                                            ${volunteerData.wanthuman}명
+                                        <input type="hidden" class="form-control" name="wanthuman" id="wanthuman" value="${volunteerData.wanthuman}" readonly="readonly">
                                     </td>
                                     <td style="border: 1px solid #ddd; width: 204px; height: 60px;">
                                         <c:choose>
-                                            <c:when test="${gooinDetail.gender eq 'male'}">
+                                            <c:when test="${volunteerData.gender eq 'male'}">
                                                 남성
-                                                <input type="hidden" class="form-control"  name="gender" id="gender" value="${gooinDetail.gender }" readonly="readonly">
+                                                <input type="hidden" class="form-control"  name="gender" id="gender" value="${volunteerData.gender }" readonly="readonly">
                                             </c:when>
-                                            <c:when test="${gooinDetail.gender eq 'female'}">
+                                            <c:when test="${volunteerData.gender eq 'female'}">
                                                 여성
-                                                <input type="hidden" class="form-control"  name="gender" id="gender" value="${gooinDetail.gender }" readonly="readonly">
+                                                <input type="hidden" class="form-control"  name="gender" id="gender" value="${volunteerData.gender }" readonly="readonly">
                                             </c:when>
-                                            <c:when test="${gooinDetail.gender eq 'allgender'}">
+                                            <c:when test="${volunteerData.gender eq 'allgender'}">
                                                 남녀 무관
-                                                <input type="hidden" class="form-control"  name="gender" id="gender" value="${gooinDetail.gender }" readonly="readonly">
+                                                <input type="hidden" class="form-control"  name="gender" id="gender" value="${volunteerData.gender }" readonly="readonly">
                                             </c:when>
                                         </c:choose>
                                     </td>
                                     <td style="border: 1px solid #ddd; width: 204px; height: 60px;">
-                                            ${gooinDetail.location_addr1 } ${gooinDetail.location_addr2 }
-                                        <input type="hidden" class="form-control"  name="location_addr1" id="location" value="${gooinDetail.location_addr1 }" readonly="readonly">
-                                        <input type="hidden" class="form-control"  name="location_addr2" id="location" value="${gooinDetail.location_addr1 }" readonly="readonly">
+                                            ${volunteerData.location_addr1 } ${volunteerData.location_addr2 }
+                                        <input type="hidden" class="form-control"  name="location_addr1" id="location" value="${volunteerData.location_addr1 }" readonly="readonly">
+                                        <input type="hidden" class="form-control"  name="location_addr2" id="location" value="${volunteerData.location_addr1 }" readonly="readonly">
                                     </td>
                                 </tr>
                             </table>
@@ -142,30 +141,30 @@
                             </tr>
                             <tr style="border: 1px solid #ddd;">
                                 <td style="border: 1px solid #ddd; width: 204px; height: 60px;">
-                                    <c:if test="${gooinDetail.salary_detail ne null }">
-                                        <c:if test="${gooinDetail.salary_detail eq '01' }">연</c:if>
-                                        <c:if test="${gooinDetail.salary_detail eq '02' }">월</c:if>
-                                        ${gooinDetail.salary_min } ~ ${gooinDetail.salary_max }
+                                    <c:if test="${volunteerData.salary_detail ne null }">
+                                        <c:if test="${volunteerData.salary_detail eq '01' }">연</c:if>
+                                        <c:if test="${volunteerData.salary_detail eq '02' }">월</c:if>
+                                        ${volunteerData.salary_min } ~ ${volunteerData.salary_max }
                                     </c:if>
                                     <c:if test="${best.salary_detail eq null }">
                                         추후협의
                                     </c:if>
                                 </td>
                                 <td style="border: 1px solid #ddd; width: 204px; height: 60px;">
-                                        ${gooinDetail.wage }
+                                        ${volunteerData.wage }
                                 </td>
                                 <td style="border: 1px solid #ddd; width: 204px; height: 60px;">
-                                        ${gooinDetail.gooinweekstart } ~ ${gooinDetail.gooinweekend }
+                                        ${volunteerData.gooinweekstart } ~ ${volunteerData.gooinweekend }
                                 </td>
 
                                 <td style="border: 1px solid #ddd; width: 204px; height: 60px;">
-                                        ${gooinDetail.gooindocument }
+                                        ${volunteerData.gooindocument }
                                 </td>
                                 <td style="border: 1px solid #ddd; width: 204px; height: 60px;">
-                                        ${gooinDetail.gooinman }
+                                        ${volunteerData.gooinman }
                                 </td>
                                 <td style="border: 1px solid #ddd; width: 204px; height: 60px;">
-                                        ${gooinDetail.gooinmail }
+                                        ${volunteerData.gooinmail }
                                 </td>
                             </tr>
                         </table>
@@ -180,7 +179,6 @@
                         <div class="text-center">
                             <input type="button" class="btn btn-default" onclick="javascript:goPage()" value="목록으로">
                         </div>
-                    </c:forEach>
                 </form>
             </div>
         </div>
