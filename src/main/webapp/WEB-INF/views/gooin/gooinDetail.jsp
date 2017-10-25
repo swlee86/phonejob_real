@@ -69,15 +69,15 @@
 								<c:choose>
 									<c:when test="${gooinDetail.wantjob eq 'cs'}">
 										CS
-										<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="CS" readonly="readonly">
+										<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="cs" readonly="readonly">
 									</c:when>
 									<c:when test="${gooinDetail.wantjob eq 'seller'}">
 										판매사
-										<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="판매사" readonly="readonly">
+										<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="seller" readonly="readonly">
 									</c:when>
 									<c:when test="${gooinDetail.wantjob eq 'csseller'}">
 										판매사 / CS
-										<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="판매사 / CS" readonly="readonly">
+										<input type="hidden" class="form-control"  name="wantjob" id="wantjob" value="csseller" readonly="readonly">
 									</c:when>
 								</c:choose>
 							</td>
