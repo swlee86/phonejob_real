@@ -182,9 +182,7 @@ function daumPostcode() {
 
         $("#volunteer").click(function () {
             if (confirm("지원하시겠습니까") == true){
-                var form = document.form;
-                form.action="volunteer.do";
-                form.submit();
+                $('#volunteerE').attr('action','volunteer.do').submit();
             }else{   //취소
                 return;
             }

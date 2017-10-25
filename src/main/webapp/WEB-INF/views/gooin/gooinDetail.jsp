@@ -7,7 +7,7 @@
 	<div class="row">
     	<div class="col-lg-12">
 			<div class="hpanel">
-				<form action="" id="volunteerE" name="volunteerE">
+				<form action="" id="volunteerE" name="volunteerE" method="post">
 				<c:forEach var="gooinDetail" items="${gooinDetail}">
 				<div class="panel-body">
 					<b style="font-size: 18px;">${gooinDetail.title }</b>
