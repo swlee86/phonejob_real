@@ -8,7 +8,6 @@
     	<div class="col-lg-12">
 			<div class="hpanel">
 				<form action="" id="volunteerE" name="volunteerE" method="post">
-				<c:forEach var="gooinDetail" items="${gooinDetail}">
 				<div class="panel-body">
 					<b style="font-size: 18px;">${gooinDetail.title }</b>
 					<input type="hidden" value="${gooinDetail.title}" id="title" name="title">
@@ -136,7 +135,7 @@
 						<c:if test="${gooinDetail.salary_detail eq '02' }">월</c:if>
 						${gooinDetail.salary_min } ~ ${gooinDetail.salary_max }
 					</c:if>
-					<c:if test="${best.salary_detail eq null }">
+					<c:if test="${gooinDetail.salary_detail eq null }">
 						추후협의								
 					</c:if>
 					<input type="hidden" class="form-control"  name="salary_detail" id="salary_detail" value="${gooinDetail.salary_detail }" readonly="readonly">
@@ -211,7 +210,6 @@
 					<input type="hidden" name="adress" value="${comidfyno.adress}">
 					<input type="hidden" name="homepage" value="${comidfyno.homepage}">
 					<input type="hidden" name="wantstatus" value="${comidfyno.wantstatus}">
-				</c:forEach>
 				</form>
 			</div>
 		</div>

@@ -146,7 +146,7 @@
                                         <c:if test="${volunteerData.salary_detail eq '02' }">월</c:if>
                                         ${volunteerData.salary_min } ~ ${volunteerData.salary_max }
                                     </c:if>
-                                    <c:if test="${best.salary_detail eq null }">
+                                    <c:if test="${volunteerData.salary_detail eq null }">
                                         추후협의
                                     </c:if>
                                 </td>
