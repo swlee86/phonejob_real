@@ -201,6 +201,7 @@ public class GooinController {
 		logger.info("GooinDto 데이터 : " + gooinDto.toString());
 		String url="gooin.volunteerComple";
 		mv.addAttribute("volunteerData", gooinDto);
+		mv.addAttribute("successData",1);
 		return url;
 	}
 

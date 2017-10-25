@@ -175,6 +175,17 @@
                             !!다음맵 지도 API로 세팅 예정!!
 
                         </div>
+
+                        <br/>
+                        <c:choose>
+                            <c:when test="${successData eq 1}">
+                                <h3><span style="text-align: center">지원에 성공 하셨습니다</span></h3>
+                            </c:when>
+                            <c:otherwise>
+                                <h3><span style="text-align: center">지원 중 오류가 발생 하였습니다<br/>잠시 후 다시 시도해 주세요</span></h3>
+                            </c:otherwise>
+                        </c:choose>
+
                         <br/><br/><br/><br/>
                         <div class="text-center">
                             <input type="button" class="btn btn-default" onclick="javascript:goPage()" value="목록으로">
