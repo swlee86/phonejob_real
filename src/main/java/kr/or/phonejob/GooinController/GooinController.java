@@ -196,13 +196,12 @@ public class GooinController {
 
 
 	@RequestMapping(value = "/volunteer.do", method = RequestMethod.POST)
-	public String volunteer(RegisterGooinDto gooinDto){
+	public String volunteer(RegisterGooinDto gooinDto, Model mv){
 		logger.info("근무지원 시작");
 		logger.info("GooinDto 데이터 : " + gooinDto.toString());
-
-
-
-		return null;
+		String url="gooin.volunteerComple";
+		mv.addAttribute("volunteerData", gooinDto);
+		return url;
 	}
 
 
