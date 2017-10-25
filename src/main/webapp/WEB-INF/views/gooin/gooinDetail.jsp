@@ -7,6 +7,7 @@
 	<div class="row">
     	<div class="col-lg-12">
 			<div class="hpanel">
+				<form action="" id="volunteerE" name="volunteerE">
 				<c:forEach var="gooinDetail" items="${gooinDetail}">
 				<div class="panel-body">
 					<b style="font-size: 18px;">${gooinDetail.title }</b>
@@ -202,6 +203,7 @@
 					<input type="button" class="btn btn-default" onclick="javascript:goPage()" value="목록으로">							
 				</div>
 				</c:forEach>
+				</form>
 			</div>
 		</div>
 	</div>
