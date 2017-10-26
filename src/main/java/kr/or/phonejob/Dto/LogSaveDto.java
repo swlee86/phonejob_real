@@ -5,7 +5,7 @@ public class LogSaveDto {
     private String credential_id;
     private String credt_date;
     private String uri;
-    private String chaange_value;
+    private String change_value;
     private String error_cd;
 
 
@@ -47,12 +47,12 @@ public class LogSaveDto {
         this.uri = uri;
     }
 
-    public String getChaange_value() {
-        return chaange_value;
+    public String getChange_value() {
+        return change_value;
     }
 
-    public void setChaange_value(String chaange_value) {
-        this.chaange_value = chaange_value;
+    public void setChange_value(String change_value) {
+        this.change_value = change_value;
     }
 
     @Override
@@ -62,7 +62,7 @@ public class LogSaveDto {
                 ", credential_id='" + credential_id + '\'' +
                 ", credt_date='" + credt_date + '\'' +
                 ", uri='" + uri + '\'' +
-                ", chaange_value='" + chaange_value + '\'' +
+                ", change_value='" + change_value + '\'' +
                 ", error_cd='" + error_cd + '\'' +
                 '}';
     }
