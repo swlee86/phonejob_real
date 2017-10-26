@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				)
 				VALUES(
 				NVL2(#{userid},"",#{userid}),
-				NVL(#{credential_id},"",#{credential_id}),
+				NVL2(#{credential_id},"",#{credential_id}),
 				sysdate,
 				NVL2(#{uri},"",#{uri}),
 				NVL2(#{change_value}, "", #{change_value}),
