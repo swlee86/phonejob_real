@@ -30,14 +30,20 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
         HttpSession session = request.getSession();
         LoginDto loginData = (LoginDto) session.getAttribute("loginData");
 
+        LogSaveDto lsdto = null;
+
+        try{
+
 
         if(loginData!=null){
-            LogSaveDto lsdto = null;
             lsdto.setUserid(loginData.getUserid());
             lsdto.setCredential_id(loginData.getCredential_id());
             lsdto.setUri(uri);
             lsdto.setError_cd((String)session.getAttribute("error_cd"));
-
+        }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
             lsservice.logsave(lsdto);
         }
 
