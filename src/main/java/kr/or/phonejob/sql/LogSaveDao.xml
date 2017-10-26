@@ -18,12 +18,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				ERROR_CD
 				)
 				VALUES(
-				NVL2(#{userid},"",#{userid}),
-				NVL2(#{credential_id},"",#{credential_id}),
+				NVL(#{userid},''),
+				NVL(#{credential_id},''),
 				sysdate,
-				NVL2(#{uri},"",#{uri}),
-				NVL2(#{change_value}, "", #{change_value}),
-				NVL2(#{error_cd},"",#{error_cd})
+				NVL(#{uri},''),
+				NVL(#{change_value}, ''),
+				NVL(#{error_cd},'')
 				)
 	</insert>
 
