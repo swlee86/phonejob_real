@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				CREDENTIAL_ID,
 				CREDT_DATE,
 				URI,
-				CHAGE_VALUE,
+				CHANGE_VALUE,
 				ERROR_CD
 				)
 				VALUES(
