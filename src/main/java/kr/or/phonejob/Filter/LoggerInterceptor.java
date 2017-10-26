@@ -5,6 +5,8 @@ import kr.or.phonejob.Dto.LoginDto;
 import kr.or.phonejob.Service.LogSaveService;
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -14,16 +16,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class LoggerInterceptor extends HandlerInterceptorAdapter {
-    protected Log log = LogFactory.getLog(LoggerInterceptor.class);
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private LogSaveService lsservice;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if (log.isDebugEnabled()) {
-            log.debug("======================================          START         ======================================");
-            log.debug(" Request URI \t:  " + request.getRequestURI());
+        if (logger.isDebugEnabled()) {
+            logger.debug("======================================          START         ======================================");
+            logger.debug(" Request URI \t:  " + request.getRequestURI());
             String uri = request.getRequestURI();
 
             //로그인시 만들어진 세션 정보를 불러옴!!
@@ -44,6 +46,7 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
         }catch(Exception e){
             e.printStackTrace();
         }finally{
+            logger.info("로그 입력 데이터 : " + lsdto.toString());
             lsservice.logsave(lsdto);
         }
 
@@ -54,8 +57,8 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        if (log.isDebugEnabled()) {
-            log.debug("======================================           END          ======================================\n");
+        if (logger.isDebugEnabled()) {
+            logger.debug("======================================           END          ======================================\n");
         }
     }
 }
