@@ -37,9 +37,15 @@ public class RegisterGooinDto {
 	private String wantstatus;
 	private String credential_id;
 	private String volunteeryn;
+	private String username;
 
 
-
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	public String getVolunteeryn() {
 		return volunteeryn;
 	}
@@ -49,7 +55,6 @@ public class RegisterGooinDto {
 	public String getCredential_id() {
 		return credential_id;
 	}
-
 	public void setCredential_id(String credential_id) {
 		this.credential_id = credential_id;
 	}
@@ -253,7 +258,6 @@ public class RegisterGooinDto {
 		this.salary_max = salary_max;
 	}
 
-
 	@Override
 	public String toString() {
 		return "RegisterGooinDto{" +
@@ -292,6 +296,7 @@ public class RegisterGooinDto {
 				", wantstatus='" + wantstatus + '\'' +
 				", credential_id='" + credential_id + '\'' +
 				", volunteeryn='" + volunteeryn + '\'' +
+				", username='" + username + '\'' +
 				'}';
 	}
 }
