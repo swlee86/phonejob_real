@@ -3,6 +3,7 @@ package kr.or.phonejob.Filter;
 import kr.or.phonejob.Dto.LogSaveDto;
 import kr.or.phonejob.Dto.LoginDto;
 import kr.or.phonejob.Service.LogSaveService;
+import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 import org.slf4j.Logger;
@@ -46,7 +47,7 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
         }catch(Exception e){
             e.printStackTrace();
         }finally{
-            logger.info("로그 입력 데이터 : " + lsdto.toString());
+            logger.info("로그 입력 데이터 : " + StringUtils.defaultString(lsdto.toString()) );
             lsservice.logsave(lsdto);
         }
 
