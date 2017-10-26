@@ -23,7 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				sysdate,
 				NVL2(#{uri},"",#{uri}),
 				NVL2(#{change_value}, "", #{change_value}),
-				NVL2(#{ERROR_CD},"",#{ERROR_CD})
+				NVL2(#{error_cd},"",#{error_cd})
 				)
 	</insert>
 
