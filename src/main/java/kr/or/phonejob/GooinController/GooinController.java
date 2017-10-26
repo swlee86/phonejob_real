@@ -207,6 +207,7 @@ public class GooinController {
 		LoginDto ldto= (LoginDto)session.getAttribute("loginData");
 
 		try{
+			gooinDto.setUserid(ldto.getUserid());
 			gooinDto.setCredential_id(ldto.getCredential_id());
 			gooinDto.setVolunteeryn("I");
 			result=gservice.volunteerOk(gooinDto);
