@@ -44,6 +44,12 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
                 lsdto.setChange_value( StringUtils.defaultString((String)session.getAttribute("change_value")));
                 logger.info("로그 입력 데이터 : " + StringUtils.defaultString(lsdto.toString()) );
                 lsservice.logsave(lsdto);
+
+
+                //로그 저장 처리 후 세션 삭제(error_cd/change_value)
+                session.removeAttribute("error_cd");
+                session.removeAttribute("change_value");
+
         }
         }catch(Exception e){
             e.printStackTrace();
