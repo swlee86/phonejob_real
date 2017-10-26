@@ -35,4 +35,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from pj_gooin where gooinweekend &lt; sysdate
 	</select>
 
+	<insert id="volunteerOk" parameterType="kr.or.phonejob.Dto.RegisterGooinDto">
+			insert into PJ_VOLUN_HIST(
+						  VOLUN_SEQ,
+						  GOOIN_NO,
+						  USERID,
+						  USERNAME,
+						  CREDENTIAL_ID,
+						  VOLUNTEERYN,
+						  VOLUNDATE
+						  )
+							VALUES (
+							  PJ_VOLUN_SEQ.nextval,
+							  #{gooin_no},
+							  #{userid},
+							  #{username},
+							  #{credential_id},
+							  #{volunteeryn},
+							  sysdate
+							)
+	</insert>
+
 </mapper>

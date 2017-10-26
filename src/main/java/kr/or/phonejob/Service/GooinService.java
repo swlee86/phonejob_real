@@ -10,7 +10,7 @@ import kr.or.phonejob.Dao.GooinDao;
 import kr.or.phonejob.Dto.RegisterGooinDto;
 
 @Service
-public class GooinService {
+public class GooinService implements GooinDao {
 	
 	@Autowired
 	private SqlSession sqlsession;
@@ -63,6 +63,14 @@ public class GooinService {
 		int result = gdao.countEndGooin();
 		return result;
 	}
-	
-	
+
+	//구인 신청 시 히스토리 이력 저장
+	@Override
+	public int volunteerOk(RegisterGooinDto gdto) {
+		GooinDao gdao = sqlsession.getMapper(GooinDao.class);
+		int result = gdao.volunteerOk(gdto);
+		return result;
+	}
+
+
 }

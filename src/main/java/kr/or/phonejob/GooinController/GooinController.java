@@ -200,8 +200,19 @@ public class GooinController {
 		logger.info("근무지원 시작");
 		logger.info("GooinDto 데이터 : " + gooinDto.toString());
 		String url="gooin.volunteerComple";
+		int result=0;
+
+		try{
+			result=gservice.volunteerOk(gooinDto);
+
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			logger.info("신청 성공 여부 : "+ result);
+		}
+
 		mv.addAttribute("volunteerData", gooinDto);
-		mv.addAttribute("successData",1);
+		mv.addAttribute("successData",result);
 		return url;
 	}
 
