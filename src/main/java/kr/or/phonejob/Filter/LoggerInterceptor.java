@@ -28,12 +28,13 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
 
             //로그인시 만들어진 세션 정보를 불러옴!!
         HttpSession session = request.getSession();
-        String loginData = (String)session.getAttribute("loginData");
+        LoginDto loginData = (LoginDto) session.getAttribute("loginData");
+
+
         if(null!=loginData){
             LogSaveDto lsdto = null;
-            LoginDto ldto= (LoginDto)session.getAttribute("loginData");
-            lsdto.setUserid(ldto.getUserid());
-            lsdto.setCredential_id(ldto.getCredential_id());
+            lsdto.setUserid(loginData.getUserid());
+            lsdto.setCredential_id(loginData.getCredential_id());
             lsdto.setUri(uri);
             lsdto.setError_cd((String)session.getAttribute("error_cd"));
 
