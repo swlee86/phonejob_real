@@ -31,7 +31,7 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
         LoginDto loginData = (LoginDto) session.getAttribute("loginData");
 
 
-        if(null!=loginData){
+        if(loginData!=null){
             LogSaveDto lsdto = null;
             lsdto.setUserid(loginData.getUserid());
             lsdto.setCredential_id(loginData.getCredential_id());
