@@ -196,15 +196,20 @@ public class GooinController {
 
 
 	@RequestMapping(value = "/volunteer.do", method = RequestMethod.POST)
-	public String volunteer(RegisterGooinDto gooinDto, Model mv){
+	public String volunteer(RegisterGooinDto gooinDto, Model mv, HttpServletRequest request){
 		logger.info("근무지원 시작");
 		logger.info("GooinDto 데이터 : " + gooinDto.toString());
 		String url="gooin.volunteerComple";
 		int result=0;
 
-		try{
-			result=gservice.volunteerOk(gooinDto);
+		//로그인시 만들어진 세션 정보를 불러옴!!
+		HttpSession session = request.getSession();
+		LoginDto ldto= (LoginDto)session.getAttribute("loginData");
 
+		try{
+			gooinDto.setCredential_id(ldto.getCredential_id());
+			gooinDto.setVolunteeryn("I");
+			result=gservice.volunteerOk(gooinDto);
 		}catch (Exception e){
 			e.printStackTrace();
 		}finally {

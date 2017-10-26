@@ -35,9 +35,24 @@ public class RegisterGooinDto {
 	private String adress;
 	private String homepage;
 	private String wantstatus;
-	
-	
-	
+	private String credential_id;
+	private String volunteeryn;
+
+
+
+	public String getVolunteeryn() {
+		return volunteeryn;
+	}
+	public void setVolunteeryn(String volunteeryn) {
+		this.volunteeryn = volunteeryn;
+	}
+	public String getCredential_id() {
+		return credential_id;
+	}
+
+	public void setCredential_id(String credential_id) {
+		this.credential_id = credential_id;
+	}
 	public String getWantstatus() {
 		return wantstatus;
 	}
@@ -237,30 +252,46 @@ public class RegisterGooinDto {
 	public void setSalary_max(String salary_max) {
 		this.salary_max = salary_max;
 	}
-	
-	
-	
+
+
 	@Override
 	public String toString() {
-		return "RegisterGooinDto [gooin_no=" + gooin_no + ", userid=" + userid + ", title=" + title + ", grade=" + grade
-				+ ", userpicture=" + userpicture + ", wanttel=" + wanttel + ", wantjob=" + wantjob + ", jobstatus="
-				+ jobstatus + ", school=" + school + ", wanthuman=" + wanthuman + ", gender=" + gender
-				+ ", location_addr1=" + location_addr1 + ", location_addr2=" + location_addr2 + ", salary_min="
-				+ salary_min + ", salary_max=" + salary_max + ", jobtime=" + jobtime + ", breaktime=" + breaktime
-				+ ", wage=" + wage + ", gooinweekstart=" + gooinweekstart + ", gooinweekend=" + gooinweekend
-				+ ", gooinhow=" + gooinhow + ", gooindocument=" + gooindocument + ", gooinman=" + gooinman
-				+ ", goointel=" + goointel + ", gooinmail=" + gooinmail + ", content=" + content + ", salary_detail="
-				+ salary_detail + ", phone=" + phone + ", comname=" + comname + ", comidfyno=" + comidfyno + ", adress="
-				+ adress + ", homepage=" + homepage + ", wantstatus=" + wantstatus + "]";
+		return "RegisterGooinDto{" +
+				"gooin_no=" + gooin_no +
+				", userid='" + userid + '\'' +
+				", title='" + title + '\'' +
+				", grade='" + grade + '\'' +
+				", userpicture='" + userpicture + '\'' +
+				", wanttel='" + wanttel + '\'' +
+				", wantjob='" + wantjob + '\'' +
+				", jobstatus='" + jobstatus + '\'' +
+				", school='" + school + '\'' +
+				", wanthuman='" + wanthuman + '\'' +
+				", gender='" + gender + '\'' +
+				", location_addr1='" + location_addr1 + '\'' +
+				", location_addr2='" + location_addr2 + '\'' +
+				", salary_min='" + salary_min + '\'' +
+				", salary_max='" + salary_max + '\'' +
+				", jobtime='" + jobtime + '\'' +
+				", breaktime='" + breaktime + '\'' +
+				", wage='" + wage + '\'' +
+				", gooinweekstart='" + gooinweekstart + '\'' +
+				", gooinweekend='" + gooinweekend + '\'' +
+				", gooinhow='" + gooinhow + '\'' +
+				", gooindocument='" + gooindocument + '\'' +
+				", gooinman='" + gooinman + '\'' +
+				", goointel='" + goointel + '\'' +
+				", gooinmail='" + gooinmail + '\'' +
+				", content='" + content + '\'' +
+				", salary_detail='" + salary_detail + '\'' +
+				", phone='" + phone + '\'' +
+				", comname='" + comname + '\'' +
+				", comidfyno='" + comidfyno + '\'' +
+				", adress='" + adress + '\'' +
+				", homepage='" + homepage + '\'' +
+				", wantstatus='" + wantstatus + '\'' +
+				", credential_id='" + credential_id + '\'' +
+				", volunteeryn='" + volunteeryn + '\'' +
+				'}';
 	}
-	
-	
-	
-	
-	
-	
-
-	
-	
-
 }
