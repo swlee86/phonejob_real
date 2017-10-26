@@ -33,7 +33,7 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
         HttpSession session = request.getSession();
         LoginDto loginData = (LoginDto) session.getAttribute("loginData");
 
-        LogSaveDto lsdto = null;
+        LogSaveDto lsdto = new LogSaveDto();
 
         try{
 
