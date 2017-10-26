@@ -27,12 +27,22 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
         if (logger.isDebugEnabled()) {
             logger.debug("======================================          START         ======================================");
             logger.debug(" Request URI \t:  " + request.getRequestURI());
-            String uri = request.getRequestURI();
 
-            //로그인시 만들어진 세션 정보를 불러옴!!
+
+    }
+        return super.preHandle(request, response, handler);
+    }
+
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+
+
+        //로그인시 만들어진 세션 정보를 불러옴!!
         HttpSession session = request.getSession();
         LoginDto loginData = (LoginDto) session.getAttribute("loginData");
 
+        logger.debug(" Request URI \t:  " + request.getRequestURI());
+        String uri = request.getRequestURI();
         LogSaveDto lsdto = new LogSaveDto();
 
         try{
@@ -50,20 +60,13 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
                 session.removeAttribute("error_cd");
                 session.removeAttribute("change_value");
 
-        }
+            }
         }catch(Exception e){
             e.printStackTrace();
         }finally{
 
         }
 
-
-    }
-        return super.preHandle(request, response, handler);
-    }
-
-    @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         if (logger.isDebugEnabled()) {
             logger.debug("======================================           END          ======================================\n");
         }
