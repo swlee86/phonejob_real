@@ -24,7 +24,7 @@ public class Interceptor extends HandlerInterceptorAdapter {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 		@Autowired
-		LoginFilterService lfservice;
+		private LoginFilterService lfservice;
 
 		@Autowired
 		private GoogicService gservice;

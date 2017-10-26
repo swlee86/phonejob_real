@@ -211,6 +211,12 @@ public class GooinController {
 			gooinDto.setCredential_id(ldto.getCredential_id());
 			gooinDto.setVolunteeryn("I");
 			result=gservice.volunteerOk(gooinDto);
+
+			if(result==1){
+				session.setAttribute("error_cd", "0000000");
+			}else{
+				session.setAttribute("error_cd", "9999999");
+			}
 		}catch (Exception e){
 			e.printStackTrace();
 		}finally {
