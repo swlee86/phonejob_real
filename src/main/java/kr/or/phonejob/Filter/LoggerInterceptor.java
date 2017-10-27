@@ -41,6 +41,25 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
         HttpSession session = request.getSession();
         LoginDto loginData = (LoginDto) session.getAttribute("loginData");
 
+
+        String cIp = request.getHeader("X-Forwarded-For");
+
+        if(cIp == null || cIp.length() == 0 || "unknown".equalsIgnoreCase(cIp)) {
+            cIp = request.getHeader("Proxy-Client-IP");
+        }
+        if(cIp == null || cIp.length() == 0 || "unknown".equalsIgnoreCase(cIp)) {
+            cIp = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if(cIp == null || cIp.length() == 0 || "unknown".equalsIgnoreCase(cIp)) {
+            cIp = request.getHeader("HTTP_CLIENT_IP");
+        }
+        if(cIp == null || cIp.length() == 0 || "unknown".equalsIgnoreCase(cIp)) {
+            cIp = request.getHeader("HTTP_X_FORWARDED_FOR");
+        }
+        if(cIp == null || cIp.length() == 0 || "unknown".equalsIgnoreCase(cIp)) {
+            cIp = request.getRemoteAddr();
+        }
+
         logger.debug(" Request URI \t:  " + request.getRequestURI());
         String uri = request.getRequestURI();
         LogSaveDto lsdto = new LogSaveDto();
@@ -52,6 +71,7 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
                 lsdto.setUri(uri);
                 lsdto.setError_cd(StringUtils.defaultString((String)session.getAttribute("error_cd")));
                 lsdto.setChange_value( StringUtils.defaultString((String)session.getAttribute("change_value")));
+                lsdto.setIp(cIp);
                 logger.info("로그 입력 데이터 : " + StringUtils.defaultString(lsdto.toString()) );
                 lsservice.logsave(lsdto);
 

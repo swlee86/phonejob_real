@@ -15,7 +15,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				CREDT_DATE,
 				URI,
 				CHANGE_VALUE,
-				ERROR_CD
+				ERROR_CD,
+				IP
 				)
 				VALUES(
 				#{userid},
@@ -23,7 +24,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				current_timestamp ,
 				#{uri},
 				#{change_value},
-				#{error_cd}
+				#{error_cd},
+				#{ip}
 				)
 	</insert>
 

@@ -7,7 +7,16 @@ public class LogSaveDto {
     private String uri;
     private String change_value;
     private String error_cd;
+    private String ip;
 
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
 
     public String getError_cd() {
         return error_cd;
@@ -64,6 +73,7 @@ public class LogSaveDto {
                 ", uri='" + uri + '\'' +
                 ", change_value='" + change_value + '\'' +
                 ", error_cd='" + error_cd + '\'' +
+                ", ip='" + ip + '\'' +
                 '}';
     }
 }
