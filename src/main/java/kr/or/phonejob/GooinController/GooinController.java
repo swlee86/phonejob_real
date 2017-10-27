@@ -226,10 +226,15 @@ public class GooinController {
 			}
 
 			if(result==1){
+			    session.setAttribute("change_value", gooinDto.getGooin_no()+" 지원 성공");
 				session.setAttribute("error_cd", "0000000");
 			}else if(result==0){
+                session.setAttribute("change_value", gooinDto.getGooin_no()+" 지원 실패");
 				session.setAttribute("error_cd", "9999999");
-			}
+			}else if(result==3){
+                session.setAttribute("change_value", gooinDto.getGooin_no()+"에는 이미 지원하였으므로 실패");
+                session.setAttribute("error_cd", "9999999");
+            }
 		}catch (Exception e){
 			e.printStackTrace();
 		}finally {
