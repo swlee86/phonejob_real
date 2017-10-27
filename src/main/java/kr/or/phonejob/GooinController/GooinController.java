@@ -214,7 +214,7 @@ public class GooinController {
 
 			String prevolunteer = gservice.findvolunteer(param);
 
-			if(prevolunteer==null&&!prevolunteer.equals(gooinDto.getGooin_no())){
+			if(prevolunteer!=null&&!prevolunteer.equals(gooinDto.getGooin_no())){
 				gooinDto.setUsername(ldto.getUsername());
 				gooinDto.setUserid(ldto.getUserid());
 				gooinDto.setCredential_id(ldto.getCredential_id());
@@ -237,6 +237,8 @@ public class GooinController {
             }
 		}catch (Exception e){
 			e.printStackTrace();
+			session.setAttribute("change_value", "시스템 내부오류");
+			session.setAttribute("error_cd", "9999999");
 		}finally {
 			logger.info("신청 성공 여부 : "+ result);
 		}

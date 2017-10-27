@@ -153,24 +153,24 @@ public class IndexController {
 		return "home.index";
 	}
 	
-	@RequestMapping(value="error_404.do")
-	public String move404(){
-		return "errors.error_404";
-	}
+				@RequestMapping(value="error_404.do")
+				public String move404(){
+					return "errors.error_404";
+				}
+
+				@RequestMapping(value="error_500.do")
+				public String move500(){
+					return "errors.error_500";
+				}
+
+
+				@RequestMapping(value="lock.do")
+				public String movelock(){
+					return "errors.lock";
+				}
 	
-	@RequestMapping(value="error_500.do")
-	public String move500(){
-		return "errors.error_500";
-	}
 	
-	
-	@RequestMapping(value="lock.do")
-	public String movelock(){
-		return "errors.lock";
-	}
-	
-	
-	@RequestMapping(value="adminIpRegister.do", method=RequestMethod.POST)
+			@RequestMapping(value="adminIpRegister.do", method=RequestMethod.POST)
 			public String adminIpRegister(UserIpDto idto, Model mv){
 				logger.info("아이피 등록 시작");
 				logger.info("입력된 데이터 : " + idto.toString());
