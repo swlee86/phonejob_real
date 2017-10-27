@@ -182,6 +182,9 @@
                             <c:when test="${successData eq 1}">
                                 <h3>지원에 성공 하셨습니다</h3>
                             </c:when>
+                            <c:when test="${successData eq 3}">
+                                <h3>해당 구직정보에는 이미 지원하셨습니다</h3>
+                            </c:when>
                             <c:otherwise>
                                 <h3>지원 중 오류가 발생 하였습니다<br/>잠시 후 다시 시도해 주세요</h3>
                             </c:otherwise>

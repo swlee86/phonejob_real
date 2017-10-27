@@ -33,6 +33,9 @@ public interface GooinDao {
 	//종료된 구인 글 카운트
 	int countEndGooin();
 
+	//해당 구인 글에 지원한적이 있는지 확인하는 로직
+	String findvolunteer(String userid);
+
 	//구인지원 저장 처리(pj_volun_hist)
 	int volunteerOk(RegisterGooinDto gdto);
 

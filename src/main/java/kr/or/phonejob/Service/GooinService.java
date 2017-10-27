@@ -64,6 +64,14 @@ public class GooinService implements GooinDao {
 		return result;
 	}
 
+	//해당 구인 글에 지원한적이 있는지 확인하는 로직
+	@Override
+	public String findvolunteer(String userid) {
+		GooinDao gdao = sqlsession.getMapper(GooinDao.class);
+		String result = gdao.findvolunteer(userid);
+		return result;
+	}
+
 	//구인 신청 시 히스토리 이력 저장
 	@Override
 	public int volunteerOk(RegisterGooinDto gdto) {

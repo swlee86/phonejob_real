@@ -22,19 +22,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="gooinDetail" resultType="kr.or.phonejob.Dto.RegisterGooinDto">
-		select * from PJ_GOOIN where gooin_no=#{gooin_no}
+		select *
+		from PJ_GOOIN
+		where 1=1
+		AND gooin_no=#{gooin_no}
 	</select>
 	
 	<!-- 구인자 총 카운트 -->
 	<select id="countAllGooin" resultType="integer">
-		select count(*) from pj_gooin
+		select count(*)
+		from pj_gooin
 	</select>
 	
 	<!-- 종료된 구인글 카운트 -->
 	<select id="countEndGooin" resultType="integer">
-		select count(*) from pj_gooin where gooinweekend &lt; sysdate
+		select count(*)
+		from pj_gooin
+		where 1=1
+		AND gooinweekend &lt; sysdate
 	</select>
 
+	<!--구직지원자 테이블에 넣기 전에 해당 글에 지원한적 있는지 확인-->
+	<select id="findvolunteer" parameterType="String" resultType="String">
+		select GOOIN_NO
+		FROM PJ_VOLUN_HIST
+		WHERE 1=1
+		AND USERID=#{userid}
+		AND VOLUNTEERYN='I'
+	</select>
+
+	<!--구직 지원자 테이블 등록-->
 	<insert id="volunteerOk" parameterType="kr.or.phonejob.Dto.RegisterGooinDto">
 			insert into PJ_VOLUN_HIST(
 						  VOLUN_SEQ,

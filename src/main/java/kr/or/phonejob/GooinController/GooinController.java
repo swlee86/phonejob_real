@@ -207,15 +207,23 @@ public class GooinController {
 		LoginDto ldto= (LoginDto)session.getAttribute("loginData");
 
 		try{
-			gooinDto.setUsername(ldto.getUsername());
-			gooinDto.setUserid(ldto.getUserid());
-			gooinDto.setCredential_id(ldto.getCredential_id());
-			gooinDto.setVolunteeryn("I");
-			result=gservice.volunteerOk(gooinDto);
+
+			String prevolunteer = gservice.findvolunteer(ldto.getUserid());
+
+			if(prevolunteer==null&&!prevolunteer.equals(gooinDto.getGooin_no())){
+				gooinDto.setUsername(ldto.getUsername());
+				gooinDto.setUserid(ldto.getUserid());
+				gooinDto.setCredential_id(ldto.getCredential_id());
+				gooinDto.setVolunteeryn("I");
+				result=gservice.volunteerOk(gooinDto);
+
+			}else{
+				result=3;
+			}
 
 			if(result==1){
 				session.setAttribute("error_cd", "0000000");
-			}else{
+			}else if(result==0){
 				session.setAttribute("error_cd", "9999999");
 			}
 		}catch (Exception e){
