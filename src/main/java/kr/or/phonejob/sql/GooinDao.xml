@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<!--구직지원자 테이블에 넣기 전에 해당 글에 지원한적 있는지 확인-->
-	<select id="findvolunteer" parameterType="String" resultType="String">
+	<select id="findvolunteer" resultType="String">
 		select GOOIN_NO
 		FROM PJ_VOLUN_HIST
 		WHERE 1=1
