@@ -1,5 +1,6 @@
 package kr.or.phonejob.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -66,9 +67,9 @@ public class GooinService implements GooinDao {
 
 	//해당 구인 글에 지원한적이 있는지 확인하는 로직
 	@Override
-	public String findvolunteer(String userid, int gooin_no) {
+	public String findvolunteer(HashMap<String, Object> param) {
 		GooinDao gdao = sqlsession.getMapper(GooinDao.class);
-		String result = gdao.findvolunteer(userid, gooin_no);
+		String result = gdao.findvolunteer(param);
 		return result;
 	}
 

@@ -3,6 +3,7 @@ package kr.or.phonejob.GooinController;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -207,8 +208,11 @@ public class GooinController {
 		LoginDto ldto= (LoginDto)session.getAttribute("loginData");
 
 		try{
+            HashMap<String, Object> param = new HashMap<String, Object>();
+            param.put("userid", ldto.getUserid());
+            param.put("gooin_no", gooinDto.getGooin_no());
 
-			String prevolunteer = gservice.findvolunteer(ldto.getUserid(), gooinDto.getGooin_no());
+			String prevolunteer = gservice.findvolunteer(param);
 
 			if(prevolunteer==null&&!prevolunteer.equals(gooinDto.getGooin_no())){
 				gooinDto.setUsername(ldto.getUsername());
