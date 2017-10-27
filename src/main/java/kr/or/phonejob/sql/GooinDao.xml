@@ -48,6 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM PJ_VOLUN_HIST
 		WHERE 1=1
 		AND USERID=#{userid}
+		AND GOOIN_NO=#{gooin_no}
 		AND VOLUNTEERYN='I'
 	</select>
 

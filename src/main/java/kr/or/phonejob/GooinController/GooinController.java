@@ -208,7 +208,7 @@ public class GooinController {
 
 		try{
 
-			String prevolunteer = gservice.findvolunteer(ldto.getUserid());
+			String prevolunteer = gservice.findvolunteer(ldto.getUserid(), gooinDto.getGooin_no());
 
 			if(prevolunteer==null&&!prevolunteer.equals(gooinDto.getGooin_no())){
 				gooinDto.setUsername(ldto.getUsername());

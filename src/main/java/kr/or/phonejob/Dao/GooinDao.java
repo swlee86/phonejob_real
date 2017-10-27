@@ -34,7 +34,7 @@ public interface GooinDao {
 	int countEndGooin();
 
 	//해당 구인 글에 지원한적이 있는지 확인하는 로직
-	String findvolunteer(String userid);
+	String findvolunteer(String userid, int gooin_no);
 
 	//구인지원 저장 처리(pj_volun_hist)
 	int volunteerOk(RegisterGooinDto gdto);

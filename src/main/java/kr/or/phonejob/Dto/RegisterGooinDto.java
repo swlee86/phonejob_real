@@ -2,7 +2,7 @@ package kr.or.phonejob.Dto;
 
 public class RegisterGooinDto {
 		
-	private Long gooin_no;
+	private int gooin_no;
 	private String userid;
 	private String title;
 	private String grade;
@@ -106,7 +106,7 @@ public class RegisterGooinDto {
 	public void setWanttel(String wanttel) {
 		this.wanttel = wanttel;
 	}
-	public Long getGooin_no() {
+	public int getGooin_no() {
 		return gooin_no;
 	}
 	public String getUserid() {
@@ -169,7 +169,7 @@ public class RegisterGooinDto {
 	public String getContent() {
 		return content;
 	}
-	public void setGooin_no(Long gooin_no) {
+	public void setGooin_no(int gooin_no) {
 		this.gooin_no = gooin_no;
 	}
 	public void setUserid(String userid) {
