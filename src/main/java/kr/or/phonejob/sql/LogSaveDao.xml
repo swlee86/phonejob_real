@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO PJ_LOGHST_CHG(
 				USERID,
 				CREDENTIAL_ID,
+				LOG_DATE,
 				CREDT_DATE,
 				URI,
 				CHANGE_VALUE,
@@ -21,6 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				VALUES(
 				#{userid},
 				#{credential_id},
+				TO_CHAR(sysdate,'YYYYMMDD'),
 				current_timestamp ,
 				#{uri},
 				#{change_value},
