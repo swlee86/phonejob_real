@@ -231,7 +231,7 @@ public class FreeBoardController {
 	
 	//답변 인서트 컨트롤러 
 	@RequestMapping(value="/answerfree.do", method=RequestMethod.POST)
-	public String answerOk(@RequestParam("uploadfile") MultipartFile file, Model mv, String title, String content, String free_no, Principal principal, int refer, int step, int depth,HttpServletRequest request){
+	public String answerOk(@RequestParam("uploadfile") MultipartFile file, Model mv, String title, String content, String free_no, Principal principal, int refer, int step, int depth, HttpServletRequest request){
 		//파일 업로드 
 		String path = request.getSession().getServletContext().getRealPath("/board/free_upload/");
 		
@@ -278,9 +278,13 @@ public class FreeBoardController {
 			if(result > 0){
 			link = "freeboard.do";
 			msg = "답글 입력에 성공하였습니다.";
+				session.setAttribute("change_value", free_no+" 에 대한 답글 성공");
+				session.setAttribute("error_cd", "0000000");
 		}else{
 			link = "freeboard.do";
 			msg = "답글 입력에 실패하였습니다.";
+				session.setAttribute("change_value", free_no+" 에 대한 답글 실패");
+				session.setAttribute("error_cd", "9999999");
 		}
 		mv.addAttribute("link", link);
 		mv.addAttribute("msg", msg);
@@ -298,8 +302,8 @@ public class FreeBoardController {
 		int replyresult=0;
 		int rowresult=0;
 		logger.info("Ajax로 삭제하러 넘어왔어요! 넘어온 글 번호는 !" + list_no);
-		
-		
+
+		HttpSession session = request.getSession();
 	
         		
 		try{
@@ -318,10 +322,14 @@ public class FreeBoardController {
 					rowresult=freeboardservice.deleteRow(list_no);
 					if(rowresult==1){
 						logger.info("모두 성공!!");
-						out.println("1");					
+						out.println("1");
+						session.setAttribute("change_value", list_no+" 삭제 성공");
+						session.setAttribute("error_cd", "0000000");
 					}else{
 						logger.info("본문 삭제 실패 ㅠㅠ");
-						out.println("0");	
+						out.println("0");
+						session.setAttribute("change_value", list_no+" 삭제 실패");
+						session.setAttribute("error_cd", "9999999");
 					}
 				}
 				
@@ -330,10 +338,14 @@ public class FreeBoardController {
 				rowresult=freeboardservice.deleteRow(list_no);
 				if(rowresult==1){
 					logger.info("모두 성공!!");
-					out.println("1");					
+					out.println("1");
+					session.setAttribute("change_value", list_no+" 삭제 성공");
+					session.setAttribute("error_cd", "0000000");
 				}else{
 					logger.info("본문 삭제 실패 ㅠㅠ");
-					out.println("0");	
+					out.println("0");
+					session.setAttribute("change_value", list_no+" 삭제 실패");
+					session.setAttribute("error_cd", "9999999");
 				}
 			}
 ;
@@ -374,7 +386,7 @@ public class FreeBoardController {
 	//글수정 누르면 업데이트 시키는 서비스 함수 + 파일업로드
 	@RequestMapping(value="/free_board_update_ok.do", method=RequestMethod.POST)
 	public String free_board_update_ok(@RequestParam("uploadfile") MultipartFile file, FreeBoardDto board, Model mv,HttpServletRequest request, int currentpage, int pagesize){
-	
+			HttpSession session = request.getSession();
 		
 		    //파일 업로드 
 		 	String path = request.getRealPath("/updata/free_board/");		 	
@@ -404,14 +416,18 @@ public class FreeBoardController {
 		try{
 			result = freeboardservice.updateArticle(board);
 		}catch(Exception e){
-			System.out.println(e.getStackTrace());
+			e.printStackTrace();
 		}finally{
 			if(result>0){
 				link = "free_board_view.do?free_no="+board.getFree_no()+"&currentpage="+currentpage+"&pagesize="+pagesize;
 				msg = "글 수정에 성공하였습니다.";
+				session.setAttribute("change_value", board.getFree_no()+" 수정 성공");
+				session.setAttribute("error_cd", "0000000");
 			}else{
 				link = "freeboard.do";
 				msg = "글 수정에 실패하였습니다.";
+				session.setAttribute("change_value", board.getFree_no()+" 수정 실패");
+				session.setAttribute("error_cd", "0000000");
 			}
 			mv.addAttribute("link", link);
 			mv.addAttribute("msg", msg);
@@ -422,7 +438,9 @@ public class FreeBoardController {
 	
 	//댓글 달기 method
 	@RequestMapping(value="/insertReply.do", method=RequestMethod.POST)
-	public String insertReply(Re_FreeBoardDto rdto, Model mv){
+	public String insertReply(HttpServletRequest request, Re_FreeBoardDto rdto, Model mv){
+		HttpSession session = request.getSession();
+
 		logger.info("댓글 입력 시작합니다");
 		logger.info("Re_freeDtoData : " + rdto.toString());
 		int result;
@@ -436,6 +454,8 @@ public class FreeBoardController {
 			if(result>0){
 				link="free_board_view.do?free_no="+rdto.getFree_no()+"&currentpage="+rdto.getCurrentpage()+"&pagesize="+rdto.getPagesize();
 				msg="등록에 성공하였습니다";
+				session.setAttribute("change_value", rdto.getFree_no()+" 댓글 작성 성공");
+				session.setAttribute("error_cd", "0000000");
 			}else{
 				link="free_board_view.do?free_no="+rdto.getFree_no()+"&currentpage="+rdto.getCurrentpage()+"&pagesize="+rdto.getPagesize();
 				msg="등록에 실패하였습니다. 동일 현상이 지속될 경우 관리자에게 문의하세요";
@@ -446,6 +466,8 @@ public class FreeBoardController {
 		}finally{
 			mv.addAttribute("link", link);
 			mv.addAttribute("msg", msg);
+			session.setAttribute("change_value", rdto.getFree_no()+" 댓글 작성 실패");
+			session.setAttribute("error_cd", "9999999");
 		}
 		
 		return url;
