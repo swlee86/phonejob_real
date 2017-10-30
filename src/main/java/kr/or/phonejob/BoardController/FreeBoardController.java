@@ -189,9 +189,13 @@ public class FreeBoardController {
 			if(result>0){
 				link = "freeboard.do";
 				msg = "글 입력에 성공하였습니다.";
+				session.setAttribute("change_value", "자유게시판 글 입력 성공");
+				session.setAttribute("error_cd", "0000000");
 			}else{
 				link = "freeboard.do";
 				msg = "글 입력에 실패하였습니다.";
+				session.setAttribute("change_value", "자유게시판 글 입력 실패");
+				session.setAttribute("error_cd", "0000000");
 			}
 			mv.addAttribute("link", link);
 			mv.addAttribute("msg", msg);

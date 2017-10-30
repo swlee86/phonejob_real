@@ -80,6 +80,11 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
                 session.removeAttribute("error_cd");
                 session.removeAttribute("change_value");
 
+            }else{
+                lsdto.setUri(uri);
+                lsdto.setIp(cIp);
+                logger.info("로그 입력 데이터 : " + StringUtils.defaultString(lsdto.toString()) );
+                lsservice.logsave(lsdto);
             }
         }catch(Exception e){
             e.printStackTrace();
