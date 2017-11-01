@@ -41,7 +41,7 @@ public class IndexController {
 	
 	
 	
-	@RequestMapping(value="index.do", method=RequestMethod.GET)
+	@RequestMapping(value="phonejob/index.do", method=RequestMethod.GET)
 	public String moveIndex(Model mv, HttpServletRequest request){
 		logger.info(">>>>>>Index Page 접근");
 
