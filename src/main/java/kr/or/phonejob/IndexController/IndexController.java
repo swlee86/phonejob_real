@@ -153,18 +153,18 @@ public class IndexController {
 		return "home.index";
 	}
 	
-				@RequestMapping(value="etc/error_404.do")
+				@RequestMapping(value="error_404.do")
 				public String move404(){
 					return "errors.error_404";
 				}
 
-				@RequestMapping(value="etc/error_500.do")
+				@RequestMapping(value="error_500.do")
 				public String move500(){
 					return "errors.error_500";
 				}
 
 
-				@RequestMapping(value="etc/lock.do")
+				@RequestMapping(value="lock.do")
 				public String movelock(){
 					return "errors.lock";
 				}

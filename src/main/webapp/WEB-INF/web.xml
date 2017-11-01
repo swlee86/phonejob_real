@@ -63,11 +63,11 @@
   </filter-mapping>
   <error-page>
     <error-code>404</error-code>
-    <location>/etc/error_404.do</location>
+    <location>/error_404.do</location>
   </error-page>
   <error-page>
     <error-code>500</error-code>
-    <location>/etc/error_500.do</location>
+    <location>/error_500.do</location>
   </error-page>
   <session-config>
 	<session-timeout>180</session-timeout>
