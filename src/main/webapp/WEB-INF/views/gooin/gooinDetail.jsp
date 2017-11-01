@@ -16,19 +16,19 @@
 					<table style="border: 1px solid #ddd;">
 						<tr style="border: 1px solid #ddd;">
 							<td rowspan="3" style="border: 1px solid #ddd; width: 270px;">
-								<img src="updata/picture/gooin/${gooinDetail.userpicture}" alt="매장 사진">
+								<img src="../updata/picture/gooin/${gooinDetail.userpicture}" alt="매장 사진">
   							    <input type="hidden" value="${gooinDetail.userpicture}" id="userpicture" name="userpicture">
   							</td>
 							<td colspan="2" style="border: 1px solid #ddd; width: 270px; height: 60px;">회사명 : ${gooinDetail.comname }</td>
 							<td style="border: 1px solid #ddd; width: 270px; height: 60px; text-align: center;">
 								<c:if test="${gooinDetail.wanttel eq 'A001'}">
-									<img src="images/kt1.jpg">
+									<img src="../images/kt1.jpg">
 								</c:if>
 								<c:if test="${gooinDetail.wanttel eq 'A002'}">
-									<img src="images/sk1.jpg">
+									<img src="../images/sk1.jpg">
 								</c:if>
 								<c:if test="${gooinDetail.wanttel eq 'A003'}">
-									<img src="images/lg1.jpg">
+									<img src="../images/lg1.jpg">
 								</c:if>
        						 	<input type="hidden" id="wanttel" class="form-control" name="wanttel" value="${gooinDetail.wanttel}" readonly="readonly">
 							</td>

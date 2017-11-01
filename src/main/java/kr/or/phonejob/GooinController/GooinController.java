@@ -174,7 +174,7 @@ public class GooinController {
 	}
 	
 	//구인글 클릭시 상세로 이동
-	@RequestMapping(value="/gooinDetail.do", method=RequestMethod.GET)
+	@RequestMapping(value="/gooin/gooinDetail.do", method=RequestMethod.GET)
 	public String gooinDetail(int gooin_no, Model mv){
 		String url="gooin.gooinDetail";
 		logger.info("구인 상세 페이지로 이동");
@@ -196,7 +196,7 @@ public class GooinController {
 	}
 
 
-	@RequestMapping(value = "/volunteerOk.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/gooin/volunteerOk.do", method = RequestMethod.POST)
 	public String volunteer(RegisterGooinDto gooinDto, Model mv, HttpServletRequest request){
 		logger.info("근무지원 시작");
 		logger.info("GooinDto 데이터 : " + gooinDto.toString());

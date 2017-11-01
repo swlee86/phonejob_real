@@ -18,7 +18,7 @@
     <!-- Vendor styles -->
     <link rel="stylesheet" href="../vendor/fontawesome/css/font-awesome.css" />
     <link rel="stylesheet" href="../vendor/metisMenu/dist/metisMenu.css" />
-    <link rel="stylesheet" href="../vendor/animate.css/animate.css" />
+    <link rel="stylesheet" href="vendor/animate.css/animate.css" />
     <link rel="stylesheet" href="../vendor/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="../vendor/chartist/custom/chartist.css" />
 
@@ -182,7 +182,7 @@ function daumPostcode() {
 
         $("#volunteer").click(function () {
             if (confirm("지원하시겠습니까") == true){
-                $('#volunteerE').attr('action','volunteerOk.do').submit();
+                $('#volunteerE').attr('action','gooin/volunteerOk.do').submit();
             }else{   //취소
                 return;
             }
