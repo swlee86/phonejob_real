@@ -151,7 +151,7 @@ public class RegisterController {
 			
 			if(result1==1 && result2==1 &&result3==1 && result4==1){
 				data="회원가입에 성공하였습니다.";
-				movepage="index.do";
+				movepage="Main.do";
 				page="register.registerRedirect";
 			}else{
 				data="회원가입에 실패하였습니다. 잠시 후 다시 시도해 주세요";
@@ -280,7 +280,7 @@ public class RegisterController {
 			
 			if(result1==1 && result2==1 &&result3==1 && result4==1 && result5==1){
 				data="회원가입에 성공하였습니다.";
-				movepage="index.do";
+				movepage="Main.do";
 				page="register.registerRedirect";
 			}else{
 				data="회원가입에 실패하였습니다. 잠시 후 다시 시도해 주세요";

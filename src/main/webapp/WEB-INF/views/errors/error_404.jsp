@@ -18,5 +18,5 @@
 
     </p>
     <br>
-    <a href="index.do" class="btn btn-xs btn-success">Infra 메인으로 돌아가기 </a>
+    <a href="Main.do" class="btn btn-xs btn-success">Infra 메인으로 돌아가기 </a>
 </div>

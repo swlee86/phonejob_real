@@ -30,7 +30,7 @@
                             <button class="btn btn-success btn-block">회원 로그인</button>
                             <a class="btn btn-default btn-block" href="privateRegister.do">구직자 회원 가입</a>
                             <a class="btn btn-default btn-block" href="comRegister.do">기업 회원 가입</a>
-                            <a class="btn btn-default btn-block" href="index.do">PhoneJob 메인으로 돌아가기</a>
+                            <a class="btn btn-default btn-block" href="Main.do">PhoneJob 메인으로 돌아가기</a>
                         </form>
                 </div>
             </div>

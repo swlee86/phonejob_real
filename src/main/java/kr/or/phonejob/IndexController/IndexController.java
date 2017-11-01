@@ -41,7 +41,7 @@ public class IndexController {
 	
 	
 	
-	@RequestMapping(value="phonejob/index.do", method=RequestMethod.GET)
+	@RequestMapping(value="Main.do", method=RequestMethod.GET)
 	public String moveIndex(Model mv, HttpServletRequest request){
 		logger.info(">>>>>>Index Page 접근");
 
@@ -185,7 +185,7 @@ public class IndexController {
 				if(result==0){
 					logger.info("아이피 등록 결과 : 권한 없음");
 					msg="등록 불가. 권한이 없습니다.";
-					url="index.do";
+					url="Main.do";
 				}
 
 				if(result==1){
@@ -198,7 +198,7 @@ public class IndexController {
 			}else{
 				logger.info("아이피 등록 결과 : 등록 성공");
 				msg="등록 성공.";
-				url="index.do";
+				url="Main.do";
 			}
 			
 		}
