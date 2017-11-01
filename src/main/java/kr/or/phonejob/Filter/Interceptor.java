@@ -62,6 +62,8 @@ public class Interceptor extends HandlerInterceptorAdapter {
 			logger.info("로그인 관련 인터셉터 작동!!");
 
 			String[] uri = request.getRequestURI().split("/");
+			logger.info(uri[uri.length-2]);
+			logger.info(uri[uri.length-1]);
 			String realuri = "/"+uri[uri.length-2]+"/"+uri[uri.length-1]; // 배열의 마지막 값이 파일이름
 
 			logger.info("접근 URI : " + realuri);
