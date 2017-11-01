@@ -15,16 +15,16 @@
     <!--<link rel="shortcut icon" type="image/ico" href="favicon.ico" />-->
 
     <!-- Vendor styles -->
-    <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="vendor/metisMenu/dist/metisMenu.css" />
-    <link rel="stylesheet" href="vendor/animate.css/animate.css" />
-    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="vendor/chartist/custom/chartist.css" />
+    <link rel="stylesheet" href="../vendor/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="../vendor/metisMenu/dist/metisMenu.css" />
+    <link rel="stylesheet" href="../vendor/animate.css/animate.css" />
+    <link rel="stylesheet" href="../vendor/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="../vendor/chartist/custom/chartist.css" />
 
     <!-- App styles -->
-    <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
-    <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/helper.css" />
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="../fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
+    <link rel="stylesheet" href="../fonts/pe-icon-7-stroke/css/helper.css" />
+    <link rel="stylesheet" href="../styles/style.css">
 
 <style type="text/css">
  #popDiv{
