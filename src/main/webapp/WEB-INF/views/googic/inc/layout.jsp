@@ -118,8 +118,8 @@ table.type10 .even {
 <script src="../scripts/homer.js"></script>
 
 <!-- alert 창 -->
-<script src="vendor/sweetalert/lib/sweet-alert.min.js"></script>
-<script src="scripts/sojaeji.js"></script>
+<script src="../vendor/sweetalert/lib/sweet-alert.min.js"></script>
+<script src="../scripts/sojaeji.js"></script>
 
 
 
