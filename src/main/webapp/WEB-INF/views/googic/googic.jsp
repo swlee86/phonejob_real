@@ -5,17 +5,17 @@
 <div class="content animate-panel" style="width: 1200px; text-align: left; display: inline-block">
 	<div class="row">
 		<div style="float:right">
-    			<a href="googicRegister.do" style="float: rignt" class="btn btn-default next" id="googic">구직자등록</a>
+    			<a href="../googic/googicRegister.do" style="float: rignt" class="btn btn-default next" id="googic">구직자등록</a>
     	</div>
 		<div>
 			&nbsp; 
 			<hr style="border: 1px solid #ddd;">
 			<c:forEach var="resultData" items="${result}">
-					<a href="googicDetail.do?googic_no=${resultData.googic_no}">
+					<a href="../googic/googicDetail.do?googic_no=${resultData.googic_no}">
 						<div style="width: 227px; display: inline-block; padding-left: 15px; padding-right: 15px;">
 							<div class="hpanel hblue">
 								<div class="panel-heading hbuilt" style="text-align: center;">
-									<img src="./updata/picture/googic/${resultData.pic}" alt="이력서 사진">
+									<img src="../updata/picture/googic/${resultData.pic}" alt="이력서 사진">
 								</div>
 								<div class="panel-body" style="height: 220px;">
 								<p>

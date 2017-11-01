@@ -63,7 +63,7 @@ public class GoogicController {
 
 	
 	//구직 등록창 오픈
-	@RequestMapping(value="/googicRegister.do", method=RequestMethod.GET)
+	@RequestMapping(value="/googic/googicRegister.do", method=RequestMethod.GET)
 	public String registerGoogic(HttpServletRequest request, Model mv){
 		String url="";
 		logger.info("인재정보 등록 게시판 이동");
