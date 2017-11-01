@@ -35,7 +35,7 @@ public class GooinController {
 	
 	
 	//구인 페이지로 이동
-	@RequestMapping(value="/gooin.do", method=RequestMethod.GET)
+	@RequestMapping(value="/gooin/gooinMain.do", method=RequestMethod.GET)
 	public String mooveGooin(Model mv){
 		String url="";
 		

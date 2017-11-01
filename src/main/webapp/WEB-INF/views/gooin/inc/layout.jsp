@@ -276,7 +276,7 @@ function daumPostcode() {
     
 
     function goPage() { 
-    	location.href="gooin.do"; 
+    	location.href="gooin/gooinMain.do";
     };
     
     
