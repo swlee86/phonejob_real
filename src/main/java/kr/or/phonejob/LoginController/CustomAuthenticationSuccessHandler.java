@@ -67,7 +67,7 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
    public CustomAuthenticationSuccessHandler() {
       // TODO Auto-generated constructor stub
       targetUrlParameter = "";
-      defaultUrl = "/index.do";
+      defaultUrl = "/phonejob/index.do";
       useReferer = false;
    }
    
