@@ -32,7 +32,7 @@
                 
     <table width="1200" height="100" align="center">
     	<tr>
-        	<td width="300" align="left"><a href="Main.do"><img src="../images/main_logo.png" /></a></td>
+        	<td width="300" align="left"><a href="../Main.do"><img src="../images/main_logo.png" /></a></td>
             <td width="600" align="center">
 				<form role="search" class="" method="post" action="#">
 					<div class="form-group" style="float: left">
