@@ -18,7 +18,7 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <mvc:exclude-mapping path="/index.do"/>
+            <mvc:exclude-mapping path="/phonejob/index.do"/>
             <bean id="loggerInterceptor" class="kr.or.phonejob.Filter.LoggerInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
