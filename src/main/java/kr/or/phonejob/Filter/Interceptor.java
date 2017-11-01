@@ -67,7 +67,7 @@ public class Interceptor extends HandlerInterceptorAdapter {
 
 			String realuri = null;
 
-			if(!uri[uri.length-1].equals("Main.do")){
+			if(!uri[uri.length-1].equals("Main.do")||!uri[uri.length-1].equals("login.do")){
 				realuri = "/"+uri[uri.length-2]+"/"+uri[uri.length-1]; // 배열의 마지막 값이 파일이름
 			}else{
 				realuri = "/"+uri[uri.length-1]; // 배열의 마지막 값이 파일이름
