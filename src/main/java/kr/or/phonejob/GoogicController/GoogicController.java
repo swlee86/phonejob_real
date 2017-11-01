@@ -97,7 +97,7 @@ public class GoogicController {
 	
 	
 	//구직 등록시 데이터 insert 처리
-	@RequestMapping(value="/googicRegister.do", method=RequestMethod.POST)
+	@RequestMapping(value="/googic/googicRegister.do", method=RequestMethod.POST)
 	public String registerGoogicOk(RegisterGoogicDto rgdto, Model mv){
 		String url="googic.googicRedirect";
 		String data="";
