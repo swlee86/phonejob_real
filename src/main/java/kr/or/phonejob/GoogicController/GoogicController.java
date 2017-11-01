@@ -222,7 +222,7 @@ public class GoogicController {
 	}
 	
 	//상세 페이지 조회
-	@RequestMapping(value="/googicDetail.do", method=RequestMethod.GET)
+	@RequestMapping(value="/googic/googicDetail.do", method=RequestMethod.GET)
 	public String googicDetail(String googic_no, Model mv){
 		String url="googic.googicDetail";
 		RegisterGoogicDto rgdto = null;
