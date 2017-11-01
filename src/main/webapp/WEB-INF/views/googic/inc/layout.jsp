@@ -127,7 +127,7 @@ sojaeji('서울', '강남구', '신사동');
 
 
 function goPage() { 
-	location.href="googic.do"; 
+	location.href="../googic/googicMain.do";
 };
 
 function useNewlocation(){
