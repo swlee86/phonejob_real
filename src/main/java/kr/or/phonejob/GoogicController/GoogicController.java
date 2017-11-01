@@ -34,7 +34,7 @@ public class GoogicController {
 	
 	
 	//구직 등록 리스트 메뉴 이동
-	@RequestMapping(value="/googic.do", method=RequestMethod.GET)
+	@RequestMapping(value="/googic/googicMain.do", method=RequestMethod.GET)
 	public String googic(Model mv){
 		String url="googic.googic";
 		

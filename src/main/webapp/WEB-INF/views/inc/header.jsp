@@ -63,7 +63,7 @@
 		<tr>
         	<td width="" height=""><img src="../images/0_m_01.png" onMouseOver='this.src="../images/0_m_01.png"' onMouseOut='this.src="../images/0_m_01.png"' width="" height="" border="0"></td>
             <td width="" height=""><a href="../gooin/gooinMain.do"><img src="../images/m_02.png" onMouseOver='this.src="../images/m_up_02.png"' onMouseOut='this.src="../images/m_02.png"' width="" height="" border="0"></a></td>
-            <td width="" height=""><a href="../googic/googic.do"><img src="../images/m_03.png" onMouseOver='this.src="../images/m_up_03.png"' onMouseOut='this.src="../images/m_03.png"' width="" height="" border="0"></a></td>
+            <td width="" height=""><a href="../googic/googicMain.do"><img src="../images/m_03.png" onMouseOver='this.src="../images/m_up_03.png"' onMouseOut='this.src="../images/m_03.png"' width="" height="" border="0"></a></td>
             <td width="" height=""><a href="freeboard.do"><img src="../images/m_04.png" onMouseOver='this.src="../images/m_up_04.png"' onMouseOut='this.src="../images/m_04.png"' width="" height="" border="0"></a></td>
             <td width="" height=""><a href="goShop.do"><img src="../images/m_05.png" onMouseOver='this.src="../images/m_up_05.png"' onMouseOut='this.src="../images/m_05.png"' width="" height="" border="0"></a></td>
             <td width="" height=""><a href="gooinRegister.do"><img src="../images/m_06.png" onMouseOver='this.src="../images/m_up_06.png"' onMouseOut='this.src="../images/m_06.png"' width="" height="" border="0"></a></td>

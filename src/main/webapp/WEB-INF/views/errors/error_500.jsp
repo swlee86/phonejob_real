@@ -10,5 +10,5 @@
     <p>
         The server encountered something unexpected that didn't allow it to complete the request. We apologize.
     </p>
-    <a href="../Main.do" class="btn btn-xs btn-success">Go back to dashboard</a>
+    <a href="../Main.do" class="btn btn-xs btn-success">Phone&Job 메인으로 돌아가기 </a>
 </div>
