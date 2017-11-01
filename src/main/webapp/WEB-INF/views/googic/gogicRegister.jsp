@@ -31,7 +31,7 @@
  							<div class="form-group col-lg-12">
 								<label class="col-sm-3 control-label" style="text-align: right;">사진</label>
 								<div class="col-sm-7">
-									<img src="../updata/googic/default.png" alt="이력서 사진">
+									<img src="../updata/picture/googic/default.png" alt="이력서 사진">
 									<input type="hidden" value="${loginData.pic}" id="pic" name="pic">
 								</div>
 							</div>
