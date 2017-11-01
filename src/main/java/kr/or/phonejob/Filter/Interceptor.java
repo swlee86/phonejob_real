@@ -65,10 +65,12 @@ public class Interceptor extends HandlerInterceptorAdapter {
 			logger.info(uri[uri.length-2]);
 			logger.info(uri[uri.length-1]);
 
+			String realuri = null;
+
 			if(!uri[uri.length-1].equals("Main.do")){
-				String realuri = "/"+uri[uri.length-2]+"/"+uri[uri.length-1]; // 배열의 마지막 값이 파일이름
+				realuri = "/"+uri[uri.length-2]+"/"+uri[uri.length-1]; // 배열의 마지막 값이 파일이름
 			}else{
-				String realuri = "/"+uri[uri.length-1]; // 배열의 마지막 값이 파일이름
+				realuri = "/"+uri[uri.length-1]; // 배열의 마지막 값이 파일이름
 			}
 			logger.info("접근 URI : " + realuri);
 
