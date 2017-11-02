@@ -49,7 +49,7 @@
 					<div class="pull-right">
 						<div class="btn-group">
 							<button class="btn btn-default" type="submit"><i class="fa fa-edit"></i> 글 등록</button>
-							<a href="freeboard.do?&currentpage=${currentpage}&pagesize=${pagesize}"><input type="button" class="btn btn-default" value="목록으로"></a>
+							<a href="../free/freeboardMain.do?&currentpage=${currentpage}&pagesize=${pagesize}"><input type="button" class="btn btn-default" value="목록으로"></a>
 						</div>
 					</div>
 					<br>

@@ -11,7 +11,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="hpanel email-compose">
-				<form method="POST" class="form-horizontal" enctype="multipart/form-data" action="free_board_update_ok.do">
+				<form method="POST" class="form-horizontal" enctype="multipart/form-data" action="../free/freeModifyComple.do">
 				<div class="panel-heading hbuilt">
 					<div class="p-xs">
 							<div class="form-group">
