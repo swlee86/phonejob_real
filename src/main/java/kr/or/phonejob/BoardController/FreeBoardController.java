@@ -274,12 +274,12 @@ public class FreeBoardController {
 			e.getMessage();
 		}finally{
 			if(result > 0){
-			link = "freeboard.do";
+			link = "../free/freeboardMain.do";
 			msg = "답글 입력에 성공하였습니다.";
 				session.setAttribute("change_value", free_no+" 에 대한 답글 성공");
 				session.setAttribute("error_cd", "0000000");
 		}else{
-			link = "freeboard.do";
+			link = "../free/freeboardMain.do";
 			msg = "답글 입력에 실패하였습니다.";
 				session.setAttribute("change_value", free_no+" 에 대한 답글 실패");
 				session.setAttribute("error_cd", "9999999");

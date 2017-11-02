@@ -112,6 +112,7 @@
     			success: function(data) { 
     				console.log(data);
     				if(data==1){
+                        alert(list_no+'글 삭제 처리 완료');
     					window.location.replace('../free/freeboardMain.do');
     				}else{
     					alert('글 삭제 실패. 잠시 후 다시 시도해 주세요');
