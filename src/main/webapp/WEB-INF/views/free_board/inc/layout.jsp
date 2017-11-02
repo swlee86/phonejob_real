@@ -25,7 +25,7 @@
 
 	<!--텍스트 에디터 사용시 추가해야할 css -->
     <link rel="stylesheet" href="../vendor/summernote/dist/summernote.css" />
-    <link rel="stylesheet" href=../vendor/summernote/dist/summernote-bs3.css" />
+    <link rel="stylesheet" href="../vendor/summernote/dist/summernote-bs3.css" />
 
     <!-- App styles -->
     <link rel="stylesheet" href="../fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
