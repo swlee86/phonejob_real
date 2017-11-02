@@ -71,7 +71,7 @@ public class GooinController {
 	
 	
 	//구인 등록 페이지로 이동
-	@RequestMapping(value="/gooinRegister.do", method=RequestMethod.GET)
+	@RequestMapping(value="/gooin/gooinRegister.do", method=RequestMethod.GET)
 	public String mooveRegisterGooin(HttpServletRequest request){
 		String url="";
 		
@@ -100,7 +100,7 @@ public class GooinController {
 	
 	
 	//구인 등록 시 데이터를 DB에 인서트 처리
-	@RequestMapping(value="/gooinRegister.do", method=RequestMethod.POST)
+	@RequestMapping(value="/gooin/gooinRegister.do", method=RequestMethod.POST)
 	public String registerGooinOk(@RequestParam("uploadfile") MultipartFile file, RegisterGooinDto gdto, HttpServletRequest request, Model mv){
 		String url="gooin.gooinRedirect";
 		String data="";
@@ -109,7 +109,7 @@ public class GooinController {
 
 		
 		//파일 업로드 
-		 String path = request.getRealPath("/updata/picture/");
+		 String path = request.getRealPath("../updata/picture/");
 		 
 		
 			try {
@@ -159,11 +159,11 @@ public class GooinController {
 		try{
 			result = gservice.registerGooinOk(gdto);
 			data="등록에 성공하였습니다";
-			movepage="gooin.do";
+			movepage="../gooin/gooinMain.do";
 		}catch(Exception e){
 			logger.error(e.getMessage());
 			data="등록에 실패하였습니다.";
-			movepage="gooinRegister.do";
+			movepage="../gooin/gooinRegister.do";
 		}
 		
 		

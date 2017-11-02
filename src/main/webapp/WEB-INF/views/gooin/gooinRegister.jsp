@@ -8,11 +8,11 @@
 
 
 <div class="content animate-panel" style="width: 1200px; text-align:left; display:inline-block">
+	<form method="POST" class="form-horizontal" enctype="multipart/form-data">
 	<div class="row">
 		<div class="col-lg-12">
 		<div class="hpanel">
 			<div class="panel-body">
-				<form method="POST" class="form-horizontal" enctype="multipart/form-data">
 						<div class="row">
 						<div class="form-group">
 						<label class="col-sm-3 control-label" style="text-align: right">광고방법</label>
@@ -279,8 +279,8 @@
 					</div>
 
 				</div>
-				
-	
+
+
 				
 				<div class="panel-body no-padding">
 					<div style="text-align: left; height: 100%;">
@@ -293,7 +293,7 @@
 					<div class="pull-right">
 						<div class="btn-group">
 							<button class="btn btn-default" type="submit"><i class="fa fa-edit"></i> 글 등록</button>
-							<button class="btn btn-default" type="button" onclick="location.href='/gooin.do'">
+							<button class="btn btn-default" type="button" onclick="location.href='../gooin/gooinMain.do'">
 								<i class="fa fa-refresh"></i> 목록으로
 							</button>
 						</div>
