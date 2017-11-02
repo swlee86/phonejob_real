@@ -31,7 +31,7 @@
 						</div>
 						<div class="media-body" style="text-align: left">
 							<c:if test="${not empty list.filename}">
-								<span class="pull-right">첨부파일 : <a href=freeBoard_fileDown.do?name=${list.filename}">${list.filename}</a>
+								<span class="pull-right">첨부파일 : <a href=../free/freeBoard_fileDown.do?name=${list.filename}">${list.filename}</a>
 								</span>
 								<br>
 							</c:if>
@@ -71,11 +71,11 @@
 							</div>
 							<br>
 							<div class="pull-right">
-								<a href="freeboard.do?currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">뒤로 가기</a> 
-								<a href="answerfree.do?free_no=${list.free_no}&currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">답글쓰기</a>
+								<a href="../free/freeboardMain.do?currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">뒤로 가기</a>
+								<a href="../free/freeReply.do?free_no=${list.free_no}&currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">답글쓰기</a>
 								
 								<c:if test="${list.credential_id==loginData.credential_id}">
-									<a href="free_board_update.do?free_no=${list.free_no}&currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">수정하기</a>
+									<a href="../free/freeModifyComple.do?free_no=${list.free_no}&currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">수정하기</a>
 									<input type="text" hidden="hidden" id="listno" value="${list.free_no}">
 									<a class="btn btn-sm btn-default" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px" onclick="delete_event()" href=javascript:void(0)>삭제하기</a>
 								</c:if>
