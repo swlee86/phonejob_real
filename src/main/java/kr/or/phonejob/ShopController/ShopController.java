@@ -28,7 +28,7 @@ public class ShopController {
     private ShopService sservice;
 
 	//shop 페이지 오픈
-	@RequestMapping(value="/goShop.do", method=RequestMethod.GET)
+	@RequestMapping(value="/shop/shopMain.do", method=RequestMethod.GET)
 	public String goShop(Model mv){
 		String url ="shop.shopMain";
         List<ShopDto> result = null;
@@ -44,7 +44,7 @@ public class ShopController {
 	}
 
 	//phone 상세 페이지 접근
-    @RequestMapping(value="/goShopDetail.do", method=RequestMethod.GET)
+    @RequestMapping(value="/shop/shopDetail.do", method=RequestMethod.GET)
 	public String phoneDetail(String phone_seq, Model mv){
         String url="shop.phoneDetail";
         ShopDto result = null;
