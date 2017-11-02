@@ -9,14 +9,14 @@
 		<hr style="border: 1px solid #ddd;">
 		<div class="row" style="text-align: center">
 			<c:forEach items="${result}" var="phone">
-				<a href="goShop.do?phone_seq=${phone.phone_seq}">
+				<a href="../shop/shopDetail.do?phone_seq=${phone.phone_seq}">
 					<div style="display: inline-block; padding-left: 5px; padding-right: 5px;">
 						<div class="hpanel hred">
 							<div class="panel-heading hbuilt" style="text-align: center; width: 350px;">
                                 <strong>${phone.phone_name}</strong><small>(${phone.phone_model})</small>
 							</div>
 							<div class="panel-body" style="height: 440px; width: 350px; padding: 0px; text-align: center;">
-								<img src="updata/phone_img/${phone.phone_img}" alt="폰이미지">
+								<img src="../updata/phone_img/${phone.phone_img}" alt="폰이미지">
 							</div>
 							<div class="panel-footer" style="width: 350px;">
                                 출고가 : ${phone.phone_price}원<br/>

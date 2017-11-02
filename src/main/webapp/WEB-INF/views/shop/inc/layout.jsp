@@ -17,21 +17,21 @@
     <!--<link rel="shortcut icon" type="image/ico" href="favicon.ico" />-->
 
     <!-- Vendor styles -->
-    <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="vendor/metisMenu/dist/metisMenu.css" />
-    <link rel="stylesheet" href="vendor/animate.css/animate.css" />
-    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="vendor/chartist/custom/chartist.css" />
+    <link rel="stylesheet" href="../vendor/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="../vendor/metisMenu/dist/metisMenu.css" />
+    <link rel="stylesheet" href="../vendor/animate.css/animate.css" />
+    <link rel="stylesheet" href="../vendor/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="../vendor/chartist/custom/chartist.css" />
 
 	<!--텍스트 에디터 사용시 추가해야할 css -->
-    <link rel="stylesheet" href="vendor/summernote/dist/summernote.css" />
-    <link rel="stylesheet" href="vendor/summernote/dist/summernote-bs3.css" />
+    <link rel="stylesheet" href="../vendor/summernote/dist/summernote.css" />
+    <link rel="stylesheet" href="../vendor/summernote/dist/summernote-bs3.css" />
 
     <!-- App styles -->
-    <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
-    <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/helper.css" />
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="vendor/sweetalert/lib/sweet-alert.css" />
+    <link rel="stylesheet" href="../fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
+    <link rel="stylesheet" href="../fonts/pe-icon-7-stroke/css/helper.css" />
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../vendor/sweetalert/lib/sweet-alert.css" />
     
     
     <!-- DatePicker 소스 -->
@@ -100,21 +100,21 @@ table.type10 .even {
 
 
 <!-- Vendor scripts -->
-<script src="vendor/jquery/dist/jquery.min.js"></script>
-<script src="vendor/jquery-ui/jquery-ui.min.js"></script>
-<script src="vendor/slimScroll/jquery.slimscroll.min.js"></script>
-<script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="vendor/metisMenu/dist/metisMenu.min.js"></script>
-<script src="vendor/iCheck/icheck.min.js"></script>
-<script src="vendor/sparkline/index.js"></script>
-<script src="vendor/summernote/dist/summernote.min.js"></script>
+<script src="../vendor/jquery/dist/jquery.min.js"></script>
+<script src="../vendor/jquery-ui/jquery-ui.min.js"></script>
+<script src="../vendor/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="../vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../vendor/metisMenu/dist/metisMenu.min.js"></script>
+<script src="../vendor/iCheck/icheck.min.js"></script>
+<script src="../vendor/sparkline/index.js"></script>
+<script src="../vendor/summernote/dist/summernote.min.js"></script>
 
 
 <!-- App scripts -->
-<script src="scripts/homer.js"></script>
+<script src="../scripts/homer.js"></script>
 
 <!-- alert 창 -->
-<script src="vendor/sweetalert/lib/sweet-alert.min.js"></script>
+<script src="../vendor/sweetalert/lib/sweet-alert.min.js"></script>
 
 
 <!-- Daum_address_search_js -->
