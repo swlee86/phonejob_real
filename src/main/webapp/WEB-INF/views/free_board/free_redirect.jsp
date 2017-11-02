@@ -6,8 +6,8 @@
 	목 적  	: 자유게시판 답변 view
 -->	
     <!-- alert 창 -->
-<link rel="stylesheet" href="vendor/sweetalert/lib/sweet-alert.css" />
-<script src="vendor/sweetalert/lib/sweet-alert.min.js"></script>
+<link rel="stylesheet" href="../vendor/sweetalert/lib/sweet-alert.css" />
+<script src="../vendor/sweetalert/lib/sweet-alert.min.js"></script>
     
 <script>
 	alert('${msg}')

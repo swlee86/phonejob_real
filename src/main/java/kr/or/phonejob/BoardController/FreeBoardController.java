@@ -99,15 +99,90 @@ public class FreeBoardController {
 		
 	}
 	
-	
+
+	//글쓰기 클릭 시 해당 페이지로 이등
 	@RequestMapping(value="/free/freeWrite.do", method=RequestMethod.GET)
 	public String writeFreeboard(){
 		String url="free_board.free_board_write";
 		
 		return url;
 	}
-	
-	
+
+
+
+
+	//글쓰기 누르면 인서트 시키는 서비스 함수 + 파일업로드
+	@RequestMapping(value="/free/freeWrite.do", method=RequestMethod.POST)
+	public String free_board_write_ok(@RequestParam("uploadfile") MultipartFile file, FreeBoardDto board, Model mv,HttpServletRequest request){
+
+
+		//파일 업로드
+		String path = request.getSession().getServletContext().getRealPath("../updata/free_board/");
+
+		try {
+			File cFile = new File(path, file.getOriginalFilename());
+			logger.info("cFile 내용 : " + cFile);
+			file.transferTo(cFile);
+		} catch (IllegalStateException e1) {
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}finally {
+
+		}
+
+
+		//로그인시 만들어진 세션 정보를 불러옴!!
+		HttpSession session = request.getSession();
+		LoginDto ldto= (LoginDto)session.getAttribute("loginData");
+		logger.info("세션에서 불러온 값 : " + ldto.toString());
+
+		String id= ldto.getUserid();
+		int maxrefer = freeboardservice.selectRefer();
+
+		//게시판에 넣을 데이터 작업 시작
+		board.setCredential_id(ldto.getCredential_id());
+		board.setUserid(ldto.getUserid());
+		board.setRefer(maxrefer+1);
+		board.setDepth(0);
+		board.setStep(0);
+		board.setHit(0);
+		board.setFilename(file.getOriginalFilename());
+
+		logger.info("데이터 입력처리 될 boardDto : " + board.toString());
+
+
+		int result = 0;
+		String link = null;
+		String msg = null;
+		try{
+			result = freeboardservice.insertArticle(board);
+		}catch(Exception e){
+			logger.error(e.getMessage());
+		}finally{
+			if(result>0){
+				link = "../free/freeboardMain.do";
+				msg = "글 입력에 성공하였습니다.";
+				session.setAttribute("change_value", "자유게시판 글 입력 성공");
+				session.setAttribute("error_cd", "0000000");
+			}else{
+				link = "../free/freeboardMain.do";
+				msg = "글 입력에 실패하였습니다.";
+				session.setAttribute("change_value", "자유게시판 글 입력 실패");
+				session.setAttribute("error_cd", "0000000");
+			}
+			mv.addAttribute("link", link);
+			mv.addAttribute("msg", msg);
+		}
+		return "free_board.free_redirect";
+	}
+
+
+
+
+
+
+
 	//글 선택하여 내용 보기 함수
 	@RequestMapping(value="/free/freeDetail.do", method=RequestMethod.GET)
 	public String free_board_view(Model mv, int free_no, String currentpage, String pagesize,HttpSession session){
@@ -134,76 +209,7 @@ public class FreeBoardController {
 		
 		return url;
 	}
-	
-	
-	
-	//글쓰기 누르면 인서트 시키는 서비스 함수 + 파일업로드
-	@RequestMapping(value="/free/freeWrite.do", method=RequestMethod.POST)
-	public String free_board_write_ok(@RequestParam("uploadfile") MultipartFile file, FreeBoardDto board, Model mv,HttpServletRequest request){
-	
-		
-		    //파일 업로드 
-		 	String path = request.getSession().getServletContext().getRealPath("../updata/free_board/");
 
-			try {
-				File cFile = new File(path, file.getOriginalFilename());
-				logger.info("cFile 내용 : " + cFile);
-				file.transferTo(cFile);
-			} catch (IllegalStateException e1) {
-				e1.printStackTrace();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}finally {
-
-            }
-
-		
-		//로그인시 만들어진 세션 정보를 불러옴!!
-		HttpSession session = request.getSession();
-		LoginDto ldto= (LoginDto)session.getAttribute("loginData");
-		logger.info("세션에서 불러온 값 : " + ldto.toString());
-		
-		String id= ldto.getUserid();
-		int maxrefer = freeboardservice.selectRefer();
-		
-		//게시판에 넣을 데이터 작업 시작
-		board.setCredential_id(ldto.getCredential_id());
-		board.setUserid(ldto.getUserid());
-		board.setRefer(maxrefer+1);
-		board.setDepth(0);
-		board.setStep(0);
-		board.setHit(0);
-		board.setFilename(file.getOriginalFilename());
-		
-		logger.info("데이터 입력처리 될 boardDto : " + board.toString());
-		
-
-		int result = 0;
-		String link = null;
-		String msg = null;
-		try{
-			result = freeboardservice.insertArticle(board);
-		}catch(Exception e){
-			logger.error(e.getMessage());
-		}finally{
-			if(result>0){
-				link = "freeboard.do";
-				msg = "글 입력에 성공하였습니다.";
-				session.setAttribute("change_value", "자유게시판 글 입력 성공");
-				session.setAttribute("error_cd", "0000000");
-			}else{
-				link = "freeboard.do";
-				msg = "글 입력에 실패하였습니다.";
-				session.setAttribute("change_value", "자유게시판 글 입력 실패");
-				session.setAttribute("error_cd", "0000000");
-			}
-			mv.addAttribute("link", link);
-			mv.addAttribute("msg", msg);
-		}
-		return "free_board.free_redirect";
-	}
-	
-	
 	
 	
 	
