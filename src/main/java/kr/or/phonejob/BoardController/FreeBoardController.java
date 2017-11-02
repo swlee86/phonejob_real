@@ -35,7 +35,7 @@ public class FreeBoardController {
 	
 	
 
-	@RequestMapping(value="/freeboard.do", method=RequestMethod.GET)
+	@RequestMapping(value="/free/freeboardMain.do", method=RequestMethod.GET)
 	public String goFreeboard(Model mv, String pagesize, String currentpage, String f, String q){
 		logger.info("게시판으로 이동!");
 		String url="free_board.free_board_list";
@@ -100,7 +100,7 @@ public class FreeBoardController {
 	}
 	
 	
-	@RequestMapping(value="/writefreeboard.do", method=RequestMethod.GET)
+	@RequestMapping(value="/free/freeWrite.do", method=RequestMethod.GET)
 	public String writeFreeboard(){
 		String url="free_board.free_board_write";
 		
@@ -109,7 +109,7 @@ public class FreeBoardController {
 	
 	
 	//글 선택하여 내용 보기 함수
-	@RequestMapping(value="/free_board_view.do", method=RequestMethod.GET)
+	@RequestMapping(value="/free/freeDetail.do", method=RequestMethod.GET)
 	public String free_board_view(Model mv, int free_no, String currentpage, String pagesize,HttpSession session){
 		String url = null;
 		FreeBoardDto freeboard = null;
@@ -138,12 +138,12 @@ public class FreeBoardController {
 	
 	
 	//글쓰기 누르면 인서트 시키는 서비스 함수 + 파일업로드
-	@RequestMapping(value="/writefreeboard.do", method=RequestMethod.POST)
+	@RequestMapping(value="/free/freeWrite.do", method=RequestMethod.POST)
 	public String free_board_write_ok(@RequestParam("uploadfile") MultipartFile file, FreeBoardDto board, Model mv,HttpServletRequest request){
 	
 		
 		    //파일 업로드 
-		 	String path = request.getSession().getServletContext().getRealPath("/updata/free_board/");
+		 	String path = request.getSession().getServletContext().getRealPath("../updata/free_board/");
 
 			try {
 				File cFile = new File(path, file.getOriginalFilename());
@@ -209,7 +209,7 @@ public class FreeBoardController {
 	
 	
 	//답변하기 누르면 기존 글의 데이터를 가지고 가서 write 화면에 뿌려주는 함수
-	@RequestMapping(value="/answerfree.do", method=RequestMethod.GET)
+	@RequestMapping(value="/free/freeReply.do", method=RequestMethod.GET)
 	public String answer(Model mv, int free_no, int currentpage, int pagesize){
 		String link = null;
 		FreeBoardDto freeboard = null;
@@ -230,10 +230,10 @@ public class FreeBoardController {
 	
 	
 	//답변 인서트 컨트롤러 
-	@RequestMapping(value="/answerfree.do", method=RequestMethod.POST)
+	@RequestMapping(value="/free/freeReply.do", method=RequestMethod.POST)
 	public String answerOk(@RequestParam("uploadfile") MultipartFile file, Model mv, String title, String content, String free_no, Principal principal, int refer, int step, int depth, HttpServletRequest request){
 		//파일 업로드 
-		String path = request.getSession().getServletContext().getRealPath("/board/free_upload/");
+		String path = request.getSession().getServletContext().getRealPath("../board/free_upload/");
 		
 		File cFile = new File(path, file.getOriginalFilename());
 		try {
@@ -295,7 +295,7 @@ public class FreeBoardController {
 	
 	
 	//삭제 처리
-	@RequestMapping(value="deleteDocument.do", method=RequestMethod.POST)
+	@RequestMapping(value="/free/freeDelete.do", method=RequestMethod.POST)
 	public void deleteDocument(HttpServletRequest request, HttpServletResponse response){
 		int list_no = Integer.parseInt(request.getParameter("list_no")); 
 		int replyCount=0;
@@ -361,7 +361,7 @@ public class FreeBoardController {
 	}
 	
 	//글 수정으로 이동 하는 함수(글번호를 통해 데이터를 가지고 이동)
-	@RequestMapping(value="/free_board_update.do", method=RequestMethod.GET)
+	@RequestMapping(value="/free/freeModify.do", method=RequestMethod.GET)
 	public String free_board_update(int free_no, String currentpage, String pagesize, Model mv){
 		String url="";
 		
@@ -384,12 +384,12 @@ public class FreeBoardController {
 	
 	
 	//글수정 누르면 업데이트 시키는 서비스 함수 + 파일업로드
-	@RequestMapping(value="/free_board_update_ok.do", method=RequestMethod.POST)
+	@RequestMapping(value="/free/freeModifyComple.do", method=RequestMethod.POST)
 	public String free_board_update_ok(@RequestParam("uploadfile") MultipartFile file, FreeBoardDto board, Model mv,HttpServletRequest request, int currentpage, int pagesize){
 			HttpSession session = request.getSession();
 		
 		    //파일 업로드 
-		 	String path = request.getRealPath("/updata/free_board/");		 	
+		 	String path = request.getRealPath("../updata/free_board/");
 			try {
 				File cFile = new File(path, file.getOriginalFilename());
 				logger.info("cFile 내용 : " + cFile);
@@ -419,7 +419,7 @@ public class FreeBoardController {
 			e.printStackTrace();
 		}finally{
 			if(result>0){
-				link = "free_board_view.do?free_no="+board.getFree_no()+"&currentpage="+currentpage+"&pagesize="+pagesize;
+				link = "/free/freeDetail.do?free_no="+board.getFree_no()+"&currentpage="+currentpage+"&pagesize="+pagesize;
 				msg = "글 수정에 성공하였습니다.";
 				session.setAttribute("change_value", board.getFree_no()+" 수정 성공");
 				session.setAttribute("error_cd", "0000000");
@@ -437,7 +437,7 @@ public class FreeBoardController {
 	
 	
 	//댓글 달기 method
-	@RequestMapping(value="/insertReply.do", method=RequestMethod.POST)
+	@RequestMapping(value="/free/freeReply.do", method=RequestMethod.POST)
 	public String insertReply(HttpServletRequest request, Re_FreeBoardDto rdto, Model mv){
 		HttpSession session = request.getSession();
 
@@ -452,12 +452,12 @@ public class FreeBoardController {
 			result=freeboardservice.insertReply(rdto);
 			
 			if(result>0){
-				link="free_board_view.do?free_no="+rdto.getFree_no()+"&currentpage="+rdto.getCurrentpage()+"&pagesize="+rdto.getPagesize();
+				link="/free/freeDetail.do?free_no="+rdto.getFree_no()+"&currentpage="+rdto.getCurrentpage()+"&pagesize="+rdto.getPagesize();
 				msg="등록에 성공하였습니다";
 				session.setAttribute("change_value", rdto.getFree_no()+" 댓글 작성 성공");
 				session.setAttribute("error_cd", "0000000");
 			}else{
-				link="free_board_view.do?free_no="+rdto.getFree_no()+"&currentpage="+rdto.getCurrentpage()+"&pagesize="+rdto.getPagesize();
+				link="/free/freeDetail.do?free_no="+rdto.getFree_no()+"&currentpage="+rdto.getCurrentpage()+"&pagesize="+rdto.getPagesize();
 				msg="등록에 실패하였습니다. 동일 현상이 지속될 경우 관리자에게 문의하세요";
 				
 			}

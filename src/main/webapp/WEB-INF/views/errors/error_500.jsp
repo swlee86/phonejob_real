@@ -3,7 +3,7 @@
 <div class="back-link">
     <a href="index.html" class="btn btn-primary">Back to Dashboard</a>
 </div>
-<div class="error-container">
+<div class="error-container" style="height: 600px;">
     <i class="pe-7s-way text-success big-icon"></i>
     <h1>500</h1>
     <strong>Internal Server Error</strong>
