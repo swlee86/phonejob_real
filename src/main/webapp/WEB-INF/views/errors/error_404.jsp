@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <div class="color-line"></div>
 
-<div class="error-container">
+<div class="error-container" style="height: 600px;">
     <i class="pe-7s-way text-success big-icon"></i>
     <h1>404</h1>
     <strong>Page Not Found</strong>
