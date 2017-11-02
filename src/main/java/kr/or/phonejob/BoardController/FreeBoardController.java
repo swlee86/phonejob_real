@@ -435,7 +435,7 @@ public class FreeBoardController {
 	
 	
 	//댓글 달기 method
-	@RequestMapping(value="/free/freeReply.do", method=RequestMethod.POST)
+	@RequestMapping(value="/free/freeCommentComple.do", method=RequestMethod.POST)
 	public String insertReply(HttpServletRequest request, Re_FreeBoardDto rdto, Model mv){
 		HttpSession session = request.getSession();
 
