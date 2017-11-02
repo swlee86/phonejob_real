@@ -208,29 +208,29 @@ public class FreeBoardController {
 	
 	
 	
-	//답변하기 누르면 기존 글의 데이터를 가지고 가서 write 화면에 뿌려주는 함수
-	@RequestMapping(value="/free/freeReplyComple.do", method=RequestMethod.GET)
-	public String answer(Model mv, int free_no, int currentpage, int pagesize){
-		String link = null;
-		FreeBoardDto freeboard = null;
-		try{
-			freeboard = freeboardservice.selectDetail(free_no);
-			freeboard.setContent("<p><br><br></p><p>====================================이전 글====================================<br></p>"+freeboard.getContent());
-		}catch(Exception e){
-			
-		}finally{
-			mv.addAttribute("list", freeboard);
-			mv.addAttribute("currentpage", currentpage);
-			mv.addAttribute("pagesize", pagesize);
-			link = "free_board.free_board_answer";
+		//답변하기 누르면 기존 글의 데이터를 가지고 가서 write 화면에 뿌려주는 함수
+		@RequestMapping(value="/free/freeReplyComple.do", method=RequestMethod.GET)
+		public String answer(Model mv, int free_no, int currentpage, int pagesize){
+			String link = null;
+			FreeBoardDto freeboard = null;
+			try{
+				freeboard = freeboardservice.selectDetail(free_no);
+				freeboard.setContent("<p><br><br></p><p>====================================이전 글====================================<br></p>"+freeboard.getContent());
+			}catch(Exception e){
+
+			}finally{
+				mv.addAttribute("list", freeboard);
+				mv.addAttribute("currentpage", currentpage);
+				mv.addAttribute("pagesize", pagesize);
+				link = "free_board.free_board_answer";
+			}
+			return link;
 		}
-		return link;
-	}
 	
 	
 	
-	//답변 인서트 컨트롤러
-		@RequestMapping(value="/free/freeReply.do", method=RequestMethod.POST)
+		//답변 인서트 컨트롤러
+		@RequestMapping(value="/free/freeReplyComple.do", method=RequestMethod.POST)
 		public String answerOk(@RequestParam("uploadfile") MultipartFile file, Model mv, String title, String content, String free_no, Principal principal, int refer, int step, int depth, HttpServletRequest request){
 			//파일 업로드
 			String path = request.getSession().getServletContext().getRealPath("../board/free_upload/");
