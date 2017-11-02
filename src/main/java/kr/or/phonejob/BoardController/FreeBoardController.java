@@ -209,7 +209,7 @@ public class FreeBoardController {
 	
 	
 	//답변하기 누르면 기존 글의 데이터를 가지고 가서 write 화면에 뿌려주는 함수
-	@RequestMapping(value="/free/freeReply.do", method=RequestMethod.GET)
+	@RequestMapping(value="/free/freeReplyComple.do", method=RequestMethod.GET)
 	public String answer(Model mv, int free_no, int currentpage, int pagesize){
 		String link = null;
 		FreeBoardDto freeboard = null;
@@ -229,32 +229,32 @@ public class FreeBoardController {
 	
 	
 	
-	//답변 인서트 컨트롤러 
-	@RequestMapping(value="/free/freeReply.do", method=RequestMethod.POST)
-	public String answerOk(@RequestParam("uploadfile") MultipartFile file, Model mv, String title, String content, String free_no, Principal principal, int refer, int step, int depth, HttpServletRequest request){
-		//파일 업로드 
-		String path = request.getSession().getServletContext().getRealPath("../board/free_upload/");
-		
-		File cFile = new File(path, file.getOriginalFilename());
-		try {
-			file.transferTo(cFile);
-		} catch (IllegalStateException e1) {
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
+	//답변 인서트 컨트롤러
+		@RequestMapping(value="/free/freeReply.do", method=RequestMethod.POST)
+		public String answerOk(@RequestParam("uploadfile") MultipartFile file, Model mv, String title, String content, String free_no, Principal principal, int refer, int step, int depth, HttpServletRequest request){
+			//파일 업로드
+			String path = request.getSession().getServletContext().getRealPath("../board/free_upload/");
 
-		//로그인시 만들어진 세션 정보를 불러옴!!
-		HttpSession session = request.getSession();
-		LoginDto ldto= (LoginDto)session.getAttribute("loginData");
-		logger.info("세션에서 불러온 값 : " + ldto.toString());
-				
-		FreeBoardDto free = new FreeBoardDto();
-		String link = null;
-		String msg = null;
-		int result = 0;
-				
-		freeboardservice.updateStep(refer, step);
+			File cFile = new File(path, file.getOriginalFilename());
+			try {
+				file.transferTo(cFile);
+			} catch (IllegalStateException e1) {
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+
+			//로그인시 만들어진 세션 정보를 불러옴!!
+			HttpSession session = request.getSession();
+			LoginDto ldto= (LoginDto)session.getAttribute("loginData");
+			logger.info("세션에서 불러온 값 : " + ldto.toString());
+
+			FreeBoardDto free = new FreeBoardDto();
+			String link = null;
+			String msg = null;
+			int result = 0;
+
+			freeboardservice.updateStep(refer, step);
 
 		if(free.getFilename()==null){
 				free.setFilename("0");
@@ -382,14 +382,14 @@ public class FreeBoardController {
 	}
 			
 	
-	
-	//글수정 누르면 업데이트 시키는 서비스 함수 + 파일업로드
-	@RequestMapping(value="/free/freeModifyComple.do", method=RequestMethod.POST)
-	public String free_board_update_ok(@RequestParam("uploadfile") MultipartFile file, FreeBoardDto board, Model mv,HttpServletRequest request, int currentpage, int pagesize){
+
+		//글수정 누르면 업데이트 시키는 서비스 함수 + 파일업로드
+		@RequestMapping(value="/free/freeModifyComple.do", method=RequestMethod.POST)
+		public String free_board_update_ok(@RequestParam("uploadfile") MultipartFile file, FreeBoardDto board, Model mv,HttpServletRequest request, int currentpage, int pagesize){
 			HttpSession session = request.getSession();
-		
-		    //파일 업로드 
-		 	String path = request.getRealPath("../updata/free_board/");
+
+			//파일 업로드
+			String path = request.getRealPath("../updata/free_board/");
 			try {
 				File cFile = new File(path, file.getOriginalFilename());
 				logger.info("cFile 내용 : " + cFile);
