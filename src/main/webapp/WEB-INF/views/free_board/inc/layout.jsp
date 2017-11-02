@@ -107,12 +107,12 @@
     		console.log(list_no);
     		$.ajax({ 
     			type: 'POST' , 
-    			url: 'deleteDocument.do' , 
+    			url: 'freeDelete.do' ,
     			data : list_no , 
     			success: function(data) { 
     				console.log(data);
     				if(data==1){
-    					window.location.replace('freeboard.do');
+    					window.location.replace('../free/freeboardMain.do');
     				}else{
     					alert('글 삭제 실패. 잠시 후 다시 시도해 주세요');
     				}

@@ -178,11 +178,6 @@ public class FreeBoardController {
 	}
 
 
-
-
-
-
-
 	//글 선택하여 내용 보기 함수
 	@RequestMapping(value="/free/freeDetail.do", method=RequestMethod.GET)
 	public String free_board_view(Model mv, int free_no, String currentpage, String pagesize,HttpSession session){
@@ -209,9 +204,6 @@ public class FreeBoardController {
 		
 		return url;
 	}
-
-	
-	
 	
 	
 		//답변하기 누르면 기존 글의 데이터를 가지고 가서 write 화면에 뿌려주는 함수
