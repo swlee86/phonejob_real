@@ -11,12 +11,12 @@
 			<td>
 			<c:choose>
 				<c:when test="${username eq null}">
-					<p style="float:right;"><a href=login.do>로그인</a></p>
+					<p style="float:right;"><a href=../login.do>로그인</a></p>
 					<p style="float:right;" > | </p>
-					<p style="float:right;" ><a href="login.do">회원가입</a></p>
+					<p style="float:right;" ><a href="../login.do">회원가입</a></p>
 				</c:when>
 				<c:otherwise>
-					<p style="float:right;"><a href=logout>&nbsp;&nbsp;로그아웃</a></p>
+					<p style="float:right;"><a href=../logout>&nbsp;&nbsp;로그아웃</a></p>
 				</c:otherwise>
 			</c:choose>
 			<c:choose>
