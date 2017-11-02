@@ -54,7 +54,7 @@
 									</div>
 								</c:forEach>
 
-								<form action="insertReply.do" method="post">
+								<form action="../free/freeCommentComple.do" method="post">
 									<div class="input-group">
 										<input type="text" class="form-control" placeholder="Your comment" name="content">
 										<input type="hidden" name="currentpage" value="${currentpage}">
