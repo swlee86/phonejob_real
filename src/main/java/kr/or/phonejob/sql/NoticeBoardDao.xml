@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="kr.or.phonejob.Dao.NoticeBoardDao">
+
+<!-- Free 게시판 글 리스트를 불러오는 쿼리문  -->
+	<select id="selectList" resultType="kr.or.phonejob.Dto.NoticeBoardDto">
+		select 
+			free_no, 
+			credential_id, 
+			title, 
+			userid, 
+			regdate, 
+			hit, 
+			depth,
+			step,
+			refer,
+			filename 
+		from
+		(
+			select 
+				rownum rn, 
+				free_no, 
+				credential_id, 
+				title, 
+				userid, 
+				regdate, 
+				hit, 
+				depth, 
+				step, 
+				refer, 
+				filename 
+			from 
+			(
+				select 
+					free_no, 
+					credential_id, 
+					title, 
+					userid, 
+					regdate, 
+					hit, 
+					depth,
+					step,
+					refer,
+					filename 
+			 	from 
+			 		pj_noticeboard
+			 	where 
+			 		${param3} like '%${param4}%' 
+			 	order by refer desc, step asc
+			 ) 
+			 	order by rn
+			 ) 
+			 	where 
+			 		rn between #{param1} and #{param2}
+	
+	</select >
+	
+	<!-- Free Board의 총 갯수를 불러오는 쿼리문 -->
+	<select id="selectBoardCount" resultType="int">
+		select 
+			count(*) 
+		from 
+			pj_noticeboard
+		where 
+			${param1} like '%${param2}%'  
+	</select>
+
+	<!-- Free Board list에서 글을 클릭하면 글 내용을 불러오는 쿼리문 -->
+	<!-- Free Board 글 내용에서 답글을 누르면 답글을 띄울 때 본문 내용을 에디터에 띄워주는 쿼리문 -->
+	<select id="selectDetail" resultType="kr.or.phonejob.Dto.NoticeBoardDto">
+		select 
+			free_no, 
+			title, 
+			content, 
+			userid, 
+			credential_id,
+			filename, 
+			regdate, 
+			refer, 
+			depth, 
+			step 
+		from 
+			pj_noticeboard
+		where 
+			free_no=#{free_no}
+	</select>
+		
+	
+	
+	
+	<!-- Free board list에서 글을 클릭하여 내용을 불러올 때 댓글 내용도 불러오는 쿼리문 -->	
+	<select id="selectReList" resultType="kr.or.phonejob.Dto.Re_NoticeBoardDto">
+		select 
+			userid, 
+			re_no, 
+			free_no, 
+			credential_id, 
+			content, 
+			regdate 
+		from 
+		(
+			select 
+				rownum rn, 
+				re_no, 
+				free_no, 
+				credential_id,
+				userid, 
+				content, 
+				regdate 
+			from 
+				pj_re_noticeboard
+			where 
+				free_no=#{free_no} 
+			order by re_no asc
+		)
+	</select>
+
+	<!-- 글 수정시 업데이트 쿼리 -->
+	<update id="updateArticle" parameterType="kr.or.phonejob.Dto.NoticeBoardDto">
+		update pj_noticeboard	set	title=#{title},	content=#{content}, filename=#{filename} where free_no=#{free_no}
+	</update>
+
+
+	<!-- 글쓰기시 Refer 설정을 위해 최대 Refer 값을 불러온다 -->
+	<select id="selectRefer" resultType="int">
+	select nvl(max(refer),0) from pj_noticeboard
+	</select>
+
+
+<!-- 글쓰기 진행시 글을 인서트 하는 쿼리문 -->
+<insert id="insertArticle" parameterType="kr.or.phonejob.Dto.NoticeBoardDto">
+insert into pj_noticeboard(free_no, credential_id, userid, refer, depth, step, hit, title, regdate, filename, content )
+values(PJ_NOTICEBOARD_NO.nextval, #{credential_id}, #{userid}, #{refer}, #{depth}, #{step}, #{hit}, #{title}, to_char(sysdate, 'YYYY-MM-DD'), #{filename},#{content})
+</insert>
+
+<!-- 댓글 달 때 댓글을 인서트 하는 쿼리문 -->
+<insert id="insertReply" parameterType="kr.or.phonejob.Dto.Re_NoticeBoardDto">
+insert into PJ_RE_NOTICEBOARD
+	(
+		re_no, 
+		free_no, 
+		credential_id, 
+		userid, 
+		content, 
+		regdate
+	)
+	values
+		(
+			RE_NOTICE_SEQ.nextval,
+			#{free_no}, 
+			#{credential_id}, 
+			#{userid}, 
+			#{content}, 
+			to_char(sysdate, 'YYYY-MM-DD')
+		)
+</insert>
+
+<!-- 글을 읽으면 hit가 추가되는 쿼리문 -->
+<update id="updateHit" parameterType="int">
+update pj_noticeboard SET hit=hit+1 where free_no=#{free_no}
+</update>
+
+<!-- 답글 쓸 때 Step 추가 처리 -->
+<update id="updateStep" parameterType="int">
+update pj_noticeboard set step=step+1, depth=depth+1 where refer=#{param1} and step>#{param2}
+</update>
+
+
+
+<!-- 글 제거 -->
+<delete id="deleteRow">
+	delete pj_noticeboard where free_no=#{list_no}
+</delete>
+
+<!-- 리플 삭제 -->
+<delete id="deleteReply">
+	delete PJ_RE_NOTICEBOARD where free_no=#{list_no}
+</delete>
+	
+<!-- 리플 갯수 구해오기(삭제할 글의) -->	
+<select id="selectReCount" resultType="integer">
+	select count(*) from PJ_RE_NOTICEBOARD where free_no=#{list_no}
+</select>	
+	
+
+</mapper>
