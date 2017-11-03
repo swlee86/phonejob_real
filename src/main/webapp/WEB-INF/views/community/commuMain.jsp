@@ -63,7 +63,7 @@
                 <span class="pull-right">
                     <i class="fa fa-clock-o"> </i> 마지막게시글: 11.10.2015, 08:10 am
                 </span>
-        자유게시판
+        <a href="../free/freeboardMain.do"> 자유게시판</a>
     </div>
 
     <c:forEach var="freelist" items="${list}">
@@ -101,7 +101,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-10 forum-heading">
-                <a href="forum_details.html"" >
+                <a href="forum_details.html" >
                 <h4>Pellentesque rhoncus </h4>
                 </a>
                 <div class="desc">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </div>

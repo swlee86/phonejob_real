@@ -71,7 +71,8 @@
 							</div>
 							<br>
 							<div class="pull-right">
-								<a href="../free/freeboardMain.do?currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">뒤로 가기</a>
+								<a href="../commu/commuMain.do" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">커뮤니티 메인으로</a>
+								<a href="../free/freeboardMain.do?currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">자유게시판 가기</a>
 								<a href="../free/freeReplyComple.do?free_no=${list.free_no}&currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">답글쓰기</a>
 								
 								<c:if test="${list.credential_id==loginData.credential_id}">
