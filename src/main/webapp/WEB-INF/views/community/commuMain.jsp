@@ -72,7 +72,7 @@
             <div class="col-md-10 forum-heading">
                 <span class="label label-warning pull-left">New</span>
                 <a href="../free/freeDetail.do?free_no=${freelist.free_no}" >
-                    <h4>${list.title}</h4>
+                    <h4>${freelist.title}</h4>
                 </a>
                 <div class="desc">${freelist.content}</div>
             </div>
