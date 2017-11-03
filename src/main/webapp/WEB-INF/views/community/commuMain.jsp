@@ -48,14 +48,6 @@
                             <h4>등록된 공지사항이 없습니다.</h4>
                         </a>
                     </div>
-                    <div class="col-md-1 forum-info">
-                        <span class="number">  ${noticelist.hit} </span>
-                        <small>Views</small>
-                    </div>
-                    <div class="col-md-1 forum-info">
-                        <span class="number"> ${noticelist.re_count} </span>
-                        <small>Posts</small>
-                    </div>
                 </div>
             </div>
         </c:otherwise>
@@ -72,26 +64,41 @@
         <a href="../free/freeboardMain.do"> 자유게시판</a>
     </div>
 
-    <c:forEach var="freelist" items="${list}">
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-10 forum-heading">
-                <span class="label label-warning pull-left">New</span>
-                <a href="../free/freeDetail.do?free_no=${freelist.free_no}" >
-                    <h4>${freelist.title}</h4>
-                </a>
+    <c:choose>
+        <c:when test="${list ne null}">
+            <c:forEach var="freelist" items="${list}">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-10 forum-heading">
+                            <span class="label label-warning pull-left">New</span>
+                            <a href="../free/freeDetail.do?free_no=${freelist.free_no}" >
+                                <h4>${freelist.title}</h4>
+                            </a>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="number"> ${freelist.hit} </span>
+                            <small>Views</small>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="number"> ${freelist.re_count} </span>
+                            <small>Comments</small>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </c:when>
+        <c:otherwise>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-10 forum-heading">
+                        <span class="label label-success pull-left">Special</span>
+                        <h4>등록된 글이 없습니다.</h4>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-1 forum-info">
-                <span class="number"> ${freelist.hit} </span>
-                <small>Views</small>
-            </div>
-            <div class="col-md-1 forum-info">
-                <span class="number"> ${freelist.re_count} </span>
-                <small>Comments</small>
-            </div>
-        </div>
-    </div>
-    </c:forEach>
+        </c:otherwise>
+    </c:choose>
 </div>
 
 <div class="hpanel forum-box">
