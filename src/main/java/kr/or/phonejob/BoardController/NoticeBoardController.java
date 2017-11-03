@@ -83,7 +83,7 @@ public class NoticeBoardController {
 			 }
 			 
 		}catch(Exception e){
-			e.getMessage();
+			e.printStackTrace();
 		}finally{
 			mv.addAttribute("list", list);
 			mv.addAttribute("cpage", cpage);
