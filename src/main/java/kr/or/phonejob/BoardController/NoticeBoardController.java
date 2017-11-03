@@ -169,7 +169,7 @@ public class NoticeBoardController {
 			mv.addAttribute("link", link);
 			mv.addAttribute("msg", msg);
 		}
-		return "notice_board.noitce_redirect";
+		return "notice_board.notice_redirect";
 	}
 
 
@@ -437,7 +437,7 @@ public class NoticeBoardController {
 		logger.info("댓글 입력 시작합니다");
 		logger.info("Re_NoticeDtoData : " + rdto.toString());
 		int result;
-		String url="notice_board.noitce_redirect";
+		String url="notice_board.notice_redirect";
 		String link=null;
 		String msg=null;
 		
