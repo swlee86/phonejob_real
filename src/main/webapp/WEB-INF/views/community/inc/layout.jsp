@@ -48,7 +48,7 @@
 
 <!-- Main Wrapper -->
 <div style="text-align: center">
-	<div id="boxed-wrapper" style="left: 181px; right: 181px;">
+    <div class="content animate-panel" style="width: 1200px; text-align:left; display:inline-block">
 		<tiles:insertAttribute name="content" />
 	</div>
 

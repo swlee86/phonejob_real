@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <div class="hpanel forum-box">
@@ -14,7 +15,7 @@
                 <span class="pull-right">
                     <i class="fa fa-clock-o"> </i> Last modification: 10.12.2015, 10:22 am
                 </span>
-        General topics
+        공지사항
     </div>
 
     <div class="panel-body">
@@ -60,19 +61,20 @@
 
     <div class="panel-heading">
                 <span class="pull-right">
-                    <i class="fa fa-clock-o"> </i> Last modification: 11.10.2015, 08:10 am
+                    <i class="fa fa-clock-o"> </i> 마지막게시글: 11.10.2015, 08:10 am
                 </span>
-        Nunc eu luctus neque.
+        자유게시판
     </div>
 
+    <c:forEach var="freelist" items="${list}">
     <div class="panel-body">
         <div class="row">
             <div class="col-md-10 forum-heading">
                 <span class="label label-warning pull-left">New</span>
-                <a href="forum_details.html" >
-                    <h4>Morbi aliquam aliquam</h4>
+                <a href="../free/freeDetail.do?free_no=${freelist.free_no}" >
+                    <h4>${list.title}</h4>
                 </a>
-                <div class="desc">Morbi aliquam aliquam erat, id iaculis dui maximus vel. Curabitur dolor leo, tempus sit amet rutrum nec, luctus vel nisl. Nam sollicitudin quam non arcu faucibus, id mattis lacus interdum. Nam eleifend sodales ante sed pharetra. Integer cursus dapibus fringilla.</div>
+                <div class="desc">${freelist.content}</div>
             </div>
             <div class="col-md-1 forum-info">
                 <span class="number"> 2451 </span>
@@ -80,29 +82,11 @@
             </div>
             <div class="col-md-1 forum-info">
                 <span class="number"> 100 </span>
-                <small>Posts</small>
+                <small>Comments</small>
             </div>
         </div>
     </div>
-
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-10 forum-heading">
-                <span class="label label-warning pull-left">New</span>
-                <a href="forum_details.html" ><h4>Quisque ultrices </h4></a>
-                <div class="desc">Vestibulum scelerisque semper ligula ac consectetur. Proin tincidunt dui ac quam mollis eleifend.</div>
-            </div>
-            <div class="col-md-1 forum-info">
-                <span class="number"> 5699 </span>
-                <small>Views</small>
-            </div>
-            <div class="col-md-1 forum-info">
-                <span class="number"> 114 </span>
-                <small>Posts</small>
-            </div>
-        </div>
-    </div>
-
+    </c:forEach>
 </div>
 
 <div class="hpanel forum-box">
