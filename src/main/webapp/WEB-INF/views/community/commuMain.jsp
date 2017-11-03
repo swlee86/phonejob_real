@@ -25,16 +25,16 @@
                     <div class="row">
                         <div class="col-md-10 forum-heading">
                             <span class="label label-success pull-left">Special</span>
-                            <a href="../notice/noticeDetail.do?free_no=${noticelist.free_no}" >
-                                <h4>${noticelist.title}</h4>
+                            <a href="../notice/noticeDetail.do?free_no=${noticeList.free_no}" >
+                                <h4>${noticeList.title}</h4>
                             </a>
                         </div>
                         <div class="col-md-1 forum-info">
-                            <span class="number">  ${noticelist.hit} </span>
+                            <span class="number">  ${noticeList.hit} </span>
                             <small>Views</small>
                         </div>
                         <div class="col-md-1 forum-info">
-                            <span class="number"> ${noticelist.re_count} </span>
+                            <span class="number"> ${noticeList.re_count} </span>
                             <small>Posts</small>
                         </div>
                     </div>
