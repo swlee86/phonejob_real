@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8" import="org.apache.log4j.Logger"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
-<%! static Logger logger = Logger.getLogger("layout.jsp"); %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -107,13 +106,13 @@
     		console.log(list_no);
     		$.ajax({ 
     			type: 'POST' , 
-    			url: 'freeDelete.do' ,
+    			url: 'noticeDelete.do' ,
     			data : list_no , 
     			success: function(data) { 
     				console.log(data);
     				if(data==1){
                         alert($("#listno").val()+'번글 삭제 처리 완료');
-    					window.location.replace('../free/freeboardMain.do');
+    					window.location.replace('../notice/noticeBoardMain.do');
     				}else{
     					alert($("#listno").val()+'번글 삭제 실패. 잠시 후 다시 시도해 주세요');
     				}
