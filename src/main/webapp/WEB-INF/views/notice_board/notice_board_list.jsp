@@ -88,7 +88,7 @@
 										<td><c:forEach begin="0" end="${list.depth}" step="1">
                         				&nbsp;&nbsp;&nbsp;
                        			 </c:forEach> 
-                       			 	<a href="../free/freeDetail.do?free_no=${list.free_no}&currentpage=${cpage}&pagesize=${pgsize}">${list.title}</a><c:if test="${list.re_count ne 0 }">[${list.re_count }]</c:if>
+                       			 	<a href="../notice/noticeDetail.do?free_no=${list.free_no}&currentpage=${cpage}&pagesize=${pgsize}">${list.title}</a><c:if test="${list.re_count ne 0 }">[${list.re_count }]</c:if>
 											&nbsp;&nbsp;&nbsp; 
 										<c:if test="${list.filename != null}">
 												<img alt="file" src="../images/fileimg.PNG">
