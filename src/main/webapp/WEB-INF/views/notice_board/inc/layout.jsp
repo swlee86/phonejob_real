@@ -99,16 +99,16 @@
 
 
  });
-    
-    function delete_event(){
+
+        function delete_notice_event(){
     	if (confirm("정말 삭제하시겠습니까??") == true){    //확인
     		var list_no= "list_no=" + $("#listno").val();
     		console.log(list_no);
-    		$.ajax({ 
-    			type: 'POST' , 
+    		$.ajax({
+    			type: 'POST' ,
     			url: 'noticeDelete.do' ,
-    			data : list_no , 
-    			success: function(data) { 
+    			data : list_no ,
+    			success: function(data) {
     				console.log(data);
     				if(data==1){
                         alert($("#listno").val()+'번글 삭제 처리 완료');
@@ -116,7 +116,7 @@
     				}else{
     					alert($("#listno").val()+'번글 삭제 실패. 잠시 후 다시 시도해 주세요');
     				}
-    			} 
+    			}
     		});
 
     	}else{   //취소
