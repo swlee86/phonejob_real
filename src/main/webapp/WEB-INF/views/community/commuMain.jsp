@@ -17,8 +17,9 @@
                 </span>
         <a href="../notice/noticeBoardMain.do"> 공지사항</a>
     </div>
-    <c:choose>]
-        <c:when test="${noticelist ne null}">
+    <%--
+    <c:choose>
+            <c:when test="${noticelist ne null}">--%>
             <c:forEach var="noticeList" items="${noticelist}">
                 <div class="panel-body">
                     <div class="row">
@@ -39,6 +40,7 @@
                     </div>
                 </div>
             </c:forEach>
+   <%--
         </c:when>
         <c:otherwise>
             <div class="panel-body">
@@ -52,7 +54,7 @@
             </div>
         </c:otherwise>
     </c:choose>
-
+--%>
 </div>
 
 <div class="hpanel forum-box">
@@ -63,9 +65,10 @@
                 </span>
         <a href="../free/freeboardMain.do"> 자유게시판</a>
     </div>
-
+    <%--
     <c:choose>
         <c:when test="${list ne null}">
+     --%>
             <c:forEach var="freelist" items="${list}">
                 <div class="panel-body">
                     <div class="row">
@@ -86,6 +89,7 @@
                     </div>
                 </div>
             </c:forEach>
+<%--
         </c:when>
         <c:otherwise>
             <div class="panel-body">
@@ -99,6 +103,8 @@
             </div>
         </c:otherwise>
     </c:choose>
+--%>
+
 </div>
 
 <div class="hpanel forum-box">
