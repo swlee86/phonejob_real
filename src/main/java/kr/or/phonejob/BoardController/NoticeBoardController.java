@@ -325,7 +325,7 @@ public class NoticeBoardController {
 						session.setAttribute("error_cd", "9999999");
 					}
 				}
-				
+
 			}else{
 				logger.info("댓긇이 없으니까 바로 삭제합시다.");
 				rowresult=noticeservice.deleteRow(list_no);
@@ -437,13 +437,13 @@ public class NoticeBoardController {
 		logger.info("댓글 입력 시작합니다");
 		logger.info("Re_NoticeDtoData : " + rdto.toString());
 		int result;
-		String url="notice_board.notice_redirect";
+		String url="notice_board.noitce_redirect";
 		String link=null;
 		String msg=null;
 		
 		try{
 			result=noticeservice.insertReply(rdto);
-			
+
 			if(result>0){
 				link="/notice/noticeDetail.do?free_no="+rdto.getFree_no()+"&currentpage="+rdto.getCurrentpage()+"&pagesize="+rdto.getPagesize();
 				msg="등록에 성공하였습니다";
@@ -453,9 +453,9 @@ public class NoticeBoardController {
 				link="../notice/noticeDetail.do?free_no="+rdto.getFree_no()+"&currentpage="+rdto.getCurrentpage()+"&pagesize="+rdto.getPagesize();
 				msg="등록에 실패하였습니다. 동일 현상이 지속될 경우 관리자에게 문의하세요";
 
-}
+			}
 		}catch(Exception e){
-				e.printStackTrace();
+			e.printStackTrace();
 				}finally{
 				mv.addAttribute("link", link);
 				mv.addAttribute("msg", msg);
@@ -464,7 +464,7 @@ public class NoticeBoardController {
 				}
 
 				return url;
-				}
+		}
 
 
 
