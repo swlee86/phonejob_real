@@ -60,7 +60,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select >
 	
 	<!-- Free Board의 총 갯수를 불러오는 쿼리문 -->
-	<select id="selectBoardCount" resultType="int">
+	<select id="selectNoticeCount" resultType="int">
 		select 
 			count(*) 
 		from 
