@@ -2,6 +2,9 @@ package kr.or.phonejob.CommuController;
 
 import kr.or.phonejob.Dto.FreeBoardDto;
 import kr.or.phonejob.Service.FreeBoardService;
+import kr.or.phonejob.Util.MaskingUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +17,8 @@ import java.util.List;
 
 @Controller
 public class CommuController {
+
+    private static final Logger logger = LoggerFactory.getLogger(CommuController.class);
 
     @Autowired
     private FreeBoardService fservice;
@@ -62,6 +67,13 @@ public class CommuController {
             }
 
             list = fservice.selectBoard(cpage, pgsize, field, query);
+
+            for(int i=0; i<list.size(); i++){
+                list.get(i).setRe_count(fservice.selectReCount(list.get(i).getFree_no()));
+                logger.info("마스킹 작업 전 데이터 : " + list.get(i).toString());
+                list.get(i).setUserid(MaskingUtil.getMaskingId(list.get(i).getUserid()));
+                logger.info("마스킹 작업 후 데이터 : " + list.get(i).toString());
+            }
 
 
 

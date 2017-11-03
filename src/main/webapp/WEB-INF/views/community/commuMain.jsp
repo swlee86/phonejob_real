@@ -77,11 +77,11 @@
                 <div class="desc">${freelist.content}</div>
             </div>
             <div class="col-md-1 forum-info">
-                <span class="number"> 2451 </span>
+                <span class="number"> ${freelist.hit} </span>
                 <small>Views</small>
             </div>
             <div class="col-md-1 forum-info">
-                <span class="number"> 100 </span>
+                <span class="number"> ${freelist.re_count} </span>
                 <small>Comments</small>
             </div>
         </div>

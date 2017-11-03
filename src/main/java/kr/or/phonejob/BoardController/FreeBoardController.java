@@ -39,7 +39,6 @@ public class FreeBoardController {
 	public String goFreeboard(Model mv, String pagesize, String currentpage, String f, String q){
 		logger.info("게시판으로 이동!");
 		String url="free_board.free_board_list";
-		int re_count;	//댓글 숫자 표기용 변수
 
 		
 		int totalcount = 0;
