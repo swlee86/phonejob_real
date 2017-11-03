@@ -15,45 +15,31 @@
                 <span class="pull-right">
                     <i class="fa fa-clock-o"> </i> Last modification: 10.12.2015, 10:22 am
                 </span>
-        공지사항
+        <a href="../notice/noticeBoardMain.do"> 공지사항</a>
     </div>
-
+    <c:forEach var="noticeList" items="${noticelist}">
     <div class="panel-body">
         <div class="row">
 
             <div class="col-md-10 forum-heading">
 
                 <span class="label label-success pull-left">Special</span>
-                <a href="forum_details.html"><h4> General Discussion</h4></a>
+                <a href="../notice/noticeDetail.do?free_no=${noticelist.free_no}" >
+                    <h4>${noticelist.title}</h4>
+                </a>
                 <div class="desc">Suspendisse egestas risus quis sem ultricies venenatis. Phasellus maximus tortor ut augue accumsan, sed posuere dolor tincidunt. In hac habitasse platea dictumst.</div>
             </div>
             <div class="col-md-1 forum-info">
-                <span class="number"> 4780 </span>
+                <span class="number">  ${noticelist.hit} </span>
                 <small>Views</small>
             </div>
             <div class="col-md-1 forum-info">
-                <span class="number"> 150 </span>
+                <span class="number"> ${noticelist.re_count} </span>
                 <small>Posts</small>
             </div>
         </div>
     </div>
-
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-10 forum-heading">
-                <a href="forum_details.html" ><h4>Introductions</h4></a>
-                <div class="desc">Mauris feugiat ante vitae euismod vestibulum. Suspendisse id ullamcorper odio, ut tristique ante. In scelerisque dolor in mi condimentum consequat.</div>
-            </div>
-            <div class="col-md-1 forum-info">
-                <span class="number"> 260 </span>
-                <small>Views</small>
-            </div>
-            <div class="col-md-1 forum-info">
-                <span class="number"> 149 </span>
-                <small>Posts</small>
-            </div>
-        </div>
-    </div>
+    </c:forEach>
 
 </div>
 
@@ -74,7 +60,6 @@
                 <a href="../free/freeDetail.do?free_no=${freelist.free_no}" >
                     <h4>${freelist.title}</h4>
                 </a>
-                <div class="desc">${freelist.content}</div>
             </div>
             <div class="col-md-1 forum-info">
                 <span class="number"> ${freelist.hit} </span>
