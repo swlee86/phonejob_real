@@ -17,29 +17,49 @@
                 </span>
         <a href="../notice/noticeBoardMain.do"> 공지사항</a>
     </div>
-    <c:forEach var="noticeList" items="${noticelist}">
-    <div class="panel-body">
-        <div class="row">
-
-            <div class="col-md-10 forum-heading">
-
-                <span class="label label-success pull-left">Special</span>
-                <a href="../notice/noticeDetail.do?free_no=${noticelist.free_no}" >
-                    <h4>${noticelist.title}</h4>
-                </a>
-                <div class="desc">Suspendisse egestas risus quis sem ultricies venenatis. Phasellus maximus tortor ut augue accumsan, sed posuere dolor tincidunt. In hac habitasse platea dictumst.</div>
+    <c:choose>]
+        <c:when test="${noticelist ne null}">
+            <c:forEach var="noticeList" items="${noticelist}">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-10 forum-heading">
+                            <span class="label label-success pull-left">Special</span>
+                            <a href="../notice/noticeDetail.do?free_no=${noticelist.free_no}" >
+                                <h4>${noticelist.title}</h4>
+                            </a>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="number">  ${noticelist.hit} </span>
+                            <small>Views</small>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="number"> ${noticelist.re_count} </span>
+                            <small>Posts</small>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </c:when>
+        <c:otherwise>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-10 forum-heading">
+                        <span class="label label-success pull-left">Special</span>
+                            <h4>등록된 공지사항이 없습니다.</h4>
+                        </a>
+                    </div>
+                    <div class="col-md-1 forum-info">
+                        <span class="number">  ${noticelist.hit} </span>
+                        <small>Views</small>
+                    </div>
+                    <div class="col-md-1 forum-info">
+                        <span class="number"> ${noticelist.re_count} </span>
+                        <small>Posts</small>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-1 forum-info">
-                <span class="number">  ${noticelist.hit} </span>
-                <small>Views</small>
-            </div>
-            <div class="col-md-1 forum-info">
-                <span class="number"> ${noticelist.re_count} </span>
-                <small>Posts</small>
-            </div>
-        </div>
-    </div>
-    </c:forEach>
+        </c:otherwise>
+    </c:choose>
 
 </div>
 
