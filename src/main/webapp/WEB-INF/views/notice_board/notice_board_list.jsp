@@ -103,7 +103,7 @@
 						</table>
 						<div class="row" style="text-align: right; margin-right: 5px;">
 							<button type="button" class="btn w-xs btn-success"
-								onclick="location.href='../noticeBoaradMain/noticeWrite.do?currentpage=${cpage}&pagesize=${pgsize}'">공지사항 등록</button>
+								onclick="location.href='../notice/noticeWrite.do?currentpage=${cpage}&pagesize=${pgsize}'">공지사항 등록</button>
 						</div>
 					</div>
 
