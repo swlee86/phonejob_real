@@ -72,10 +72,10 @@
 							<br>
 							<div class="pull-right">
 								<a href="../commu/commuMain.do" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">커뮤니티 메인으로</a>
-								<a href="../notice/noticeBoaradMain.do?currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">자유게시판 가기</a>
-								<a href="../notice/noticeReplyComple.do?free_no=${list.free_no}&currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">답글쓰기</a>
-								
+								<a href="../notice/noticeBoardMain.do?currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">공지사항게시판 가기</a>
+
 								<c:if test="${list.credential_id==loginData.credential_id}">
+									<a href="../notice/noticeReplyComple.do?free_no=${list.free_no}&currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">답글쓰기</a>
 									<a href="../notice/noticeModify.do?free_no=${list.free_no}&currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">수정하기</a>
 									<input type="text" hidden="hidden" id="listno" value="${list.free_no}">
 									<a class="btn btn-sm btn-default" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px" onclick="delete_event()" href=javascript:void(0)>삭제하기</a>
