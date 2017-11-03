@@ -73,13 +73,11 @@ public class CommuController {
             }
 
             list = fservice.selectBoard(cpage, pgsize, field, query);
-            noticelist = nservice.selectList(cpage, pgsize, field, query);
+            noticelist = nservice.selectNoticeBoard(cpage, pgsize, field, query);
 
             for(int i=0; i<list.size(); i++){
                 list.get(i).setRe_count(fservice.selectReCount(list.get(i).getFree_no()));
                 list.get(i).setUserid(MaskingUtil.getMaskingId(list.get(i).getUserid()));
-
-
                 logger.info("마스킹 작업 후 데이터 : " + list.get(i).toString());
             }
 

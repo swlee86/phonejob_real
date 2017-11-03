@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kr.or.phonejob.Dao.NoticeBoardDao">
 
-<!-- Free 게시판 글 리스트를 불러오는 쿼리문  -->
+<!-- 공지사항 게시판 글 리스트를 불러오는 쿼리문  -->
 	<select id="selectList" resultType="kr.or.phonejob.Dto.NoticeBoardDto">
 		select 
 			free_no, 
@@ -59,7 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	</select >
 	
-	<!-- Free Board의 총 갯수를 불러오는 쿼리문 -->
+	<!-- Notice Board의 총 갯수를 불러오는 쿼리문 -->
 	<select id="selectNoticeCount" resultType="int">
 		select 
 			count(*) 
@@ -69,8 +69,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			${param1} like '%${param2}%'  
 	</select>
 
-	<!-- Free Board list에서 글을 클릭하면 글 내용을 불러오는 쿼리문 -->
-	<!-- Free Board 글 내용에서 답글을 누르면 답글을 띄울 때 본문 내용을 에디터에 띄워주는 쿼리문 -->
+	<!-- Notice Board list에서 글을 클릭하면 글 내용을 불러오는 쿼리문 -->
+	<!-- Notice Board 글 내용에서 답글을 누르면 답글을 띄울 때 본문 내용을 에디터에 띄워주는 쿼리문 -->
 	<select id="selectDetail" resultType="kr.or.phonejob.Dto.NoticeBoardDto">
 		select 
 			free_no, 
@@ -92,7 +92,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	
-	<!-- Free board list에서 글을 클릭하여 내용을 불러올 때 댓글 내용도 불러오는 쿼리문 -->	
+	<!-- Notice board list에서 글을 클릭하여 내용을 불러올 때 댓글 내용도 불러오는 쿼리문 -->
 	<select id="selectReList" resultType="kr.or.phonejob.Dto.Re_NoticeBoardDto">
 		select 
 			userid, 
