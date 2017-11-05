@@ -202,23 +202,20 @@ public class IndexController {
 		}else{
 			logger.info("아이피 등록 결과 : 등록 성공");
 
-			String userAgent = (String)request.getHeader("User-Agent");
-			String[] mobileos = {"iPhone","iPod","Android","BlackBerry","Windows CE",
-					"Nokia","Webos","Opera Mini","SonyEricsson","Opera Mobi","IEMobile"};
-			int j = -1;
-			if(userAgent != null && !userAgent.equals("")){
-				for(int i = 0 ; i<mobileos.length ; i++){
-					j = userAgent.indexOf(mobileos[i]);
-					if(j > -1){
-						msg="등록 성공.";
-						url="s_Main.do";
-					}else{
-						msg="등록 성공.";
-						url="Main.do";
-					}
-				}
-			}
 
+            String userAgent = request.getHeader("user-agent");
+            System.out.println("userAgent"+userAgent);
+            String[] browser = {"iPhone","iPod","Android","BlackBerry","Windows CE","Nokia","Webos","Opera Mini","SonyEricsson","Opera Mobi","IEMobile"};
+            for (int i = 0; i < browser.length; i++) {
+                if(userAgent.matches(".*"+browser[i]+".*")){
+                    msg="등록 성공.";
+                    url="s_Main.do";
+                    break;
+                }else{
+                    msg="등록 성공.";
+                    url="Main.do";
+                }
+            }
 		}
 			
 	}
