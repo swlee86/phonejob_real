@@ -54,21 +54,21 @@
 									</div>
 								</c:forEach>
 
-								<form action="../notice/noticeCommentComple.do" method="post">
-									<div class="input-group">
-										<input type="text" class="form-control" placeholder="Your comment" name="content">
-										<input type="hidden" name="currentpage" value="${currentpage}">
-										<input type="hidden" name="pagesize" value="${pagesize}">
-										<input type="hidden" name="free_no" value="${list.free_no}"> 
-										<input type="hidden" name="credential_id" value="${loginData.credential_id }">
-										<input type="hidden" name="userid" value="${loginData.userid }">
-										<span class="input-group-btn"> 
+							<form action="../notice/noticeCommentComple.do" method="post">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Your comment" name="content">
+									<input type="hidden" name="currentpage" value="${currentpage}">
+									<input type="hidden" name="pagesize" value="${pagesize}">
+									<input type="hidden" name="free_no" value="${list.free_no}">
+									<input type="hidden" name="credential_id" value="${loginData.credential_id }">
+									<input type="hidden" name="userid" value="${loginData.userid }">
+									<span class="input-group-btn">
 										<input type="submit" class="btn  btn-default" value="댓글 달기 ">
 										</span>
-									</div>
-								</form>
+								</div>
+							</form>
 
-							</div>
+						</div>
 							<br>
 							<div class="pull-right">
 								<a href="../commu/commuMain.do" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">커뮤니티 메인으로</a>

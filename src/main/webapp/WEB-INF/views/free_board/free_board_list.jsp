@@ -2,19 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!--  
-	작성자	: 이상원, 김주희
-	작성일	: 2016-11-21
+	작성자	: 이상원
+	작성일	: 2017-08-26
 	목 적  	: 자유게시판 리스트 view
 -->
-<!-- 
-<div class="content animate-panel" style="width: 1200px; text-align:left; display:inline-block">
-	<div class="hpanel">
-		<div class="panel-body">
-			<h2 class="font-light m-b-xs">자유 게시판</h2>
-		</div>
-	</div>
-</div>
- -->
+
 <div class="content animate-panel" style="width: 1200px; text-align:left; display:inline-block">
 	<div class="row">
 
@@ -102,8 +94,8 @@
 							</tbody>
 						</table>
 						<div class="row" style="text-align: right; margin-right: 5px;">
-							<button type="button" class="btn w-xs btn-success"
-								onclick="location.href='../free/freeWrite.do?currentpage=${cpage}&pagesize=${pgsize}'">글등록</button>
+							<button type="button" class="btn w-xs btn-success"	onclick="location.href='../commu/commuMain.do'">커뮤니티 메인으로</button>
+							<button type="button" class="btn w-xs btn-success" onclick="location.href='../free/freeWrite.do?currentpage=${cpage}&pagesize=${pgsize}'">글등록</button>
 						</div>
 					</div>
 

@@ -102,8 +102,8 @@
 							</tbody>
 						</table>
 						<div class="row" style="text-align: right; margin-right: 5px;">
-							<button type="button" class="btn w-xs btn-success"
-								onclick="location.href='../notice/noticeWrite.do?currentpage=${cpage}&pagesize=${pgsize}'">공지사항 등록</button>
+							<button type="button" class="btn w-xs btn-success"	onclick="location.href='../commu/commuMain.do'">커뮤니티 메인으로</button>
+							<button type="button" class="btn w-xs btn-success"	onclick="location.href='../notice/noticeWrite.do?currentpage=${cpage}&pagesize=${pgsize}'">공지사항 등록</button>
 						</div>
 					</div>
 
