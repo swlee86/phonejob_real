@@ -2,87 +2,313 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-<!-- Header -->
-<div id="">
-	<div class="container-fluid">
-	<table width="1200" height="10" align="center";>
-		<tr>
-			<td>
-			<c:choose>
-				<c:when test="${username eq null}">
-					<p style="float:right;"><a href=../login.do>로그인</a></p>
-					<p style="float:right;" > | </p>
-					<p style="float:right;" ><a href="../login.do">회원가입</a></p>
-				</c:when>
-				<c:otherwise>
-					<p style="float:right;"><a href=../logout>&nbsp;&nbsp;로그아웃</a></p>
-				</c:otherwise>
-			</c:choose>
-			<c:choose>
-				<c:when test="${username ne null}">
-					<p style="float:right;" >&nbsp;&nbsp;|</p>
-					<p style="float:right;">${username }님 반갑습니다</p>
-				</c:when>
-			</c:choose>
-			</td>
-		</tr>
-	</table>
-    <table width="100%" height="30" bgcolor="#999999"></table>
-                
-    <table width="1200" height="100" align="center">
-    	<tr>
-        	<td width="300" align="left"><a href="../Main.do"><img src="../images/main_logo.png" /></a></td>
-            <td width="600" align="center">
-				<form role="search" class="" method="post" action="#">
-					<div class="form-group" style="float: left">
-						<table>
-							<tr>
-								<td style="width : 600px;">
-									<input type="text" placeholder="검색어 입력" class="form-control" name="search">
-								</td>
-								<td>
-									<input type="button" class="btn btn-default next" id="searchdata" value="Search">
-								</td>
-							</tr>
-						</table>
-					</div>
-				</form>
-				
-			</td>
-            <td width="300" align="right">
-            	<div style="width: 120px; text-align: left;">
-				채용정보 : ${gooinCount }개<br/>
-				인재정보 : ${googicCount }명<br/>
-				채용마감 : ${gooinEndCount}개
-				</div>
-			</td>
-		</tr>
-	</table>                    
-	<table width="" align="center"  cellpadding="0" cellspacing="0" border="0">
-		<tr>
-        	<td width="" height=""><img src="../images/0_m_01.png" onMouseOver='this.src="../images/0_m_01.png"' onMouseOut='this.src="../images/0_m_01.png"' width="" height="" border="0"></td>
-            <td width="" height=""><a href="../gooin/gooinMain.do"><img src="../images/m_02.png" onMouseOver='this.src="../images/m_up_02.png"' onMouseOut='this.src="../images/m_02.png"' width="" height="" border="0"></a></td>
-            <td width="" height=""><a href="../googic/googicMain.do"><img src="../images/m_03.png" onMouseOver='this.src="../images/m_up_03.png"' onMouseOut='this.src="../images/m_03.png"' width="" height="" border="0"></a></td>
-            <td width="" height=""><a href="../commu/commuMain.do"><img src="../images/m_04.png" onMouseOver='this.src="../images/m_up_04.png"' onMouseOut='this.src="../images/m_04.png"' width="" height="" border="0"></a></td>
-            <td width="" height=""><a href="../shop/shopMain.do"><img src="../images/m_05.png" onMouseOver='this.src="../images/m_up_05.png"' onMouseOut='this.src="../images/m_05.png"' width="" height="" border="0"></a></td>
-            <td width="" height=""><a href="../gooin/gooinRegister.do"><img src="../images/m_06.png" onMouseOver='this.src="../images/m_up_06.png"' onMouseOut='this.src="../images/m_06.png"' width="" height="" border="0"></a></td>
-            <td width="" height=""><a href="../googic/googicRegister.do"><img src="../images/m_07.png" onMouseOver='this.src="../images/m_up_07.png"' onMouseOut='this.src="../images/m_07.png"' width="" height="" border="0"></a></td>
-            <td width="" height=""><a href="#"><img src="../images/m_08.png" onMouseOver='this.src="../images/m_up_08.png"' onMouseOut='this.src="../images/m_08.png"' width="" height="" border="0"></a></td>
-            <td width="" height=""><a href="#"><img src="../images/m_09.png" onMouseOver='this.src="../images/m_up_09.png"' onMouseOut='this.src="../images/m_09.png"' width="" height="" border="0"></a></td>
-            <td width="" height=""><img src="../images/0_m_01.png" onMouseOver='this.src="../images/0_m_01.png"' onMouseOut='this.src="../images/0_m_01.png"' width="" height="" border="0"></td>
-		</tr>            
-	</table>
-  </div><!-- /.container-fluid -->
-		
-
-	
-<!-- 		<div class="small-logo">
-			<span class="text-primary">Phone & Job APP</span>
+<nav role="navigation">
+	<div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
+	<div class="small-logo">
+		<span class="text-primary">HOMER APP</span>
+	</div>
+	<form role="search" class="navbar-form-custom" method="post" action="#">
+		<div class="form-group">
+			<input type="text" placeholder="Search something special" class="form-control" name="search">
 		</div>
-		 -->
- 
-		
+	</form>
+	<div class="mobile-menu">
+		<button type="button" class="navbar-toggle mobile-menu-toggle" data-toggle="collapse" data-target="#mobile-collapse">
+			<i class="fa fa-chevron-down"></i>
+		</button>
+		<div class="collapse mobile-navbar" id="mobile-collapse">
+			<ul class="nav navbar-nav">
+				<li>
+					<a class="" href="login.html">Login</a>
+				</li>
+				<li>
+					<a class="" href="login.html">Logout</a>
+				</li>
+				<li>
+					<a class="" href="profile.html">Profile</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="navbar-right">
+		<ul class="nav navbar-nav no-borders">
+			<li class="dropdown">
+				<a class="dropdown-toggle" href="#" data-toggle="dropdown">
+					<i class="pe-7s-speaker"></i>
+				</a>
+				<ul class="dropdown-menu hdropdown notification animated flipInX">
+					<li>
+						<a>
+							<span class="label label-success">NEW</span> It is a long established.
+						</a>
+					</li>
+					<li>
+						<a>
+							<span class="label label-warning">WAR</span> There are many variations.
+						</a>
+					</li>
+					<li>
+						<a>
+							<span class="label label-danger">ERR</span> Contrary to popular belief.
+						</a>
+					</li>
+					<li class="summary"><a href="#">See all notifications</a></li>
+				</ul>
+			</li>
+			<li class="dropdown">
+				<a class="dropdown-toggle" href="#" data-toggle="dropdown">
+					<i class="pe-7s-keypad"></i>
+				</a>
 
-	</nav>
-</div>
+				<div class="dropdown-menu hdropdown bigmenu animated flipInX">
+					<table>
+						<tbody>
+						<tr>
+							<td>
+								<a href="projects.html">
+									<i class="pe pe-7s-portfolio text-info"></i>
+									<h5>Projects</h5>
+								</a>
+							</td>
+							<td>
+								<a href="mailbox.html">
+									<i class="pe pe-7s-mail text-warning"></i>
+									<h5>Email</h5>
+								</a>
+							</td>
+							<td>
+								<a href="contacts.html">
+									<i class="pe pe-7s-users text-success"></i>
+									<h5>Contacts</h5>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="forum.html">
+									<i class="pe pe-7s-comment text-info"></i>
+									<h5>Forum</h5>
+								</a>
+							</td>
+							<td>
+								<a href="analytics.html">
+									<i class="pe pe-7s-graph1 text-danger"></i>
+									<h5>Analytics</h5>
+								</a>
+							</td>
+							<td>
+								<a href="file_manager.html">
+									<i class="pe pe-7s-box1 text-success"></i>
+									<h5>Files</h5>
+								</a>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</li>
+			<li class="dropdown">
+				<a class="dropdown-toggle label-menu-corner" href="#" data-toggle="dropdown">
+					<i class="pe-7s-mail"></i>
+					<span class="label label-success">4</span>
+				</a>
+				<ul class="dropdown-menu hdropdown animated flipInX">
+					<div class="title">
+						You have 4 new messages
+					</div>
+					<li>
+						<a>
+							It is a long established.
+						</a>
+					</li>
+					<li>
+						<a>
+							There are many variations.
+						</a>
+					</li>
+					<li>
+						<a>
+							Lorem Ipsum is simply dummy.
+						</a>
+					</li>
+					<li>
+						<a>
+							Contrary to popular belief.
+						</a>
+					</li>
+					<li class="summary"><a href="#">See All Messages</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#" id="sidebar" class="right-sidebar-toggle">
+					<i class="pe-7s-upload pe-7s-news-paper"></i>
+				</a>
+			</li>
+			<li class="dropdown">
+				<a href="login.html">
+					<i class="pe-7s-upload pe-rotate-90"></i>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+
+
+
+<aside id="menu">
+	<div id="navigation">
+		<div class="profile-picture">
+			<a href="index.html">
+				<img src="images/profile.jpg" class="img-circle m-b" alt="logo">
+			</a>
+
+			<div class="stats-label text-color">
+				<span class="font-extra-bold font-uppercase">Robert Razer</span>
+
+				<div class="dropdown">
+					<a class="dropdown-toggle" href="#" data-toggle="dropdown">
+						<small class="text-muted">Founder of App <b class="caret"></b></small>
+					</a>
+					<ul class="dropdown-menu animated flipInX m-t-xs">
+						<li><a href="contacts.html">Contacts</a></li>
+						<li><a href="profile.html">Profile</a></li>
+						<li><a href="analytics.html">Analytics</a></li>
+						<li class="divider"></li>
+						<li><a href="login.html">Logout</a></li>
+					</ul>
+				</div>
+
+
+				<div id="sparkline1" class="small-chart m-t-sm"></div>
+				<div>
+					<h4 class="font-extra-bold m-b-xs">
+						$260 104,200
+					</h4>
+					<small class="text-muted">Your income from the last year in sales product X.</small>
+				</div>
+			</div>
+		</div>
+
+		<ul class="nav" id="side-menu">
+			<li class="active">
+				<a href="index.html"> <span class="nav-label">Dashboard</span> <span class="label label-success pull-right">v.1</span> </a>
+			</li>
+			<li>
+				<a href="analytics.html"> <span class="nav-label">Analytics</span><span class="label label-warning pull-right">NEW</span> </a>
+			</li>
+			<li>
+				<a href="#"><span class="nav-label">Interface</span><span class="fa arrow"></span> </a>
+				<ul class="nav nav-second-level">
+					<li><a href="panels.html">Panels design</a></li>
+					<li><a href="typography.html">Typography</a></li>
+					<li><a href="buttons.html">Colors &amp; Buttons</a></li>
+					<li><a href="components.html">Components</a></li>
+					<li><a href="alerts.html">Alerts</a></li>
+					<li><a href="modals.html">Modals</a></li>
+					<li><a href="loading_buttons.html">Loading buttons</a></li>
+					<li><a href="draggable.html">Draggable panels</a></li>
+					<li><a href="code_editor.html">Code editor</a></li>
+					<li><a href="email_template.html">Email template</a></li>
+					<li><a href="nestable_list.html">List</a></li>
+					<li><a href="tour.html">Tour</a></li>
+					<li><a href="icons.html">Icons library</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#"><span class="nav-label">App views</span><span class="fa arrow"></span> </a>
+				<ul class="nav nav-second-level">
+					<li><a href="contacts.html">Contacts</a></li>
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="project.html">Project detail</a></li>
+					<li><a href="app_plans.html">App plans</a></li>
+					<li><a href="social_board.html">Social board</a></li>
+					<li><a href="faq.html">FAQ</a></li>
+					<li><a href="timeline.html">Timeline</a></li>
+					<li><a href="notes.html">Notes</a></li>
+					<li><a href="profile.html">Profile</a></li>
+					<li><a href="mailbox.html">Mailbox</a></li>
+					<li><a href="mailbox_compose.html">Email compose</a></li>
+					<li><a href="mailbox_view.html">Email view</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="blog_details.html">Blog article</a></li>
+					<li><a href="forum.html">Forum</a></li>
+					<li><a href="forum_details.html">Forum details</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+					<li><a href="calendar.html">Calendar</a></li>
+					<li><a href="invoice.html">Invoice</a></li>
+					<li><a href="file_manager.html">File manager</a></li>
+					<li><a href="chat_view.html">Chat view</a></li>
+					<li><a href="search.html">Search view</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#"><span class="nav-label">Charts</span><span class="fa arrow"></span> </a>
+				<ul class="nav nav-second-level">
+					<li><a href="chartjs.html">ChartJs</a></li>
+					<li><a href="flot.html">Flot charts</a></li>
+					<li><a href="inline.html">Inline graphs</a></li>
+					<li><a href="chartist.html">Chartist</a></li>
+					<li><a href="c3.html">C3 Charts</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#"><span class="nav-label">Box transitions</span><span class="fa arrow"></span> </a>
+				<ul class="nav nav-second-level">
+					<li><a href="overview.html"><span class="label label-success pull-right">Start</span> Overview </a>  </li>
+					<li><a href="transition_two.html">Columns from up</a></li>
+					<li><a href="transition_one.html">Columns custom</a></li>
+					<li><a href="transition_three.html">Panels zoom</a></li>
+					<li><a href="transition_four.html">Rows from down</a></li>
+					<li><a href="transition_five.html">Rows from right</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#"><span class="nav-label">Common views</span><span class="fa arrow"></span> </a>
+				<ul class="nav nav-second-level">
+					<li><a href="login.html">Login</a></li>
+					<li><a href="register.html">Register</a></li>
+					<li><a href="error_one.html">Error 404</a></li>
+					<li><a href="error_two.html">Error 505</a></li>
+					<li><a href="lock.html">Lock screen</a></li>
+					<li><a href="password_recovery.html">Passwor recovery</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#"><span class="nav-label">Tables</span><span class="fa arrow"></span> </a>
+				<ul class="nav nav-second-level">
+					<li><a href="tables_design.html">Tables design</a></li>
+					<li><a href="datatables.html">Data tables</a></li>
+					<li><a href="footable.html">Foo Table</a></li>
+
+				</ul>
+			</li>
+			<li>
+				<a href="widgets.html"> <span class="nav-label">Widgets</span> <span class="label label-success pull-right">Special</span></a>
+			</li>
+			<li>
+				<a href="#"><span class="nav-label">Forms</span><span class="fa arrow"></span> </a>
+				<ul class="nav nav-second-level">
+					<li><a href="forms_elements.html">Forms elements</a></li>
+					<li><a href="forms_extended.html">Forms extended</a></li>
+					<li><a href="text_editor.html">Text editor</a></li>
+					<li><a href="wizard.html">Wizard</a></li>
+					<li><a href="validation.html">Validation</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="options.html"> <span class="nav-label">Layout options</span></a>
+			</li>
+			<li>
+				<a href="grid_system.html"> <span class="nav-label">Grid system</span></a>
+			</li>
+			<li>
+				<a href="landing_page.html"> <span class="nav-label">Landing page</span></a>
+			</li>
+			<li>
+				<a href="package.html"> <span class="nav-label">Package</span></a>
+			</li>
+
+		</ul>
+	</div>
+</aside>
