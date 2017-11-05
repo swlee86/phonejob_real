@@ -5,7 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt"%>
 <jsp:useBean id="now" class="java.util.Date" />
 <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="systemdate" />
-<div class="content animate-panel" style="width: 1200px; text-align:left; display:inline-block">
+<div class="content animate-panel" style="text-align:left; display:inline-block">
 	<div class="row">&nbsp;</div>
 
 	<h3><span style="font-family: Arial"><b>헤드라인 VIP 채용정보</b></span></h3>

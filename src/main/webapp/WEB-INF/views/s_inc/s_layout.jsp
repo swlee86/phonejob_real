@@ -55,6 +55,9 @@
 <!-- Header -->
 <tiles:insertAttribute name="header" />
 
+<!-- Header -->
+<tiles:insertAttribute name="sidebar" />
+
 <!-- Main Wrapper -->
 <div style="text-align: center">
 	<div id="boxed-wrapper">
