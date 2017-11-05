@@ -57,8 +57,8 @@ public class GoogicController {
 		}finally{
 			mv.addAttribute("result", result);
 			logger.info("@@@@@@@@@@@@@@이동 url" + url);			
-			return url;
 		}
+			return url;
 	}
 
 	
@@ -217,8 +217,8 @@ public class GoogicController {
 		}finally{
 			mv.addAttribute("data", data);
 			mv.addAttribute("movepage", movepage);
-			return url;			
 		}
+			return url;
 	}
 	
 	//상세 페이지 조회
@@ -478,9 +478,9 @@ public class GoogicController {
 			e.printStackTrace();
 		}finally{
 			mv.addAttribute("googicdata", rgdto);
-			return url;			
 		}
-		
+			return url;
+
 		
 	}
 	
@@ -498,9 +498,9 @@ public class GoogicController {
 			e.getStackTrace();
 		}finally{
 			mv.addAttribute("googicdata", gdto);
-			return url;			
 		}
-				
+			return url;
+
 	}
 	
 	//구직 정보 수정
@@ -589,8 +589,8 @@ public class GoogicController {
 		}finally{
 			mv.addAttribute("data", data);
 			mv.addAttribute("movepage", movepage);
-			return url;		
 		}
+			return url;
 	}
 
 	

@@ -31,7 +31,7 @@
 						</div>
 						<div class="media-body" style="text-align: left">
 							<c:if test="${not empty list.filename}">
-								<span class="pull-right">첨부파일 : <a href=../free/freeBoard_fileDown.do?name=${list.filename}">${list.filename}</a>
+								<span class="pull-right">첨부파일 : <a href=../notice/noticeBoard_fileDown.do?name=${list.filename}">${list.filename}</a>
 								</span>
 								<br>
 							</c:if>
@@ -40,7 +40,7 @@
 							<div class="forum-comments">
 								<c:forEach var="re_list" items="${re_list}">
 									<div class="media">
-										<a class="pull-left"> <img src="${pageContext.request.contextPath}/images/default.jpg" alt="profile-picture"></a>
+										<a class="pull-left"> <img src="../images/default.jpg" alt="profile-picture"></a>
 
 										<div class="media-body">
 											<span class="font-bold">${re_list.userid}</span> <small class="text-muted">${re_list.regdate }</small>

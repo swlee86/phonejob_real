@@ -152,7 +152,7 @@ public class FreeBoardController {
 
 
 		int result = 0;
-		String link = null;
+		String link = "../free/freeboardMain.do";
 		String msg = null;
 		try{
 			result = freeboardservice.insertArticle(board);
@@ -160,12 +160,10 @@ public class FreeBoardController {
 			logger.error(e.getMessage());
 		}finally{
 			if(result>0){
-				link = "../free/freeboardMain.do";
 				msg = "글 입력에 성공하였습니다.";
 				session.setAttribute("change_value", "자유게시판 글 입력 성공");
 				session.setAttribute("error_cd", "0000000");
 			}else{
-				link = "../free/freeboardMain.do";
 				msg = "글 입력에 실패하였습니다.";
 				session.setAttribute("change_value", "자유게시판 글 입력 실패");
 				session.setAttribute("error_cd", "0000000");

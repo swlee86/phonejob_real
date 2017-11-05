@@ -148,7 +148,7 @@ public class NoticeBoardController {
 
 
 		int result = 0;
-		String link = null;
+		String link = "../notice/noticeBoardMain.do";
 		String msg = null;
 		try{
 			result = noticeservice.insertArticle(board);
@@ -156,12 +156,10 @@ public class NoticeBoardController {
 			logger.error(e.getMessage());
 		}finally{
 			if(result>0){
-				link = "../notice/noticeBoardMain.do";
 				msg = "글 입력에 성공하였습니다.";
 				session.setAttribute("change_value", "공지사항 글 입력 성공");
 				session.setAttribute("error_cd", "0000000");
 			}else{
-				link = "../notice/noticeBoardMain.do";
 				msg = "글 입력에 실패하였습니다.";
 				session.setAttribute("change_value", "공지사항 글 입력 실패");
 				session.setAttribute("error_cd", "0000000");

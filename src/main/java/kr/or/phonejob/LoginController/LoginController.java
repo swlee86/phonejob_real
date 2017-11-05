@@ -38,8 +38,8 @@ public class LoginController {
 			e.printStackTrace();
 		}finally{
 			logger.info(">>>>>연결 URL : " + url);
-			return url;
 		}
+			return url;
 	}
 	
 	
