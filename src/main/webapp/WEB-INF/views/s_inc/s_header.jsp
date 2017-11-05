@@ -11,7 +11,7 @@
         </span>
 	</div>
 	<nav role="navigation">
-		<div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
+		<div class="header-link hide-menu" style="padding-bottom: 24px;"><i class="fa fa-bars"></i></div>
 		<div class="small-logo">
 			<span class="text-primary">HOMER APP</span>
 		</div>
