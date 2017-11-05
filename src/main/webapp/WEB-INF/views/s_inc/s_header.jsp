@@ -7,7 +7,7 @@
 	</div>
 	<div id="logo" class="light-version">
         <span>
-            <a href="../Main.do"><img src="../images/main_logo.png" /></a>
+            <a href="../s_Main.do">Phone&Job</a>
         </span>
 	</div>
 	<nav role="navigation">
