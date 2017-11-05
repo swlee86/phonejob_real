@@ -26,7 +26,7 @@
 						<img src="../../images/lg1.jpg">
 					</c:if>
 				</div>
-				<div class="panel-body" style="height: 220px;">
+				<div class="panel-body-mobile" style="height: 220px;">
 					<p><b>${best.comname }</b></p>
 					<p> ${best.title}</p>
 					<p>모집분야 : <c:if test="${best.wantjob eq 'cs' }"> CS 직원</c:if>
@@ -43,7 +43,7 @@
 					</p>
 					</c:if>
 					<c:if test="${best.salary_detail eq null }">
-						<p>급여 : 추후협의</p>								
+						<p>급여 : 추후협의</p>
 					</c:if>
 				</div>
 				<div class="panel-footer">-</div>
@@ -51,15 +51,15 @@
 			</div>
 			</a>
 		</c:forEach>
-		
+
 	</div>
-	
+
 	<br />
-	
-	
-	
-	
-	
+
+
+
+
+
 	<h3><span style="font-family: Arial"><b>프리미엄 채용정보</b></span></h3>
 	<hr style="border: 1px solid #ddd;">
 	<div class="row">
@@ -76,9 +76,9 @@
 					</c:if>
 					<c:if test="${luxury.wanttel eq 'A003'}">
 						<img src="../../images/lg1.jpg">
-					</c:if>					
+					</c:if>
 				</div>
-				<div class="panel-body" style="height: 220px;">
+				<div class="panel-body-mobile" style="height: 220px;">
 					<p><b>${luxury.comname }</b></p>
 					<p>${luxury.title}</p>
 					<p>모집분야 : <c:if test="${luxury.wantjob eq 'cs' }"> CS 직원</c:if>
@@ -95,7 +95,7 @@
 					</p>
 					</c:if>
 					<c:if test="${luxury.salary_detail eq null }">
-						<p>급여 : 추후협의</p>								
+						<p>급여 : 추후협의</p>
 					</c:if>
 				</div>
 				<div class="panel-footer">-</div>
@@ -103,13 +103,13 @@
 			</div>
 			</a>
 		</c:forEach>
-		
+
 	</div>
-	
+
 
 	<br/>
-	
-	
+
+
 
 
 	<h3><span style="font-family: Arial"><b>베스트 채용정보</b></span></h3>
@@ -130,7 +130,7 @@
 						<img src="../../images/lg1.jpg">
 					</c:if>
 				</div>
-				<div class="panel-body" style="height: 220px;">
+				<div class="panel-body-mobile" style="height: 220px;">
 					<p><b>${best.comname }</b></p>
 					<p> ${best.title}</p>
 					<p>모집분야 : <c:if test="${best.wantjob eq 'cs' }"> CS 직원</c:if>
@@ -147,7 +147,7 @@
 					</p>
 					</c:if>
 					<c:if test="${best.salary_detail eq null }">
-						<p>급여 : 추후협의</p>								
+						<p>급여 : 추후협의</p>
 					</c:if>
 				</div>
 				<div class="panel-footer">-</div>
@@ -155,20 +155,20 @@
 			</div>
 			</a>
 		</c:forEach>
-		
+
 	</div>
 
 	<br/>
-	
-	
-	
-	
-	
+
+
+
+
+
 
 
 	<h3><span style="font-family: Arial"><b>인재 리스트</b></span></h3>
 	<hr style="border: 1px solid #ddd;">
-			&nbsp; 
+			&nbsp;
 		<div class="row">
 		<div>
 			<c:forEach var="resultData" items="${result}">
@@ -178,7 +178,7 @@
 								<div class="panel-heading hbuilt" style="text-align: center;">
 									<img src="../updata/picture/googic/${resultData.pic}" alt="이력서 사진">
 								</div>
-								<div class="panel-body" style="height: 220px;">
+								<div class="panel-body-mobile" style="height: 220px;">
 									<p>
 									<b>${resultData.username}</b>
 									(
