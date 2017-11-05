@@ -17,13 +17,13 @@
 			<div class="hpanel hred">
 				<div class="panel-heading hbuilt" style="text-align: center;">
 					<c:if test="${best.wanttel eq 'A001'}">
-						<img src="../images/kt1.jpg">
+						<img src="../../images/kt1.jpg">
 					</c:if>
 					<c:if test="${best.wanttel eq 'A002'}">
-						<img src="../images/sk1.jpg">
+						<img src="../../images/sk1.jpg">
 					</c:if>
 					<c:if test="${best.wanttel eq 'A003'}">
-						<img src="../images/lg1.jpg">
+						<img src="../../images/lg1.jpg">
 					</c:if>
 				</div>
 				<div class="panel-body" style="height: 220px;">
@@ -69,13 +69,13 @@
 			<div class="hpanel hyellow">
 				<div class="panel-heading hbuilt" style="text-align: center;">
 					<c:if test="${luxury.wanttel eq 'A001'}">
-						<img src="../images/kt1.jpg">
+						<img src="../../images/kt1.jpg">
 					</c:if>
 					<c:if test="${luxury.wanttel eq 'A002'}">
-						<img src="../images/sk1.jpg">
+						<img src="../../images/sk1.jpg">
 					</c:if>
 					<c:if test="${luxury.wanttel eq 'A003'}">
-						<img src="../images/lg1.jpg">
+						<img src="../../images/lg1.jpg">
 					</c:if>					
 				</div>
 				<div class="panel-body" style="height: 220px;">
@@ -121,13 +121,13 @@
 			<div class="hpanel hblue">
 				<div class="panel-heading hbuilt" style="text-align: center;">
 					<c:if test="${best.wanttel eq 'A001'}">
-						<img src="../images/kt1.jpg">
+						<img src="../../images/kt1.jpg">
 					</c:if>
 					<c:if test="${best.wanttel eq 'A002'}">
-						<img src="../images/sk1.jpg">
+						<img src="../../images/sk1.jpg">
 					</c:if>
 					<c:if test="${best.wanttel eq 'A003'}">
-						<img src="../images/lg1.jpg">
+						<img src="../../images/lg1.jpg">
 					</c:if>
 				</div>
 				<div class="panel-body" style="height: 220px;">
