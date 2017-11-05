@@ -7,7 +7,7 @@
 	</div>
 	<div id="logo" class="light-version">
         <span>
-            Homer Theme
+            <a href="../Main.do"><img src="../images/main_logo.png" /></a>
         </span>
 	</div>
 	<nav role="navigation">
