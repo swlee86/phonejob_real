@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import kr.or.phonejob.Service.LoginService;
 import org.slf4j.Logger;
@@ -153,56 +154,74 @@ public class IndexController {
 		return "home.index";
 	}
 	
-				@RequestMapping(value="etc/error_404.do")
-				public String move404(){
+	@RequestMapping(value="etc/error_404.do")
+	public String move404(){
 					return "errors.error_404";
 				}
 
-				@RequestMapping(value="etc/error_500.do")
-				public String move500(){
+	@RequestMapping(value="etc/error_500.do")
+	public String move500(){
 					return "errors.error_500";
 				}
 
-
-				@RequestMapping(value="lock.do")
-				public String movelock(){
+	@RequestMapping(value="lock.do")
+	public String movelock(){
 					return "errors.lock";
 				}
 	
 	
-			@RequestMapping(value="adminIpRegister.do", method=RequestMethod.POST)
-			public String adminIpRegister(UserIpDto idto, Model mv){
-				logger.info("아이피 등록 시작");
-				logger.info("입력된 데이터 : " + idto.toString());
-				String msg = "";
-				String url = "";
-				String rePage="ip.ipRedirect";
-				int insertResult = 0;
-				int result = iservice.getUserData(idto);
+	@RequestMapping(value="adminIpRegister.do", method=RequestMethod.POST)
+	public String adminIpRegister(HttpServletRequest request, UserIpDto idto, Model mv){
 
-				logger.info("관리자에 데이터가 있는지? 0이면 없는 것+ " + result);
+		//세션 선언
+		HttpSession session = request.getSession();
 
-				if(result==0){
-					logger.info("아이피 등록 결과 : 권한 없음");
-					msg="등록 불가. 권한이 없습니다.";
-					url="Main.do";
-				}
+		logger.info("아이피 등록 시작");
+		logger.info("입력된 데이터 : " + idto.toString());
+		String msg = "";
+		String url = "";
+		String rePage="ip.ipRedirect";
+		int insertResult = 0;
+		int result = iservice.getUserData(idto);
 
-				if(result==1){
-					insertResult = iservice.insertIpData(idto);
-			
-			if(insertResult==0){
-				logger.info("아이피 등록 결과 : 등록 도중 에러");
-				msg="등록 중 실패, 관리자에게 문의하세요";
-				return "lock";
-			}else{
-				logger.info("아이피 등록 결과 : 등록 성공");
-				msg="등록 성공.";
-				url="Main.do";
-			}
-			
+		logger.info("관리자에 데이터가 있는지? 0이면 없는 것+ " + result);
+
+		if(result==0){
+			logger.info("아이피 등록 결과 : 권한 없음");
+			msg="등록 불가. 권한이 없습니다.";
+			url="Main.do";
 		}
-		
+
+		if(result==1){
+			insertResult = iservice.insertIpData(idto);
+
+		if(insertResult==0){
+			logger.info("아이피 등록 결과 : 등록 도중 에러");
+			msg="등록 중 실패, 관리자에게 문의하세요";
+			return "lock";
+		}else{
+			logger.info("아이피 등록 결과 : 등록 성공");
+
+			String userAgent = (String)request.getHeader("User-Agent");
+			String[] mobileos = {"iPhone","iPod","Android","BlackBerry","Windows CE",
+					"Nokia","Webos","Opera Mini","SonyEricsson","Opera Mobi","IEMobile"};
+			int j = -1;
+			if(userAgent != null && !userAgent.equals("")){
+				for(int i = 0 ; i<mobileos.length ; i++){
+					j = userAgent.indexOf(mobileos[i]);
+					if(j > -1){
+						msg="등록 성공.";
+						url="s_Main.do";
+					}else{
+						msg="등록 성공.";
+						url="Main.do";
+					}
+				}
+			}
+
+		}
+			
+	}
 		logger.info("처리된 메세지 :  " + msg + "이동 url : " + url);
 		mv.addAttribute("msg", msg);
 		mv.addAttribute("url", url);
