@@ -320,7 +320,7 @@ public class IndexController {
 		mv.addAttribute("gooinbest", gooinbest);
 		mv.addAttribute("gooinnormal", gooinnormal);
 
-		return "home.index";
+		return "home.s_index";
 	}
 
 
