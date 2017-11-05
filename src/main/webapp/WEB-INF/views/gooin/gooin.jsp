@@ -6,7 +6,7 @@
 
 	<div class="row">
 		<div style="float: right">
-			<a href="gooinRegister.do" style="float: "	class="btn btn-default next" id="gooin">구인등록</a>
+			<a href="gooinRegister.do" class="btn btn-default next" id="gooin">구인등록</a>
 		</div>
 
 
