@@ -5,15 +5,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 
-<mapper namespace="kr.or.phonejob.Dao.PublicDao">
+<mapper namespace="kr.or.phonejob.pc.Dao.PublicDao">
 
 	<!-- 공통코드 조회(alility_cd) -->
-	<select id="abilityService" resultType="kr.or.phonejob.Dto.PublicDto">
+	<select id="abilityService" resultType="kr.or.phonejob.pc.Dto.PublicDto">
 		select * from pj_genrl_cd where up_cd='ability_cd' order by cd
 	</select>
 
 	<!-- 공통코드 조회(boolean_cd) -->
-	<select id="booleanService" resultType="kr.or.phonejob.Dto.PublicDto">
+	<select id="booleanService" resultType="kr.or.phonejob.pc.Dto.PublicDto">
 		select * from pj_genrl_cd where up_cd='bolean_cd' order by cd
 	</select>
 

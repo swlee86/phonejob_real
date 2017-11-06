@@ -22,10 +22,6 @@
 	
 	<context:component-scan base-package="kr.or.phonejob.*" />
 
-<!--
-	<beans:bean id="loginFilterService" class="kr.or.phonejob.Service.LoginFilterService" />
--->
-
 	<beans:bean id="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></beans:property>
 		<beans:property name="url" value="jdbc:oracle:thin:@orcl.cn5acqnoqihv.ap-northeast-2.rds.amazonaws.com:1521:ORCL"></beans:property>
@@ -33,10 +29,17 @@
 		<beans:property name="password" value="new1234!"></beans:property>
 	</beans:bean>
 
-	<beans:bean id="customAuthenticationSuccessHandler" class="kr.or.phonejob.LoginController.CustomAuthenticationSuccessHandler">
+	<beans:bean id="customAuthenticationSuccessHandler" class="kr.or.phonejob.pc.LoginController.CustomAuthenticationSuccessHandler">
 	<beans:property name = "sqlsession">
 		<beans:ref bean = "sqlSession"/>
 	</beans:property>
+	</beans:bean>
+
+
+	<beans:bean id="s_customAuthenticationSuccessHandler" class="kr.or.phonejob.mobile.s_LoginController.s_CustomAuthenticationSuccessHandler">
+		<beans:property name = "sqlsession">
+			<beans:ref bean = "sqlSession"/>
+		</beans:property>
 	</beans:bean>
 
 
@@ -55,7 +58,7 @@
 	</tx:advice>
 
 	<aop:config>
-		<aop:pointcut id="onjPointCut" expression="execution(* kr.or.phonejob.Service.*.*(..))"/>
+		<aop:pointcut id="onjPointCut" expression="execution(* kr.or.phonejob.*.*(..))"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="onjPointCut" />
 	</aop:config>
 

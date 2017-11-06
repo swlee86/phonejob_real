@@ -673,7 +673,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Filter entered characters - based on date format. */
+	/* s_Filter entered characters - based on date format. */
 	_doKeyPress: function(event) {
 		var chars, chr,
 			inst = $.datepicker._getInst(event.target);

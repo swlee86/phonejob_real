@@ -224,7 +224,7 @@
 	}
 
 	/************************************
-		Filter Years
+		s_Filter Years
 	************************************/
 
 	function findStartAndEndIndex (untils, start, end) {
@@ -276,7 +276,7 @@
 	}
 
 	/************************************
-		Filter, Link, and Pack
+		s_Filter, Link, and Pack
 	************************************/
 
 	function filterLinkPack (input, start, end) {

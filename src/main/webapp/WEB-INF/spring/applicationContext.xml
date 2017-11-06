@@ -75,11 +75,18 @@
 	<!-- transaction end -->
 	
 	<!-- Security Login Customise -->
-	<bean id="customAuthenticationSuccessHandler" class="kr.or.phonejob.LoginController.CustomAuthenticationSuccessHandler">
+	<bean id="customAuthenticationSuccessHandler" class="kr.or.phonejob.pc.LoginController.CustomAuthenticationSuccessHandler">
 	<property name="sqlsession">
 		<ref bean = "sqlSession"/>
 	</property>
 	</bean>
+
+	<bean id="s_customAuthenticationSuccessHandler" class="kr.or.phonejob.mobile.s_LoginController.s_CustomAuthenticationSuccessHandler">
+		<property name="sqlsession">
+			<ref bean = "sqlSession"/>
+		</property>
+	</bean>
+
 
 	<!--시큐리티 메세지-->
 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">

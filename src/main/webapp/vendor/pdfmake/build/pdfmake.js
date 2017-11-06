@@ -28448,7 +28448,7 @@
 	  if (ctx.customInspect &&
 	      value &&
 	      isFunction(value.inspect) &&
-	      // Filter out the util module, it's inspect function is special
+	      // s_Filter out the util module, it's inspect function is special
 	      value.inspect !== exports.inspect &&
 	      // Also filter out any prototype objects using the circular check.
 	      !(value.constructor && value.constructor.prototype === value)) {

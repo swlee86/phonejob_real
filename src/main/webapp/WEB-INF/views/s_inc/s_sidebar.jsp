@@ -29,7 +29,7 @@
             <li>
                 <a href="#"><span class="nav-label">커뮤니티</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li><a href="../commu/commuMain.do">커뮤니티메인</a></li>
+                    <li><a href="../commu/s_commuMain.do">커뮤니티메인</a></li>
                     <li><a href="../notice/noticeBoardMain.do">공지사항</a></li>
                     <li><a href="../free/freeBoardMain.do">자유게시판</a></li>
                 </ul>

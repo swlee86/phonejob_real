@@ -27,7 +27,7 @@
 			<div class="collapse mobile-navbar" id="mobile-collapse">
 				<ul class="nav navbar-nav">
 					<li>
-						<a class="" href="login.html">Login</a>
+						<a class="" href="../mobile/s_login.do">Login</a>
 					</li>
 					<li>
 						<a class="" href="login.html">Logout</a>
@@ -152,11 +152,22 @@
 						<i class="pe-7s-upload pe-7s-news-paper"></i>
 					</a>
 				</li>
-				<li class="dropdown">
-					<a href="login.html">
-						<i class="pe-7s-upload pe-rotate-90"></i>
-					</a>
-				</li>
+				<c:choose>
+					<c:when test="${username eq null}">
+						<li class="dropdown">
+							<a href="../mobile/s_login.do">
+								<i class="pe-7s-upload pe-rotate-90"></i>
+							</a>
+						</li>
+					</c:when>
+					<c:otherwise>
+						<li class="dropdown">
+							<a href="../mobile/logout">
+								<i class="pe-7s-upload pe-rotate-90"></i>
+							</a>
+						</li>
+					</c:otherwise>
+				</c:choose>
 			</ul>
 		</div>
 	</nav>

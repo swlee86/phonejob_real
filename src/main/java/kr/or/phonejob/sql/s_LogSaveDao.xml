@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="kr.or.phonejob.mobile.s_Dao.s_LogSaveDao">
+
+
+	<insert id="logsave" parameterType="kr.or.phonejob.mobile.s_Dto.s_LogSaveDto">
+		INSERT INTO PJ_LOGHST_CHG(
+				USERID,
+				CREDENTIAL_ID,
+				LOG_DATE,
+				CREDT_DATE,
+				URI,
+				CHANGE_VALUE,
+				ERROR_CD,
+				IP
+				)
+				VALUES(
+				#{userid},
+				#{credential_id},
+				TO_CHAR(sysdate,'YYYYMMDD'),
+				current_timestamp ,
+				#{uri},
+				#{change_value},
+				#{error_cd},
+				#{ip}
+				)
+	</insert>
+
+</mapper>

@@ -5,10 +5,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 
-<mapper namespace="kr.or.phonejob.Dao.LogSaveDao">
+<mapper namespace="kr.or.phonejob.pc.Dao.LogSaveDao">
 
 
-	<insert id="logsave" parameterType="kr.or.phonejob.Dto.LogSaveDto">
+	<insert id="logsave" parameterType="kr.or.phonejob.pc.Dto.LogSaveDto">
 		INSERT INTO PJ_LOGHST_CHG(
 				USERID,
 				CREDENTIAL_ID,

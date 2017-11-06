@@ -8,43 +8,44 @@
   						   http://www.springframework.org/schema/security/spring-security.xsd">
  
  
-  <security:http auto-config="true">
+  <security:http auto-config="true" pattern="/common/**">
   
-  <security:csrf disabled="true"/>
-  <security:form-login login-page="/login.do"
-  						username-parameter="userid"
-						password-parameter="password"
-					   authentication-failure-url="/login.do" 
- 					    authentication-success-handler-ref="customAuthenticationSuccessHandler"
-  					   />
-  <security:logout logout-success-url="/login.do" />
- 
- 
-  <security:intercept-url pattern="/" access="permitAll"/>
-  
-  
-  <!--    
-  <security:intercept-url pattern="/login.do" access="isAnonymous"/>
-  <security:intercept-url pattern="/customer/noticeReg.htm" access="ROLE_ADMIN"/>
-  <security:intercept-url pattern="/customer/**" access="ROLE_USER" />
-  -->
-  
- <!-- 
-  <security:intercept-url pattern="/draft_rec.do" access="hasRole('ROLE_DRAFT')" />
-  <security:intercept-url pattern="projectApprove.do" access="hasRole('ROLE_PJ')" />
-  <security:intercept-url pattern="projectMake.do" access="hasRole('ROLE_PJ')" />
-  <security:intercept-url pattern="adminEmp_list.do" access="hasRole('ROLE_EMPLIST')" />
-  <security:intercept-url pattern="adminDepartWidget.do" access="hasRole('ROLE_ATTACH')" />
-  <security:intercept-url pattern="adminGrade.do" access="hasRole('ROLE_POSITION')" />
-  <security:intercept-url pattern="adminSalaryView.do" access="hasRole('ROLE_ADMIN')" />
-  <security:intercept-url pattern="adminSalaryList.do" access="hasRole('ROLE_PAYLIST')" />
-  <security:intercept-url pattern="adminSalary.do" access="hasRole('ROLE_PAYCHECK')" />
-  <security:intercept-url pattern="adminSalaryManage.do" access="hasRole('ROLE_SALARY')" />
-  <security:intercept-url pattern="adminSalarySetting.do" access="hasRole('ROLE_BONUS')" />
-  <security:intercept-url pattern="CommuteAdmin.do" access="hasRole('ROLE_ADMIN')" />
-   -->
-</security:http>
-<security:authentication-manager>
+	  <security:csrf disabled="true"/>
+	  <security:form-login login-page="/common/login.do"
+							username-parameter="userid"
+							password-parameter="password"
+							login-processing-url="/common/loginprocess"
+							authentication-failure-url="/common/login.do"
+							authentication-success-handler-ref="customAuthenticationSuccessHandler"
+						   />
+	  <security:logout logout-url="/common/logout" logout-success-url="/common/login.do" />
+
+
+	  <security:intercept-url pattern="/" access="permitAll"/>
+	</security:http>
+
+	<security:http auto-config="true" pattern="/mobile/**">
+
+		<security:csrf disabled="true"/>
+		<security:form-login login-page="/mobile/s_login.do"
+							 username-parameter="userid"
+							 password-parameter="password"
+							 login-processing-url="/mobile/loginprocess"
+							 authentication-failure-url="/mobile/s_login.do"
+							 authentication-success-handler-ref="s_customAuthenticationSuccessHandler"
+		/>
+		<security:logout logout-url="/mobile/logout" logout-success-url="/mobile/s_login.do" />
+
+
+		<security:intercept-url pattern="/" access="permitAll"/>
+	</security:http>
+
+
+
+
+
+
+	<security:authentication-manager>
      <security:authentication-provider>
 		<security:jdbc-user-service data-source-ref="driverManagerDataSource"
 				users-by-username-query="select USERID as username, userpwd as PASSWORD, 1 enable 

@@ -9,9 +9,9 @@
             </div>
             <div class="hpanel" style="text-align:left">
                 <div class="panel-body">
-                        <form id="loginForm" method="post" action="${pageContext.request.contextPath}/login">
+                        <form id="loginForm" method="post" action="${pageContext.request.contextPath}/common/loginprocess">
                             <div class="form-group">
-                                <label class="control-label" for="ID">ID</label>
+                                <%--@declare id="id"--%><label class="control-label" for="ID">ID</label>
                                 <input type="text" placeholder="ID 입력" title="Please enter you ID" required="" value="" name="userid" id=userid class="form-control">
                                 <span class="help-block small">Your unique ID to Phone&Job</span>
                             </div>
@@ -20,17 +20,10 @@
                                 <input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="password" class="form-control">
                                 <span class="help-block small">Yur strong password</span>
                             </div>
-                            <%--
-                            <div class="checkbox">
-                                <input type="checkbox" name="remember" class="i-checks" checked >
-                                     Remember login
-                                <p class="help-block small">(if this is a private computer)</p>
-                            </div>
-                            --%>
                             <button class="btn btn-success btn-block">회원 로그인</button>
-                            <a class="btn btn-default btn-block" href="privateRegister.do">구직자 회원 가입</a>
-                            <a class="btn btn-default btn-block" href="comRegister.do">기업 회원 가입</a>
-                            <a class="btn btn-default btn-block" href="Main.do">PhoneJob 메인으로 돌아가기</a>
+                            <a class="btn btn-default btn-block" href="../common/privateRegister.do">구직자 회원 가입</a>
+                            <a class="btn btn-default btn-block" href="../common/comRegister.do">기업 회원 가입</a>
+                            <a class="btn btn-default btn-block" href="../Main.do">PhoneJob 메인으로 돌아가기</a>
                         </form>
                 </div>
             </div>

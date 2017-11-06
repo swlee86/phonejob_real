@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="kr.or.phonejob.mobile.s_Dao.s_RegisterMemberDao">
+	
+	<!-- 개인회원가입 pj_members 입력 -->
+	<insert id="privateRegister_1" parameterType="kr.or.phonejob.mobile.s_Dto.s_RegisterMemberDto">
+		INSERT INTO pj_members(userid, userpwd, userphone, mailok, smsok, pic, gubun)
+	    VALUES(#{userid}, #{userpwd}, #{userphone}, #{mailok}, #{smsok}, #{pic}, #{gubun})
+	</insert>
+	
+	<!-- 개인회원가입 pj_users 입력 -->
+	<insert id="privateRegister_2" parameterType="kr.or.phonejob.mobile.s_Dto.s_RegisterMemberDto">
+		 INSERT INTO pj_users(credential_id, userid, alive)
+		 VALUES(CREDENTAIL_NUM.nextval, #{userid}, #{alive})
+	</insert>
+	
+	<!-- 회원가입시 pj_users 테이블에서 살아 있는 아이디의 Credential_id 추출 -->
+	<select id="privateRegisterSelect" resultType="kr.or.phonejob.mobile.s_Dto.s_MemberDetailDto">
+		Select credential_id, userid, alive from pj_users
+		where userid=#{userid} and alive='1'
+	</select>
+		
+	<!-- 개인회원가입 pj_mem_d 입력 -->
+	<insert id="privateRegister_3" parameterType="kr.or.phonejob.mobile.s_Dto.s_RegisterMemberDto">
+		INSERT INTO pj_mem_d(credential_id, username, userbirth, usermail, useraddr1 ,useraddr2, addrnum)
+	    VALUES(#{credential_id}, #{username}, #{userbirth}, #{usermail}, #{useraddr1}, #{useraddr2}, #{addrnum})
+	</insert>
+	
+	<!-- 기업회원가입 pj_mem_d 입력 -->
+	<insert id="comRegister_3" parameterType="kr.or.phonejob.mobile.s_Dto.s_RegisterMemberDto">
+		INSERT INTO pj_mem_d(credential_id, username, userbirth, usermail, useraddr1 ,useraddr2, addrnum, comname, comidfyno)
+	    VALUES(#{credential_id}, #{username}, TO_DATE(#{userbirth},'YYYY-MM-DD'), #{usermail}, #{useraddr1}, #{useraddr2}, #{addrnum}, #{comname}, #{comidfyno})
+	</insert>
+	
+	<!-- 기업회원가입 pj_com_key 입력 -->
+	<insert id="comRegister_4" parameterType="kr.or.phonejob.mobile.s_Dto.s_RegisterMemberDto">
+		INSERT INTO pj_com_key(credential_id, keymanname, keymantel, keymanmail)
+	    VALUES(#{credential_id}, #{keymanname}, #{keymantel}, #{keymanmail})
+	</insert>
+	
+	
+	<!-- 개인회원 가입시 권한 부여 -->
+	<insert id="privateRegisterGrade" parameterType="kr.or.phonejob.mobile.s_Dto.s_RegisterGradeDto">
+		INSERT INTO pj_role_d(USERID, ROLE_NO)
+		VALUES(#{userid}, #{role_no} )
+	</insert>
+
+
+</mapper>

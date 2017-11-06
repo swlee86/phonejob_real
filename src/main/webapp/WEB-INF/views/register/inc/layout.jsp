@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8" import="org.apache.log4j.Logger"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
-<%! static Logger logger = Logger.getLogger("layout.jsp"); %>
+<%! static Logger logger = Logger.getLogger("s_layout.jsp"); %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
