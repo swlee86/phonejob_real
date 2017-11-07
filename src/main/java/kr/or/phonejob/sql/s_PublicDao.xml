@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 
-<mapper namespace="kr.or.phonejob.mobile.s_Dao.s_PublicDao">
+<mapper namespace="kr.or.phonejob.smart.s_Dao.s_PublicDao">
 
 	<!-- 공통코드 조회(alility_cd) -->
 	<select id="abilityService" resultType="kr.or.phonejob.pc.Dto.PublicDto">

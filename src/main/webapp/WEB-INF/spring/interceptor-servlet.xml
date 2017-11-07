@@ -19,7 +19,7 @@
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <mvc:exclude-mapping path="/**/s_**/"/>
-            <mvc:exclude-mapping path="/mobile/**/"/>
+            <mvc:exclude-mapping path="/smart/**/"/>
             <mvc:exclude-mapping path="/Main.do"/>
             <mvc:exclude-mapping path="/etc/**/"/>
             <bean id="loggerInterceptorPC" class="kr.or.phonejob.pc.Filter.LoggerInterceptor"></bean>
@@ -29,7 +29,7 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <mvc:exclude-mapping path="/mobile/**/"/>
+            <mvc:exclude-mapping path="/smart/**/"/>
             <mvc:exclude-mapping path="/**/s_**/"/>
             <mvc:exclude-mapping path="/etc/**/"/>
             <bean id="loginInterceptorPC" class="kr.or.phonejob.pc.Filter.Interceptor"></bean>
@@ -39,20 +39,20 @@
 
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/mobile/**/"/>
+            <mvc:mapping path="/smart/**/"/>
             <mvc:mapping path="/**/s_**/"/>
             <mvc:exclude-mapping path="/s_Main.do"/>
             <mvc:exclude-mapping path="/etc/**/"/>
-            <bean id="loggerInterceptorMobile" class="kr.or.phonejob.mobile.s_Filter.s_LoggerInterceptor"></bean>
+            <bean id="loggerInterceptorMobile" class="kr.or.phonejob.smart.s_Filter.s_LoggerInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
 
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/mobile/**/"/>
+            <mvc:mapping path="/smart/**/"/>
             <mvc:mapping path="/**/s_**/"/>
             <mvc:exclude-mapping path="/etc/**/"/>
-            <bean id="loginInterceptorMobile" class="kr.or.phonejob.mobile.s_Filter.s_Interceptor"></bean>
+            <bean id="loginInterceptorMobile" class="kr.or.phonejob.smart.s_Filter.s_Interceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
 

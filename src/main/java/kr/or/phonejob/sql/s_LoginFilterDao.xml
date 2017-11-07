@@ -4,9 +4,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="kr.or.phonejob.mobile.s_Dao.s_LoginFilterDao">
+<mapper namespace="kr.or.phonejob.smart.s_Dao.s_LoginFilterDao">
 
-	<select id="getPassUri" resultType="kr.or.phonejob.mobile.s_Dto.s_LoginFilterDto">
+	<select id="getPassUri" resultType="kr.or.phonejob.smart.s_Dto.s_LoginFilterDto">
 		select * from uri where Login_pass='Y'
 	</select>
 

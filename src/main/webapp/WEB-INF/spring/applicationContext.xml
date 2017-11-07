@@ -81,7 +81,7 @@
 	</property>
 	</bean>
 
-	<bean id="s_customAuthenticationSuccessHandler" class="kr.or.phonejob.mobile.s_LoginController.s_CustomAuthenticationSuccessHandler">
+	<bean id="s_customAuthenticationSuccessHandler" class="kr.or.phonejob.smart.s_LoginController.s_CustomAuthenticationSuccessHandler">
 		<property name="sqlsession">
 			<ref bean = "sqlSession"/>
 		</property>

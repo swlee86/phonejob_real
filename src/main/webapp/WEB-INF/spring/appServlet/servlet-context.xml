@@ -36,7 +36,7 @@
 	</beans:bean>
 
 
-	<beans:bean id="s_customAuthenticationSuccessHandler" class="kr.or.phonejob.mobile.s_LoginController.s_CustomAuthenticationSuccessHandler">
+	<beans:bean id="s_customAuthenticationSuccessHandler" class="kr.or.phonejob.smart.s_LoginController.s_CustomAuthenticationSuccessHandler">
 		<beans:property name = "sqlsession">
 			<beans:ref bean = "sqlSession"/>
 		</beans:property>

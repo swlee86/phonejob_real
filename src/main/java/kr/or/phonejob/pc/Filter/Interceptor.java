@@ -99,7 +99,7 @@ public class Interceptor extends HandlerInterceptorAdapter {
 					List<LoginFilterDto> result = lfservice.getPassUri();
 
 					for(int i=0; i< result.size(); i++){
-						logger.info("result : " + result.get(i).toString());
+						//logger.info("result : " + result.get(i).toString());
 
 						if(realuri.equalsIgnoreCase(result.get(i).getUri())){
 							logger.info("로그인 패스와 매칭되는 URI가 있음!");

@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="kr.or.phonejob.mobile.s_Dao.s_GoogicDao">
+<mapper namespace="kr.or.phonejob.smart.s_Dao.s_GoogicDao">
 
 	<!-- 구직게시판 이동시 리스트 불러옴 -->
-	<select id="selectGoogic" resultType="kr.or.phonejob.mobile.s_Dto.s_RegisterGoogicDto">
+	<select id="selectGoogic" resultType="kr.or.phonejob.smart.s_Dto.s_RegisterGoogicDto">
 		select * from pj_googic
 	</select>
 	
-	<select id="googicDetail" resultType="kr.or.phonejob.mobile.s_Dto.s_RegisterGoogicDto">
+	<select id="googicDetail" resultType="kr.or.phonejob.smart.s_Dto.s_RegisterGoogicDto">
 		select * from pj_googic where googic_no=#{googic_no}
 	</select>
 
 
 	<!-- 구직등록시 데이터 인서트 mapper -->
-	<insert id="registerGoogicOk" parameterType="kr.or.phonejob.mobile.s_Dto.s_RegisterGoogicDto">
+	<insert id="registerGoogicOk" parameterType="kr.or.phonejob.smart.s_Dto.s_RegisterGoogicDto">
 		INSERT INTO pj_googic(googic_no, userid, pic, username, age, location, userphone, useremail, wantjob, telhistory, profiletext, possibledate, sido, gugun, dong, title, sprofiletext, useraddr1, useraddr2, bohun, chuiboho, goji, army, handicap, hwppossible, mspossible, excelpossible, pptpossible, school, salary_detail, salary_min, salary_max)
 		values(googic_seq.nextval, #{userid}, #{pic}, #{username}, #{age}, #{location}, #{userphone}, #{useremail}, #{wantjob}, #{telhistory}, #{profiletext}, #{possibledate}, #{sido}, #{gugun}, #{dong}, #{title}, #{sprofiletext}, #{useraddr1}, #{useraddr2}, #{bohun}, #{chuiboho}, #{goji}, #{army}, #{handicap}, #{hwppossible}, #{mspossible}, #{excelpossible}, #{pptpossible}, #{school}, #{salary_detail}, #{salary_min}, #{salary_max})
 	</insert>
 
 	<!-- 구직등록 업데이트 -->
-	<update id="updateGoogicOk" parameterType="kr.or.phonejob.mobile.s_Dto.s_RegisterGoogicDto">
+	<update id="updateGoogicOk" parameterType="kr.or.phonejob.smart.s_Dto.s_RegisterGoogicDto">
 		UPDATE pj_googic 
 		SET pic=#{pic}, username=#{username}, age=#{age}, location=#{location}, sido=#{sido}, gugun=#{gugun}, dong=#{dong}, possibledate=#{possibledate}, userphone=#{userphone}, useremail=#{useremail}, wantjob=#{wantjob}, telhistory=#{telhistory}, profiletext=#{profiletext}
 		WHERE googic_no=#{googic_no}

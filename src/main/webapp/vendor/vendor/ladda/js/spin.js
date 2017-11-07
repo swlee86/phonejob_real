@@ -53,7 +53,7 @@
 
   /**
    * Creates an opacity keyframe animation rule and returns its name.
-   * Since most mobile Webkits have timing issues with animation-delay,
+   * Since most smart Webkits have timing issues with animation-delay,
    * we create separate rules for each line/segment.
    */
   function addAnimation(alpha, trail, i, lines) {

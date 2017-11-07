@@ -268,7 +268,7 @@
           hideBar();
         });
 
-        // support for mobile
+        // support for smart
         me.bind('touchstart', function(e,b){
           if (e.originalEvent.touches.length)
           {
