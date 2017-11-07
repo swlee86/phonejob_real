@@ -114,7 +114,9 @@ public class NoticeBoardController {
 
 
 		//파일 업로드
-		String path = request.getSession().getServletContext().getRealPath("../updata/notice_board/");
+		String path = request.getSession().getServletContext().getRealPath("/updata/notice_board/");
+
+		logger.info("파일 업로드 path : " +path);
 
 		try {
 			File cFile = new File(path, file.getOriginalFilename());
