@@ -152,7 +152,7 @@ public class s_IndexController {
         if(result==0){
             logger.info("아이피 등록 결과 : 권한 없음");
             msg="등록 불가. 권한이 없습니다.";
-        url="Main.do";
+        url="s_Main.do";
     }
 
         if(result==1){
