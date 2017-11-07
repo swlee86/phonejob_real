@@ -44,12 +44,12 @@
 
 										<div class="media-body">
 											<span class="font-bold">${re_list.userid}</span> <small class="text-muted">${re_list.regdate }</small>
-											<div class="social-content">${re_list.content}</div>
-										</div>
-										<div style="text-align: right;">
-										<c:if test="${re_list.credential_id == loginData.credential_id }">
-											<input type="submit" class="btn  btn-default" value="삭제하기">
-										</c:if>
+											<div class="social-content">
+												${re_list.content}
+												<c:if test="${re_list.credential_id == loginData.credential_id }">
+													<input type="submit" class="btn  btn-default" value="삭제하기">
+												</c:if>
+											</div>
 										</div>
 									</div>
 								</c:forEach>

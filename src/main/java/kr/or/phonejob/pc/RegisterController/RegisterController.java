@@ -38,7 +38,7 @@ public class RegisterController {
 	
 	
 	//개인 회원 가입 페이지 접근
-	@RequestMapping(value="/privateRegister.do", method=RequestMethod.GET)
+	@RequestMapping(value="/common/privateRegister.do", method=RequestMethod.GET)
 	public String privateRegister(HttpServletRequest request){
 		String url ="register.privateRegister";
 		
@@ -54,7 +54,7 @@ public class RegisterController {
 	
 	//개인 회원 가입 input
 	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor=Exception.class)
-	@RequestMapping(value="/privateRegister.do", method=RequestMethod.POST)
+	@RequestMapping(value="/common/privateRegister.do", method=RequestMethod.POST)
 	public String privateRegisterOk(Model mv, RegisterMemberDto rdto){
 		
 		String page=null;
@@ -104,7 +104,7 @@ public class RegisterController {
 				if(defaultCheck.getAlive().equals("1")){
 					logger.info("이미 가입 되어 있는 경우");
 					data="이미 가입되어 있는 아이디입니다.";
-					movepage="privateRegister.do";
+					movepage="../common/privateRegister.do";
 					page="register.registerRedirect";				
 				}
 			}else{
@@ -142,11 +142,11 @@ public class RegisterController {
 			
 			if(result1==1 && result2==1 &&result3==1 && result4==1){
 				data="회원가입에 성공하였습니다.";
-				movepage="Main.do";
+				movepage="../Main.do";
 				page="register.registerRedirect";
 			}else{
 				data="회원가입에 실패하였습니다. 잠시 후 다시 시도해 주세요";
-				movepage="privateRegister.do";
+				movepage="../common/privateRegister.do";
 				page="register.registerRedirect";
 			}
 			}
@@ -154,7 +154,7 @@ public class RegisterController {
 			logger.error(e.getMessage());
 			e.printStackTrace();
 			data="회원가입에 실패하였습니다. 잠시 후 다시 시도해 주세요";
-			movepage="privateRegister.do";
+			movepage="../common/privateRegister.do";
 			page="register.registerRedirect";
 			throw e;
 		}finally{
@@ -166,7 +166,7 @@ public class RegisterController {
 	}
 	
 	//기업회원 가입 페이지 접근
-	@RequestMapping(value="/comRegister.do", method=RequestMethod.GET)
+	@RequestMapping(value="/common/comRegister.do", method=RequestMethod.GET)
 	public String comRegister(){
 		String url ="register.comRegister";
 		try{
@@ -182,7 +182,7 @@ public class RegisterController {
 	
 	//기업 회원 가입 input
 	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor=Exception.class)
-	@RequestMapping(value="/comRegister.do", method=RequestMethod.POST)
+	@RequestMapping(value="/common/comRegister.do", method=RequestMethod.POST)
 	public String comRegisterOk(Model mv, RegisterMemberDto rdto){
 		
 		String page=null;
@@ -232,7 +232,7 @@ public class RegisterController {
 				if(defaultCheck.getAlive().equals("1")){
 					logger.info("이미 가입 되어 있는 경우");
 					data="이미 가입되어 있는 아이디입니다.";
-					movepage="comRegister.do";
+					movepage="../common/comRegister.do";
 					page="register.registerRedirect";				
 				}
 			}else{
@@ -271,11 +271,11 @@ public class RegisterController {
 			
 			if(result1==1 && result2==1 &&result3==1 && result4==1 && result5==1){
 				data="회원가입에 성공하였습니다.";
-				movepage="Main.do";
+				movepage="../Main.do";
 				page="register.registerRedirect";
 			}else{
 				data="회원가입에 실패하였습니다. 잠시 후 다시 시도해 주세요";
-				movepage="comRegister.do";
+				movepage="../common/comRegister.do";
 				page="register.registerRedirect";
 			}
 			}
@@ -283,7 +283,7 @@ public class RegisterController {
 			logger.error(e.getMessage());
 			e.printStackTrace();
 			data="회원가입에 실패하였습니다. 잠시 후 다시 시도해 주세요";
-			movepage="comRegister.do";
+			movepage="../common/comRegister.do";
 			page="register.registerRedirect";
 			throw e;
 		}finally{
