@@ -13,7 +13,7 @@
 	<nav role="navigation">
 		<div class="header-link hide-menu" style="padding-bottom: 24px;"><i class="fa fa-bars"></i></div>
 		<div class="small-logo">
-			<span class="text-primary">HOMER APP</span>
+			<span class="text-primary">Phone&Job</span>
 		</div>
 		<form role="search" class="navbar-form-custom" method="post" action="#">
 			<div class="form-group">
@@ -27,13 +27,10 @@
 			<div class="collapse mobile-navbar" id="mobile-collapse">
 				<ul class="nav navbar-nav">
 					<li>
-						<a class="" href="../mobile/s_login.do">Login</a>
+						<a class="" href="../mobile/s_login.do">회원가입</a>
 					</li>
 					<li>
-						<a class="" href="login.html">Logout</a>
-					</li>
-					<li>
-						<a class="" href="profile.html">Profile</a>
+						<a class="" href="../mobile/s_login.do">로그인</a>
 					</li>
 				</ul>
 			</div>

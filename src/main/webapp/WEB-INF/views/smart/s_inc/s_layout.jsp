@@ -46,7 +46,7 @@
 
 </head>
 
-<body class="boxed fixed-footer hide-sidebar" font-size: 18px;">
+<body class="boxed fixed-footer hide-sidebar smart_body">
 
 
 <!-- Simple splash screen-->
@@ -58,7 +58,7 @@
 <!-- Header -->
 <tiles:insertAttribute name="header" />
 
-<!-- Header -->
+<!-- sidebar -->
 <tiles:insertAttribute name="sidebar" />
 
 <!-- Main Wrapper -->

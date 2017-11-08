@@ -20,11 +20,11 @@
 	</definition>
 
 	<!-- SMART normal Tiles -->
-	<definition name="*.*.*" template="/WEB-INF/views/{1}/{2}/s_inc/s_layout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/{1}/s_inc/s_header.jsp" />
-		<put-attribute name="sidebar" value="/WEB-INF/views/{1}/s_inc/s_sidebar.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/{1}/s_inc/s_footer.jsp" />
-		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+	<definition name="smart.*.*" template="/WEB-INF/views/smart/{1}/s_inc/s_layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/smart/s_inc/s_header.jsp" />
+		<put-attribute name="sidebar" value="/WEB-INF/views/smart/s_inc/s_sidebar.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/smart/s_inc/s_footer.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/smart/{1}/{2}.jsp" />
 	</definition>
 
 

@@ -12,7 +12,7 @@
 	<hr style="border: 1px solid #ddd;">
 	<div class="row">
 			<c:forEach items="${gooinbest}" var="best" end="3">
-			<a href="../gooin/gooinDetail.do?gooin_no=${best.gooin_no }">
+			<a href="../gooin/s_gooinDetail.do?gooin_no=${best.gooin_no }">
 			<div style="width: 99%; display:inline-block; padding-left: 15px; padding-right: 15px;">
 			<div class="hpanel hred">
 				<div class="panel-heading hbuilt" style="text-align: center;">
@@ -64,7 +64,7 @@
 	<hr style="border: 1px solid #ddd;">
 	<div class="row">
 		<c:forEach items="${gooinluxury}" var="luxury">
-			<a href="../gooin/gooinDetail.do?gooin_no=${luxury.gooin_no }">
+			<a href="../gooin/s_gooinDetail.do?gooin_no=${luxury.gooin_no }">
 			<div style="width: 99%; display:inline-block; padding-left: 15px; padding-right: 15px;">
 			<div class="hpanel hyellow">
 				<div class="panel-heading hbuilt" style="text-align: center;">
@@ -116,7 +116,7 @@
 	<hr style="border: 1px solid #ddd;">
 	<div class="row">
 			<c:forEach items="${gooinbest}" var="best">
-			<a href="../gooin/gooinDetail.do?gooin_no=${best.gooin_no }">
+			<a href="../gooin/s_gooinDetail.do?gooin_no=${best.gooin_no }">
 			<div style="width: 99%; display:inline-block; padding-left: 15px; padding-right: 15px;">
 			<div class="hpanel hblue">
 				<div class="panel-heading hbuilt" style="text-align: center;">
@@ -172,7 +172,7 @@
 		<div class="row">
 		<div>
 			<c:forEach var="resultData" items="${result}">
-					<a href="../googic/googicDetail.do?googic_no=${resultData.googic_no}">
+					<a href="../googic/s_googicDetail.do?googic_no=${resultData.googic_no}">
 						<div style="width: 99%; display:inline-block; padding-left: 15px; padding-right: 15px;">
 							<div class="hpanel hblue">
 								<div class="panel-heading hbuilt" style="text-align: center;">

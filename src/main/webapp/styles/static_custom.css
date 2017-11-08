@@ -267,3 +267,8 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
+.col-lg-12-smart{
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}

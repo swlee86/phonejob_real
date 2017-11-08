@@ -174,7 +174,7 @@ public class s_GooinController {
 	//구인글 클릭시 상세로 이동
 	@RequestMapping(value="/gooin/s_gooinDetail.do", method=RequestMethod.GET)
 	public String s_gooinDetail(int gooin_no, Model mv){
-		String url="gooin.gooinDetail";
+		String url="smart.s_gooin.s_gooinDetail";
 		logger.info("구인 상세 페이지로 이동");
 		logger.info("이동  url : " + url+".jsp");
 		
@@ -185,7 +185,7 @@ public class s_GooinController {
 			logger.info("가지고 올 구인 글 내용 : "+gooinDetail);
 			
 		}catch(Exception e){
-			logger.error(e.getMessage());			
+			e.printStackTrace();
 		}
 		
 		
