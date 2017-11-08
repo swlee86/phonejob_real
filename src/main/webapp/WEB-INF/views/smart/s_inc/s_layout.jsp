@@ -43,7 +43,7 @@
 
 
 </head>
-<body class="boxed fixed-footer hide-sidebar" style="max-width: 800px;">
+<body class="boxed fixed-footer hide-sidebar" style="max-width: 800px; font-size: 14px;">
 
 
 <!-- Simple splash screen-->
