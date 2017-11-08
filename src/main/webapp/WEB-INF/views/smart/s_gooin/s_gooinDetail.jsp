@@ -21,7 +21,7 @@
   							</td>
 						</tr>
 						<tr style="border: 1px solid #ddd;">
-							<td style="border: 1px solid #ddd; width: 270px; height: 60px; text-align: center;">
+							<td colspan="3" style="border: 1px solid #ddd; width: 1800px; height: 60px; text-align: center;">
 								<c:if test="${gooinDetail.wanttel eq 'A001'}">
 									<img src="../images/kt1.jpg">
 								</c:if>
@@ -33,12 +33,19 @@
 								</c:if>
 								<input type="hidden" id="wanttel" class="form-control" name="wanttel" value="${gooinDetail.wanttel}" readonly="readonly">
 							</td>
-							<td colspan="2" style="border: 1px solid #ddd; width: 270px; height: 60px;">회사명 : ${gooinDetail.comname }</td>
+
 						</tr>
 						<tr style="border: 1px solid #ddd;">
-							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">사업자번호 : ${gooinDetail.comidfyno }</td>
-							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">대표 번호 : ${gooinDetail.phone }</td>
-							<td style="border: 1px solid #ddd; width: 270px; height: 60px;">
+							<td colspan="3" style="border: 1px solid #ddd; width: 1800px; height: 60px;">회사명 : ${gooinDetail.comname }</td>
+						</tr>
+						<tr style="border: 1px solid #ddd;">
+							<td colspan="3" style="border: 1px solid #ddd; width: 1800px; height: 60px;">사업자번호 : ${gooinDetail.comidfyno }</td>
+						</tr>
+						<tr style="border: 1px solid #ddd;">
+							<td colspan="3" style="border: 1px solid #ddd; width: 1800px; height: 60px;">대표 번호 : ${gooinDetail.phone }</td>
+						</tr>
+						<tr style="border: 1px solid #ddd;">
+							<td colspan="3" style="border: 1px solid #ddd; width: 1800px; height: 60px;">
 								<c:choose>
 									<c:when test="${gooinDetail.homepage eq 'non' }">
 										홈페이지 없음
@@ -50,7 +57,7 @@
 							</td>
 						</tr>
 						<tr style="border: 1px solid #ddd;">
-							<td colspan="3" style="border: 1px solid #ddd; width: 270px; height: 60px;">회사 주소 : ${gooinDetail.adress }</td>
+							<td colspan="3" style="border: 1px solid #ddd; width: 1800px; height: 60px;">회사 주소 : ${gooinDetail.adress }</td>
 						</tr>
 					</table>
 					
@@ -59,8 +66,8 @@
 					<hr style="border: 1px solid #ddd;">
 					<table style="border: 1px solid #ddd; text-align: center;">
 						<tr style="border: 1px solid #ddd;">
-							<td style="border: 1px solid #ddd; width: 300px; background-color: #77d5f7">모집 구분</td>
-							<td style="border: 1px solid #ddd; width: 400px; height: 60px;">
+							<td style="border: 1px solid #ddd; width: 1500px; background-color: #77d5f7">모집 구분</td>
+							<td style="border: 1px solid #ddd; width: 1500px; height: 60px;">
 								<c:choose>
 									<c:when test="${gooinDetail.wantjob eq 'cs'}">
 										CS

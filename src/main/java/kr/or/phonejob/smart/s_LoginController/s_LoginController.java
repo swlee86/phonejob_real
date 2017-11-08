@@ -22,7 +22,7 @@ public class s_LoginController {
 	private static final Logger logger = LoggerFactory.getLogger(s_LoginController.class);
 	
 	//로그인 페이지 이동
-	@RequestMapping(value="/mobile/s_login.do", method=RequestMethod.GET)
+	@RequestMapping(value="/smart/s_login.do", method=RequestMethod.GET)
 	public String s_memberLogin(HttpServletRequest request){
 		String url= "smart.s_login.s_login";
 

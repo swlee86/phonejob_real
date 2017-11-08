@@ -8,8 +8,8 @@
                 <small>아이디가 없으신 경우 회원 가입을 진행해 주세요!</small>
             </div>
             <div class="hpanel" style="text-align:left">
-                <div class="panel-body">
-                        <form id="loginForm" method="post" action="${pageContext.request.contextPath}/mobile/loginprocess">
+                <div class="panel-body-mobile">
+                        <form id="loginForm" method="post" action="${pageContext.request.contextPath}/smart/loginprocess">
                             <div class="form-group">
                                 <label class="control-label" for="ID">ID</label>
                                 <input type="text" placeholder="ID 입력" title="Please enter you ID" required="" value="" name="userid" id=userid class="form-control">

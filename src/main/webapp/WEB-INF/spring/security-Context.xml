@@ -24,17 +24,17 @@
 	  <security:intercept-url pattern="/" access="permitAll"/>
 	</security:http>
 
-	<security:http auto-config="true" pattern="/mobile/**">
+	<security:http auto-config="true" pattern="/smart/**">
 
 		<security:csrf disabled="true"/>
-		<security:form-login login-page="/mobile/s_login.do"
+		<security:form-login login-page="/smart/s_login.do"
 							 username-parameter="userid"
 							 password-parameter="password"
-							 login-processing-url="/mobile/loginprocess"
-							 authentication-failure-url="/mobile/s_login.do"
+							 login-processing-url="/smart/loginprocess"
+							 authentication-failure-url="/smart/s_login.do"
 							 authentication-success-handler-ref="s_customAuthenticationSuccessHandler"
 		/>
-		<security:logout logout-url="/mobile/logout" logout-success-url="/mobile/s_login.do" />
+		<security:logout logout-url="/smart/logout" logout-success-url="/mobile/s_login.do" />
 
 
 		<security:intercept-url pattern="/" access="permitAll"/>

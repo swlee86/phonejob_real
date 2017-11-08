@@ -27,10 +27,10 @@
 			<div class="collapse mobile-navbar" id="mobile-collapse">
 				<ul class="nav navbar-nav">
 					<li>
-						<a class="" href="../mobile/s_login.do">회원가입</a>
+						<a class="" href="../smart/s_login.do">회원가입</a>
 					</li>
 					<li>
-						<a class="" href="../mobile/s_login.do">로그인</a>
+						<a class="" href="../smart/s_login.do">로그인</a>
 					</li>
 				</ul>
 			</div>
@@ -152,14 +152,14 @@
 				<c:choose>
 					<c:when test="${username eq null}">
 						<li class="dropdown">
-							<a href="../mobile/s_login.do">
+							<a href="../smart/s_login.do">
 								<i class="pe-7s-upload pe-rotate-90"></i>
 							</a>
 						</li>
 					</c:when>
 					<c:otherwise>
 						<li class="dropdown">
-							<a href="../mobile/logout">
+							<a href="../smart/logout">
 								<i class="pe-7s-upload pe-rotate-90"></i>
 							</a>
 						</li>
