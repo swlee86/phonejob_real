@@ -29,9 +29,18 @@
 					<li>
 						<a class="" href="../smart/s_login.do">회원가입</a>
 					</li>
+					<c:choose>
+						<c:when test="${username eq null}">
 					<li>
-						<a class="" href="../smart/s_login.do">로그인</a>
+						<a href="../smart/s_login.do">로그인</a>
 					</li>
+					</c:when>
+					<c:otherwise>
+						<li>
+							<a href="../smart/logout">로그아웃</a>
+						</li>
+					</c:otherwise>
+					</c:choose>
 				</ul>
 			</div>
 		</div>
