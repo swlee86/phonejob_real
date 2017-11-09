@@ -14,10 +14,10 @@
 
 					<div class="text-center m-b-md" id="wizardControl">
 						<a class="btn btn-primary" data-toggle="tab" id="step1on">Step 1 - 약관동의</a>
-						<a class="btn btn-default" data-toggle="tab" id="step1off" style="display: none">Step 1 - 약관동의</a> 
+						<a class="btn btn-default" data-toggle="tab" id="step1off" style="display: none">Step 1 - 약관동의</a>
 						<a class="btn btn-primary" data-toggle="tab" id="step2on" style="display:none">Step 2 - 회원가입정보</a>
-						<a class="btn btn-default" data-toggle="tab" id="step2off">Step 2 - 회원가입정보</a> 
-						<a class="btn btn-primary" data-toggle="tab" id="step3on" style="display:none">Step 3 - 회원기본정보</a> 
+						<a class="btn btn-default" data-toggle="tab" id="step2off">Step 2 - 회원가입정보</a>
+						<a class="btn btn-primary" data-toggle="tab" id="step3on" style="display:none">Step 3 - 회원기본정보</a>
 						<a class="btn btn-default" data-toggle="tab" id="step3off">Step 3 - 회원기본정보</a>
 					</div>
 
@@ -40,7 +40,7 @@
 							</div>
 
 							<div class="text-right m-t-xs">
-								<a class="btn btn-default prev" href="login.do">로그인화면 돌아가기</a> 
+								<a class="btn btn-default prev" href="login.do">로그인화면 돌아가기</a>
 								<a class="btn btn-default next" href="#step2" data-toggle="tab" id="moveStep2">Next</a>
 							</div>
 
@@ -58,7 +58,7 @@
 											<label>아이디</label> <input type="text" value="" id="userid" class="form-control" name="userid" placeholder="아이디">
 										</div>
 										<div class="form-group col-lg-6">
-											<label>패스워드</label> 
+											<label>패스워드</label>
 												<input type="password" value="" id="userpwd" class="form-control" placeholder="******" name="userpwd">
 										</div>
 										<div class="form-group col-lg-6">
@@ -94,7 +94,7 @@
 													<label>우편주소</label>
 														<table>
 															<td>
-																<input class="form-control" placeholder="442-720" type="text" id="addrnum" name="addrnum"  onclick="daumPostcode()">															
+																<input class="form-control" placeholder="442-720" type="text" id="addrnum" name="addrnum"  onclick="daumPostcode()">
 															</td>
 															<td>&nbsp;&nbsp;</td>
 															<td>
@@ -109,7 +109,7 @@
 											<input type="text" value="" id="useraddr1" class="form-control" name="useraddr1" onclick="daumPostcode()">
 										</div>
 										<div class="form-group col-lg-6">
-											<label>상세 주소</label> 
+											<label>상세 주소</label>
 											<input type="text" value="" id="useraddr2" class="form-control" name="useraddr2" id="useraddr2">
 										</div>
 										<div class="form-group col-lg-12">
@@ -118,7 +118,7 @@
 													<tr>
 														<td>
 															<div class="col-xs-4 form-group">
-																<label>사진</label> 
+																<label>사진</label>
 																	<input type="file" name="pic" id="pic">
 															</div>
 														</td>
@@ -126,7 +126,7 @@
 												<tr>
 													<td>
 														<div class="col-lg-12 form-group">
-															<label>생일</label> 
+															<label>생일</label>
 																<input class="form-control"	placeholder="1986-12-14" type="text" name="userbirth" id="userbirth">
 														</div>
 													</td>
@@ -135,7 +135,7 @@
 											</div>
 										</div>
 										<div class="form-group col-lg-12">
-											<label>휴대전화번호</label> 
+											<label>휴대전화번호</label>
 											<table>
 											<tr>
 												<td>
@@ -157,9 +157,9 @@
     													<option value="019">019</option>
 													</select>
 												</td>
-												<td>&nbsp;</td>												
+												<td>&nbsp;</td>
 												<td>
-													<input type="text" value="" id="phnum" class="form-control" name="phnum" placeholder="-생략된 나머지 번호 입력">	
+													<input type="text" value="" id="phnum" class="form-control" name="phnum" placeholder="-생략된 나머지 번호 입력">
 												</td>
 												<td>&nbsp;</td>
 												<td>
@@ -169,7 +169,7 @@
 											<tr>
 												<td id="smsGo"></td>
 											</tr>
-											
+
 											<tr>
 												<td id="smsSecondButton"></td>
 											</tr>
