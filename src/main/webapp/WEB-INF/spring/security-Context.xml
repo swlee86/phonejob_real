@@ -34,7 +34,7 @@
 							 authentication-failure-url="/smart/s_login.do"
 							 authentication-success-handler-ref="s_customAuthenticationSuccessHandler"
 		/>
-		<security:logout logout-url="/smart/logout" logout-success-url="/mobile/s_login.do" />
+		<security:logout logout-url="/smart/logout" logout-success-url="/smart/s_login.do" />
 
 
 		<security:intercept-url pattern="/" access="permitAll"/>

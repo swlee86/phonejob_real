@@ -26,9 +26,13 @@
 			</button>
 			<div class="collapse mobile-navbar" id="mobile-collapse">
 				<ul class="nav navbar-nav">
-					<li>
-						<a class="" href="../smart/s_login.do">회원가입</a>
-					</li>
+					<c:choose>
+						<c:when test="${username eq null}">
+							<li>
+								<a class="" href="../smart/s_login.do">회원가입</a>
+							</li>
+						</c:when>
+					</c:choose>
 					<c:choose>
 						<c:when test="${username eq null}">
 					<li>

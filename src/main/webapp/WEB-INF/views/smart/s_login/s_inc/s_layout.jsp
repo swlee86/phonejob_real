@@ -27,12 +27,13 @@
     <link rel="stylesheet" href="../fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
     <link rel="stylesheet" href="../fonts/pe-icon-7-stroke/css/helper.css" />
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/static_custom.css">
     
     
 
 
 </head>
-<body class="boxed fixed-footer">
+<body class="boxed fixed-footer hide-sidebar smart_body">
 
 <!-- Simple splash screen-->
 <div class="splash"> <div class="color-line"></div><div class="splash-title"><img src="../images/main_logo.png" alt="Phone & Job"><p>Now loading...</p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div> <div class="rect5"></div> </div> </div> </div>
