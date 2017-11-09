@@ -80,19 +80,27 @@
 							<div class="row">
 								<div>
 									<div class="row" style="text-align: left;">
-										<div class="form-group col-lg-6">
+										<div class="form-group  col-lg-6">
 											<label>우편주소</label>
-											<input class="form-control" placeholder="442-720" type="text" id="addrnum" name="addrnum" onclick="daumPostcode()">
+											<table>
+												<tbody>
+													<tr>
+														<td>
+															<input class="form-control" placeholder="442-720" type="text" id="addrnum" name="addrnum" onclick="daumPostcode()">
+														</td>
+														<td>&nbsp;</td>
+														<td>
+															<a class="btn btn-default next" href="javascript:void(0);" onclick="daumPostcode()" id="addrnumsearch">우편번호검색</a>
+														</td>
+													</tr>
+												</tbody>
+											</table>
 										</div>
-										<div class="form-group col-lg-6">
-											<label>　　　</label>
-											<a class="btn btn-default next" href="javascript:void(0);" onclick="daumPostcode()" id="addrnumsearch">우편번호검색</a>
-										</div>
-										<div class="form-group col-lg-6">
+										<div class="form-group col-lg-12">
 											<label>기본 주소</label>
 											<input type="text" value="" id="useraddr1" class="form-control" name="useraddr1" onclick="daumPostcode()">
 										</div>
-										<div class="form-group col-lg-6">
+										<div class="form-group col-lg-12">
 											<label>상세 주소</label>
 											<input type="text" value="" id="useraddr2" class="form-control" name="useraddr2" id="useraddr2">
 										</div>
@@ -103,18 +111,18 @@
 														<td>
 															<div class="col-xs-4 form-group">
 																<label>사진</label>
-																	<input type="file" name="pic" id="pic">
+																<input type="file" name="pic" id="pic">
 															</div>
 														</td>
 													</tr>
-												<tr>
-													<td>
-														<div class="col-lg-12 form-group">
-															<label>생일</label>
+													<tr>
+														<td>
+															<div class="col-lg-12 form-group">
+																<label>생일</label>
 																<input class="form-control"	placeholder="1986-12-14" type="text" name="userbirth" id="userbirth">
-														</div>
-													</td>
-												</tr>
+															</div>
+														</td>
+													</tr>
 												</table>
 											</div>
 										</div>
@@ -161,29 +169,27 @@
 										</div>
 
 											<div class="form-group col-lg-12">
-												<div class="">
-													<label>정보성 연락 수신 동의</label>
-													<table>
-														<tr>
-															<td>
-																<input type="checkbox" class="i-checks approveCheck" name='mailok' id='mailok'>
-															</td>
-															<td>&nbsp;&nbsp;</td>
-															<td>
-																이메일 수신에 동의 합니다
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<input type="checkbox" class="i-checks approveCheck" name='smsok' id='smsok'>
-															</td>
-															<td>&nbsp;&nbsp;</td>
-															<td>
-																정보성 문자 수신에 동의 합니다
-															</td>
-														</tr>
-													</table>
-												</div>
+												<label>정보성 연락 수신 동의</label>
+												<table>
+													<tr>
+														<td>
+															<input type="checkbox" class="i-checks approveCheck" name='mailok' id='mailok'>
+														</td>
+														<td>&nbsp;&nbsp;</td>
+														<td>
+															이메일 수신에 동의 합니다
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<input type="checkbox" class="i-checks approveCheck" name='smsok' id='smsok'>
+														</td>
+														<td>&nbsp;&nbsp;</td>
+														<td>
+															정보성 문자 수신에 동의 합니다
+														</td>
+													</tr>
+												</table>
 											</div>
 										</div>
 									</div>
