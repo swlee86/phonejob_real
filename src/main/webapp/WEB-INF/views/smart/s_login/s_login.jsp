@@ -20,17 +20,10 @@
                                 <input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="password" class="form-control">
                                 <span class="help-block small">Yur strong password</span>
                             </div>
-                            <%--
-                            <div class="checkbox">
-                                <input type="checkbox" name="remember" class="i-checks" checked >
-                                     Remember login
-                                <p class="help-block small">(if this is a private computer)</p>
-                            </div>
-                            --%>
                             <button class="btn btn-success btn-block">회원 로그인</button>
-                            <a class="btn btn-default btn-block" href="privateRegister.do">구직자 회원 가입</a>
-                            <a class="btn btn-default btn-block" href="comRegister.do">기업 회원 가입</a>
-                            <a class="btn btn-default btn-block" href="Main.do">PhoneJob 메인으로 돌아가기</a>
+                            <a class="btn btn-default btn-block" href="../smart/s_privateRegister.do">구직자 회원 가입</a>
+                            <a class="btn btn-default btn-block" href="../smart/s_comRegister.do">기업 회원 가입</a>
+                            <a class="btn btn-default btn-block" href="../Main.do">PhoneJob 메인으로 돌아가기</a>
                         </form>
                 </div>
             </div>

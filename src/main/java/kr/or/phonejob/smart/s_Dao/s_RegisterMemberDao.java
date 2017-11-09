@@ -1,6 +1,7 @@
 package kr.or.phonejob.smart.s_Dao;
 
 import kr.or.phonejob.smart.s_Dto.s_MemberDetailDto;
+import kr.or.phonejob.smart.s_Dto.s_RegisterGradeDto;
 import kr.or.phonejob.smart.s_Dto.s_RegisterMemberDto;
 
 public interface s_RegisterMemberDao {
@@ -24,5 +25,5 @@ public interface s_RegisterMemberDao {
 	int comRegister_4(s_RegisterMemberDto rdto);
 	
 	//개인 회원가입 등급 부여 DAO
-	int privateRegisterGrade(s_RegisterMemberDto rgdto);
+	int privateRegisterGrade(s_RegisterGradeDto rgdto);
 }
