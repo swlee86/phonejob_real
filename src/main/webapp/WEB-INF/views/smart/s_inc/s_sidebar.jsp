@@ -35,7 +35,7 @@
                 </ul>
             </li>
             <li>
-                <a href="../shop/shopMain.do"> <span class="nav-label">샵</span></a>
+                <a href="../shop/s_shopMain.do"> <span class="nav-label">샵</span></a>
             </li>
             <li>
                 <a href="#"><span class="nav-label">마이메뉴</span><span class="fa arrow"></span></a>
