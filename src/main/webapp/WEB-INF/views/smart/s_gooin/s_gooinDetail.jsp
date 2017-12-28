@@ -211,7 +211,7 @@
 					!!다음맵 지도 API로 세팅 예정!! 
 					
 				</div>
-				<br/><br/><br/><br/>
+				<br/>
 				<div class="text-center">
 					<c:if test="${loginData.userid eq gooinDetail.userid }">
 						<input type="submit" class="btn btn-success" value="수정하기">
@@ -235,4 +235,5 @@
 			</div>
 		</div>
 	</div>
+	<div style="height: 50px;" />
 </div>

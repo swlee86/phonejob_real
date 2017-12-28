@@ -26,7 +26,7 @@
 						<img src="../../../images/lg1.jpg">
 					</c:if>
 				</div>
-				<div class="panel-body-mobile" style="height: 220px;">
+				<div class="panel-body-mobile" style="height: 250px;">
 					<p><b>${best.comname }</b></p>
 					<p> ${best.title}</p>
 					<p>모집분야 : <c:if test="${best.wantjob eq 'cs' }"> CS 직원</c:if>
@@ -78,7 +78,7 @@
 						<img src="../../../images/lg1.jpg">
 					</c:if>
 				</div>
-				<div class="panel-body-mobile" style="height: 220px;">
+				<div class="panel-body-mobile" style="height: 250px;">
 					<p><b>${luxury.comname }</b></p>
 					<p>${luxury.title}</p>
 					<p>모집분야 : <c:if test="${luxury.wantjob eq 'cs' }"> CS 직원</c:if>
@@ -130,7 +130,7 @@
 						<img src="../../../images/lg1.jpg">
 					</c:if>
 				</div>
-				<div class="panel-body-mobile" style="height: 220px;">
+				<div class="panel-body-mobile" style="height: 250px;">
 					<p><b>${best.comname }</b></p>
 					<p> ${best.title}</p>
 					<p>모집분야 : <c:if test="${best.wantjob eq 'cs' }"> CS 직원</c:if>
@@ -178,7 +178,7 @@
 								<div class="panel-heading hbuilt" style="text-align: center;">
 									<img src="../updata/picture/googic/${resultData.pic}" alt="이력서 사진">
 								</div>
-								<div class="panel-body-mobile" style="height: 220px;">
+								<div class="panel-body-mobile" style="height: 250px;">
 									<p>
 									<b>${resultData.username}</b>
 									(
@@ -233,8 +233,9 @@
 	 &nbsp;&nbsp;&nbsp;-구인글 등록 / 읽기(수정 / 삭제 불가)<br/>
 	 &nbsp;&nbsp;&nbsp;-구직글 등록 / 읽기 / (수정 / 삭제 불가)<br/>
 	 &nbsp;&nbsp;&nbsp;-회원 가입(개인 / 사업자) 가능<br/>
-	 &nbsp;&nbsp;&nbsp;-커뮤니티 글쓰기 / 수정 / 삭제 가능<br/><br> 
-	
+	 &nbsp;&nbsp;&nbsp;-커뮤니티 글쓰기 / 수정 / 삭제 가능<br/>
+	 &nbsp;&nbsp;&nbsp;-SMART 페이지 관련 지속 추가 수정 중<br/><br>
+
 	<h5 style="color: blue;">2.  반영 사항</h5>
 	 &nbsp;&nbsp;&nbsp;-전체 url 경로 수정 중으로 일부 기능 및 페이지 작동하지 않을 수 있음<br/><br/>
 	 
