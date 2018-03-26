@@ -29,7 +29,8 @@
 
 	<bean id="driverManagerDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://phonejob.cafe24.com:3306/phonejob" />
+		<!--<property name="url" value="jdbc:mysql://phonejob.cafe24.com:3306/phonejob" />-->
+		<property name="url" value="jdbc:mysql://localhost:3306/phonejob" />
 		<property name="username" value="phonejob" />
 		<property name="password" value="phonejob0" />
 	</bean>
