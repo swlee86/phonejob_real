@@ -25,7 +25,7 @@
                     <div class="row">
                         <div class="col-md-10 forum-heading">
                             <span class="label label-success pull-left">Special</span>
-                            <a href="../notice/noticeDetail.do?free_no=${noticeList.notice_no}" >
+                            <a href="../notice/noticeDetail.do?notice_no=${noticeList.notice_no}" >
                                 <h4>${noticeList.title}</h4>
                             </a>
                         </div>
