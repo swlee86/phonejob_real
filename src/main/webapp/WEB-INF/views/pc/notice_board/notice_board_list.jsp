@@ -6,15 +6,7 @@
 	작성일	: 2016-11-21
 	목 적  	: 자유게시판 리스트 view
 -->
-<!-- 
-<div class="content animate-panel" style="width: 1200px; text-align:left; display:inline-block">
-	<div class="hpanel">
-		<div class="panel-body">
-			<h2 class="font-light m-b-xs">자유 게시판</h2>
-		</div>
-	</div>
-</div>
- -->
+
 <div class="content animate-panel" style="width: 1200px; text-align:left; display:inline-block">
 	<div class="row">
 
@@ -84,11 +76,11 @@
 							<tbody>
 								<c:forEach var="list" items="${list}">
 									<tr>
-										<td style="text-align: center">${list.free_no}</td>
+										<td style="text-align: center">${list.notice_no}</td>
 										<td><c:forEach begin="0" end="${list.depth}" step="1">
                         				&nbsp;&nbsp;&nbsp;
                        			 </c:forEach> 
-                       			 	<a href="../notice/noticeDetail.do?free_no=${list.free_no}&currentpage=${cpage}&pagesize=${pgsize}">${list.title}</a><c:if test="${list.re_count ne 0 }">[${list.re_count }]</c:if>
+                       			 	<a href="../notice/noticeDetail.do?notice_no=${list.notice_no}&currentpage=${cpage}&pagesize=${pgsize}">${list.title}</a><c:if test="${list.re_count ne 0 }">[${list.re_count }]</c:if>
 											&nbsp;&nbsp;&nbsp; 
 										<c:if test="${list.filename != null}">
 												<img alt="file" src="../images/fileimg.PNG">

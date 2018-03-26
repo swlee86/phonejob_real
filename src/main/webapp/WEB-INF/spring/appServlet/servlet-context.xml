@@ -21,13 +21,22 @@
 	</context:component-scan>
 	
 	<context:component-scan base-package="kr.or.phonejob.*" />
-
+<!--
 	<beans:bean id="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></beans:property>
 		<beans:property name="url" value="jdbc:oracle:thin:@orcl.cn5acqnoqihv.ap-northeast-2.rds.amazonaws.com:1521:ORCL"></beans:property>
 		<beans:property name="username" value="swlee"></beans:property>
 		<beans:property name="password" value="new1234!"></beans:property>
 	</beans:bean>
+	-->
+
+	<beans:bean id="driverManagerDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<beans:property name="url" value="jdbc:mysql://phonejob.cafe24.com:3306/phonejob" />
+		<beans:property name="username" value="phonejob" />
+		<beans:property name="password" value="phonejob0" />
+	</beans:bean>
+
 
 	<beans:bean id="customAuthenticationSuccessHandler" class="kr.or.phonejob.pc.LoginController.CustomAuthenticationSuccessHandler">
 	<beans:property name = "sqlsession">

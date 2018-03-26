@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kr.or.phonejob.pc.Dao.IndexDao">
 	<select id="getUserIp" resultType="kr.or.phonejob.pc.Dto.UserIpDto">
-		select user_ip from USE_IP
+		select user_ip from use_ip
 	</select>
 
 	<select id="getUserData" parameterType="kr.or.phonejob.pc.Dto.UserIpDto" resultType="integer">
@@ -15,7 +15,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="insertIpData" parameterType="kr.or.phonejob.pc.Dto.UserIpDto">
-		insert into use_ip values(#{ip_name}, #{user_ip}, ip_seq.nextval, SYSDATE)
+		insert into use_ip(ip_name,user_ip,ip_seq,register_time)
+		values(#{ip_name}, #{user_ip}, (select max(ip_seq)+1 from use_ip a), curdate())
 	</insert>
 
 

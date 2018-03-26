@@ -1,6 +1,6 @@
-package kr.or.phonejob.pc.Dto;
+package kr.or.phonejob.smart.s_Dto;
 
-public class Re_NoticeBoardDto {
+public class s_Re_NoticeBoardDto {
 	
 	String re_no;
 	String notice_no;

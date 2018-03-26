@@ -5,25 +5,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kr.or.phonejob.pc.Dao.GooinDao">
 	<insert id="registerGooinOk" parameterType="kr.or.phonejob.pc.Dto.RegisterGooinDto">
-		insert into PJ_GOOIN(gooin_no, userid, title, grade, userpicture, wanttel, wantjob, jobstatus, school, wanthuman, gender, location_addr1, location_addr2, salary_min, salary_max, jobtime, breaktime, wage, gooinweekstart, gooinweekend, gooinhow, gooindocument, gooinman, goointel, gooinmail, content, salary_detail, phone, comname, comidfyno, adress, homepage, wantstatus)
+		insert into pj_gooin(gooin_no, userid, title, grade, userpicture, wanttel, wantjob, jobstatus, school, wanthuman, gender, location_addr1, location_addr2, salary_min, salary_max, jobtime, breaktime, wage, gooinweekstart, gooinweekend, gooinhow, gooindocument, gooinman, goointel, gooinmail, content, salary_detail, phone, comname, comidfyno, adress, homepage, wantstatus)
 		VALUES(gooin_no_seq.nextval, #{userid}, #{title}, #{grade}, #{userpicture}, #{wanttel}, #{wantjob}, #{jobstatus}, #{school}, #{wanthuman}, #{gender}, #{location_addr1}, #{location_addr2}, #{salary_min}, #{salary_max}, #{jobtime}, #{breaktime}, #{wage}, #{gooinweekstart}, #{gooinweekend}, #{gooinhow}, #{gooindocument}, #{gooinman}, #{goointel}, #{gooinmail}, #{content}, #{salary_detail}, #{phone}, #{comname}, #{comidfyno}, #{adress}, #{homepage}, #{wantstatus} )
 	</insert>
 	
 	<select id="gooinluxury" resultType="kr.or.phonejob.pc.Dto.RegisterGooinDto">
-		select * from PJ_GOOIN where grade='luxury' order by gooin_no desc
+		select * from pj_gooin where grade='luxury' order by gooin_no desc
 	</select>
 	
 	<select id="gooinbest" resultType="kr.or.phonejob.pc.Dto.RegisterGooinDto">
-		select * from PJ_GOOIN where grade='best' order by gooin_no desc
+		select * from pj_gooin where grade='best' order by gooin_no desc
 	</select>
 	
 	<select id="gooinnormal" resultType="kr.or.phonejob.pc.Dto.RegisterGooinDto">
-		select * from PJ_GOOIN where grade='normal' order by gooin_no desc
+		select * from pj_gooin where grade='normal' order by gooin_no desc
 	</select>
 	
 	<select id="gooinDetail" resultType="kr.or.phonejob.pc.Dto.RegisterGooinDto">
 		select *
-		from PJ_GOOIN
+		from pj_gooin
 		where 1=1
 		AND gooin_no=#{gooin_no}
 	</select>
@@ -39,13 +39,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*)
 		from pj_gooin
 		where 1=1
-		AND gooinweekend &lt; sysdate
+		AND gooinweekend &lt; curdate()
 	</select>
 
 	<!--구직지원자 테이블에 넣기 전에 해당 글에 지원한적 있는지 확인-->
 	<select id="findvolunteer" resultType="String">
 		select GOOIN_NO
-		FROM PJ_VOLUN_HIST
+		FROM pj_volun_hist
 		WHERE 1=1
 		AND USERID=#{userid}
 		AND GOOIN_NO=#{gooin_no}
@@ -54,7 +54,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!--구직 지원자 테이블 등록-->
 	<insert id="volunteerOk" parameterType="kr.or.phonejob.pc.Dto.RegisterGooinDto">
-			insert into PJ_VOLUN_HIST(
+			insert into pj_volun_hist(
 						  VOLUN_SEQ,
 						  GOOIN_NO,
 						  USERID,

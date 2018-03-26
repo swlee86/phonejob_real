@@ -14,9 +14,16 @@ public class LogSaveService implements LogSaveDao {
 
 
     @Override
-    public int logsave(LogSaveDto lsdto) {
+    public int loghitsave(LogSaveDto lsdto) {
         LogSaveDao lsdao = sqlSession.getMapper(LogSaveDao.class);
-        int result = lsdao.logsave(lsdto);
+        int result = lsdao.loghitsave(lsdto);
+        return result;
+    }
+
+    @Override
+    public int loghstsave(LogSaveDto lsdto) {
+        LogSaveDao lsdao = sqlSession.getMapper(LogSaveDao.class);
+        int result = lsdao.loghstsave(lsdto);
         return result;
     }
 }

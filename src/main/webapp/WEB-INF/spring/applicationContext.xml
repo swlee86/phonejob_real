@@ -17,12 +17,21 @@
 
 
 
+<!--
 
 	<bean id="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
 		<property name="url" value="jdbc:oracle:thin:@orcl.cn5acqnoqihv.ap-northeast-2.rds.amazonaws.com:1521:ORCL"></property>
 		<property name="username" value="swlee"></property>
 		<property name="password" value="new1234!"></property>
+	</bean>
+-->
+
+	<bean id="driverManagerDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://phonejob.cafe24.com:3306/phonejob" />
+		<property name="username" value="phonejob" />
+		<property name="password" value="phonejob0" />
 	</bean>
 
 

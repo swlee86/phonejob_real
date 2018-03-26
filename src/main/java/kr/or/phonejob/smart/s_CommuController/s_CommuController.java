@@ -1,9 +1,9 @@
 package kr.or.phonejob.smart.s_CommuController;
 
 import kr.or.phonejob.pc.Dto.FreeBoardDto;
-import kr.or.phonejob.pc.Dto.NoticeBoardDto;
+import kr.or.phonejob.smart.s_Dto.s_NoticeBoardDto;
 import kr.or.phonejob.pc.Service.FreeBoardService;
-import kr.or.phonejob.pc.Service.NoticeBoardService;
+import kr.or.phonejob.smart.s_Service.s_NoticeBoardService;
 import kr.or.phonejob.pc.Util.MaskingUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +26,7 @@ public class s_CommuController {
     private FreeBoardService fservice;
 
     @Autowired
-    private NoticeBoardService nservice;
+    private s_NoticeBoardService nservice;
 
     @RequestMapping(value = "/commu/s_commuMain.do", method = RequestMethod.GET)
     public String s_commuMain(HttpServletRequest request, Model mv, String pagesize, String currentpage, String f, String q){
@@ -36,7 +36,7 @@ public class s_CommuController {
         HttpSession session = request.getSession();
 
         List<FreeBoardDto> list = null;
-        List<NoticeBoardDto> noticelist = null;
+        List<s_NoticeBoardDto> noticelist = null;
 
 
         try{
@@ -82,7 +82,7 @@ public class s_CommuController {
             }
 
             for(int j=0; j<noticelist.size(); j++){
-                noticelist.get(j).setRe_count(nservice.selectReCount(noticelist.get(j).getFree_no()));
+                noticelist.get(j).setRe_count(nservice.selectReCount(noticelist.get(j).getNotice_no()));
                 noticelist.get(j).setUserid(MaskingUtil.getMaskingId(noticelist.get(j).getUserid()));
                 logger.info("마스킹 작업 후 데이터 : " + noticelist.get(j).toString());
             }

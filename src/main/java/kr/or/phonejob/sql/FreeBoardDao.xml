@@ -8,60 +8,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- Free 게시판 글 리스트를 불러오는 쿼리문  -->
 	<select id="selectList" resultType="kr.or.phonejob.pc.Dto.FreeBoardDto">
-		select 
-			free_no, 
-			credential_id, 
-			title, 
-			userid, 
-			regdate, 
-			hit, 
-			depth,
-			step,
-			refer,
-			filename 
+		select t.*
 		from
-		(
-			select 
-				rownum rn, 
-				free_no, 
-				credential_id, 
-				title, 
-				userid, 
-				regdate, 
-				hit, 
-				depth, 
-				step, 
-				refer, 
-				filename 
-			from 
-			(
-				select 
-					free_no, 
-					credential_id, 
-					title, 
-					userid, 
-					regdate, 
-					hit, 
-					depth,
-					step,
-					refer,
-					filename 
-			 	from 
-			 		pj_freeboard 
-			 	where 
-			 		${param3} like '%${param4}%' 
-			 	order by refer desc, step asc
-			 ) 
-			 	order by rn
-			 ) 
-			 	where 
-			 		rn between #{param1} and #{param2}
-	
+  		(
+    		SELECT
+      			@rownum := @rownum + 1 AS rownum,
+      			pj_freeboard.*
+    			FROM
+      			pj_freeboard, (SELECT @rownum := 0) r
+    		where
+      			${param3} like '%${param4}%'
+    		ORDER BY refer DESC, step ASC
+  		  ) t
+			where t.rownum between #{param1} and #{param2}
+
 	</select >
-	
+
 	<!-- Free Board의 총 갯수를 불러오는 쿼리문 -->
 	<select id="selectBoardCount" resultType="int">
-		select 
+		select
 			count(*) 
 		from 
 			pj_freeboard
@@ -94,29 +59,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- Free board list에서 글을 클릭하여 내용을 불러올 때 댓글 내용도 불러오는 쿼리문 -->	
 	<select id="selectReList" resultType="kr.or.phonejob.pc.Dto.Re_FreeBoardDto">
-		select 
-			userid, 
-			re_no, 
-			free_no, 
-			credential_id, 
-			content, 
-			regdate 
-		from 
-		(
-			select 
-				rownum rn, 
-				re_no, 
-				free_no, 
-				credential_id,
-				userid, 
-				content, 
-				regdate 
-			from 
-				pj_re_freeboard 
-			where 
-				free_no=#{free_no} 
-			order by re_no asc
-		)
+		select
+      		re_no,
+      		free_no,
+      		credential_id,
+      		userid,
+      		content,
+      		regdate
+    	from
+      		pj_re_freeboard
+    	where
+      		free_no=#{free_no}
+    	order by re_no asc
 	</select>
 
 	<!-- 글 수정시 업데이트 쿼리 -->
@@ -127,30 +81,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 글쓰기시 Refer 설정을 위해 최대 Refer 값을 불러온다 -->
 	<select id="selectRefer" resultType="int">
-	select nvl(max(refer),0) from pj_freeboard
+	select COALESCE(max(refer),0) from pj_freeboard
 	</select>
 
 
 <!-- 글쓰기 진행시 글을 인서트 하는 쿼리문 -->
 <insert id="insertArticle" parameterType="kr.or.phonejob.pc.Dto.FreeBoardDto">
 insert into pj_freeboard(free_no, credential_id, userid, refer, depth, step, hit, title, regdate, filename, content )
-values(PJ_FREEBOARD_NO.nextval, #{credential_id}, #{userid}, #{refer}, #{depth}, #{step}, #{hit}, #{title}, to_char(sysdate, 'YYYY-MM-DD'), #{filename},#{content})
+values((select max(PJ_FREEBOARD_NO)+1 from pj_free_board a), #{credential_id}, #{userid}, #{refer}, #{depth}, #{step}, #{hit}, #{title}, to_char(sysdate, 'YYYY-MM-DD'), #{filename},#{content})
 </insert>
 
 <!-- 댓글 달 때 댓글을 인서트 하는 쿼리문 -->
 <insert id="insertReply" parameterType="kr.or.phonejob.pc.Dto.Re_FreeBoardDto">
-insert into PJ_RE_FREEBOARD
+insert into pj_re_freeboard
 	(
 		re_no, 
 		free_no, 
 		credential_id, 
 		userid, 
-		content, 
+		content,
 		regdate
 	)
 	values
 		(
-			RE_FREE_SEQ.nextval, 
+			(select max(re_no) from pj_re_freeboard a)+1,
 			#{free_no}, 
 			#{credential_id}, 
 			#{userid}, 
@@ -181,17 +135,17 @@ update pj_freeboard set step=step+1, depth=depth+1 where refer=#{param1} and ste
 
 <!-- 글 제거 -->
 <delete id="deleteRow">
-	delete PJ_FREEBOARD where free_no=#{list_no}
+	delete pj_freeboard where free_no=#{list_no}
 </delete>
 
 <!-- 리플 삭제 -->
 <delete id="deleteReply">
-	delete PJ_RE_FREEBOARD where free_no=#{list_no}
+	delete pj_re_freeboard where free_no=#{list_no}
 </delete>
 	
 <!-- 리플 갯수 구해오기(삭제할 글의) -->	
 <select id="selectReCount" resultType="integer">
-	select count(*) from PJ_RE_FREEBOARD where free_no=#{list_no}
+	select count(*) from pj_re_freeboard where free_no=#{list_no}
 </select>	
 	
 

@@ -61,7 +61,7 @@
 									<input type="text" class="form-control" placeholder="Your comment" name="content">
 									<input type="hidden" name="currentpage" value="${currentpage}">
 									<input type="hidden" name="pagesize" value="${pagesize}">
-									<input type="hidden" name="free_no" value="${list.free_no}">
+									<input type="hidden" name="notice_no" value="${list.notice_no}">
 									<input type="hidden" name="credential_id" value="${loginData.credential_id }">
 									<input type="hidden" name="userid" value="${loginData.userid }">
 									<span class="input-group-btn">
@@ -77,9 +77,9 @@
 								<a href="../notice/noticeBoardMain.do?currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">공지사항게시판 가기</a>
 
 								<c:if test="${list.credential_id==loginData.credential_id}">
-									<a href="../notice/noticeReplyComple.do?free_no=${list.free_no}&currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">답글쓰기</a>
-									<a href="../notice/noticeModify.do?free_no=${list.free_no}&currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">수정하기</a>
-									<input type="text" hidden="hidden" id="listno" value="${list.free_no}">
+									<a href="../notice/noticeReplyComple.do?notice_no=${list.notice_no}&currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">답글쓰기</a>
+									<a href="../notice/noticeModify.do?notice_no=${list.notice_no}&currentpage=${currentpage}&pagesize=${pagesize}" class="btn btn-sm btn-success" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px">수정하기</a>
+									<input type="text" hidden="hidden" id="notice_no" value="${list.notice_no}">
 									<a class="btn btn-sm btn-default" style="padding-right: 15px; padding-left: 15px; font-weight: 600; font-size: 13px" onclick="delete_notice_event()" href=javascript:void(0)>삭제하기</a>
 								</c:if>
 							</div>

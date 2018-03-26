@@ -82,7 +82,7 @@ public class CommuController {
             }
 
             for(int j=0; j<noticelist.size(); j++){
-                noticelist.get(j).setRe_count(nservice.selectReCount(noticelist.get(j).getFree_no()));
+                noticelist.get(j).setRe_count(nservice.selectReCount(noticelist.get(j).getNotice_no()));
                 noticelist.get(j).setUserid(MaskingUtil.getMaskingId(noticelist.get(j).getUserid()));
                 logger.info("마스킹 작업 후 데이터 : " + noticelist.get(j).toString());
             }

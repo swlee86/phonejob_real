@@ -78,7 +78,7 @@ public class NoticeBoardController {
 			 list = noticeservice.selectNoticeBoard(cpage, pgsize, field, query);
 			 
 			 for(int i=0; i<list.size(); i++){
-				 list.get(i).setRe_count(noticeservice.selectReCount(list.get(i).getFree_no()));
+				 list.get(i).setRe_count(noticeservice.selectReCount(list.get(i).getNotice_no()));
 				 logger.info("마스킹 작업 전 데이터 : " + list.get(i).toString());
 				 list.get(i).setUserid(MaskingUtil.getMaskingId(list.get(i).getUserid()));
 				 logger.info("마스킹 작업 후 데이터 : " + list.get(i).toString());
@@ -166,7 +166,7 @@ public class NoticeBoardController {
 			}else{
 				msg = "글 입력에 실패하였습니다.";
 				session.setAttribute("change_value", "공지사항 글 입력 실패");
-				session.setAttribute("error_cd", "0000000");
+				session.setAttribute("error_cd", "9999999");
 			}
 			mv.addAttribute("link", link);
 			mv.addAttribute("msg", msg);
@@ -177,15 +177,15 @@ public class NoticeBoardController {
 
 	//글 선택하여 내용 보기 함수
 	@RequestMapping(value="/notice/noticeDetail.do", method=RequestMethod.GET)
-	public String notice_board_view(Model mv, int free_no, String currentpage, String pagesize,HttpSession session){
+	public String notice_board_view(Model mv, int notice_no, String currentpage, String pagesize,HttpSession session){
 		String url = null;
 		NoticeBoardDto noticeboard = null;
 		List<Re_NoticeBoardDto> re_list = null;
 
 		try{
-			noticeboard = noticeservice.selectDetail(free_no);
-			re_list = noticeservice.selectReList(free_no);
-			noticeservice.updateHit(free_no);
+			noticeboard = noticeservice.selectDetail(notice_no);
+			re_list = noticeservice.selectReList(notice_no);
+			noticeservice.updateHit(notice_no);
 			logger.info(noticeservice.toString());
 			logger.info(re_list.toString());
 		}catch(Exception e){
@@ -205,11 +205,11 @@ public class NoticeBoardController {
 	
 		//답변하기 누르면 기존 글의 데이터를 가지고 가서 write 화면에 뿌려주는 함수
 		@RequestMapping(value="/notice/noticeReplyComple.do", method=RequestMethod.GET)
-		public String NoticeAnswer(Model mv, int free_no, int currentpage, int pagesize){
+		public String NoticeAnswer(Model mv, int notice_no, int currentpage, int pagesize){
 			String link = null;
 			NoticeBoardDto noticeboard = null;
 			try{
-				noticeboard = noticeservice.selectDetail(free_no);
+				noticeboard = noticeservice.selectDetail(notice_no);
 				noticeboard.setContent("<p><br><br></p><p>====================================이전 글====================================<br></p>"+noticeboard.getContent());
 			}catch(Exception e){
 
@@ -226,7 +226,7 @@ public class NoticeBoardController {
 	
 		//답변 인서트 컨트롤러
 		@RequestMapping(value="/notice/noticeReplyComple.do", method=RequestMethod.POST)
-		public String NoticeAnswerOk(@RequestParam("uploadfile") MultipartFile file, Model mv, String title, String content, String free_no, Principal principal, int refer, int step, int depth, HttpServletRequest request){
+		public String NoticeAnswerOk(@RequestParam("uploadfile") MultipartFile file, Model mv, String title, String content, String notice_no, Principal principal, int refer, int step, int depth, HttpServletRequest request){
 			//파일 업로드
 			String path = request.getSession().getServletContext().getRealPath("../notice/notice_upload/");
 
@@ -273,12 +273,12 @@ public class NoticeBoardController {
 			if(result > 0){
 				link = "../notice/noticeBoardMain.do";
 				msg = "답글 입력에 성공하였습니다.";
-				session.setAttribute("change_value", free_no+" 에 대한 답글 성공");
+				session.setAttribute("change_value", notice_no+" 에 대한 답글 성공");
 				session.setAttribute("error_cd", "0000000");
 		}else{
 				link = "../notice/noticeBoardMain.do";
 				msg = "답글 입력에 실패하였습니다.";
-				session.setAttribute("change_value", free_no+" 에 대한 답글 실패");
+				session.setAttribute("change_value", notice_no+" 에 대한 답글 실패");
 				session.setAttribute("error_cd", "9999999");
 		}
 		mv.addAttribute("link", link);
@@ -292,11 +292,11 @@ public class NoticeBoardController {
 	//삭제 처리
 	@RequestMapping(value="/notice/noticeDelete.do", method=RequestMethod.POST)
 	public void deleteNotice(HttpServletRequest request, HttpServletResponse response){
-		int list_no = Integer.parseInt(request.getParameter("list_no")); 
+		int notice_no = Integer.parseInt(request.getParameter("notice_no"));
 		int replyCount=0;
 		int replyresult=0;
 		int rowresult=0;
-		logger.info("Ajax로 삭제하러 넘어왔어요! 넘어온 글 번호는 !" + list_no);
+		logger.info("Ajax로 삭제하러 넘어왔어요! 넘어온 글 번호는 !" + notice_no);
 
 		HttpSession session = request.getSession();
 	
@@ -305,41 +305,41 @@ public class NoticeBoardController {
 			response.setContentType("text/html;charset=euc-kr");
 	        PrintWriter out = response.getWriter();
 	        
-			replyCount=noticeservice.selectReCount(list_no);
+			replyCount=noticeservice.selectReCount(notice_no);
 			logger.info("해당 글에는 댓글이 " + replyCount + "만큼 있네요");
 			
 			if(replyCount!=0){
 				logger.info("댓긇 삭제를 시작합시다.");
-				replyresult=noticeservice.deleteReply(list_no);
+				replyresult=noticeservice.deleteReply(notice_no);
 				
 				if(replyresult==1){
 					logger.info("댓글 삭제 했으니 본문도 삭제합시다.");
-					rowresult=noticeservice.deleteRow(list_no);
+					rowresult=noticeservice.deleteRow(notice_no);
 					if(rowresult==1){
 						logger.info("모두 성공!!");
 						out.println("1");
-						session.setAttribute("change_value", list_no+" 삭제 성공");
+						session.setAttribute("change_value", notice_no+" 삭제 성공");
 						session.setAttribute("error_cd", "0000000");
 					}else{
 						logger.info("본문 삭제 실패 ㅠㅠ");
 						out.println("0");
-						session.setAttribute("change_value", list_no+" 삭제 실패");
+						session.setAttribute("change_value", notice_no+" 삭제 실패");
 						session.setAttribute("error_cd", "9999999");
 					}
 				}
 
 			}else{
 				logger.info("댓긇이 없으니까 바로 삭제합시다.");
-				rowresult=noticeservice.deleteRow(list_no);
+				rowresult=noticeservice.deleteRow(notice_no);
 				if(rowresult==1){
 					logger.info("모두 성공!!");
 					out.println("1");
-					session.setAttribute("change_value", list_no+" 삭제 성공");
+					session.setAttribute("change_value", notice_no+" 삭제 성공");
 					session.setAttribute("error_cd", "0000000");
 				}else{
 					logger.info("본문 삭제 실패 ㅠㅠ");
 					out.println("0");
-					session.setAttribute("change_value", list_no+" 삭제 실패");
+					session.setAttribute("change_value", notice_no+" 삭제 실패");
 					session.setAttribute("error_cd", "9999999");
 				}
 			}
@@ -368,7 +368,7 @@ public class NoticeBoardController {
 		}catch(Exception e){
 			logger.error(e.getMessage());
 		}finally{
-			mv.addAttribute("freeboard", noticeboard);
+			mv.addAttribute("noticeboard", noticeboard);
 			mv.addAttribute("currentpage", currentpage);
 			mv.addAttribute("pagesize", pagesize);
 		}
@@ -414,14 +414,14 @@ public class NoticeBoardController {
 			e.printStackTrace();
 		}finally{
 			if(result>0){
-				link = "/notice/noticeDetail.do?free_no="+board.getFree_no()+"&currentpage="+currentpage+"&pagesize="+pagesize;
+				link = "/notice/noticeDetail.do?free_no="+board.getNotice_no()+"&currentpage="+currentpage+"&pagesize="+pagesize;
 				msg = "글 수정에 성공하였습니다.";
-				session.setAttribute("change_value", board.getFree_no()+" 수정 성공");
+				session.setAttribute("change_value", board.getNotice_no()+" 수정 성공");
 				session.setAttribute("error_cd", "0000000");
 			}else{
 				link = "/notice/noticeBoardMain.do";
 				msg = "글 수정에 실패하였습니다.";
-				session.setAttribute("change_value", board.getFree_no()+" 수정 실패");
+				session.setAttribute("change_value", board.getNotice_no()+" 수정 실패");
 				session.setAttribute("error_cd", "0000000");
 			}
 			mv.addAttribute("link", link);
@@ -447,12 +447,12 @@ public class NoticeBoardController {
 			result=noticeservice.insertReply(rdto);
 
 			if(result>0){
-				link="/notice/noticeDetail.do?free_no="+rdto.getFree_no()+"&currentpage="+rdto.getCurrentpage()+"&pagesize="+rdto.getPagesize();
+				link="/notice/noticeDetail.do?free_no="+rdto.getNotice_no()+"&currentpage="+rdto.getCurrentpage()+"&pagesize="+rdto.getPagesize();
 				msg="등록에 성공하였습니다";
-				session.setAttribute("change_value", rdto.getFree_no()+" 댓글 작성 성공");
+				session.setAttribute("change_value", rdto.getNotice_no()+" 댓글 작성 성공");
 				session.setAttribute("error_cd", "0000000");
 			}else{
-				link="../notice/noticeDetail.do?free_no="+rdto.getFree_no()+"&currentpage="+rdto.getCurrentpage()+"&pagesize="+rdto.getPagesize();
+				link="../notice/noticeDetail.do?free_no="+rdto.getNotice_no()+"&currentpage="+rdto.getCurrentpage()+"&pagesize="+rdto.getPagesize();
 				msg="등록에 실패하였습니다. 동일 현상이 지속될 경우 관리자에게 문의하세요";
 
 			}
@@ -461,7 +461,7 @@ public class NoticeBoardController {
 				}finally{
 				mv.addAttribute("link", link);
 				mv.addAttribute("msg", msg);
-				session.setAttribute("change_value", rdto.getFree_no()+" 댓글 작성 실패");
+				session.setAttribute("change_value", rdto.getNotice_no()+" 댓글 작성 실패");
 				session.setAttribute("error_cd", "9999999");
 				}
 

@@ -1,6 +1,6 @@
-package kr.or.phonejob.pc.Dto;
+package kr.or.phonejob.smart.s_Dto;
 
-public class NoticeBoardDto {
+public class s_NoticeBoardDto {
 	
 	private int notice_no;
 	private String credential_id;	//글쓴사람고유아이디

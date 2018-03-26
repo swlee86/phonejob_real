@@ -17,7 +17,7 @@
 							<div class="form-group">
 								<label class="col-sm-1 control-label text-left">제 목</label>
 								<div class="col-sm-11">
-									<input type="text" class="form-control input-sm" placeholder="제목" name="title" value="${freeboard.title }">
+									<input type="text" class="form-control input-sm" placeholder="제목" name="title" value="${noticeboard.title }">
 								</div>
 							</div>
 							<div class="form-group">
@@ -32,7 +32,7 @@
 				</div>
 				<div class="panel-body no-padding">
 					<div style="text-align: left; height: 100%;">
-					<textarea rows="100" cols="20" id="content" name="content"  class="summernote">${freeboard.content }</textarea>
+					<textarea rows="100" cols="20" id="content" name="content"  class="summernote">${noticeboard.content }</textarea>
 					</div>
 				</div>
 				
@@ -48,8 +48,8 @@
 					<br>
 					<br>
 				</div>
-				<input type="hidden" value="${freeboard.free_no }" name="free_no">
-				<input type="hidden" value="${freeboard.filename }" name="filename">
+				<input type="hidden" value="${noticeboard.notice_no }" name="notice_no">
+				<input type="hidden" value="${noticeboard.filename }" name="filename">
 				<input type="hidden" value="${currentpage }" name="currentpage">
 				<input type="hidden" value="${pagesize }" name="pagesize">
 			</form>			
