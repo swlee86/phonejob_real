@@ -1,5 +1,11 @@
 package kr.or.phonejob.pc.Dto;
 
+/*
+* 작성자 : 이상원
+* 용도 : 아이피등록 관련 Dto
+* 작성일자 : 2017-07-08
+* */
+
 public class UserIpDto {
 
 	private String ip_name;

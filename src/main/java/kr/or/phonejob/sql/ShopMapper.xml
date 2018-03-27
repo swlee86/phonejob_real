@@ -9,12 +9,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectPhoneList" resultType="kr.or.phonejob.pc.Dto.ShopDto">
         SELECT *
-        FROM PHONE_DETAIL
+        FROM phone_detail
     </select>
 
     <select id="selectPhoneDetail" resultType="kr.or.phonejob.pc.Dto.ShopDto">
         SELECT *
-        FROM PHONE_DETAIL
+        FROM phone_detail
         WHERE 1=1
         AND PHONE_SEQ=#{phone_seq}
     </select>
