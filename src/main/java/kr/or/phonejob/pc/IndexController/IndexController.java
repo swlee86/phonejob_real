@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import kr.or.phonejob.pc.Dto.RegisterGoogicDto;
 import kr.or.phonejob.pc.Dto.RegisterGooinDto;
 import kr.or.phonejob.pc.Dto.UserIpDto;
-import kr.or.phonejob.pc.Util.CheckUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,6 @@ import kr.or.phonejob.pc.Service.GoogicService;
 import kr.or.phonejob.pc.Service.GooinService;
 import kr.or.phonejob.pc.Service.IndexService;
 import kr.or.phonejob.pc.Util.MaskingUtil;
-import kr.or.phonejob.pc.Util.CheckUtil;
 
 
 @Controller
@@ -92,10 +90,6 @@ public class IndexController {
 			  return "pc/lock";
 		  }
 
-		//메인 시작(모바일 단말기 체크)
-		CheckUtil util = new CheckUtil();
-		boolean check = util.isMobile(request);
-
 
 	  //해당 서비스 및 함수는 자동로그인 기능 구현 중입니다.
 	  //lservice.checkUserWithSessionKey();
@@ -146,18 +140,18 @@ public class IndexController {
 	
 	@RequestMapping(value="etc/error_404.do")
 	public String move404(){
-					return "errors.error_404";
-				}
+		return "errors.error_404";
+	}
 
 	@RequestMapping(value="etc/error_500.do")
 	public String move500(){
-					return "errors.error_500";
-				}
+		return "errors.error_500";
+	}
 
 	@RequestMapping(value="lock.do")
 	public String movelock(){
-					return "errors.lock";
-				}
+		return "errors.lock";
+	}
 	
 
 

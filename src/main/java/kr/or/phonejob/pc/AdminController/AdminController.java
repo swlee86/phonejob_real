@@ -27,7 +27,7 @@ public class AdminController {
     @Autowired
     private IndexService iservice;
 
-    @RequestMapping(value="adminIpRegister.do", method= RequestMethod.POST)
+    @RequestMapping(value= {"adminIpRegister.do", "s_adminIpRegister.do"}, method= RequestMethod.POST)
     public String adminIpRegister(HttpServletRequest request, UserIpDto idto, Model mv){
 
         //세션 선언
@@ -37,16 +37,28 @@ public class AdminController {
         logger.info("입력된 데이터 : " + idto.toString());
         String msg = "";
         String url = "";
-        String rePage="ip.ipRedirect";
+        String rePage = "";
         int insertResult = 0;
         int result = iservice.getUserData(idto);
+
+        if(request.getRequestURI().equals("/adminIpRegister.do")){
+            rePage ="ip.ipRedirect";
+        }else{
+            rePage="smart.s_ip.s_ipRedirect";
+        }
 
         logger.info("관리자에 데이터가 있는지? 0이면 없는 것+ " + result);
 
         if(result==0){
             logger.info("아이피 등록 결과 : 권한 없음");
             msg="등록 불가. 권한이 없습니다.";
-            url="Main.do";
+
+            if(request.getRequestURI().equals("/adminIpRegister.do")){
+                url="Main.do";
+            }else{
+                url="s_Main.do";
+            }
+
         }
 
         if(result==1){
@@ -55,12 +67,22 @@ public class AdminController {
             if(insertResult==0){
                 logger.info("아이피 등록 결과 : 등록 도중 에러");
                 msg="등록 중 실패, 관리자에게 문의하세요";
-                return "pc/lock";
+
+                if(request.getRequestURI().equals("/adminIpRegister.do")){
+                    return "pc/lock";
+                }else{
+                    return "smart/s_lock";
+                }
             }else{
                 logger.info("아이피 등록 결과 : 등록 성공");
-
                 msg="등록 성공.";
-                url="Main.do";
+
+                if(request.getRequestURI().equals("/adminIpRegister.do")){
+                    url="Main.do";
+                }else{
+                    url="s_Main.do";
+                }
+
             }
 
         }
