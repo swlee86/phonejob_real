@@ -135,7 +135,7 @@ public class IndexController {
 		mv.addAttribute("gooinbest", gooinbest);
 		mv.addAttribute("gooinnormal", gooinnormal);
 
-		if(check){
+		if(request.getRequestURI().equals("/s_Main.do")){
 			return "smart.home.index";
 		}else{
 			return "home.index";

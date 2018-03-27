@@ -5,7 +5,6 @@ import kr.or.phonejob.pc.Service.GoogicService;
 import kr.or.phonejob.pc.Service.GooinService;
 import kr.or.phonejob.pc.Service.LoginFilterService;
 import kr.or.phonejob.pc.Util.CheckUtil;
-import kr.or.phonejob.pc.Util.MaskingUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
