@@ -63,8 +63,10 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
         LogSaveDto lsdto = new LogSaveDto();
 
         try{
-            if(session.getAttribute("change_value")!=null&&!session.getAttribute("change_value").equals(null)){
-                if(loginData!=null){
+            //최초 loginData 정보가 있는지 확인하여 없으면 별도로 로그 남기지 않음(불필요한 DB 데이터 예방 및 자원낭비 방지
+            if(session.getAttribute("loginData")!=null&&!session.getAttribute("loginData").equals(null)){
+                //change_value가 있으면 pj_log_chg_hst에 저장 처리
+                if(session.getAttribute("change_value")!=null&&!session.getAttribute("change_value").equals(null)){
                     lsdto.setUserid(loginData.getUserid());
                     lsdto.setCredential_id(loginData.getCredential_id());
                     lsdto.setUri(uri);
@@ -78,32 +80,10 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
                     //로그 저장 처리 후 세션 삭제(error_cd/change_value)
                     session.removeAttribute("error_cd");
                     session.removeAttribute("change_value");
-
-                }else{
-                    lsdto.setUserid("");
-                    lsdto.setCredential_id("");
-                    lsdto.setUri(uri);
-                    lsdto.setError_cd(StringUtils.defaultString((String)session.getAttribute("error_cd")));
-                    lsdto.setChange_value( StringUtils.defaultString((String)session.getAttribute("change_value")));
-                    lsdto.setIp(cIp);
-                    logger.info("로그 입력 데이터 : " + StringUtils.defaultString(lsdto.toString()) );
-                    lsservice.loghstsave(lsdto);
-
-                    //로그 저장 처리 후 세션 삭제(error_cd/change_value)
-                    session.removeAttribute("error_cd");
-                    session.removeAttribute("change_value");
-                }
-            }else {
-                if (loginData != null) {
+                }else {
+                    //처리 이력이 아닌 경우 pj_loghit 테이블에 저장 처리
                     lsdto.setUserid(loginData.getUserid());
                     lsdto.setCredential_id(loginData.getCredential_id());
-                    lsdto.setUri(uri);
-                    lsdto.setIp(cIp);
-                    logger.info("로그 입력 데이터 : " + StringUtils.defaultString(lsdto.toString()));
-                    lsservice.loghitsave(lsdto);
-                } else {
-                    lsdto.setUserid("");
-                    lsdto.setCredential_id("");
                     lsdto.setUri(uri);
                     lsdto.setIp(cIp);
                     logger.info("로그 입력 데이터 : " + StringUtils.defaultString(lsdto.toString()));
@@ -113,7 +93,7 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
         }catch(Exception e){
             e.printStackTrace();
         }finally{
-
+            logger.info("로그 저장처리 완료!");
         }
 
         if (logger.isDebugEnabled()) {

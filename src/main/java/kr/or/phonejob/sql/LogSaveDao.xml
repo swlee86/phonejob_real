@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<insert id="loghstsave" parameterType="kr.or.phonejob.pc.Dto.LogSaveDto">
-		INSERT INTO pj_loghst_chg(
+		INSERT INTO pj_log_chg_hst(
 				USERID,
 				CREDENTIAL_ID,
 				CREDT_DATE,
