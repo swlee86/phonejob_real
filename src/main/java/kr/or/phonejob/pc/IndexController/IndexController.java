@@ -10,6 +10,7 @@ import kr.or.phonejob.pc.Dto.RegisterGoogicDto;
 import kr.or.phonejob.pc.Dto.RegisterGooinDto;
 import kr.or.phonejob.pc.Dto.UserIpDto;
 import kr.or.phonejob.pc.Service.LoginService;
+import kr.or.phonejob.pc.Util.CheckUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class IndexController {
 	private IndexService iservice;
 
 
-	@RequestMapping(value="Main.do", method=RequestMethod.GET)
+	@RequestMapping(value= {"Main.do", "s_Main.do"}, method=RequestMethod.GET)
 	public String moveIndex(Model mv, HttpServletRequest request){
 		logger.info(">>>>>>Index Page 접근");
 
@@ -85,12 +86,14 @@ public class IndexController {
 
 
 		  if( iOk == 0){
-			 //response.sendRedirect("deny.jsp");
 			  msg="<B>Access Denied : 현재 접속하신 아이피는 " + cIp + "입니다 </B>";
 			  mv.addAttribute("msg", msg);
 			  mv.addAttribute("cIp", cIp);
 			  return "pc/lock";
 		  }
+
+		//메인 시작(모바일 단말기 체크)
+		boolean check = CheckUtil.isMobile(request);
 
 
 	  //해당 서비스 및 함수는 자동로그인 기능 구현 중입니다.
@@ -106,37 +109,21 @@ public class IndexController {
 			gooinluxury=gooservice.gooinluxury();
 			gooinbest=gooservice.gooinbest();
 			gooinnormal=gooservice.gooinnormal();
-			/*
-			logger.info("럭셔리광고사이즈 : " + gooinluxury.size());
-			
-			for(int r=0; r<gooinluxury.size(); r++){
-				logger.info("럭셔리광고 : " + gooinluxury.get(r).toString());				
-			}
-			
-			for(int j=0; j<gooinbest.size(); j++){
-				logger.info("베스트광고 : " + gooinbest.get(j).toString());				
-			}
-			
-			for(int k=0; k<gooinnormal.size(); k++){
-				logger.info("노말광고 : " + gooinnormal.get(k).toString());				
-			}
-			*/
+
 			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		
 		
-		//인재 정보를 불러 오기 위한 s_Dto 객체 생성
+		//인재 정보를 불러 오기 위한 Dto 객체 생성
 		List<RegisterGoogicDto> result = new ArrayList<RegisterGoogicDto>();
 		try{
 			result =  gservice.selectGoogic();
 			
 			for(int l=0; l<result.size(); l++){
-				//logger.info("인재정보 masking 전 : " + result.get(l).toString());
 				result.get(l).setUsername(MaskingUtil.getMaskingName(result.get(l).getUsername()));
 				result.get(l).setUserid(MaskingUtil.getMaskingId(result.get(l).getUserid()));
-				//logger.info("인재정보 masking 후 : " + result.get(l).toString());
 			}
 		}catch(Exception e){
 			logger.error(e.getMessage());	
@@ -146,8 +133,17 @@ public class IndexController {
 		mv.addAttribute("gooinluxury", gooinluxury);
 		mv.addAttribute("gooinbest", gooinbest);
 		mv.addAttribute("gooinnormal", gooinnormal);
-		
-		return "home.index";
+
+
+
+
+		if(check){
+			return "smart.home.index";
+		}else{
+			return "home.index";
+		}
+
+
 	}
 	
 	@RequestMapping(value="etc/error_404.do")
