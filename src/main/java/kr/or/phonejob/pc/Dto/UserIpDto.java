@@ -3,6 +3,7 @@ package kr.or.phonejob.pc.Dto;
 public class UserIpDto {
 
 	private String ip_name;
+	private String user_name;
 	private String register;
 	private String user_ip;
 	private String user_phone;
@@ -13,6 +14,14 @@ public class UserIpDto {
 
 	public void setIp_name(String ip_name) {
 		this.ip_name = ip_name;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 
 	public String getRegister() {
@@ -43,6 +52,7 @@ public class UserIpDto {
 	public String toString() {
 		return "UserIpDto{" +
 				"ip_name='" + ip_name + '\'' +
+				", user_name='" + user_name + '\'' +
 				", register='" + register + '\'' +
 				", user_ip='" + user_ip + '\'' +
 				", user_phone='" + user_phone + '\'' +
