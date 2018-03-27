@@ -14,12 +14,12 @@
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
-
+	<!--<resources mapping="/resources/**" location="/resource/"/>-->
+<!--
 	<context:component-scan base-package="com.spring" use-default-filters="false">
     	<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
-	
+	-->
 	<context:component-scan base-package="kr.or.phonejob.*" />
 <!--
 	<beans:bean id="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -29,6 +29,7 @@
 		<beans:property name="password" value="new1234!"></beans:property>
 	</beans:bean>
 	-->
+
 
 	<beans:bean id="customAuthenticationSuccessHandler" class="kr.or.phonejob.pc.LoginController.CustomAuthenticationSuccessHandler">
 	<beans:property name = "sqlsession">
