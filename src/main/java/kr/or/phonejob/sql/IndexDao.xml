@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="getUserData" parameterType="kr.or.phonejob.pc.Dto.UserIpDto" resultType="integer">
-		select count(*) from admin where user_name=#{user_name} and user_phone=#{user_phone} 
+		select count(*) from admin where user_name=#{user_name} and user_phone=#{register}
 	</select>
 	
 	<insert id="insertIpData" parameterType="kr.or.phonejob.pc.Dto.UserIpDto">
