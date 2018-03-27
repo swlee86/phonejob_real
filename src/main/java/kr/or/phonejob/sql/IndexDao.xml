@@ -15,8 +15,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="insertIpData" parameterType="kr.or.phonejob.pc.Dto.UserIpDto">
-		insert into use_ip(ip_name,user_ip,ip_seq,register_time)
-		values(#{ip_name}, #{user_ip}, (select max(ip_seq)+1 from use_ip a), curdate())
+		insert into use_ip(ip_name,user_ip,ip_seq,register,register_time)
+		values(#{ip_name}, #{user_ip}, (select max(ip_seq)+1 from use_ip a), #{register} ,curdate())
 	</insert>
 
 
