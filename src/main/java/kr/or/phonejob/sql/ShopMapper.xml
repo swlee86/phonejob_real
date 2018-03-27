@@ -2,8 +2,11 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-
+<!--
+    작성자 : 이상원
+    목적 : PC Shop메뉴 관련 Mapper
+    작성일자 : 2017-10-04
+-->
 
 <mapper namespace="kr.or.phonejob.pc.Dao.ShopDao">
 
