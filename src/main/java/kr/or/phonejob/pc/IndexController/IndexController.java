@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import kr.or.phonejob.pc.Dto.RegisterGoogicDto;
 import kr.or.phonejob.pc.Dto.RegisterGooinDto;
 import kr.or.phonejob.pc.Dto.UserIpDto;
-import kr.or.phonejob.pc.Service.LoginService;
 import kr.or.phonejob.pc.Util.CheckUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +21,8 @@ import kr.or.phonejob.pc.Service.GoogicService;
 import kr.or.phonejob.pc.Service.GooinService;
 import kr.or.phonejob.pc.Service.IndexService;
 import kr.or.phonejob.pc.Util.MaskingUtil;
+import kr.or.phonejob.pc.Util.CheckUtil;
+
 
 @Controller
 public class IndexController {
@@ -93,7 +93,8 @@ public class IndexController {
 		  }
 
 		//메인 시작(모바일 단말기 체크)
-		boolean check = CheckUtil.isMobile(request);
+		CheckUtil util = new CheckUtil();
+		boolean check = util.isMobile(request);
 
 
 	  //해당 서비스 및 함수는 자동로그인 기능 구현 중입니다.

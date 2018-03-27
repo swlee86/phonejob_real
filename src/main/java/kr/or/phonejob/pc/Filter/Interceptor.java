@@ -4,6 +4,8 @@ import kr.or.phonejob.pc.Dto.LoginFilterDto;
 import kr.or.phonejob.pc.Service.GoogicService;
 import kr.or.phonejob.pc.Service.GooinService;
 import kr.or.phonejob.pc.Service.LoginFilterService;
+import kr.or.phonejob.pc.Util.CheckUtil;
+import kr.or.phonejob.pc.Util.MaskingUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,8 @@ public class Interceptor extends HandlerInterceptorAdapter {
 		@Override
 		public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
+			CheckUtil util = new CheckUtil();
+			boolean chectk = util.isMobile(request);
 
 			logger.info(" Login_Interceptor Request URI \t:  " + request.getRequestURI());
 			HttpServletRequest httpRequest = (HttpServletRequest) request;
@@ -126,7 +130,12 @@ public class Interceptor extends HandlerInterceptorAdapter {
 				return false;
 			}
 			*/
-			response.sendRedirect(request.getContextPath()+"/common/login.do");
+
+			if(chectk){
+				response.sendRedirect(request.getContextPath()+"/smart/s_login.do");
+			}else{
+				response.sendRedirect(request.getContextPath()+"/common/login.do");
+			}
 			return false;
 		}
 
