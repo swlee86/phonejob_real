@@ -18,6 +18,22 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
+            <bean id="loggerInterceptorPC" class="kr.or.phonejob.pc.Filter.LoggerInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean id="loginInterceptorPC" class="kr.or.phonejob.pc.Filter.Interceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+<!--
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
             <mvc:exclude-mapping path="/**/s_**/"/>
             <mvc:exclude-mapping path="/smart/**/"/>
             <mvc:exclude-mapping path="/Main.do"/>
@@ -56,5 +72,5 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
-
+-->
 </beans>

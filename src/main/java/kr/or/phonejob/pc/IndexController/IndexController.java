@@ -134,9 +134,6 @@ public class IndexController {
 		mv.addAttribute("gooinbest", gooinbest);
 		mv.addAttribute("gooinnormal", gooinnormal);
 
-
-
-
 		if(check){
 			return "smart.home.index";
 		}else{
