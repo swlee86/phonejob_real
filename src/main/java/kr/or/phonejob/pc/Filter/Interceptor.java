@@ -18,7 +18,7 @@ import java.util.List;
 
 
 @Configurable
-public class Interceptor extends HandlerInterceptorAdapter {
+public class  Interceptor extends HandlerInterceptorAdapter {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 		@Autowired
@@ -37,7 +37,7 @@ public class Interceptor extends HandlerInterceptorAdapter {
 			boolean chectk = util.isMobile(request);
 
 			logger.info(" Login_Interceptor Request URI \t:  " + request.getRequestURI());
-			HttpServletRequest httpRequest = (HttpServletRequest) request;
+			HttpServletRequest httpRequest = request;
 			httpRequest.setCharacterEncoding("UTF-8");
 			HttpSession session = request.getSession();
 
