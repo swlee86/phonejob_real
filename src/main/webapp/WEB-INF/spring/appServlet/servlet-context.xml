@@ -38,13 +38,6 @@
 	</beans:bean>
 
 
-	<beans:bean id="s_customAuthenticationSuccessHandler" class="kr.or.phonejob.smart.s_LoginController.s_CustomAuthenticationSuccessHandler">
-		<beans:property name = "sqlsession">
-			<beans:ref bean = "sqlSession"/>
-		</beans:property>
-	</beans:bean>
-
-
 
 	<!-- transaction start -->
 	<beans:bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
