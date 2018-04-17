@@ -79,7 +79,11 @@ public class GoogicController {
 		
 		if(gubun.equals("1")){
 			try{
-				url = "googic.gogicRegister";
+				if(request.getRequestURI().equals("/googic/s_googicRegister.do")){
+					url = "smart.s_googic.s_gogicRegister";
+				}else{
+					url = "googic.gogicRegister";
+				}
 				abillist = pservice.abilityService();
 				boollist = pservice.booleanService();
 				mv.addAttribute("abillist", abillist);
@@ -90,7 +94,11 @@ public class GoogicController {
 			}			
 		}else{
 			try{
-				url = "googic.notAccess";
+				if(request.getRequestURI().equals("/googic/s_googicRegister.do")){
+					url = "smart.s_googic.s_notAccess";
+				}else{
+					url = "googic.notAccess";
+				}
 				logger.info("@@@@@@@@@@@@@@이동 url" + url);
 			}catch(Exception e){
 				logger.error(e.getMessage());
@@ -103,8 +111,10 @@ public class GoogicController {
 	
 	//구직 등록시 데이터 insert 처리
 	@RequestMapping(value={"/googic/googicRegister.do","/googic/s_googicRegister.do"}, method=RequestMethod.POST)
-	public String registerGoogicOk(RegisterGoogicDto rgdto, Model mv){
-		String url="googic.googicRedirect";
+	public String registerGoogicOk(HttpServletRequest request, RegisterGoogicDto rgdto, Model mv){
+		String url;
+
+
 		String data="";
 		String movepage="";
 		logger.info("s_RegisterGoogicDto 데이터 : " + rgdto.toString());
@@ -211,15 +221,30 @@ public class GoogicController {
 			
 			if(result==1){
 				data="등록이 완료되었습니다.";
-				movepage="googic.do";
+				if(request.getRequestURI().equals("/googic/s_googicRegister.do")){
+					movepage = "s_googicMain.do";
+				}else{
+					movepage="googicMain.do";
+				}
 			}else{
 				data="등록에 실패하였습니다. 다시 시도해 주세요.";
-				movepage="googicRegister.do";	
+				if(request.getRequestURI().equals("/googic/s_googicRegister.do")){
+					movepage = "s_googicRegister.do";
+				}else{
+					movepage="googicRegister.do";
+				}
+
 			}
 			
 		}catch (Exception e) {
 			logger.info(e.getMessage());
 		}finally{
+			if(request.getRequestURI().equals("/googic/s_googicRegister.do")){
+				url = "smart.s_googic.s_googicRedirect";
+			}else{
+				url = "googic.googicRedirect";
+			}
+
 			mv.addAttribute("data", data);
 			mv.addAttribute("movepage", movepage);
 		}
@@ -227,7 +252,7 @@ public class GoogicController {
 	}
 	
 	//상세 페이지 조회
-	@RequestMapping(value="/googic/googicDetail.do", method=RequestMethod.GET)
+	@RequestMapping(value={"/googic/googicDetail.do","/googic/s_googicDetail.do"}, method=RequestMethod.GET)
 	public String googicDetail(String googic_no, Model mv){
 		String url="googic.googicDetail";
 		RegisterGoogicDto rgdto = null;
