@@ -3,7 +3,6 @@ package kr.or.phonejob.pc.BoardController;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Executable;
 import java.security.Principal;
 import java.util.List;
 

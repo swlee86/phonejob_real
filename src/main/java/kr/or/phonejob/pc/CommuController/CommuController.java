@@ -28,9 +28,9 @@ public class CommuController {
     @Autowired
     private NoticeBoardService nservice;
 
-    @RequestMapping(value = "/commu/commuMain.do", method = RequestMethod.GET)
+    @RequestMapping(value = {"/commu/commuMain.do","/commu/s_commuMain.do"}, method = RequestMethod.GET)
     public String commuMain(HttpServletRequest request, Model mv, String pagesize, String currentpage, String f, String q){
-        String url = "community.commuMain";
+        String url = null;
 
         //세션 설정
         HttpSession session = request.getSession();
@@ -38,10 +38,11 @@ public class CommuController {
         List<FreeBoardDto> list = null;
         List<NoticeBoardDto> noticelist = null;
 
+        int totalcount = 0;
+        int pagecount = 0;
 
         try{
-            int totalcount = 0;
-            int pagecount = 0;
+
 
             String field = "title";
             String query ="%%";
@@ -92,6 +93,12 @@ public class CommuController {
         }catch(Exception e){
             e.printStackTrace();
         }finally{
+            if(request.getRequestURI().equals("/commu/s_commuMain.do")){
+                url= "smart.s_community.s_commuMain";
+            }else{
+                url= "community.commuMain";
+            }
+            mv.addAttribute("pagecount", pagecount);
             mv.addAttribute("list", list);
             mv.addAttribute("noticelist", noticelist);
         }
