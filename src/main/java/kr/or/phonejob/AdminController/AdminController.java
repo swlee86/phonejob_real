@@ -30,9 +30,6 @@ public class AdminController {
     @RequestMapping(value= {"adminIpRegister.do", "s_adminIpRegister.do"}, method= RequestMethod.POST)
     public String adminIpRegister(HttpServletRequest request, UserIpDto idto, Model mv){
 
-        //세션 선언
-        HttpSession session = request.getSession();
-
         logger.info("아이피 등록 시작");
         logger.info("입력된 데이터 : " + idto.toString());
         String msg = "";
@@ -40,6 +37,8 @@ public class AdminController {
         String rePage = "";
         int insertResult = 0;
         int result = iservice.getUserData(idto);
+
+        logger.info("접근한 페이지 명 : " + request.getRequestURI());
 
         if(request.getRequestURI().equals("/adminIpRegister.do")){
             rePage ="ip.ipRedirect";
