@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <!-- Page title -->
     <title>Phone&Job</title>
 
@@ -35,7 +35,7 @@
 
 
 </head>
-<body class="boxed fixed-footer">
+<body class="boxed fixed-footer hide-sidebar smart_body">
 
 <!-- Simple splash screen-->
 <div class="splash"> <div class="color-line"></div><div class="splash-title"><img src="../images/main_logo.png" alt="Phone & Job"><p>Now loading...</p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div> <div class="rect5"></div> </div> </div> </div>
