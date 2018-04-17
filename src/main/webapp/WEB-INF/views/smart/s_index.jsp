@@ -225,26 +225,3 @@
 			</div>
 	</div>
 </div>
-
-
-<div id="popDiv" style="background-color: white; text-align: left;">
- <!-- 팝업내용 및 이미지 -->
-	<h5 style="color: blue;">1. 현재 작업 진행 상황</h5>
-	 &nbsp;&nbsp;&nbsp;-구인글 등록 / 읽기(수정 / 삭제 불가)<br/>
-	 &nbsp;&nbsp;&nbsp;-구직글 등록 / 읽기 / (수정 / 삭제 불가)<br/>
-	 &nbsp;&nbsp;&nbsp;-회원 가입(개인 / 사업자) 가능<br/>
-	 &nbsp;&nbsp;&nbsp;-커뮤니티 글쓰기 / 수정 / 삭제 가능<br/>
-	 &nbsp;&nbsp;&nbsp;-SMART 페이지 관련 지속 추가 수정 중<br/><br>
-
-	<h5 style="color: blue;">2.  반영 사항</h5>
-	 &nbsp;&nbsp;&nbsp;-전체 url 경로 수정 중으로 일부 기능 및 페이지 작동하지 않을 수 있음<br/><br/>
-	 
-	 <b>※테스트 데이터는 많을 수록 좋으므로 수시로 등록 부탁드립니다. <br/>
-	 오류 발생시 커뮤니티 게시글에 사항 남겨 주시면 확인 하겠습니다.<br/>
-	 </b>
-	 
-  <span class="close" style="font-size: 13px;">
-  <input type="checkbox" onClick="javascript:controlCOOKIE();" style="text-align: left;">오늘은 그만보기
-  &nbsp;&nbsp;&nbsp;<a href="#" onclick="closePopup('popDiv')" >닫기</a>
- </span>
-</div>
