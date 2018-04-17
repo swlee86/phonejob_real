@@ -20,8 +20,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 구직등록시 데이터 인서트 mapper -->
 	<insert id="registerGoogicOk" parameterType="kr.or.phonejob.Dto.RegisterGoogicDto">
-		INSERT INTO pj_googic(googic_no, userid, pic, username, age, location, userphone, useremail, wantjob, telhistory, profiletext, possibledate, sido, gugun, dong, title, sprofiletext, useraddr1, useraddr2, bohun, chuiboho, goji, army, handicap, hwppossible, mspossible, excelpossible, pptpossible, school, salary_detail, salary_min, salary_max)
-		values((select max(googic_no)+1 from pj_googic a), #{userid}, #{pic}, #{username}, #{age}, #{location}, #{userphone}, #{useremail}, #{wantjob}, #{telhistory}, #{profiletext}, #{possibledate}, #{sido}, #{gugun}, #{dong}, #{title}, #{sprofiletext}, #{useraddr1}, #{useraddr2}, #{bohun}, #{chuiboho}, #{goji}, #{army}, #{handicap}, #{hwppossible}, #{mspossible}, #{excelpossible}, #{pptpossible}, #{school}, #{salary_detail}, #{salary_min}, #{salary_max})
+		INSERT INTO pj_googic(googic_no, userid, pic, username, age, location, userphone, useremail, wantjob, telhistory, profiletext, possibledate, sido, gugun, dong, title, sprofiletext, useraddr1, useraddr2, bohun, chuiboho, goji, army, handicap, hwppossible, mspossible, excelpossible, pptpossible, school, salary_detail, salary_min, salary_max, wantstatus)
+		values((select max(googic_no)+1 from pj_googic a), #{userid}, #{pic}, #{username}, #{age}, #{location}, #{userphone}, #{useremail}, #{wantjob}, #{telhistory}, #{profiletext}, #{possibledate}, #{sido}, #{gugun}, #{dong}, #{title}, #{sprofiletext}, #{useraddr1}, #{useraddr2}, #{bohun}, #{chuiboho}, #{goji}, #{army}, #{handicap}, #{hwppossible}, #{mspossible}, #{excelpossible}, #{pptpossible}, #{school}, #{salary_detail}, #{salary_min}, #{salary_max}, #{wantstatus})
 	</insert>
 
 	<!-- 구직등록 업데이트 -->

@@ -117,7 +117,7 @@ public class GoogicController {
 
 		String data="";
 		String movepage="";
-		logger.info("s_RegisterGoogicDto 데이터 : " + rgdto.toString());
+		logger.info("RegisterGoogicDto 데이터 : " + rgdto.toString());
 		
 		//TelHistory 작업 시작
 		if(rgdto.getSkhistory()==null){
