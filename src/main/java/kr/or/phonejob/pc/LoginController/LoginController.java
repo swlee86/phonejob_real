@@ -22,12 +22,17 @@ public class LoginController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	//로그인 페이지 이동
-	@RequestMapping(value="/common/login.do", method=RequestMethod.GET)
+	@RequestMapping(value={"/common/login.do","/smart/s_login.do"}, method=RequestMethod.GET)
 	public String memberLogin(HttpServletRequest request){
-		String url= "login.login";
+		String url= null;
 
 		try {
 			logger.info(">>>>>로그인페이지 접근");
+			if(request.getRequestURI().equals("/smart/s_login.do")){
+				url= "smart.s_login.s_login";
+			}else{
+				url= "login.login";
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
