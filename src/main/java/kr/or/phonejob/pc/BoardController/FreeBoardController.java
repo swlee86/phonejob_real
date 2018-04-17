@@ -3,6 +3,7 @@ package kr.or.phonejob.pc.BoardController;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Executable;
 import java.security.Principal;
 import java.util.List;
 
@@ -118,16 +119,14 @@ public class FreeBoardController {
 
 		//파일 업로드
 		String path = request.getSession().getServletContext().getRealPath("../updata/free_board/");
+		File cFile = new File(path, file.getOriginalFilename());
 
 		try {
-			File cFile = new File(path, file.getOriginalFilename());
 			logger.info("cFile 내용 : " + cFile);
 			file.transferTo(cFile);
-		} catch (IllegalStateException e1) {
+		} catch (Exception e1) {
 			e1.printStackTrace();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}finally {
+		} finally {
 
 		}
 
@@ -385,15 +384,16 @@ public class FreeBoardController {
 			HttpSession session = request.getSession();
 
 			//파일 업로드
-			String path = request.getRealPath("../updata/free_board/");
+			String path = request.getSession().getServletContext().getRealPath("../updata/free_board/");
+			File cFile = new File(path, file.getOriginalFilename());
+
 			try {
-				File cFile = new File(path, file.getOriginalFilename());
 				logger.info("cFile 내용 : " + cFile);
 				file.transferTo(cFile);
-			} catch (IllegalStateException e1) {
+			} catch (Exception e1) {
 				e1.printStackTrace();
-			} catch (IOException e1) {
-				e1.printStackTrace();
+			}finally{
+
 			}
 		
 		//게시판에 넣을 데이터 작업 시작
