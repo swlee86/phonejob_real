@@ -184,7 +184,7 @@ public class GoogicController {
 			rgdto.setFivejob("-");
 		}
 
-		String school;
+		String school=null;
 
 		if(null!=rgdto.getOnename()||!"".equals(rgdto.getOnename())||0!=rgdto.getOnename().length()) {
 			school = rgdto.getOnename() + "," + rgdto.getOnedate_1() + "," + rgdto.getOnedate_2() + "," + rgdto.getOnejob();
@@ -192,7 +192,7 @@ public class GoogicController {
 		}
 		
 		if(null!=rgdto.getTwoname()||!"".equals(rgdto.getTwoname())||0!=rgdto.getTwoname().length()){
-			school=school +"||"+ rgdto.getTwoname()+","+rgdto.getTwodate_1()+","+rgdto.getTwodate_2()+","+rgdto.getTwojob();
+			school= school +"||"+ rgdto.getTwoname()+","+rgdto.getTwodate_1()+","+rgdto.getTwodate_2()+","+rgdto.getTwojob();
 			rgdto.setSchool(school);
 		}
 		
