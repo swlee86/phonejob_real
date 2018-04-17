@@ -70,7 +70,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 							  #{username},
 							  #{credential_id},
 							  #{volunteeryn},
-							  current_timestamp
+							  DATE_FORMAT(now(), '%Y-%m-%d %H:%i:%s')
 							)
 	</insert>
 

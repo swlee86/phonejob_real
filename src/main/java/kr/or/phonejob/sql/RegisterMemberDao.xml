@@ -2,8 +2,11 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-
+<!--
+생성일자 : 2017-06-10
+생성자 : 이상원
+생성목적 : 개인 회원 가입 sql xml
+-->
 
 <mapper namespace="kr.or.phonejob.Dao.RegisterMemberDao">
 	
