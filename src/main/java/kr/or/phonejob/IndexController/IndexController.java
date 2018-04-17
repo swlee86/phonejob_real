@@ -86,14 +86,13 @@ public class IndexController {
 		  if( iOk == 0){
 			  msg="<B>Access Denied : 현재 접속하신 아이피는 " + cIp + "입니다 </B>";
 			  mv.addAttribute("msg", msg);
-
+			  mv.addAttribute("cIp", cIp);
 
               if(request.getRequestURI().equals("/s_Main.do")){
                   return "smart/s_lock";
               }else{
                   return "pc/lock";
               }
-
 		  }
 
 

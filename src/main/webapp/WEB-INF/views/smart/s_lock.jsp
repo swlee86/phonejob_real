@@ -31,7 +31,7 @@
 						</tr>
 						<tr>
 							<td>휴대전화번호 : </td>
-							<td><input type="text" name="user_phone" placeholder="- 없이 입력"></td>
+							<td><input type="text" name="register" placeholder="- 없이 입력"></td>
 						</tr>
 						<tr>
 							<td>등록할 아이피 명칭 : </td>
