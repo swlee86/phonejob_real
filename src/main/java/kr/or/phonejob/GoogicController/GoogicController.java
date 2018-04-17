@@ -191,22 +191,22 @@ public class GoogicController {
 						
 		
 		if(null!=rgdto.getTwoname()){
-			school=school + rgdto.getTwoname()+","+rgdto.getTwodate_1()+","+rgdto.getTwodate_2()+","+rgdto.getTwojob();
+			school=school +"||"+ rgdto.getTwoname()+","+rgdto.getTwodate_1()+","+rgdto.getTwodate_2()+","+rgdto.getTwojob();
 			rgdto.setSchool(school);
 		}
 		
 		if(null!=rgdto.getThreename()){
-			school=school + rgdto.getThreename()+","+rgdto.getThreedate_1()+","+rgdto.getThreedate_2()+","+rgdto.getThreejob();
+			school=school +"||"+ rgdto.getThreename()+","+rgdto.getThreedate_1()+","+rgdto.getThreedate_2()+","+rgdto.getThreejob();
 			rgdto.setSchool(school);
 		}
 		
 		if(null!=rgdto.getFourname()){
-			school=school + rgdto.getFourname()+","+rgdto.getFourdate_1()+","+rgdto.getFourdate_2()+","+rgdto.getFourjob();
+			school=school +"||"+ rgdto.getFourname()+","+rgdto.getFourdate_1()+","+rgdto.getFourdate_2()+","+rgdto.getFourjob();
 			rgdto.setSchool(school);
 		}
 		
 		if(null!=rgdto.getFivename()){
-			school=school + rgdto.getFivename()+","+rgdto.getFivedate_1()+","+rgdto.getFivedate_2()+","+rgdto.getFivejob();
+			school=school +"||"+ rgdto.getFivename()+","+rgdto.getFivedate_1()+","+rgdto.getFivedate_2()+","+rgdto.getFivejob();
 			rgdto.setSchool(school);
 		}
 		

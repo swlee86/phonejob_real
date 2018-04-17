@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import kr.or.phonejob.Dto.MemberDetailDto;
 import kr.or.phonejob.Dto.RegisterMemberDto;
 import kr.or.phonejob.Dto.RegisterGradeDto;
-import kr.or.phonejob.Service.LoginService;
 import kr.or.phonejob.Service.RegisterService;
 
 @Controller
