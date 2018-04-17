@@ -25,20 +25,16 @@ public class LoginController {
 	@RequestMapping(value={"/common/login.do","/smart/s_login.do"}, method=RequestMethod.GET)
 	public String memberLogin(HttpServletRequest request){
 		String url= null;
+		logger.info(">>>>>로그인페이지 접근");
 
-		try {
-			logger.info(">>>>>로그인페이지 접근");
-			if(request.getRequestURI().equals("/smart/s_login.do")){
-				url= "smart.s_login.s_login";
-			}else{
-				url= "login.login";
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally{
-			logger.info(">>>>>연결 URL : " + url);
+		if(request.getRequestURI().equals("/smart/s_login.do")){
+			url= "smart.s_login.s_login";
+		}else{
+			url= "login.login";
 		}
-			return url;
+		logger.info(">>>>>연결 URL : " + url);
+
+		return url;
 	}
 	
 	
