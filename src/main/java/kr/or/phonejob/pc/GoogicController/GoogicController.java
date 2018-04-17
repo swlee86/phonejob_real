@@ -33,8 +33,8 @@ public class GoogicController {
 	
 	
 	//구직 등록 리스트 메뉴 이동
-	@RequestMapping(value="/googic/googicMain.do", method=RequestMethod.GET)
-	public String googic(Model mv){
+	@RequestMapping(value={"/googic/googicMain.do","/googic/s_googicMain.do"}, method=RequestMethod.GET)
+	public String googic(HttpServletRequest request, Model mv){
 		String url="googic.googic";
 		
 		
@@ -54,6 +54,12 @@ public class GoogicController {
 			logger.info(e.getMessage());
 			e.getStackTrace();
 		}finally{
+			if(request.getRequestURI().equals("/googic/s_googicMain.do")){
+				url= "smart.s_googic.s_googic";
+			}else{
+				url= "googic.googic";
+			}
+
 			mv.addAttribute("result", result);
 			logger.info("@@@@@@@@@@@@@@이동 url" + url);			
 		}
