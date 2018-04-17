@@ -112,9 +112,10 @@ public class GoogicController {
 	//구직 등록시 데이터 insert 처리
 	@RequestMapping(value={"/googic/googicRegister.do","/googic/s_googicRegister.do"}, method=RequestMethod.POST)
 	public String registerGoogicOk(HttpServletRequest request, RegisterGoogicDto rgdto, Model mv){
+
+		HttpSession session = request.getSession();
+
 		String url;
-
-
 		String data="";
 		String movepage="";
 		logger.info("RegisterGoogicDto 데이터 : " + rgdto.toString());
@@ -221,6 +222,9 @@ public class GoogicController {
 			
 			if(result==1){
 				data="등록이 완료되었습니다.";
+				session.setAttribute("change_value", "구직등록 성공");
+				session.setAttribute("error_cd", "0000000");
+
 				if(request.getRequestURI().equals("/googic/s_googicRegister.do")){
 					movepage = "s_googicMain.do";
 				}else{
@@ -228,6 +232,9 @@ public class GoogicController {
 				}
 			}else{
 				data="등록에 실패하였습니다. 다시 시도해 주세요.";
+				session.setAttribute("change_value", "구직등록 실패");
+				session.setAttribute("error_cd", "9999999");
+
 				if(request.getRequestURI().equals("/googic/s_googicRegister.do")){
 					movepage = "s_googicRegister.do";
 				}else{

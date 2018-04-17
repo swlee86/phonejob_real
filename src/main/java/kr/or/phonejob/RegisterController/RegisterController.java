@@ -1,6 +1,7 @@
 package kr.or.phonejob.RegisterController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,7 +55,9 @@ public class RegisterController {
 	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor=Exception.class)
 	@RequestMapping(value={"/common/privateRegister.do","/smart/s_privateRegister.do"}, method=RequestMethod.POST)
 	public String privateRegisterOk(HttpServletRequest request, Model mv, RegisterMemberDto rdto){
-		
+
+		HttpSession session = request.getSession();
+
 		String page=null;
 		String data=null;
 		String movepage=null;
@@ -146,6 +149,8 @@ public class RegisterController {
 			
 			if(result1==1 && result2==1 &&result3==1 && result4==1){
 				data="회원가입에 성공하였습니다.";
+				session.setAttribute("change_value", "회원가입 성공");
+				session.setAttribute("error_cd", "0000000");
 
 				if(request.getRequestURI().equals("/smart/s_privateRegister.do")){
 					movepage="../s_Main.do";
@@ -156,6 +161,8 @@ public class RegisterController {
 				}
 			}else{
 				data="회원가입에 실패하였습니다. 잠시 후 다시 시도해 주세요";
+				session.setAttribute("change_value", "회원가입 실패");
+				session.setAttribute("error_cd", "9999999");
 
 				if (!request.getRequestURI().equals("/smart/s_privateRegister.do")) {
 					movepage="../common/privateRegister.do";
