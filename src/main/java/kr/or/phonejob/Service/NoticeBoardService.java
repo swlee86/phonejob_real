@@ -111,7 +111,7 @@ public class NoticeBoardService implements NoticeBoardDao {
 
 	@Override
 	public List<NoticeBoardDto> selectList(int start, int end, String field, String query) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
@@ -124,7 +124,7 @@ public class NoticeBoardService implements NoticeBoardDao {
 
 	@Override
 	public int updateRow(NoticeBoardDto freeBoard) {
-		// TODO Auto-generated method stub
+
 		return 0;
 	}
 	

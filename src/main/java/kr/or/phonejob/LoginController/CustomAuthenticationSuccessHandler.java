@@ -64,7 +64,6 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
    
    
    public CustomAuthenticationSuccessHandler() {
-      // TODO Auto-generated constructor stub
       targetUrlParameter = "";
       defaultUrl = "/Main.do";
       useReferer = false;

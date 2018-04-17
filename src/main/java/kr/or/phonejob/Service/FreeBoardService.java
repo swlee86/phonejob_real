@@ -102,7 +102,7 @@ public class FreeBoardService implements FreeBoardDao {
 
 	@Override
 	public List<FreeBoardDto> selectList(int start, int end, String field, String query) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
@@ -115,7 +115,7 @@ public class FreeBoardService implements FreeBoardDao {
 
 	@Override
 	public int updateRow(FreeBoardDto freeBoard) {
-		// TODO Auto-generated method stub
+
 		return 0;
 	}
 	
