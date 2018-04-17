@@ -16,12 +16,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 개인회원가입 pj_users 입력 -->
 	<insert id="privateRegister_2" parameterType="kr.or.phonejob.Dto.RegisterMemberDto">
 		 INSERT INTO pj_users(credential_id, userid, alive)
-		 VALUES(CREDENTAIL_NUM.nextval, #{userid}, #{alive})
+		 VALUES((select max(credential_id)+1 from pj_users a), #{userid}, #{alive})
 	</insert>
 	
 	<!-- 회원가입시 pj_users 테이블에서 살아 있는 아이디의 Credential_id 추출 -->
 	<select id="privateRegisterSelect" resultType="kr.or.phonejob.Dto.MemberDetailDto">
-		Select credential_id, userid, alive from pj_users
+		SELECT credential_id, userid, alive from pj_users
 		where userid=#{userid} and alive='1'
 	</select>
 		
@@ -34,7 +34,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 기업회원가입 pj_mem_d 입력 -->
 	<insert id="comRegister_3" parameterType="kr.or.phonejob.Dto.RegisterMemberDto">
 		INSERT INTO pj_mem_d(credential_id, username, userbirth, usermail, useraddr1 ,useraddr2, addrnum, comname, comidfyno)
-	    VALUES(#{credential_id}, #{username}, TO_DATE(#{userbirth},'YYYY-MM-DD'), #{usermail}, #{useraddr1}, #{useraddr2}, #{addrnum}, #{comname}, #{comidfyno})
+	    VALUES(#{credential_id}, #{username}, DATE_FORMAT(#{userbirth}, '%Y-%m-%d'),, #{usermail}, #{useraddr1}, #{useraddr2}, #{addrnum}, #{comname}, #{comidfyno})
 	</insert>
 	
 	<!-- 기업회원가입 pj_com_key 입력 -->
