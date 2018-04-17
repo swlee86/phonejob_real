@@ -6,26 +6,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 
-<mapper namespace="kr.or.phonejob.pc.Dao.GoogicDao">
+<mapper namespace="kr.or.phonejob.Dao.GoogicDao">
 
 	<!-- 구직게시판 이동시 리스트 불러옴 -->
-	<select id="selectGoogic" resultType="kr.or.phonejob.pc.Dto.RegisterGoogicDto">
+	<select id="selectGoogic" resultType="kr.or.phonejob.Dto.RegisterGoogicDto">
 		select * from pj_googic
 	</select>
 	
-	<select id="googicDetail" resultType="kr.or.phonejob.pc.Dto.RegisterGoogicDto">
+	<select id="googicDetail" resultType="kr.or.phonejob.Dto.RegisterGoogicDto">
 		select * from pj_googic where googic_no=#{googic_no}
 	</select>
 
 
 	<!-- 구직등록시 데이터 인서트 mapper -->
-	<insert id="registerGoogicOk" parameterType="kr.or.phonejob.pc.Dto.RegisterGoogicDto">
+	<insert id="registerGoogicOk" parameterType="kr.or.phonejob.Dto.RegisterGoogicDto">
 		INSERT INTO pj_googic(googic_no, userid, pic, username, age, location, userphone, useremail, wantjob, telhistory, profiletext, possibledate, sido, gugun, dong, title, sprofiletext, useraddr1, useraddr2, bohun, chuiboho, goji, army, handicap, hwppossible, mspossible, excelpossible, pptpossible, school, salary_detail, salary_min, salary_max)
 		values(googic_seq.nextval, #{userid}, #{pic}, #{username}, #{age}, #{location}, #{userphone}, #{useremail}, #{wantjob}, #{telhistory}, #{profiletext}, #{possibledate}, #{sido}, #{gugun}, #{dong}, #{title}, #{sprofiletext}, #{useraddr1}, #{useraddr2}, #{bohun}, #{chuiboho}, #{goji}, #{army}, #{handicap}, #{hwppossible}, #{mspossible}, #{excelpossible}, #{pptpossible}, #{school}, #{salary_detail}, #{salary_min}, #{salary_max})
 	</insert>
 
 	<!-- 구직등록 업데이트 -->
-	<update id="updateGoogicOk" parameterType="kr.or.phonejob.pc.Dto.RegisterGoogicDto">
+	<update id="updateGoogicOk" parameterType="kr.or.phonejob.Dto.RegisterGoogicDto">
 		UPDATE pj_googic 
 		SET pic=#{pic}, username=#{username}, age=#{age}, location=#{location}, sido=#{sido}, gugun=#{gugun}, dong=#{dong}, possibledate=#{possibledate}, userphone=#{userphone}, useremail=#{useremail}, wantjob=#{wantjob}, telhistory=#{telhistory}, profiletext=#{profiletext}
 		WHERE googic_no=#{googic_no}

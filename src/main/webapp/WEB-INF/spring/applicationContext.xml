@@ -85,7 +85,7 @@
 	<!-- transaction end -->
 	
 	<!-- Security Login Customise -->
-	<bean id="customAuthenticationSuccessHandler" class="kr.or.phonejob.pc.LoginController.CustomAuthenticationSuccessHandler">
+	<bean id="customAuthenticationSuccessHandler" class="kr.or.phonejob.LoginController.CustomAuthenticationSuccessHandler">
 	<property name="sqlsession">
 		<ref bean = "sqlSession"/>
 	</property>

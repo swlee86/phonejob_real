@@ -8,14 +8,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     작성일자 : 2017-10-04
 -->
 
-<mapper namespace="kr.or.phonejob.pc.Dao.ShopDao">
+<mapper namespace="kr.or.phonejob.Dao.ShopDao">
 
-    <select id="selectPhoneList" resultType="kr.or.phonejob.pc.Dto.ShopDto">
+    <select id="selectPhoneList" resultType="kr.or.phonejob.Dto.ShopDto">
         SELECT *
         FROM phone_detail
     </select>
 
-    <select id="selectPhoneDetail" resultType="kr.or.phonejob.pc.Dto.ShopDto">
+    <select id="selectPhoneDetail" resultType="kr.or.phonejob.Dto.ShopDto">
         SELECT *
         FROM phone_detail
         WHERE 1=1

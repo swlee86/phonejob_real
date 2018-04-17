@@ -5,16 +5,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 
-<mapper namespace="kr.or.phonejob.pc.Dao.IndexDao">
-	<select id="getUserIp" resultType="kr.or.phonejob.pc.Dto.UserIpDto">
+<mapper namespace="kr.or.phonejob.Dao.IndexDao">
+	<select id="getUserIp" resultType="kr.or.phonejob.Dto.UserIpDto">
 		select user_ip from use_ip
 	</select>
 
-	<select id="getUserData" parameterType="kr.or.phonejob.pc.Dto.UserIpDto" resultType="integer">
+	<select id="getUserData" parameterType="kr.or.phonejob.Dto.UserIpDto" resultType="integer">
 		select count(*) from admin where user_name=#{user_name} and user_phone=#{register}
 	</select>
 	
-	<insert id="insertIpData" parameterType="kr.or.phonejob.pc.Dto.UserIpDto">
+	<insert id="insertIpData" parameterType="kr.or.phonejob.Dto.UserIpDto">
 		insert into use_ip(ip_name,user_ip,ip_seq,register,register_time)
 		values(#{ip_name}, #{user_ip}, (select max(ip_seq)+1 from use_ip a), #{register} ,curdate())
 	</insert>

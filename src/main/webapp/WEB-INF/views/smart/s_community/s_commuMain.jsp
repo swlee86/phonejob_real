@@ -15,7 +15,7 @@
                 <span class="pull-right">
                     <i class="fa fa-clock-o"> </i> Last modification: 10.12.2015, 10:22 am
                 </span>
-        <a href="../notice/noticeBoardMain.do"> 공지사항</a>
+        <a href="../notice/s_noticeBoardMain.do"> 공지사항</a>
     </div>
     <%--
     <c:choose>
@@ -63,7 +63,7 @@
                 <span class="pull-right">
                     <i class="fa fa-clock-o"> </i> 마지막게시글: 11.10.2015, 08:10 am
                 </span>
-        <a href="../free/freeboardMain.do"> 자유게시판</a>
+        <a href="../free/s_freeboardMain.do"> 자유게시판</a>
     </div>
     <%--
     <c:choose>
@@ -74,7 +74,7 @@
                     <div class="row">
                         <div class="col-md-10 forum-heading">
                             <span class="label label-warning pull-left">New</span>
-                            <a href="../free/freeDetail.do?free_no=${freelist.free_no}" >
+                            <a href="../free/s_freeDetail.do?free_no=${freelist.free_no}" >
                                 <h4>${freelist.title}</h4>
                             </a>
                         </div>

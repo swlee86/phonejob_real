@@ -4,10 +4,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="kr.or.phonejob.pc.Dao.FreeBoardDao">
+<mapper namespace="kr.or.phonejob.Dao.FreeBoardDao">
 
 <!-- Free 게시판 글 리스트를 불러오는 쿼리문  -->
-	<select id="selectList" resultType="kr.or.phonejob.pc.Dto.FreeBoardDto">
+	<select id="selectList" resultType="kr.or.phonejob.Dto.FreeBoardDto">
 		select t.*
 		from
   		(
@@ -36,7 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- Free Board list에서 글을 클릭하면 글 내용을 불러오는 쿼리문 -->
 	<!-- Free Board 글 내용에서 답글을 누르면 답글을 띄울 때 본문 내용을 에디터에 띄워주는 쿼리문 -->
-	<select id="selectDetail" resultType="kr.or.phonejob.pc.Dto.FreeBoardDto">
+	<select id="selectDetail" resultType="kr.or.phonejob.Dto.FreeBoardDto">
 		select 
 			free_no, 
 			title, 
@@ -58,7 +58,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<!-- Free board list에서 글을 클릭하여 내용을 불러올 때 댓글 내용도 불러오는 쿼리문 -->	
-	<select id="selectReList" resultType="kr.or.phonejob.pc.Dto.Re_FreeBoardDto">
+	<select id="selectReList" resultType="kr.or.phonejob.Dto.Re_FreeBoardDto">
 		select
       		re_no,
       		free_no,
@@ -74,7 +74,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<!-- 글 수정시 업데이트 쿼리 -->
-	<update id="updateArticle" parameterType="kr.or.phonejob.pc.Dto.FreeBoardDto">
+	<update id="updateArticle" parameterType="kr.or.phonejob.Dto.FreeBoardDto">
 		update pj_freeboard	set	title=#{title},	content=#{content}, filename=#{filename} where free_no=#{free_no}
 	</update>
 
@@ -86,13 +86,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 <!-- 글쓰기 진행시 글을 인서트 하는 쿼리문 -->
-<insert id="insertArticle" parameterType="kr.or.phonejob.pc.Dto.FreeBoardDto">
+<insert id="insertArticle" parameterType="kr.or.phonejob.Dto.FreeBoardDto">
 insert into pj_freeboard(free_no, credential_id, userid, refer, depth, step, hit, title, regdate, filename, content )
 values((select max(PJ_FREEBOARD_NO)+1 from pj_free_board a), #{credential_id}, #{userid}, #{refer}, #{depth}, #{step}, #{hit}, #{title}, to_char(sysdate, 'YYYY-MM-DD'), #{filename},#{content})
 </insert>
 
 <!-- 댓글 달 때 댓글을 인서트 하는 쿼리문 -->
-<insert id="insertReply" parameterType="kr.or.phonejob.pc.Dto.Re_FreeBoardDto">
+<insert id="insertReply" parameterType="kr.or.phonejob.Dto.Re_FreeBoardDto">
 insert into pj_re_freeboard
 	(
 		re_no, 

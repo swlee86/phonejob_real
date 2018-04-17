@@ -5,10 +5,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 
-<mapper namespace="kr.or.phonejob.pc.Dao.LogSaveDao">
+<mapper namespace="kr.or.phonejob.Dao.LogSaveDao">
 
 
-	<insert id="loghitsave" parameterType="kr.or.phonejob.pc.Dto.LogSaveDto">
+	<insert id="loghitsave" parameterType="kr.or.phonejob.Dto.LogSaveDto">
 		INSERT INTO pj_loghit(
 		USERID,
 		CREDENTIAL_ID,
@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 
-	<insert id="loghstsave" parameterType="kr.or.phonejob.pc.Dto.LogSaveDto">
+	<insert id="loghstsave" parameterType="kr.or.phonejob.Dto.LogSaveDto">
 		INSERT INTO pj_log_chg_hst(
 				USERID,
 				CREDENTIAL_ID,
