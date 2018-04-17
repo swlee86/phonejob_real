@@ -164,23 +164,23 @@ public class GoogicController {
 		
 		
 		//학력 정보 Merge 작업
-		if(null==rgdto.getOnejob()){
+		if(null==rgdto.getOnejob()||"".equals(rgdto.getOnejob())){
 			rgdto.setOnejob("-");
 		}
 		
-		if(null==rgdto.getTwojob()){
+		if(null==rgdto.getTwojob()||"".equals(rgdto.getTwojob())){
 			rgdto.setTwojob("-");
 		}
 		
-		if(null==rgdto.getThreejob()){
+		if(null==rgdto.getThreejob()||"".equals(rgdto.getThreejob())){
 			rgdto.setThreejob("-");
 		}
 		
-		if(null==rgdto.getFourjob()){
+		if(null==rgdto.getFourjob()||"".equals(rgdto.getFourjob())){
 			rgdto.setFourjob("-");
 		}
 		
-		if(null==rgdto.getFivejob()){
+		if(null==rgdto.getFivejob()||"".equals(rgdto.getFivejob())){
 			rgdto.setFivejob("-");
 		}
 		
