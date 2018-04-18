@@ -96,30 +96,6 @@
     });
 
 
-
-    function article_register(){
-        swal({
-            title: "확인",
-            text: "공지사항을 등록 하시겠습니까?",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#DD6B55",
-            confirmButtonText: "네",
-            cancelButtonText: "아니오",
-            closeOnConfirm: false,
-            closeOnCancel: false },
-        function (isConfirm) {
-            if (isConfirm) {
-                swal("등록 진행", "글 등록을 진행합니다", "success");
-                return true;
-            } else {
-                swal("등록 취소", "글 등록이 취소 되었습니다:)", "error");
-                return false;
-            }
-        });
-    }
-
-
     $('.article-register').click(function () {
         swal({
                 title: "확인",
@@ -136,7 +112,7 @@
                     swal("등록 진행", "글 등록을 진행합니다", "success");
                     $.ajax({
                         type: 'POST' ,
-                        url: 'noticeWrite.do' ,
+                        url: '/notice/noticeWrite.do' ,
                         data : $('form').serialize(),
                         success: function(data) {
                             console.log(data);

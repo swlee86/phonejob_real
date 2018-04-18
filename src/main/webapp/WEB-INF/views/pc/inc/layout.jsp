@@ -43,7 +43,7 @@
 
 
 </head>
-<body class="boxed fixed-footer" onload="openPopup('popDiv', 350, 450, 150, 200);"> <!-- openPopup(width, height, top, left) -->
+<body class="boxed fixed-footer">
 
 
 <!-- Simple splash screen-->
