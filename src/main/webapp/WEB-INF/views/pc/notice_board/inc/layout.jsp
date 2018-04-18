@@ -112,7 +112,7 @@
                     swal("등록 진행", "글 등록을 진행합니다", "success");
                     $.ajax({
                         type: 'POST' ,
-                        url: '/notice/noticeWrite.do' ,
+                        url: 'noticeWrite.do' ,
                         data : $('form').serialize(),
                         success: function(data) {
                             console.log(data);
@@ -142,10 +142,10 @@
     			success: function(data) {
     				console.log(data);
     				if(data==1){
-                        alert($("#listno").val()+'번글 삭제 처리 완료');
+                        alert($("#notice_no").val()+'번글 삭제 처리 완료');
     					window.location.replace('../notice/noticeBoardMain.do');
     				}else{
-    					alert($("#listno").val()+'번글 삭제 실패. 잠시 후 다시 시도해 주세요');
+    					alert($("#notice_no").val()+'번글 삭제 실패. 잠시 후 다시 시도해 주세요');
     				}
     			}
     		});

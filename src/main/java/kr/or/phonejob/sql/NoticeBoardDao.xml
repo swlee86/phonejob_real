@@ -127,12 +127,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 글 제거 -->
 <delete id="deleteRow">
-	delete pj_noticeboard where notice_no=#{notice_no}
+	DELETE FROM pj_noticeboard where notice_no=#{notice_no}
 </delete>
 
 <!-- 리플 삭제 -->
 <delete id="deleteReply">
-	delete pj_re_noticeboard where notice_no=#{notice_no}
+	DELETE FROM pj_re_noticeboard where notice_no=#{notice_no}
 </delete>
 	
 <!-- 리플 갯수 구해오기(삭제할 글의) -->	
