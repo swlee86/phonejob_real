@@ -110,10 +110,10 @@ public class NoticeBoardController {
 
 	//글쓰기 누르면 인서트 시키는 서비스 함수 + 파일업로드
 	@RequestMapping(value="/notice/noticeWrite.do", method=RequestMethod.POST)
-	public void notice_board_write_ok(@RequestParam("uploadfile") MultipartFile file, NoticeBoardDto board, Model mv, HttpServletRequest request, HttpServletResponse response){
+	public void notice_board_write_ok(NoticeBoardDto board, Model mv, HttpServletRequest request, HttpServletResponse response){
 
-
-		//파일 업로드
+		/*
+		--파일업로드
 		String path = request.getSession().getServletContext().getRealPath("/updata/notice_board/");
 
 		logger.info("파일 업로드 path : " +path);
@@ -129,6 +129,7 @@ public class NoticeBoardController {
 		}finally {
 
 		}
+		*/
 
 
 		//로그인시 만들어진 세션 정보를 불러옴!!
@@ -146,7 +147,7 @@ public class NoticeBoardController {
 		board.setDepth(0);
 		board.setStep(0);
 		board.setHit(0);
-		board.setFilename(file.getOriginalFilename());
+		//board.setFilename(file.getOriginalFilename());
 
 		logger.info("데이터 입력처리 될 boardDto : " + board.toString());
 

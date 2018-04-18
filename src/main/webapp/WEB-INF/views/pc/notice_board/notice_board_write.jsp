@@ -14,23 +14,12 @@
 				<form method="POST" class="form-horizontal"> <%--enctype="multipart/form-data"--%>
 				<div class="panel-heading hbuilt">
 					<div class="p-xs">
-							<div class="form-group">
-								<label class="col-sm-1 control-label text-left">제 목</label>
-								<div class="col-sm-11">
-									<input type="text" class="form-control input-sm" placeholder="제목" name="title">
-								</div>
+						<div class="form-group">
+							<label class="col-sm-1 control-label text-left">제 목</label>
+							<div class="col-sm-11">
+								<input type="text" class="form-control input-sm" placeholder="제목" name="title">
 							</div>
-							<div class="form-group">
-								<label class="col-sm-1 control-label text-left">첨부파일
-								</label>
-								<%--
-								<div class="col-sm-11">
-									<div>
-										<input type="file" class="btn btn-default" name="uploadfile" style="text-align: left;">
-									</div>
-								</div>
-								--%>
-							</div>
+						</div>
 					</div>
 				</div>
 				<div class="panel-body no-padding">
