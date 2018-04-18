@@ -75,6 +75,27 @@
 
 
 <script>
+    $(function () {
+        // Initialize summernote plugin
+        $('.summernote').summernote();
+
+        var sHTML = $('.summernote').code();
+
+        $('.summernote1').summernote({
+            toolbar: [
+                ['headline', ['style']],
+                ['style', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
+                ['textsize', ['fontsize']],
+                ['alignment', ['ul', 'ol', 'paragraph', 'lineheight']],
+            ]
+        });
+
+        $('.summernote2').summernote({
+            airMode: true,
+        });
+    });
+
+
 
     function article_register(){
         swal({
@@ -133,29 +154,6 @@
                 }
             });
     });
-
-    $(function () {
-        // Initialize summernote plugin
-        $('.summernote').summernote();
-
-        var sHTML = $('.summernote').code();
-
-        $('.summernote1').summernote({
-            toolbar: [
-                ['headline', ['style']],
-                ['style', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
-                ['textsize', ['fontsize']],
-                ['alignment', ['ul', 'ol', 'paragraph', 'lineheight']],
-            ]
-        });
-
-        $('.summernote2').summernote({
-            airMode: true,
-        });
- });
-
-
-
 
     function delete_notice_event(){
     	if (confirm("정말 삭제하시겠습니까??") == true){    //확인
