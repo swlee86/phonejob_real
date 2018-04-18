@@ -76,8 +76,86 @@
 
 <script>
 
-    $(function () {
+    function article_register(){
+        swal({
+            title: "확인",
+            text: "공지사항을 등록 하시겠습니까?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "네",
+            cancelButtonText: "아니오",
+            closeOnConfirm: false,
+            closeOnCancel: false },
+        function (isConfirm) {
+            if (isConfirm) {
+                swal("등록 진행", "글 등록을 진행합니다", "success");
+                return true;
+            } else {
+                swal("등록 취소", "글 등록이 취소 되었습니다:)", "error");
+                return false;
+            }
+        });
+    }
 
+
+    $('.article-register').click(function () {
+        swal({
+                title: "확인",
+                text: "공지사항을 등록 하시겠습니까?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "네",
+                cancelButtonText: "아니오",
+                closeOnConfirm: false,
+                closeOnCancel: false },
+            function (isConfirm) {
+                if (isConfirm) {
+                    swal("등록 진행", "글 등록을 진행합니다", "success");
+                    $.ajax({
+                        type: 'POST' ,
+                        url: 'noticeWrite.do' ,
+                        data : $('form').serialize(),
+                        success: function(data) {
+                            console.log(data);
+                            if(data==1){
+                                alert('공지사항 등록 처리 완료');
+                                window.location.replace('../notice/noticeBoardMain.do');
+                            }else{
+                                alert('등록 실패. 잠시 후 다시 시도해 주세요');
+                            }
+                        }
+                    });
+                } else {
+                    swal("등록 취소", "글 등록이 취소 되었습니다:)", "error");
+                    return false;
+                }
+            });
+    });
+
+
+    Command: toastr["success"]("Example message ", "Example title")
+
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-center",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+
+    $(function () {
         // Initialize summernote plugin
         $('.summernote').summernote();
 
@@ -95,19 +173,19 @@
         $('.summernote2').summernote({
             airMode: true,
         });
-        
-
-
  });
 
-        function delete_notice_event(){
+
+
+
+    function delete_notice_event(){
     	if (confirm("정말 삭제하시겠습니까??") == true){    //확인
-    		var list_no= "list_no=" + $("#listno").val();
+    		var list_no= "notice_no=" + $("#notice_no").val();
     		console.log(list_no);
     		$.ajax({
     			type: 'POST' ,
     			url: 'noticeDelete.do' ,
-    			data : list_no ,
+    			data : notice_no ,
     			success: function(data) {
     				console.log(data);
     				if(data==1){

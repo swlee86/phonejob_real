@@ -110,7 +110,7 @@ public class NoticeBoardController {
 
 	//글쓰기 누르면 인서트 시키는 서비스 함수 + 파일업로드
 	@RequestMapping(value="/notice/noticeWrite.do", method=RequestMethod.POST)
-	public String notice_board_write_ok(@RequestParam("uploadfile") MultipartFile file, NoticeBoardDto board, Model mv, HttpServletRequest request){
+	public String notice_board_write_ok(@RequestParam("uploadfile") MultipartFile file, NoticeBoardDto board, Model mv, HttpServletRequest request, HttpServletResponse response){
 
 
 		//파일 업로드
@@ -151,6 +151,32 @@ public class NoticeBoardController {
 		logger.info("데이터 입력처리 될 boardDto : " + board.toString());
 
 
+
+		try{
+			int result = 0;
+
+			response.setContentType("text/html;charset=euc-kr");
+			PrintWriter out = response.getWriter();
+			result = noticeservice.insertArticle(board);
+
+			if(result>0){
+				out.println("1");
+				session.setAttribute("change_value", "공지사항 글 입력 성공");
+				session.setAttribute("error_cd", "0000000");
+			}else{
+				out.println("0");
+				session.setAttribute("change_value", "공지사항 글 입력 실패");
+				session.setAttribute("error_cd", "9999999");
+			}
+
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+
+		}
+
+
+		/*
 		int result = 0;
 		String link = "../notice/noticeBoardMain.do";
 		String msg = null;
@@ -171,6 +197,7 @@ public class NoticeBoardController {
 			mv.addAttribute("link", link);
 			mv.addAttribute("msg", msg);
 		}
+		*/
 		return "notice_board.notice_redirect";
 	}
 
