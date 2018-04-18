@@ -108,7 +108,6 @@
             },
             function (isConfirm) {
                 if (isConfirm) {
-                    swal("등록 진행", "글 등록을 진행합니다", "success");
                     $.ajax({
                         type: 'POST' ,
                         url: 'noticeWrite.do' ,
@@ -116,10 +115,12 @@
                         success: function(data) {
                             console.log(data);
                             if(data==1){
-                                alert('공지사항 등록 처리 완료');
+                                swal("처리 결과", "공지사항 등록 처리 완료", "success");
+                                //alert('공지사항 등록 처리 완료');
                                 window.location.replace('../notice/noticeBoardMain.do');
                             }else{
-                                alert('등록 실패. 잠시 후 다시 시도해 주세요');
+                                swal("처리 결과", "등록 실패. 잠시 후 다시 시도해 주세요", "error");
+                                //alert('등록 실패. 잠시 후 다시 시도해 주세요');
                             }
                         }
                     });
