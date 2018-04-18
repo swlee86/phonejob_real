@@ -117,10 +117,12 @@
                             if(data==1){
                                 swal("처리 결과", "공지사항 등록 처리 완료", "success");
                                 //alert('공지사항 등록 처리 완료');
-                                window.location.replace('../notice/noticeBoardMain.do');
+                                setTimeout(function() {
+                                    window.location.replace('../notice/noticeBoardMain.do');
+                                }, 4000);
+
                             }else{
-                                swal("처리 결과", "등록 실패. 잠시 후 다시 시도해 주세요", "error");
-                                //alert('등록 실패. 잠시 후 다시 시도해 주세요');
+                                swal("처리 결과", "등록 실패. 잠시 후 다시 시도해 주세요", "error");//alert('등록 실패. 잠시 후 다시 시도해 주세요');
                             }
                         }
                     });
