@@ -11,7 +11,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="hpanel email-compose">
-				<form method="POST" class="form-horizontal" enctype="multipart/form-data">
+				<form method="POST" class="form-horizontal"> <%--enctype="multipart/form-data"--%>
 				<div class="panel-heading hbuilt">
 					<div class="p-xs">
 							<div class="form-group">
@@ -23,11 +23,13 @@
 							<div class="form-group">
 								<label class="col-sm-1 control-label text-left">첨부파일
 								</label>
+								<%--
 								<div class="col-sm-11">
 									<div>
 										<input type="file" class="btn btn-default" name="uploadfile" style="text-align: left;">
 									</div>
 								</div>
+								--%>
 							</div>
 					</div>
 				</div>
