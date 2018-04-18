@@ -104,9 +104,8 @@
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
                 confirmButtonText: "네",
-                cancelButtonText: "아니오",
-                closeOnConfirm: false,
-                closeOnCancel: false },
+                cancelButtonText: "아니오"
+            },
             function (isConfirm) {
                 if (isConfirm) {
                     swal("등록 진행", "글 등록을 진행합니다", "success");
