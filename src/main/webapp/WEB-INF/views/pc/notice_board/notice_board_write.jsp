@@ -40,7 +40,7 @@
 				<div class="panel-footer">
 					<div class="pull-right">
 						<div class="btn-group">
-							<input type="submit" class="btn btn-default article-register" ><i class="fa fa-edit"></i> 공지사항 등록</input>
+							<input type="button" class="btn btn-default article-register" ><i class="fa fa-edit"></i> 공지사항 등록</input>
 							<button class="btn btn-default" type="button" onclick="location.href='../notice/noticeBoardMain.do?currentpage=${currentpage}&pagesize=${pagesize}'">
 								<i class="fa fa-refresh"></i> 목록으로
 							</button>
