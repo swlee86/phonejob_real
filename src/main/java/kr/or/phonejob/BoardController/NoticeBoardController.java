@@ -110,7 +110,7 @@ public class NoticeBoardController {
 
 	//글쓰기 누르면 인서트 시키는 서비스 함수 + 파일업로드
 	@RequestMapping(value="/notice/noticeWrite.do", method=RequestMethod.POST)
-	public String notice_board_write_ok(@RequestParam("uploadfile") MultipartFile file, NoticeBoardDto board, Model mv, HttpServletRequest request, HttpServletResponse response){
+	public void notice_board_write_ok(@RequestParam("uploadfile") MultipartFile file, NoticeBoardDto board, Model mv, HttpServletRequest request, HttpServletResponse response){
 
 
 		//파일 업로드
@@ -198,7 +198,7 @@ public class NoticeBoardController {
 			mv.addAttribute("msg", msg);
 		}
 		*/
-		return "notice_board.notice_redirect";
+		//return "notice_board.notice_redirect";
 	}
 
 
