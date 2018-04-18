@@ -134,7 +134,7 @@
     function delete_notice_event(){
     	if (confirm("정말 삭제하시겠습니까??") == true){    //확인
     		var notice_no= "notice_no=" + $("#notice_no").val();
-    		console.log(list_no);
+    		console.log(notice_no);
     		$.ajax({
     			type: 'POST' ,
     			url: 'noticeDelete.do' ,
