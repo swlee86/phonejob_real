@@ -240,19 +240,3 @@
 			</div>
 	</div>
 </div>
-
-
-<div id="popDiv" style="background-color: white; text-align: left;">
- <!-- 팝업내용 및 이미지 -->
-	<h5 style="color: blue;">1.  반영 사항</h5>
-	 &nbsp;&nbsp;&nbsp;-공지사항 참조<br/><br/>
-	 
-	 <b>※테스트 데이터는 많을 수록 좋으므로 수시로 등록 부탁드립니다. <br/>
-	 오류 발생시 커뮤니티 게시글에 사항 남겨 주시면 확인 하겠습니다.<br/>
-	 </b>
-	 
-  <span class="close" style="font-size: 13px;">
-  <input type="checkbox" onClick="javascript:controlCOOKIE();" style="text-align: left;">오늘은 그만보기
-  &nbsp;&nbsp;&nbsp;<a href="#" onclick="closePopup('popDiv')" >닫기</a>
- </span>
-</div>
