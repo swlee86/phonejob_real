@@ -117,7 +117,9 @@
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
                 confirmButtonText: "네",
-                cancelButtonText: "아니오"
+                cancelButtonText: "아니오",
+                closeOnConfirm: false,
+                closeOnCancel: false
             },
             function (isConfirm) {
                 if (isConfirm) {
@@ -159,7 +161,9 @@
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
                 confirmButtonText: "네",
-                cancelButtonText: "아니오"
+                cancelButtonText: "아니오",
+                closeOnConfirm: false,
+                closeOnCancel: false
             },
             function (isConfirm) {
                 if (isConfirm) {
@@ -170,7 +174,7 @@
                         success: function(data) {
                             console.log(data);
                             if(data==1){
-                                swal("처리 결과", notice_no+"번글 삭제 완료", "success");
+                                swal("처리 결과", $("#notice_no").val()+"번글 삭제 완료", "success");
                                 //toastr.success('성공 - 삭제 완료');
                                 //alert('공지사항 등록 처리 완료');
                                 setTimeout(function() {
@@ -179,7 +183,7 @@
 
                             }else{
                                 //toastr.error('삭제 실패. 잠시 후 다시 시도해 주세요');
-                                swal("처리 결과", notice_no+"번글 삭제 실패. 잠시 후 다시 시도해 주세요", "error");
+                                swal("처리 결과", $("#notice_no").val()+"번글 삭제 실패. 잠시 후 다시 시도해 주세요", "error");
                             }
                         }
                     });
