@@ -130,6 +130,7 @@
                         success: function(data) {
                             console.log(data);
                             if(data==1){
+                                isConfirm = false;
                                 swal("처리 결과", "공지사항 등록 처리 완료", "success");
                                 //toastr.success('성공 - 공지사항 등록 처리 완료');
                                 if (isConfirm) {
