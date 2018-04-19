@@ -145,6 +145,15 @@
 
     function delete_notice_event(){
         var notice_no= "notice_no=" + $("#notice_no").val();
+
+        toastr.options = {
+            "debug": false,
+            "newestOnTop": false,
+            "positionClass": "toast-top-center",
+            "closeButton": true,
+            "toastClass": "animated fadeInDown",
+        };
+
         swal({
                 title: "확인",
                 text: "정말 삭제하시겠습니까?",
