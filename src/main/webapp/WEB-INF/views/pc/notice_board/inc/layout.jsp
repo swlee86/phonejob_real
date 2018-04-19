@@ -119,10 +119,10 @@
                                 //alert('공지사항 등록 처리 완료');
                                 setTimeout(function() {
                                     window.location.replace('../notice/noticeBoardMain.do');
-                                }, 4000);
+                                }, 3000);
 
                             }else{
-                                swal("처리 결과", "등록 실패. 잠시 후 다시 시도해 주세요", "error");//alert('등록 실패. 잠시 후 다시 시도해 주세요');
+                                swal("처리 결과", "등록 실패. 잠시 후 다시 시도해 주세요", "error");
                             }
                         }
                     });
@@ -134,6 +134,43 @@
     });
 
     function delete_notice_event(){
+        var notice_no= "notice_no=" + $("#notice_no").val();
+        swal({
+                title: "확인",
+                text: "정말 삭제하시겠습니까?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "네",
+                cancelButtonText: "아니오"
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        type: 'POST' ,
+                        url: 'noticeDelete.do' ,
+                        data : notice_no,
+                        success: function(data) {
+                            console.log(data);
+                            if(data==1){
+                                swal("처리 결과", $("#notice_no").val()+"번글 삭제 완료", "success");
+                                //alert('공지사항 등록 처리 완료');
+                                setTimeout(function() {
+                                    window.location.replace('../notice/noticeBoardMain.do');
+                                }, 3000);
+
+                            }else{
+                                swal("처리 결과", $("#notice_no").val()+"번글 삭제 실패. 잠시 후 다시 시도해 주세요", "error");
+                            }
+                        }
+                    });
+                } else {
+                    swal("등록 취소", "글 등록이 취소 되었습니다:)", "error");
+                    return false;
+                }
+            });
+
+        /*
     	if (confirm("정말 삭제하시겠습니까??") == true){    //확인
     		var notice_no= "notice_no=" + $("#notice_no").val();
     		console.log(notice_no);
@@ -155,6 +192,7 @@
     	}else{   //취소
     	    return;
     	}
+    	*/
     }
 
 	
