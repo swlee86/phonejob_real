@@ -135,14 +135,8 @@
                                 $('.confirm').click(function () {
                                     window.location.replace('../notice/noticeBoardMain.do');
                                 });
-                                /*
-                                setTimeout(function() {
-                                    window.location.replace('../notice/noticeBoardMain.do');
-                                }, 1500);
-                                */
                             }else{
                                 swal("처리 결과", "등록 실패. 잠시 후 다시 시도해 주세요", "error");
-                                //toastr.error('실패 - 공지사항 등록 처리 실패');
                             }
                         }
                     });
@@ -177,19 +171,12 @@
                         success: function(data) {
                             console.log(data);
                             if(data==1){
+                                isConfirm = false;
                                 swal("처리 결과", $("#notice_no").val()+"번글 삭제 완료", "success");
-                                //toastr.success('성공 - 삭제 완료');
-                                //alert('공지사항 등록 처리 완료');
-                                if (isConfirm) {
+                                $('.confirm').click(function () {
                                     window.location.replace('../notice/noticeBoardMain.do');
-                                }
-                                /*
-                                setTimeout(function() {
-                                    window.location.replace('../notice/noticeBoardMain.do');
-                                }, 1500);
-                                */
+                                });
                             }else{
-                                //toastr.error('삭제 실패. 잠시 후 다시 시도해 주세요');
                                 swal("처리 결과", $("#notice_no").val()+"번글 삭제 실패. 잠시 후 다시 시도해 주세요", "error");
                             }
                         }
