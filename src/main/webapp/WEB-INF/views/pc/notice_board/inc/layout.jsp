@@ -30,7 +30,9 @@
     <link rel="stylesheet" href="../fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
     <link rel="stylesheet" href="../fonts/pe-icon-7-stroke/css/helper.css" />
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/static_custom.css">
     <link rel="stylesheet" href="../vendor/sweetalert/lib/sweet-alert.css" />
+
     
 
 
@@ -66,6 +68,8 @@
 <script src="../vendor/iCheck/icheck.min.js"></script>
 <script src="../vendor/sparkline/index.js"></script>
 <script src="../vendor/summernote/dist/summernote.min.js"></script>
+<script src="../vendor/sweetalert/lib/sweet-alert.min.js"></script>
+<script src="../vendor/toastr/build/toastr.min.js"></script>
 
 <!-- App scripts -->
 <script src="../scripts/homer.js"></script>
