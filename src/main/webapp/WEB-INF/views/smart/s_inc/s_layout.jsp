@@ -28,21 +28,6 @@
     <link rel="stylesheet" href="../fonts/pe-icon-7-stroke/css/helper.css" />
     <link rel="stylesheet" href="../styles/style.css">
 
-<style type="text/css">
- #popDiv{
-  position:absolute;
-  display:none;
-  border:1px solid #808080;
- }
-
- #popDiv .close{
-  position:absolute;
-  bottom:5px;
-  right:5px;
- }
-
-</style>
-
 
 </head>
 
