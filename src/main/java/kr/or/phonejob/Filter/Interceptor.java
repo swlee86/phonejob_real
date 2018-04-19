@@ -71,25 +71,6 @@ public class  Interceptor extends HandlerInterceptorAdapter {
 
 			logger.info("접근 URI : " + realuri);
 
-		
-			/*
-			//////////////// 이전 페이지 세션 저장  ////////////////////////
-			String referrer = request.getHeader("Referer");
-
-			if(referrer !=null){
-				String[] backUrl = referrer.split("/");
-				String realbackUrl = "/"+backUrl[backUrl.length-1];
-
-				if(realbackUrl.equals("/login.do")){
-					logger.info("자꾸 로그인으로 들어올래?");
-					referrer = "/index.do";
-				}
-			}
-
-			request.getSession().setAttribute("prevPage", referrer);
-			logger.info("Referer 세션 변수!!" + referrer);
-			////////////////이전 페이지 세션 저장  ////////////////////////
-			*/
 
 
 			if (session != null) {
@@ -102,39 +83,21 @@ public class  Interceptor extends HandlerInterceptorAdapter {
 					List<LoginFilterDto> result = lfservice.getPassUri();
 
 					for(int i=0; i< result.size(); i++){
-						//logger.info("result : " + result.get(i).toString());
-
 						if(realuri.equalsIgnoreCase(result.get(i).getUri())){
-							logger.info("로그인 패스와 매칭되는 URI가 있음!");
 							return true;
 						}
 					}
 				}
-
-				/*else{
-					logger.info("로그인 패스와 매칭되는 URI가 없음!!");
-					response.sendRedirect(request.getContextPath()+"/login.do");
-					return false;
-				}*/
 			}
-			/*
-			if (login) {
-				logger.info("로그인 세션 데이터가 있거나 Pass니까 그대로 쭉!! 고!!!");
-
-				return true;
-				//return super.preHandle(request, response, handler);
-			}else{
-				logger.info("로그인 페이지로 가 주셔야 겠습니다..");
-				response.sendRedirect(request.getContextPath()+"/login.do");
-				return false;
-			}
-			*/
 
 			if(chectk){
 				response.sendRedirect(request.getContextPath()+"/smart/s_login.do");
 			}else{
 				response.sendRedirect(request.getContextPath()+"/common/login.do");
 			}
+
+
+
 			return false;
 		}
 
